@@ -34,8 +34,9 @@ npm run build
 - `app/layout.tsx`: SEO metadata
 - `app/globals.css`: Tailwind 전역 스타일과 모션
 - `public/media/hero-integrated-solution-v2.png`: 최종 히어로 이미지
-- `public/media/cesel-portfolio-motion-v2.gif`: ASCII 텍스트 기반 로컬 생성 모션필름
-- `public/media/cesel-portfolio-motion.gif`: 동일 모션필름 기본 파일명
+- `public/media/cesel-portfolio-motion.mp4`: 홈페이지 Motion Film 섹션용 브랜드 영상
+- `public/media/cesel-portfolio-motion-v2.gif`: MP4 이전 로컬 생성 모션필름 백업
+- `public/media/cesel-portfolio-motion.gif`: 동일 모션필름 백업 파일명
 - `public/media/cesel-logo-ci-transparent.png`: 누끼 처리 로고
 - `public/media/cesel-logo-ci-white-transparent.png`: 다크 배경용 화이트 누끼 로고
 - `public/media/cesel-logo-ci.png`: 로고 원본 복사본

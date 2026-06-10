@@ -457,15 +457,17 @@ function MotionSection() {
           </p>
         </div>
         <div className="relative aspect-video overflow-hidden rounded-lg border border-white/12 bg-white/6">
-          <Image
-            src="/media/cesel-portfolio-motion-v2.gif"
-            alt="CESeL Primus portfolio motion film"
-            fill
-            unoptimized
-            loading="eager"
-            sizes="(min-width: 1024px) 47vw, 92vw"
-            className="object-cover"
-          />
+          <video
+            className="h-full w-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/media/hero-integrated-solution-v2.png"
+          >
+            <source src="/media/cesel-portfolio-motion.mp4" type="video/mp4" />
+            CESeL Primus portfolio motion film
+          </video>
         </div>
       </div>
     </section>
