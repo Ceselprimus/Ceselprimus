@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.ceslprimus.com"),
   applicationName: "쎄슬프라이머스",
   title: {
-    default: "쎄슬프라이머스 | 농식품·콜드체인 인프라 통합 솔루션",
+    default: "쎄슬프라이머스 | 수직농장에서 콜드체인까지, 식품 인프라 통합 솔루션",
     template: "%s | 쎄슬프라이머스"
   },
   description:
-    "쎄슬프라이머스는 알파팜에서 검증된 운영 경험을 기반으로 재배, 기후, 전력, 제어, 콜드체인, 데이터, 사업화 지원을 연결한 농식품·콜드체인 인프라 통합 솔루션 포트폴리오 기업입니다.",
+    "쎄슬프라이머스는 프리미엄 딸기 수직농장에서 출발해 냉방·제습, 에너지·운영 관리, 콜드체인, 사업화 지원으로 확장하는 농식품·콜드체인 인프라 기술기업입니다. 알파팜, 알파쿨링, 알파이엠스, 알파서포트 라인업을 제공합니다.",
   keywords: [
     "쎄슬프라이머스",
     "쎄슬 프라이머스",
@@ -19,11 +19,15 @@ export const metadata: Metadata = {
     "AlphaFarm",
     "알파쿨링",
     "AlphaCooling",
+    "알파이엠스",
+    "AlphaEMS",
     "알파에너지",
     "AlphaEnergy",
     "알파서포트",
     "AlphaSupport",
     "연중 딸기 사업솔루션",
+    "딸기 수직농장",
+    "컨테이너팜",
     "프리미엄 딸기 사업솔루션",
     "농식품 인프라",
     "콜드체인 인프라",
@@ -55,9 +59,9 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "쎄슬프라이머스 | 농식품·콜드체인 인프라 통합 솔루션",
+    title: "쎄슬프라이머스 | 수직농장에서 콜드체인까지, 식품 인프라 통합 솔루션",
     description:
-      "생산, 기후, 전력, 제어, 콜드체인, 데이터, 사업화 지원을 하나의 포트폴리오로 연결합니다.",
+      "프리미엄 딸기 수직농장에서 출발해 냉방·제습, 에너지·운영 관리, 콜드체인, 사업화 지원까지 하나의 포트폴리오로 연결합니다.",
     url: "https://www.ceslprimus.com",
     siteName: "쎄슬프라이머스",
     locale: "ko_KR",
@@ -73,9 +77,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "쎄슬프라이머스 | 농식품·콜드체인 인프라 통합 솔루션",
+    title: "쎄슬프라이머스 | 수직농장에서 콜드체인까지, 식품 인프라 통합 솔루션",
     description:
-      "알파팜, 알파쿨링, 알파에너지, 알파서포트를 연결한 통합 솔루션 포트폴리오입니다.",
+      "알파팜, 알파쿨링, 알파이엠스, 알파서포트를 연결한 통합 솔루션 포트폴리오입니다.",
     images: ["/media/hero-integrated-solution-v2.png"]
   },
   other: {

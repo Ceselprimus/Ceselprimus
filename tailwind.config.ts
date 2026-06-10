@@ -8,16 +8,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#081d1a",
-        forest: "#0b4f3a",
-        mint: "#1fbf78",
-        ice: "#1f6ed4",
-        energy: "#c92c2c",
-        amber: "#ed7a16",
-        paper: "#f6f8f5"
+        ink: "#0B1F1A",
+        forest: "#0D5C45",
+        mint: "#2AD489",
+        ice: "#2374D9",
+        energy: "#C9402C",
+        amber: "#E8821E",
+        paper: "#FAFAF6"
       },
       boxShadow: {
-        soft: "0 18px 54px rgba(8, 29, 26, 0.10)"
+        soft: "0 32px 80px -32px rgba(11, 31, 26, 0.28)",
+        card: "0 1px 2px rgba(11, 31, 26, 0.05), 0 20px 48px -28px rgba(11, 31, 26, 0.18)"
+      },
+      letterSpacing: {
+        tightest: "-0.035em"
       }
     }
   },

@@ -1,17 +1,19 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   color-scheme: light;
-  background: #f6f8f5;
-  color: #081d1a;
+  background: #fafaf6;
+  color: #0b1f1a;
   font-family:
+    "Pretendard Variable",
     Pretendard,
-    "Inter",
-    "Segoe UI",
     "Apple SD Gothic Neo",
     "Malgun Gothic",
+    "Segoe UI",
     system-ui,
     sans-serif;
   font-size: 17px;
@@ -23,18 +25,20 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.25rem;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
-  background: linear-gradient(180deg, #f8faf7 0%, #eef4f0 48%, #f8faf7 100%);
-  color: #081d1a;
-  line-height: 1.6;
+  background: #fafaf6;
+  color: #0b1f1a;
+  line-height: 1.65;
   word-break: keep-all;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "ss05";
 }
 
 a {
@@ -43,7 +47,7 @@ a {
 }
 
 ::selection {
-  background: rgba(31, 191, 120, 0.24);
+  background: rgba(42, 212, 137, 0.28);
 }
 
 img,
@@ -51,32 +55,55 @@ video {
   max-width: 100%;
 }
 
+:focus-visible {
+  outline: 2px solid #0d5c45;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ---------- hero ---------- */
+
 .hero-mask {
   background:
-    linear-gradient(90deg, rgba(8, 29, 26, 0.94) 0%, rgba(8, 29, 26, 0.76) 38%, rgba(8, 29, 26, 0.16) 74%),
-    linear-gradient(180deg, rgba(8, 29, 26, 0.12) 0%, rgba(8, 29, 26, 0.46) 100%);
-}
-
-.reveal-up {
-  animation: reveal-up 760ms ease both;
-}
-
-.reveal-up-delayed {
-  animation: reveal-up 760ms ease 140ms both;
+    linear-gradient(78deg, rgba(11, 31, 26, 0.9) 0%, rgba(11, 31, 26, 0.62) 42%, rgba(11, 31, 26, 0.1) 78%),
+    linear-gradient(180deg, rgba(11, 31, 26, 0.34) 0%, rgba(11, 31, 26, 0.06) 34%, rgba(11, 31, 26, 0.66) 100%);
 }
 
 .slow-drift {
-  animation: slow-drift 18s ease-in-out infinite alternate;
+  animation: slow-drift 22s ease-in-out infinite alternate;
 }
 
-.pulse-line {
-  animation: pulse-line 2.8s ease-in-out infinite;
+@keyframes slow-drift {
+  from {
+    transform: scale(1.03) translate3d(-0.4%, 0, 0);
+  }
+  to {
+    transform: scale(1.09) translate3d(1.2%, -0.6%, 0);
+  }
+}
+
+/* ---------- load-in (hero only) ---------- */
+
+.reveal-up {
+  animation: reveal-up 800ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.reveal-up-delayed {
+  animation: reveal-up 800ms cubic-bezier(0.22, 0.61, 0.36, 1) 160ms both;
+}
+
+.reveal-up-late {
+  animation: reveal-up 800ms cubic-bezier(0.22, 0.61, 0.36, 1) 320ms both;
 }
 
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(26px);
   }
   to {
     opacity: 1;
@@ -84,26 +111,22 @@ video {
   }
 }
 
-@keyframes slow-drift {
-  from {
-    transform: scale(1.02) translate3d(-0.4%, 0, 0);
-  }
-  to {
-    transform: scale(1.08) translate3d(1.4%, -0.6%, 0);
-  }
+/* ---------- scroll reveal ---------- */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-@keyframes pulse-line {
-  0%,
-  100% {
-    opacity: 0.36;
-    transform: scaleX(0.6);
-  }
-  50% {
-    opacity: 1;
-    transform: scaleX(1);
-  }
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: none;
 }
+
+/* ---------- motion preferences ---------- */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -114,6 +137,11 @@ video {
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
   }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -123,5 +151,6 @@ video {
 
   body {
     word-break: normal;
+    overflow-wrap: break-word;
   }
 }
