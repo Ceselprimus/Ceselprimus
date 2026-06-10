@@ -36,10 +36,24 @@ const companyLegal = {
   address: "서울특별시 서초구 양재대로2길 18, 4층 H6호 (우면동, 호반파크 2관)",
   startDate: "2016년 09월 01일",
   businessType: "농업, 임업 및 어업",
-  businessItems: "종자 및 묘목 생산업 / 채소, 화훼 및 과실작물 시설재배업"
+  businessItems: "종자 및 묘목 생산업 / 채소, 화훼 및 과실작물 시설재배업",
+  inquiryPhone: "010-3341-6036",
+  inquiryEmail: "rkdghtn636@gmail.com",
+  representativeEmail: "kevinlee@ceslprimus.com"
 };
 
 const heroHighlights = ["알파팜 운영 경험", "기후·전력·제어 통합", "콜드체인·데이터 연결", "실증·구축·사업화 지원"];
+
+const businessInfoRows = [
+  ["상호", companyLegal.name],
+  ["대표자", companyLegal.representative],
+  ["사업자등록번호", companyLegal.businessNumber],
+  ["사업장 소재지", companyLegal.address],
+  ["업태", companyLegal.businessType],
+  ["종목", companyLegal.businessItems],
+  ["사업개발 문의", companyLegal.inquiryPhone],
+  ["이메일", companyLegal.inquiryEmail]
+];
 
 const portfolio = [
   {
@@ -205,7 +219,7 @@ const contacts = [
   {
     name: "강호수",
     role: "프로 / 사업개발",
-    company: companyLegal.name,
+    company: companyLegal.displayName,
     phones: [{ label: "휴대전화", value: "010-3341-6036", href: "tel:01033416036" }],
     email: "rkdghtn636@gmail.com",
     primary: true
@@ -213,7 +227,7 @@ const contacts = [
   {
     name: "이관호",
     role: "대표",
-    company: companyLegal.name,
+    company: companyLegal.displayName,
     phones: [
       { label: "국내 휴대전화", value: "+82 010-3761-7953", href: "tel:+821037617953" },
       { label: "말레이시아 휴대전화", value: "+60 017-551-8024", href: "tel:+600175518024" }
@@ -623,39 +637,38 @@ function AlphaFarmSection() {
 
 function PortfolioSection() {
   return (
-    <section id="lineup" className="bg-ink py-24 text-white">
-      <div className="mx-auto w-[min(1180px,92vw)]">
-        <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-end">
-          <div>
-            <p className="text-base font-semibold text-mint">라인업</p>
-            <h2 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">네 가지 솔루션이 하나의 포트폴리오로 연결됩니다.</h2>
-          </div>
-          <p className="max-w-2xl text-lg leading-8 text-white/70">
-            고객은 단일 제품이 아니라 사업 단계와 목적에 맞는 조합형 솔루션을 도입합니다. 초기 홈페이지는 라인업을 먼저 명확히 보여주고, 알파팜 오픈 이후 별도 메뉴로 확장합니다.
+    <section id="lineup" className="bg-ink py-28 text-white">
+      <div className="mx-auto grid w-[min(1180px,92vw)] gap-12 lg:grid-cols-[0.72fr_1.28fr]">
+        <div className="lg:sticky lg:top-10 lg:self-start">
+          <p className="text-base font-semibold text-mint">솔루션 라인업</p>
+          <h2 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">
+            알파팜에서 검증하고 인프라 솔루션으로 확장합니다.
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-white/68">
+            알파팜의 운영 경험을 기준으로 기후제어, 에너지관리, 콜드체인, 데이터, 현지 사업화 지원을 단계별로 연결합니다.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-4">
-          {portfolio.map((item) => (
-            <article key={item.name} className="group overflow-hidden rounded-lg border border-white/12 bg-white/[0.04] transition hover:-translate-y-1 hover:bg-white/[0.08]">
-              <div className="relative aspect-[4/3] overflow-hidden bg-white/8">
-                <Image src={item.image} alt={`${item.name} 이미지`} fill className="object-cover transition duration-500 group-hover:scale-105" />
-              </div>
-              <div className="p-6">
-                <div className={`inline-flex h-12 w-12 items-center justify-center rounded-md ${item.bg}`}>
-                  <item.icon className="h-6 w-6 text-white" />
+        <div className="border-y border-white/14">
+          {portfolio.map((item, index) => (
+            <article key={item.name} className="grid gap-6 border-b border-white/12 py-8 last:border-b-0 md:grid-cols-[72px_1fr_180px] md:items-center">
+              <p className="text-lg font-semibold text-white/40">{String(index + 1).padStart(2, "0")}</p>
+              <div>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <h3 className="text-3xl font-semibold leading-tight">{item.name}</h3>
+                  <p className="text-base font-semibold text-mint">{item.label}</p>
                 </div>
-                <h3 className="mt-7 text-3xl font-semibold">{item.name}</h3>
-                <p className={`mt-3 text-base font-semibold ${item.tone}`}>{item.label}</p>
-                <p className="mt-5 text-base leading-7 text-white/70">{item.summary}</p>
-                <div className="mt-7 space-y-3">
+                <p className="mt-4 max-w-2xl text-base leading-7 text-white/68">{item.summary}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
                   {item.items.map((entry) => (
-                    <div key={entry} className="flex items-start gap-3 text-base text-white/88">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" />
-                      <span>{entry}</span>
-                    </div>
+                    <span key={entry} className="rounded-md border border-white/14 px-3 py-2 text-sm font-semibold text-white/78">
+                      {entry}
+                    </span>
                   ))}
                 </div>
+              </div>
+              <div className="relative h-32 overflow-hidden rounded-md border border-white/12 bg-white/6 md:h-28">
+                <Image src={item.image} alt={`${item.name} 이미지`} fill className="object-cover opacity-88 transition duration-500 hover:scale-105" />
               </div>
             </article>
           ))}
@@ -1005,14 +1018,27 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="mx-auto grid w-[min(1180px,92vw)] gap-x-8 gap-y-4 py-10 text-sm leading-6 text-white/62 md:grid-cols-2 lg:grid-cols-4">
-        <p><span className="font-semibold text-white/88">상호</span><br />{companyLegal.name}</p>
-        <p><span className="font-semibold text-white/88">대표자</span><br />{companyLegal.representative}</p>
-        <p><span className="font-semibold text-white/88">사업자등록번호</span><br />{companyLegal.businessNumber}</p>
-        <p><span className="font-semibold text-white/88">개업일</span><br />{companyLegal.startDate}</p>
-        <p className="lg:col-span-2"><span className="font-semibold text-white/88">사업장 소재지</span><br />{companyLegal.address}</p>
-        <p><span className="font-semibold text-white/88">업태</span><br />{companyLegal.businessType}</p>
-        <p className="lg:col-span-2"><span className="font-semibold text-white/88">종목</span><br />{companyLegal.businessItems}</p>
+      <div className="mx-auto w-[min(1180px,92vw)] py-10">
+        <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
+          <div>
+            <p className="text-base font-semibold text-white">사업자 정보</p>
+            <p className="mt-2 text-sm leading-6 text-white/48">
+              사업자등록증 기준 공개 정보
+            </p>
+          </div>
+          <dl className="grid gap-x-8 gap-y-5 text-sm leading-6 text-white/66 md:grid-cols-2">
+            {businessInfoRows.map(([label, value]) => (
+              <div key={label} className={label === "사업장 소재지" || label === "종목" ? "md:col-span-2" : ""}>
+                <dt className="font-semibold text-white/88">{label}</dt>
+                <dd className="mt-1 break-keep">{value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/42 md:flex-row md:items-center md:justify-between">
+          <p>저작권 2026 쎄슬프라이머스. 모든 권리 보유.</p>
+          <p>공식 문의: {companyLegal.inquiryEmail}</p>
+        </div>
       </div>
     </footer>
   );
