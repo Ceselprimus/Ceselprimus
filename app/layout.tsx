@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     "에너지 효율화",
     "사업화 지원"
   ],
-  authors: [{ name: "쎄슬프라이머스 주식회사", url: "https://www.ceslprimus.com" }],
-  creator: "쎄슬프라이머스 주식회사",
-  publisher: "쎄슬프라이머스 주식회사",
+  authors: [{ name: "주식회사 쎄슬프라이머스 농업회사법인", url: "https://www.ceslprimus.com" }],
+  creator: "주식회사 쎄슬프라이머스 농업회사법인",
+  publisher: "주식회사 쎄슬프라이머스 농업회사법인",
   category: "농식품·콜드체인 인프라",
   alternates: {
     canonical: "/"

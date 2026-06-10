@@ -28,6 +28,19 @@ const businessInquiryMail = `mailto:rkdghtn636@gmail.com?subject=${encodeURIComp
 
 const baseUrl = "https://www.ceslprimus.com";
 
+const companyLegal = {
+  name: "주식회사 쎄슬프라이머스 농업회사법인",
+  displayName: "쎄슬프라이머스",
+  representative: "이관호",
+  businessNumber: "791-81-00425",
+  address: "서울특별시 서초구 양재대로2길 18, 4층 H6호 (우면동, 호반파크 2관)",
+  startDate: "2016년 09월 01일",
+  businessType: "농업, 임업 및 어업",
+  businessItems: "종자 및 묘목 생산업 / 채소, 화훼 및 과실작물 시설재배업"
+};
+
+const heroHighlights = ["알파팜 운영 경험", "기후·전력·제어 통합", "콜드체인·데이터 연결", "실증·구축·사업화 지원"];
+
 const portfolio = [
   {
     name: "알파팜",
@@ -104,6 +117,8 @@ const alphaFarmModels = [
   ["경험형 포트폴리오", "호텔, 쇼룸, 베이커리 공간을 딸기 브랜드 경험으로 전환"],
   ["알파 컨테이너팜", "사십 피트 하이큐브 기반의 소형 생산 · 검증형 모델"]
 ];
+
+const alphaFarmFlow = ["생산 기반", "운영 관리", "판매 연결", "공간 경험", "사업화 지원"];
 
 const coolingModels = [
   ["농장 저온제습", "딸기 재배실의 습도, 노점, 공급공기 상태를 통합 관리"],
@@ -190,7 +205,7 @@ const contacts = [
   {
     name: "강호수",
     role: "프로 / 사업개발",
-    company: "쎄슬프라이머스 주식회사",
+    company: companyLegal.name,
     phones: [{ label: "휴대전화", value: "010-3341-6036", href: "tel:01033416036" }],
     email: "rkdghtn636@gmail.com",
     primary: true
@@ -198,7 +213,7 @@ const contacts = [
   {
     name: "이관호",
     role: "대표",
-    company: "쎄슬프라이머스 주식회사",
+    company: companyLegal.name,
     phones: [
       { label: "국내 휴대전화", value: "+82 010-3761-7953", href: "tel:+821037617953" },
       { label: "말레이시아 휴대전화", value: "+60 017-551-8024", href: "tel:+600175518024" }
@@ -254,11 +269,19 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${baseUrl}/#organization`,
-    name: "쎄슬프라이머스 주식회사",
+    name: companyLegal.displayName,
+    legalName: companyLegal.name,
     alternateName: ["쎄슬프라이머스", "CESeL Primus", "CESeL Primus Co., Ltd."],
     url: baseUrl,
     logo: `${baseUrl}/media/cesel-logo-ci-transparent.png`,
     image: `${baseUrl}/media/hero-integrated-solution-v2.png`,
+    taxID: companyLegal.businessNumber,
+    foundingDate: "2016-09-01",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: companyLegal.address,
+      addressCountry: "KR"
+    },
     description:
       "알파팜에서 검증된 운영 경험을 기반으로 재배, 기후, 전력, 제어, 콜드체인, 데이터, 사업화 지원을 연결하는 농식품·콜드체인 인프라 통합 솔루션 포트폴리오 기업입니다.",
     sameAs: socialLinks.map(([, href]) => href),
@@ -380,12 +403,12 @@ export default function Home() {
     <main className="overflow-hidden">
       <StructuredData data={structuredData} />
       <Hero />
-      <IntroBand />
-      <ProblemSection />
+      <PositioningBand />
       <PortfolioSection />
       <AlphaFarmSection />
       <LineupGallerySection />
       <LineupDepth />
+      <ProblemSection />
       <AudienceSection />
       <ProofSection />
       <MotionSection />
@@ -410,29 +433,31 @@ function StructuredData({ data }: { data: unknown }) {
 
 function LineupGallerySection() {
   return (
-    <section className="bg-paper py-24">
+    <section className="bg-paper py-28">
       <div className="mx-auto w-[min(1180px,92vw)]">
         <div className="grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-end">
           <div>
-            <p className="text-base font-semibold text-forest">라인업 이미지</p>
+            <p className="text-base font-semibold text-forest">포트폴리오 이미지</p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight text-ink md:text-5xl">
-              네 가지 라인업을 각각의 현장 이미지로 보여줍니다.
+              네 가지 라인업을 한 화면에서 구분합니다.
             </h2>
           </div>
           <p className="max-w-2xl text-lg leading-8 text-ink/68">
-            알파팜을 기준점으로 두고, 알파쿨링·알파에너지·알파서포트가 어떤 문제를 맡는지 한눈에 비교할 수 있도록 이미지 흐름을 분리했습니다.
+            알파팜을 기준점으로 두고, 알파쿨링·알파에너지·알파서포트가 맡는 영역을 이미지와 짧은 설명으로 빠르게 비교할 수 있게 정리했습니다.
           </p>
         </div>
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {portfolio.map((item) => (
-            <figure key={`${item.name}-gallery`} className="group overflow-hidden rounded-lg bg-white shadow-soft">
+            <figure key={`${item.name}-gallery`} className="group overflow-hidden rounded-lg border border-ink/8 bg-white shadow-soft">
               <div className="relative aspect-[16/10] overflow-hidden bg-ink">
                 <Image src={item.image} alt={`${item.name} 대표 이미지`} fill className="object-cover transition duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/72 via-ink/8 to-transparent opacity-80" />
+                <p className="absolute bottom-5 left-5 text-3xl font-semibold text-white">{item.name}</p>
               </div>
-              <figcaption className="flex items-center justify-between gap-4 p-6">
+              <figcaption className="flex items-start justify-between gap-4 p-6">
                 <div>
-                  <p className="text-2xl font-semibold text-ink">{item.name}</p>
-                  <p className="mt-2 text-base font-semibold text-ink/62">{item.label}</p>
+                  <p className="text-base font-semibold text-forest">{item.label}</p>
+                  <p className="mt-3 text-base leading-7 text-ink/66">{item.summary}</p>
                 </div>
                 <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-md ${item.bg}`}>
                   <item.icon className="h-6 w-6 text-white" />
@@ -448,7 +473,7 @@ function LineupGallerySection() {
 
 function Hero() {
   return (
-    <section className="relative min-h-[92svh] w-full overflow-hidden bg-ink text-white">
+    <section className="relative min-h-[96svh] w-full overflow-hidden bg-ink text-white">
       <Image
         src="/media/hero-integrated-solution-v2.png"
         alt="쎄슬프라이머스 통합 솔루션 비주얼"
@@ -457,32 +482,35 @@ function Hero() {
         className="slow-drift object-cover"
       />
       <div className="hero-mask absolute inset-0" />
-      <header className="absolute inset-x-0 top-0 z-20 mx-auto flex w-[min(1180px,92vw)] items-center justify-between py-5">
-        <a href="#" aria-label="쎄슬프라이머스 홈" className="rounded-md bg-white/95 px-3 py-2 shadow-soft backdrop-blur">
-          <Image
-            src="/media/cesel-logo-ci-transparent.png"
-            alt="쎄슬프라이머스"
-            width={203}
-            height={50}
-            className="h-auto w-40 md:w-52"
-          />
-        </a>
-        <nav className="hidden items-center gap-8 text-base font-semibold text-white/86 md:flex">
-          <a href="#lineup" className="transition hover:text-white">라인업</a>
-          <a href="#news" className="transition hover:text-white">소식</a>
-          <a href="#contact" className="transition hover:text-white">문의</a>
-        </nav>
+      <header className="absolute inset-x-0 top-0 z-20 border-b border-white/12 bg-ink/18 backdrop-blur-md">
+        <div className="mx-auto flex w-[min(1180px,92vw)] items-center justify-between py-3">
+          <a href="#" aria-label="쎄슬프라이머스 홈" className="block">
+            <Image
+              src="/media/cesel-logo-ci-white-transparent.png"
+              alt="쎄슬프라이머스"
+              width={203}
+              height={50}
+              className="h-auto w-40 drop-shadow-[0_2px_16px_rgba(0,0,0,0.28)] md:w-52"
+            />
+          </a>
+          <nav className="hidden items-center gap-8 text-base font-semibold text-white/86 md:flex">
+            <a href="#lineup" className="transition hover:text-white">라인업</a>
+            <a href="#news" className="transition hover:text-white">소식</a>
+            <a href="#contact" className="transition hover:text-white">문의</a>
+          </nav>
+        </div>
       </header>
-      <div className="relative z-10 mx-auto flex min-h-[92svh] w-[min(1180px,92vw)] items-center pb-20 pt-32">
+      <div className="relative z-10 mx-auto flex min-h-[96svh] w-[min(1180px,92vw)] items-center pb-28 pt-32">
         <div className="max-w-3xl">
-          <h1 className="reveal-up text-5xl font-semibold leading-[1.06] tracking-normal md:text-7xl">
-            테크 인텔리전스 솔루션
+          <p className="reveal-up text-lg font-semibold text-mint md:text-xl">쎄슬프라이머스</p>
+          <h1 className="reveal-up mt-5 text-5xl font-semibold leading-[1.04] tracking-normal md:text-7xl">
+            농식품·콜드체인 통합 솔루션
           </h1>
           <p className="reveal-up-delayed mt-7 max-w-2xl text-2xl font-semibold leading-snug text-white md:text-3xl">
-            농식품·콜드체인 인프라를 위한 통합 솔루션 포트폴리오
+            재배, 기후, 전력, 제어, 콜드체인, 데이터, 사업화 지원을 하나로 연결합니다.
           </p>
           <p className="reveal-up-delayed mt-6 max-w-2xl text-lg leading-8 text-white/78 md:text-xl">
-            알파팜에서 검증된 운영 경험과 기술 기반을 토대로 재배, 기후, 전력, 제어, 콜드체인, 데이터, 사업화 지원을 연결합니다.
+            알파팜에서 검증된 운영 경험을 기준으로 알파쿨링, 알파에너지, 알파서포트까지 확장하는 기술 기반 포트폴리오입니다.
           </p>
           <div className="reveal-up-delayed mt-10 flex flex-wrap gap-3">
             <a className="inline-flex items-center gap-2 rounded-md bg-mint px-6 py-4 text-base font-semibold text-ink transition hover:bg-white" href="#lineup">
@@ -492,19 +520,31 @@ function Hero() {
               사업개발 문의하기
             </a>
           </div>
+          <div className="reveal-up-delayed mt-12 grid max-w-3xl grid-cols-2 gap-x-5 gap-y-3 border-t border-white/18 pt-6 md:grid-cols-4">
+            {heroHighlights.map((item) => (
+              <p key={item} className="text-base font-semibold leading-snug text-white/78">
+                {item}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function IntroBand() {
+function PositioningBand() {
   return (
-    <section className="mx-auto -mt-10 w-[min(1180px,92vw)] rounded-lg bg-white/96 p-6 shadow-soft backdrop-blur md:p-8">
-      <div className="grid gap-5 md:grid-cols-[0.7fr_1.6fr] md:items-center">
-        <p className="text-lg font-semibold text-forest md:text-xl">핵심 방향</p>
-        <p className="max-w-4xl text-xl font-semibold leading-relaxed text-ink md:text-3xl">
-          알파팜에서 출발한 운영 경험을 기후제어, 에너지관리, 콜드체인, 데이터, 사업화 지원으로 확장하는 구조입니다.
+    <section className="border-y border-ink/10 bg-white">
+      <div className="mx-auto grid w-[min(1180px,92vw)] gap-8 py-14 md:grid-cols-[0.76fr_1.24fr] md:items-center">
+        <div>
+          <p className="text-base font-semibold text-forest">핵심 포지셔닝</p>
+          <h2 className="mt-3 text-3xl font-semibold leading-tight text-ink md:text-4xl">
+            딸기 생산 경험에서 출발해 인프라 솔루션으로 확장합니다.
+          </h2>
+        </div>
+        <p className="text-xl font-semibold leading-relaxed text-ink/78 md:text-3xl">
+          단일 설비 판매가 아니라 생산, 운영, 기후제어, 에너지관리, 콜드체인, 현지 사업화 지원까지 이어지는 통합 포트폴리오입니다.
         </p>
       </div>
     </section>
@@ -535,21 +575,29 @@ function ProblemSection() {
 
 function AlphaFarmSection() {
   return (
-    <section className="bg-white py-24">
-      <div className="mx-auto grid w-[min(1180px,92vw)] gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
+    <section className="bg-white py-28">
+      <div className="mx-auto grid w-[min(1180px,92vw)] gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
         <div>
           <p className="text-base font-semibold text-forest">알파팜</p>
           <h2 className="mt-4 text-4xl font-semibold leading-tight text-ink md:text-6xl">
             연중 딸기 사업솔루션을 하나의 운영 패키지로 제공합니다.
           </h2>
-          <p className="mt-6 text-lg leading-8 text-ink/70 md:text-xl">
+          <p className="mt-7 text-lg leading-8 text-ink/70 md:text-xl">
             알파팜은 단순 재배 설비가 아니라 프리미엄 딸기 생산, 매장 운영, 공간 경험, 컨테이너팜 검증을 연결한 사업화 모델입니다. 고객은 재배와 운영, 판매까지 이어지는 구조를 도입하고 쎄슬프라이머스는 구축 이후 운영 지원까지 함께 설계합니다.
           </p>
-          <div className="mt-9 grid gap-3 sm:grid-cols-2">
+          <div className="mt-10 grid gap-2 sm:grid-cols-5">
+            {alphaFarmFlow.map((step, index) => (
+              <div key={step} className="border-t border-forest/22 pt-4">
+                <p className="text-sm font-semibold text-forest">{String(index + 1).padStart(2, "0")}</p>
+                <p className="mt-2 text-lg font-semibold leading-snug text-ink">{step}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {alphaFarmModels.map(([name, desc]) => (
-              <div key={name} className="border-t border-ink/12 pt-4">
-                <p className="text-lg font-semibold text-ink">{name}</p>
-                <p className="mt-2 text-base leading-7 text-ink/66">{desc}</p>
+              <div key={name} className="rounded-lg border border-ink/10 bg-paper p-5">
+                <p className="text-xl font-semibold text-ink">{name}</p>
+                <p className="mt-3 text-base leading-7 text-ink/66">{desc}</p>
               </div>
             ))}
           </div>
@@ -561,6 +609,12 @@ function AlphaFarmSection() {
             fill
             className="object-cover"
           />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/86 to-transparent p-7 text-white">
+            <p className="text-2xl font-semibold leading-tight">생산 현장과 운영 시스템을 함께 설계하는 모델</p>
+            <p className="mt-3 text-base leading-7 text-white/74">
+              재배 공간, 품질관리, 리테일 접점, 현지 사업화까지 연결합니다.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -874,13 +928,19 @@ function FaqSection() {
 
 function ContactSection() {
   return (
-    <section id="contact" className="bg-white py-24">
+    <section id="contact" className="bg-white pb-20 pt-28">
       <div className="mx-auto grid w-[min(1180px,92vw)] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
         <div>
           <p className="text-base font-semibold text-forest">문의</p>
           <h2 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">
             프로젝트 목적에 맞는 조합형 솔루션을 검토하세요.
           </h2>
+          <p className="mt-6 text-lg leading-8 text-ink/68">
+            식품공장, 포장실, 저온물류, 해외 실증, 프리미엄 딸기 사업화 등 프로젝트 목적에 따라 담당자가 검토합니다.
+          </p>
+          <a className="mt-9 inline-flex items-center gap-2 rounded-md bg-forest px-6 py-4 text-base font-semibold text-white transition hover:bg-ink" href={businessInquiryMail}>
+            사업개발 문의하기 <ArrowRight className="h-5 w-5" />
+          </a>
           <div className="mt-10 rounded-lg bg-paper p-6">
             {contactItems.map(([Icon, label]) => (
               <div key={label} className="flex items-center gap-4 border-b border-ink/10 py-4 text-lg last:border-0">
@@ -898,15 +958,20 @@ function ContactSection() {
               <p className="mt-2 text-xl font-semibold text-ink/70">{contact.role}</p>
               <div className="mt-8 space-y-3">
                 {contact.phones.map((phone) => (
-                  <a key={phone.href} href={phone.href} className="flex items-center gap-3 rounded-md bg-white px-4 py-4 text-base font-semibold text-ink transition hover:text-forest">
+                  <a key={phone.href} href={phone.href} className="grid gap-1 rounded-md bg-white px-4 py-4 text-base font-semibold text-ink transition hover:text-forest">
+                    <span className="flex items-center gap-3 text-ink/62">
                     <Phone className="h-5 w-5 shrink-0 text-forest" />
-                    <span>{phone.label}</span>
-                    <span className="ml-auto">{phone.value}</span>
+                      {phone.label}
+                    </span>
+                    <span className="text-xl leading-snug">{phone.value}</span>
                   </a>
                 ))}
-                <a href={`mailto:${contact.email}`} className="flex items-center justify-center gap-3 rounded-md bg-forest px-4 py-4 text-base font-semibold text-white transition hover:bg-ink">
+                <a href={`mailto:${contact.email}`} className="grid gap-1 rounded-md bg-forest px-4 py-4 text-base font-semibold text-white transition hover:bg-ink">
+                  <span className="flex items-center gap-3 text-white/74">
                   <Mail className="h-5 w-5" />
-                  이메일 보내기
+                    이메일
+                  </span>
+                  <span className="break-all text-lg leading-snug">{contact.email}</span>
                 </a>
               </div>
             </article>
@@ -919,27 +984,19 @@ function ContactSection() {
 
 function Footer() {
   return (
-    <footer className="bg-ink py-12 text-white">
-      <div className="mx-auto grid w-[min(1180px,92vw)] gap-8 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+    <footer className="bg-ink text-white">
+      <div className="mx-auto grid w-[min(1180px,92vw)] gap-10 border-b border-white/10 py-14 lg:grid-cols-[1.2fr_1fr]">
         <div>
-          <p className="text-2xl font-semibold">쎄슬프라이머스 주식회사</p>
-          <p className="mt-4 max-w-xl text-base leading-7 text-white/66">
+          <p className="text-3xl font-semibold leading-tight">{companyLegal.displayName}</p>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-white/66">
             농식품·콜드체인 인프라를 위한 통합 솔루션 포트폴리오 기업입니다. 알파팜, 알파쿨링, 알파에너지, 알파서포트를 연결해 생산부터 사업화 지원까지 확장합니다.
           </p>
         </div>
-        <div>
-          <p className="font-semibold text-white">대표 문의</p>
-          <div className="mt-4 space-y-2 text-sm leading-6 text-white/68">
-            <p>사업개발: 강호수</p>
-            <p>대표: 이관호</p>
-            <a href={businessInquiryMail} className="inline-flex items-center gap-2 pt-2 font-semibold text-mint">
-              사업개발 문의하기 <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold text-white">공식 채널</p>
-          <div className="mt-4 flex flex-wrap gap-2">
+        <div className="grid gap-5 sm:grid-cols-[0.8fr_1.2fr] sm:items-start">
+          <a href={businessInquiryMail} className="inline-flex w-fit items-center gap-2 rounded-md border border-mint/40 px-5 py-4 text-base font-semibold text-mint transition hover:border-white hover:text-white">
+            사업개발 문의하기 <ArrowRight className="h-4 w-4" />
+          </a>
+          <div className="flex flex-wrap gap-2">
             {socialLinks.map(([label, href]) => (
               <a key={label} href={href} target="_blank" rel="noreferrer" className="rounded-md border border-white/14 px-3 py-2 text-sm text-white/72 transition hover:border-mint hover:text-white">
                 {label}
@@ -947,6 +1004,15 @@ function Footer() {
             ))}
           </div>
         </div>
+      </div>
+      <div className="mx-auto grid w-[min(1180px,92vw)] gap-x-8 gap-y-4 py-10 text-sm leading-6 text-white/62 md:grid-cols-2 lg:grid-cols-4">
+        <p><span className="font-semibold text-white/88">상호</span><br />{companyLegal.name}</p>
+        <p><span className="font-semibold text-white/88">대표자</span><br />{companyLegal.representative}</p>
+        <p><span className="font-semibold text-white/88">사업자등록번호</span><br />{companyLegal.businessNumber}</p>
+        <p><span className="font-semibold text-white/88">개업일</span><br />{companyLegal.startDate}</p>
+        <p className="lg:col-span-2"><span className="font-semibold text-white/88">사업장 소재지</span><br />{companyLegal.address}</p>
+        <p><span className="font-semibold text-white/88">업태</span><br />{companyLegal.businessType}</p>
+        <p className="lg:col-span-2"><span className="font-semibold text-white/88">종목</span><br />{companyLegal.businessItems}</p>
       </div>
     </footer>
   );

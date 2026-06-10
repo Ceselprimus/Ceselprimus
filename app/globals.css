@@ -28,12 +28,13 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(circle at 15% 0%, rgba(31, 191, 120, 0.12), transparent 28rem),
-    linear-gradient(180deg, #f7faf6 0%, #eff4f0 44%, #f8faf7 100%);
+  overflow-x: hidden;
+  background: linear-gradient(180deg, #f8faf7 0%, #eef4f0 48%, #f8faf7 100%);
   color: #081d1a;
   line-height: 1.6;
   word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -52,8 +53,8 @@ video {
 
 .hero-mask {
   background:
-    linear-gradient(90deg, rgba(8, 29, 26, 0.93) 0%, rgba(8, 29, 26, 0.78) 34%, rgba(8, 29, 26, 0.18) 72%),
-    linear-gradient(180deg, rgba(8, 29, 26, 0.08) 0%, rgba(8, 29, 26, 0.36) 100%);
+    linear-gradient(90deg, rgba(8, 29, 26, 0.94) 0%, rgba(8, 29, 26, 0.76) 38%, rgba(8, 29, 26, 0.16) 74%),
+    linear-gradient(180deg, rgba(8, 29, 26, 0.12) 0%, rgba(8, 29, 26, 0.46) 100%);
 }
 
 .reveal-up {
