@@ -14,6 +14,7 @@
     "Malgun Gothic",
     system-ui,
     sans-serif;
+  font-size: 17px;
 }
 
 * {
@@ -31,6 +32,8 @@ body {
     radial-gradient(circle at 15% 0%, rgba(31, 191, 120, 0.12), transparent 28rem),
     linear-gradient(180deg, #f7faf6 0%, #eff4f0 44%, #f8faf7 100%);
   color: #081d1a;
+  line-height: 1.6;
+  word-break: keep-all;
 }
 
 a {
@@ -40,6 +43,11 @@ a {
 
 ::selection {
   background: rgba(31, 191, 120, 0.24);
+}
+
+img,
+video {
+  max-width: 100%;
 }
 
 .hero-mask {
@@ -104,5 +112,15 @@ a {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    font-size: 16px;
+  }
+
+  body {
+    word-break: normal;
   }
 }
