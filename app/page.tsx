@@ -453,7 +453,7 @@ function MotionSection() {
             한 화면에서 포트폴리오의 확장 방향을 보여줍니다.
           </h2>
           <p className="mt-5 text-base leading-7 text-white/68">
-            Sora API 키가 연결되면 같은 콘셉트로 8초 브랜드 필름을 생성할 수 있습니다. 현재 버전은 사이트에 즉시 넣을 수 있는 로컬 모션 에셋입니다.
+            AlphaFarm에서 출발한 운영 경험을 기후제어, 에너지관리, 콜드체인, 데이터, 사업화 지원으로 확장하는 흐름을 시각적으로 보여줍니다.
           </p>
         </div>
         <div className="relative aspect-video overflow-hidden rounded-lg border border-white/12 bg-white/6">
