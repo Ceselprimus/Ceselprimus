@@ -1,0 +1,8 @@
+.next
+node_modules
+out
+output
+dist
+.env*
+*.log
+Thumbs.db
