@@ -206,14 +206,28 @@ const contacts = [
   }
 ];
 
+const ipAssetNames = [
+  "로봇을 활용한 스마트 팜 자동화 시스템",
+  "부하 보호 및 고장 방지 기능을 갖는 스마트 팜 시스템 및 그 제공방법",
+  "식물 생육 모니터링 제어 시스템 및 식물 생육 모니터링 제어 방법",
+  "스마트 엣지 디바이스 기반의 생육 분석 방법 및 그를 위한 장치 및 시스템",
+  "수직형 수경 재배 시스템",
+  "고밀도 수직재배를 위한 점적관수, 고밀도 재배 프레임 및 엘이디 시스템",
+  "컨테이너 및 이를 제작하는 방법",
+  "농작물의 생산성 향상을 위한 데이터 분석 방법 및 장치",
+  "쎄슬알파팜",
+  "딸기 잎 색상도 채널을 위한 딥러닝 기반 딸기 생육상황 분석 소프트웨어"
+];
+
 export default function Home() {
   return (
     <main className="overflow-hidden">
       <Hero />
       <IntroBand />
       <ProblemSection />
-      <AlphaFarmSection />
       <PortfolioSection />
+      <AlphaFarmSection />
+      <LineupGallerySection />
       <LineupDepth />
       <AudienceSection />
       <ProofSection />
@@ -222,6 +236,44 @@ export default function Home() {
       <ContactSection />
       <Footer />
     </main>
+  );
+}
+
+function LineupGallerySection() {
+  return (
+    <section className="bg-paper py-24">
+      <div className="mx-auto w-[min(1180px,92vw)]">
+        <div className="grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+          <div>
+            <p className="text-base font-semibold text-forest">라인업 이미지</p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight text-ink md:text-5xl">
+              네 가지 라인업을 각각의 현장 이미지로 보여줍니다.
+            </h2>
+          </div>
+          <p className="max-w-2xl text-lg leading-8 text-ink/68">
+            알파팜을 기준점으로 두고, 알파쿨링·알파에너지·알파서포트가 어떤 문제를 맡는지 한눈에 비교할 수 있도록 이미지 흐름을 분리했습니다.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
+          {portfolio.map((item) => (
+            <figure key={`${item.name}-gallery`} className="group overflow-hidden rounded-lg bg-white shadow-soft">
+              <div className="relative aspect-[16/10] overflow-hidden bg-ink">
+                <Image src={item.image} alt={`${item.name} 대표 이미지`} fill className="object-cover transition duration-500 group-hover:scale-105" />
+              </div>
+              <figcaption className="flex items-center justify-between gap-4 p-6">
+                <div>
+                  <p className="text-2xl font-semibold text-ink">{item.name}</p>
+                  <p className="mt-2 text-base font-semibold text-ink/62">{item.label}</p>
+                </div>
+                <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-md ${item.bg}`}>
+                  <item.icon className="h-6 w-6 text-white" />
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -520,28 +572,25 @@ function AudienceSection() {
 
 function ProofSection() {
   return (
-    <section className="mx-auto grid w-[min(1180px,92vw)] gap-10 py-24 lg:grid-cols-[0.8fr_1.2fr]">
-      <div>
-        <p className="text-base font-semibold text-forest">권리와 기술 자산</p>
-        <h2 className="mt-4 text-3xl font-semibold leading-tight md:text-5xl">
-          실증과 사업화로 이어질 수 있는 기반을 보유합니다.
-        </h2>
-      </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        {[
-          ["십", "등록특허", "고밀도 재배·생육분석 등 생산·운영 기반"],
-          ["삼", "상표권", "알파팜 등 브랜드 식별 자산"],
-          ["일", "저작권", "운영·소프트웨어 자산"],
-          ["삼 이상", "출원 중", "공기흐름·연속생산 관련 기술"],
-          ["사 이상", "출원 대기", "알파쿨링·에너지 인프라 확장 기술"],
-          ["일", "기술이전", "철도기술연구원 콜드체인 컨테이너 기반 사업화"]
-        ].map(([value, label, desc]) => (
-          <div key={label} className="rounded-lg border border-ink/10 bg-white p-6">
-            <p className="text-4xl font-semibold text-forest">{value}</p>
-            <p className="mt-3 text-lg font-semibold">{label}</p>
-            <p className="mt-2 text-base leading-7 text-ink/62">{desc}</p>
-          </div>
-        ))}
+    <section className="mx-auto w-[min(1180px,92vw)] py-24">
+      <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+        <div>
+          <p className="text-base font-semibold text-forest">권리·특허 포트폴리오</p>
+          <h2 className="mt-4 text-3xl font-semibold leading-tight md:text-5xl">
+            첨부 자료 기준으로 권리명을 이름만 정리했습니다.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-ink/66">
+            상세 번호와 내부 설명은 노출하지 않고, 홈페이지에는 보유 권리의 명칭만 간결하게 표시합니다.
+          </p>
+        </div>
+        <div className="grid gap-3 md:grid-cols-2">
+          {ipAssetNames.map((name) => (
+            <div key={name} className="flex min-h-20 items-start gap-4 rounded-lg border border-ink/10 bg-white p-5">
+              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-forest" />
+              <p className="text-lg font-semibold leading-snug text-ink">{name}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
