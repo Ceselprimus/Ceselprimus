@@ -44,7 +44,12 @@ export const metadata: Metadata = {
   publisher: "주식회사 쎄슬프라이머스 농업회사법인",
   category: "농식품·콜드체인 인프라",
   alternates: {
-    canonical: "/"
+    canonical: "/",
+    languages: {
+      "ko-KR": "/",
+      en: "/en",
+      "x-default": "/"
+    }
   },
   robots: {
     index: true,
@@ -61,7 +66,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "쎄슬프라이머스 | 수직농장에서 콜드체인까지, 식품 인프라 통합 솔루션",
     description:
-      "프리미엄 딸기 수직농장에서 출발해 냉방·제습, 에너지·운영 관리, 콜드체인, 사업화 지원까지 하나의 포트폴리오로 연결합니다.",
+      "수직농장에서 콜드체인까지 — 알파팜, 알파쿨링, 알파이엠스, 알파서포트를 연결한 식품 인프라 통합 솔루션입니다.",
     url: "https://www.ceslprimus.com",
     siteName: "쎄슬프라이머스",
     locale: "ko_KR",
@@ -79,7 +84,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "쎄슬프라이머스 | 수직농장에서 콜드체인까지, 식품 인프라 통합 솔루션",
     description:
-      "알파팜, 알파쿨링, 알파이엠스, 알파서포트를 연결한 통합 솔루션 포트폴리오입니다.",
+      "알파팜, 알파쿨링, 알파이엠스, 알파서포트를 연결한 식품 인프라 통합 솔루션입니다.",
     images: ["/media/hero-integrated-solution-v2.png"]
   },
   other: {
