@@ -26,6 +26,8 @@ const businessInquiryMail = `mailto:rkdghtn636@gmail.com?subject=${encodeURIComp
   "쎄슬프라이머스 사업개발 문의"
 )}`;
 
+const baseUrl = "https://www.ceslprimus.com";
+
 const portfolio = [
   {
     name: "알파팜",
@@ -219,9 +221,164 @@ const ipAssetNames = [
   "딸기 잎 색상도 채널을 위한 딥러닝 기반 딸기 생육상황 분석 소프트웨어"
 ];
 
+const faqs = [
+  {
+    question: "쎄슬프라이머스는 어떤 회사인가요?",
+    answer:
+      "쎄슬프라이머스는 알파팜에서 검증된 운영 경험을 기반으로 재배, 기후, 전력, 제어, 콜드체인, 데이터, 사업화 지원을 연결하는 농식품·콜드체인 인프라 통합 솔루션 기업입니다."
+  },
+  {
+    question: "알파팜은 단순 수직농장 설비와 무엇이 다른가요?",
+    answer:
+      "알파팜은 프리미엄 딸기 생산, 리테일 운영, 공간 경험, 컨테이너팜 검증을 하나의 사업 패키지로 연결하는 연중 딸기 사업솔루션입니다."
+  },
+  {
+    question: "알파쿨링은 어떤 문제를 해결하나요?",
+    answer:
+      "알파쿨링은 농장, 식품공장, 포장실, 콜드체인 컨테이너에서 발생하는 고온다습 환경, 저온제습, 결로, 공급공기 상태 관리 문제를 다룹니다."
+  },
+  {
+    question: "알파에너지는 어떤 체계인가요?",
+    answer:
+      "알파에너지는 에너지관리시스템과 사전냉각 통합 실외기를 함께 묶어 전력, 제어, 데이터, 피크부하 안정화, 고온 외기 대응을 관리하는 솔루션 체계입니다."
+  },
+  {
+    question: "어떤 문의를 할 수 있나요?",
+    answer:
+      "식품공장·포장실 저온제습, 콜드체인·저온물류 인프라, 전력·제어·데이터 운영관리, 실증·구축·해외 사업화 프로젝트를 문의할 수 있습니다."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${baseUrl}/#organization`,
+    name: "쎄슬프라이머스 주식회사",
+    alternateName: ["쎄슬프라이머스", "CESeL Primus", "CESeL Primus Co., Ltd."],
+    url: baseUrl,
+    logo: `${baseUrl}/media/cesel-logo-ci-transparent.png`,
+    image: `${baseUrl}/media/hero-integrated-solution-v2.png`,
+    description:
+      "알파팜에서 검증된 운영 경험을 기반으로 재배, 기후, 전력, 제어, 콜드체인, 데이터, 사업화 지원을 연결하는 농식품·콜드체인 인프라 통합 솔루션 포트폴리오 기업입니다.",
+    sameAs: socialLinks.map(([, href]) => href),
+    contactPoint: contacts.flatMap((contact) =>
+      contact.phones.map((phone) => ({
+        "@type": "ContactPoint",
+        name: contact.name,
+        contactType: contact.role,
+        telephone: phone.value,
+        email: contact.email,
+        areaServed: ["KR", "MY", "ASEAN"],
+        availableLanguage: ["ko", "en"]
+      }))
+    ),
+    knowsAbout: [
+      "연중 딸기 사업솔루션",
+      "프리미엄 딸기 생산",
+      "저온제습",
+      "고온다습 환경 제어",
+      "콜드체인 컨테이너",
+      "냉동·냉장 설비 관리",
+      "에너지관리",
+      "사업화 지원"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${baseUrl}/#website`,
+    url: baseUrl,
+    name: "쎄슬프라이머스",
+    inLanguage: "ko-KR",
+    publisher: {
+      "@id": `${baseUrl}/#organization`
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${baseUrl}/#webpage`,
+    url: baseUrl,
+    name: "쎄슬프라이머스 농식품·콜드체인 인프라 통합 솔루션",
+    isPartOf: {
+      "@id": `${baseUrl}/#website`
+    },
+    about: {
+      "@id": `${baseUrl}/#organization`
+    },
+    primaryImageOfPage: `${baseUrl}/media/hero-integrated-solution-v2.png`,
+    dateModified: "2026-06-10",
+    inLanguage: "ko-KR"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${baseUrl}/#solution-list`,
+    name: "쎄슬프라이머스 솔루션 라인업",
+    itemListElement: portfolio.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Service",
+        name: item.name,
+        alternateName: item.name === "알파팜" ? "AlphaFarm" : item.name === "알파쿨링" ? "AlphaCooling" : item.name === "알파에너지" ? "AlphaEnergy" : "AlphaSupport",
+        serviceType: item.label,
+        description: item.summary,
+        provider: {
+          "@id": `${baseUrl}/#organization`
+        },
+        areaServed: ["대한민국", "말레이시아", "아세안"]
+      }
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${baseUrl}/#faq`,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer
+      }
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": `${baseUrl}/#portfolio-motion`,
+    name: "쎄슬프라이머스 포트폴리오 모션 필름",
+    description:
+      "알파팜에서 출발한 운영 경험이 기후제어, 에너지관리, 콜드체인, 데이터, 사업화 지원으로 확장되는 흐름을 보여주는 브랜드 모션 필름입니다.",
+    thumbnailUrl: [`${baseUrl}/media/hero-integrated-solution-v2.png`],
+    contentUrl: `${baseUrl}/media/cesel-portfolio-motion.mp4`,
+    uploadDate: "2026-06-10",
+    inLanguage: "ko-KR",
+    publisher: {
+      "@id": `${baseUrl}/#organization`
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${baseUrl}/#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "홈",
+        item: baseUrl
+      }
+    ]
+  }
+];
+
 export default function Home() {
   return (
     <main className="overflow-hidden">
+      <StructuredData data={structuredData} />
       <Hero />
       <IntroBand />
       <ProblemSection />
@@ -233,9 +390,21 @@ export default function Home() {
       <ProofSection />
       <MotionSection />
       <NewsSection />
+      <FaqSection />
       <ContactSection />
       <Footer />
     </main>
+  );
+}
+
+function StructuredData({ data }: { data: unknown }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, "\\u003c")
+      }}
+    />
   );
 }
 
@@ -667,6 +836,37 @@ function NewsSection() {
             </div>
           </a>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function FaqSection() {
+  return (
+    <section className="bg-paper py-24">
+      <div className="mx-auto grid w-[min(1180px,92vw)] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <div>
+          <p className="text-base font-semibold text-forest">핵심 질의응답</p>
+          <h2 className="mt-4 text-3xl font-semibold leading-tight text-ink md:text-5xl">
+            검색과 미팅에서 반복되는 질문에 먼저 답합니다.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-ink/66">
+            회사 포지셔닝, 알파팜의 차별점, 알파쿨링과 알파에너지의 역할을 짧고 명확한 문장으로 정리했습니다.
+          </p>
+        </div>
+        <div className="space-y-4">
+          {faqs.map((faq) => (
+            <details key={faq.question} className="group rounded-lg border border-ink/10 bg-white p-6 shadow-soft">
+              <summary className="cursor-pointer list-none text-xl font-semibold leading-snug text-ink marker:hidden">
+                <span className="flex items-start justify-between gap-5">
+                  {faq.question}
+                  <span className="mt-1 text-2xl leading-none text-forest transition group-open:rotate-45">+</span>
+                </span>
+              </summary>
+              <p className="mt-5 text-lg leading-8 text-ink/68">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   );
