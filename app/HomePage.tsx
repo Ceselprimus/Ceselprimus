@@ -3,28 +3,48 @@ import { Fragment, type ReactNode } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
-  BatteryCharging,
   Building2,
   CheckCircle2,
+  Cpu,
+  Database,
   Droplets,
   Factory,
+  Fan,
   Globe2,
   Handshake,
   Leaf,
   Mail,
   PackageCheck,
   Phone,
+  PlugZap,
   Snowflake,
+  Sprout,
+  ThermometerSnowflake,
+  TrendingUp,
   Zap
 } from "lucide-react";
 import SiteHeader from "./components/SiteHeader";
 import Reveal from "./components/Reveal";
-import { companyLegal, type HomeContent } from "./home-content";
+import { companyLegal, type Accent, type HomeContent } from "./home-content";
 
 const baseUrl = "https://www.ceslprimus.com";
 
 const problemIcons = [Leaf, Droplets, Zap, Building2];
 const contactIcons = [Factory, Handshake, Globe2, Snowflake];
+const energyIcons = [PlugZap, Cpu, Database, Fan];
+const categoryIcons: Record<Accent, typeof Sprout> = {
+  forest: Sprout,
+  ice: ThermometerSnowflake,
+  energy: Zap,
+  amber: Globe2
+};
+
+const accentStyles: Record<Accent, { text: string; dot: string; bgSoft: string }> = {
+  forest: { text: "text-forest", dot: "bg-forest", bgSoft: "bg-forest/10" },
+  ice: { text: "text-ice", dot: "bg-ice", bgSoft: "bg-ice/10" },
+  energy: { text: "text-energy", dot: "bg-energy", bgSoft: "bg-energy/10" },
+  amber: { text: "text-amber", dot: "bg-amber", bgSoft: "bg-amber/10" }
+};
 
 function buildInquiryHref(content: HomeContent) {
   return `mailto:${companyLegal.inquiryEmail}?subject=${encodeURIComponent(content.inquirySubject)}`;
@@ -82,7 +102,7 @@ function buildStructuredData(content: HomeContent) {
       isPartOf: { "@id": `${baseUrl}/#website` },
       about: { "@id": `${baseUrl}/#organization` },
       primaryImageOfPage: `${baseUrl}/media/hero-integrated-solution-v2.png`,
-      dateModified: "2026-06-10",
+      dateModified: "2026-06-11",
       inLanguage: lang
     },
     {
@@ -90,15 +110,15 @@ function buildStructuredData(content: HomeContent) {
       "@type": "ItemList",
       "@id": `${content.pageUrl}/#solution-list`,
       name: content.seo.lineupListName,
-      itemListElement: content.lineup.items.map((item, index) => ({
+      itemListElement: content.lineup.categories.map((category, index) => ({
         "@type": "ListItem",
         position: index + 1,
         item: {
           "@type": "Service",
-          name: item.name,
-          alternateName: item.englishName,
-          serviceType: item.label,
-          description: item.summary,
+          name: category.name,
+          alternateName: category.englishName,
+          serviceType: category.tagline,
+          description: category.subItems.map((item) => item.name).join(" · "),
           provider: { "@id": `${baseUrl}/#organization` },
           areaServed: ["KR", "MY", "ASEAN"]
         }
@@ -149,9 +169,9 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <LineupSection content={content} />
       <AlphaFarmSection content={content} />
       <AlphaCoolingSection content={content} />
-      <AlphaEmsSection content={content} />
       <AlphaEnergySection content={content} />
       <AlphaSupportSection content={content} />
+      <CasesSection content={content} />
       <AudienceSection content={content} />
       <IpSection content={content} />
       <MotionSection content={content} />
@@ -340,54 +360,79 @@ function LineupSection({ content }: { content: HomeContent }) {
             </p>
           </div>
         </Reveal>
-        <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2 md:gap-8">
-          {lineup.items.map((item, index) => (
-            <Reveal key={item.name} delay={(index % 2) * 110}>
-              <a
-                href={item.anchor}
-                className="group block overflow-hidden rounded-2xl bg-paper ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden bg-ink">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    sizes="(min-width: 768px) 50vw, 92vw"
-                    className="object-cover transition duration-700 group-hover:scale-[1.045]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
-                  <p className="absolute left-6 top-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/92 text-[0.95rem] font-bold text-ink">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                </div>
-                <div className="p-7 md:p-8">
-                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1.5">
-                    <h3 className="text-[1.7rem] font-bold tracking-tight text-ink md:text-3xl">{item.name}</h3>
-                    <p className="flex items-center gap-2 text-[1rem] font-semibold text-forest">
-                      <span aria-hidden className={`h-2 w-2 rounded-full ${item.dot}`} />
-                      {item.label}
-                    </p>
-                  </div>
-                  <p className="mt-4 text-[1.05rem] leading-relaxed text-ink/68 md:text-[1.1rem]">{item.summary}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {item.items.map((entry) => (
-                      <span
-                        key={entry}
-                        className="rounded-full bg-white px-3.5 py-1.5 text-[0.95rem] font-medium text-ink/72 ring-1 ring-ink/10"
+        <div className="mt-12 space-y-6 md:mt-16 md:space-y-8">
+          {lineup.categories.map((category, index) => {
+            const accent = accentStyles[category.accent];
+            const Icon = categoryIcons[category.accent];
+            return (
+              <Reveal key={category.name}>
+                <article className="overflow-hidden rounded-[1.75rem] bg-paper ring-1 ring-ink/8">
+                  <div className="grid lg:grid-cols-[0.92fr_1.08fr]">
+                    <div className="p-7 md:p-10">
+                      <div className="flex items-center gap-3.5">
+                        <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${accent.bgSoft}`}>
+                          <Icon className={`h-6 w-6 ${accent.text}`} />
+                        </span>
+                        <p className={`text-[0.95rem] font-bold ${accent.text}`}>
+                          {lineup.lineupLabel} {String(index + 1).padStart(2, "0")}
+                        </p>
+                      </div>
+                      <h3 className={`mt-5 text-[2rem] font-bold tracking-tight md:text-[2.35rem] ${accent.text}`}>
+                        {category.name}
+                      </h3>
+                      <p className="mt-2 text-[1.08rem] font-semibold leading-snug text-ink/72 md:text-[1.16rem]">
+                        {category.tagline}
+                      </p>
+                      <div className="relative mt-7 aspect-[16/9] overflow-hidden rounded-2xl bg-ink">
+                        <Image
+                          src={category.image}
+                          alt={category.imageAlt}
+                          fill
+                          sizes="(min-width: 1024px) 42vw, 92vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <a
+                        href={category.anchor}
+                        className={`mt-7 inline-flex items-center gap-2 text-[1.02rem] font-semibold ${accent.text}`}
                       >
-                        {entry}
-                      </span>
-                    ))}
+                        {lineup.detailLabel}
+                        <ArrowRight className="h-5 w-5" />
+                      </a>
+                    </div>
+                    <div className="border-t border-ink/8 bg-white p-7 md:p-10 lg:border-l lg:border-t-0">
+                      <div className="flex h-full flex-col justify-center divide-y divide-ink/8">
+                        {category.subItems.map((item) => (
+                          <div key={item.name} className="flex gap-4 py-4 first:pt-0 last:pb-0 md:py-5">
+                            <span aria-hidden className={`mt-[0.62rem] h-2 w-2 shrink-0 rounded-full ${accent.dot}`} />
+                            <div>
+                              <p className="text-[1.1rem] font-bold tracking-tight text-ink md:text-[1.16rem]">
+                                {item.name}
+                              </p>
+                              {item.desc ? (
+                                <p className="mt-1 text-[1rem] leading-relaxed text-ink/62">{item.desc}</p>
+                              ) : null}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <p className="mt-7 inline-flex items-center gap-2 text-[1.02rem] font-semibold text-forest">
-                    {lineup.detailLabel}
-                    <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </p>
-                </div>
-              </a>
-            </Reveal>
-          ))}
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
+        <Reveal delay={100}>
+          <div className="mx-auto mt-12 flex max-w-4xl items-start gap-4 md:mt-16">
+            <CheckCircle2 aria-hidden className="mt-1 h-7 w-7 shrink-0 text-forest" />
+            <p className="text-xl font-bold leading-relaxed tracking-tight text-ink md:text-[1.4rem]">
+              {lineup.statementPre}
+              <span className="text-forest">{lineup.statementHighlight}</span>
+              {lineup.statementPost}
+            </p>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );
@@ -439,7 +484,7 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
             <figure className="relative overflow-hidden rounded-2xl bg-ink shadow-soft">
               <div className="relative aspect-[4/5] md:aspect-[4/4.4]">
                 <Image
-                  src="/media/lineup-alphafarm-clean.png"
+                  src="/media/cases/case-suwon-urban-02.jpg"
                   alt={alphafarm.imageAlt}
                   fill
                   sizes="(min-width: 1024px) 45vw, 92vw"
@@ -504,7 +549,7 @@ function AlphaCoolingSection({ content }: { content: HomeContent }) {
                 {cooling.models.map(([name, desc], index) => (
                   <div
                     key={name}
-                    className={`grid gap-2.5 bg-paper p-6 md:grid-cols-[210px_1fr] md:gap-6 md:p-7 ${
+                    className={`grid gap-2.5 bg-paper p-6 md:grid-cols-[230px_1fr] md:gap-6 md:p-7 ${
                       index > 0 ? "border-t border-ink/8" : ""
                     }`}
                   >
@@ -521,80 +566,43 @@ function AlphaCoolingSection({ content }: { content: HomeContent }) {
   );
 }
 
-function AlphaEmsSection({ content }: { content: HomeContent }) {
-  const { ems } = content;
-  return (
-    <section id="alphaems" className="py-20 md:py-32">
-      <Container>
-        <Reveal>
-          <div className="max-w-3xl">
-            <Eyebrow>{ems.eyebrow}</Eyebrow>
-            <SectionTitle>
-              <Lines lines={ems.titleLines} />
-            </SectionTitle>
-            <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/70 md:text-[1.18rem]">{ems.body}</p>
-          </div>
-        </Reveal>
-        <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
-          {ems.capabilities.map((capability, index) => (
-            <Reveal key={capability.title} delay={index * 90}>
-              <div className="border-t-2 border-ink/12 pt-6 transition-colors duration-300 hover:border-energy">
-                <h3 className="text-xl font-bold tracking-tight text-ink md:text-[1.35rem]">{capability.title}</h3>
-                <p className="mt-3 text-[1.02rem] leading-relaxed text-ink/66 md:text-[1.06rem]">{capability.body}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 md:gap-8">
-          {ems.models.map((model, index) => (
-            <Reveal key={model.title} delay={index * 110}>
-              <article className="h-full rounded-2xl bg-white p-7 ring-1 ring-ink/8 md:p-9">
-                <h3 className="text-2xl font-bold tracking-tight text-ink">{model.title}</h3>
-                <p className="mt-4 text-[1.05rem] leading-relaxed text-ink/68">{model.body}</p>
-                <div className="mt-7 space-y-3.5">
-                  {model.items.map((item) => (
-                    <p key={item} className="flex items-start gap-3 text-[1.05rem] font-medium text-ink/82">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-forest" />
-                      {item}
-                    </p>
-                  ))}
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </Container>
-    </section>
-  );
-}
-
 function AlphaEnergySection({ content }: { content: HomeContent }) {
   const { energy } = content;
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section id="alphaenergy" className="py-20 md:py-32">
       <Container>
         <Reveal>
-          <div className="overflow-hidden rounded-2xl bg-paper ring-1 ring-ink/8">
-            <div className="grid gap-8 p-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:p-12">
-              <div>
-                <p className="inline-flex items-center gap-2 rounded-full bg-amber/12 px-4 py-1.5 text-[0.95rem] font-bold text-[#9A5708] ring-1 ring-amber/35">
-                  <BatteryCharging className="h-4 w-4" />
-                  {energy.badge}
-                </p>
-                <h2 className="mt-5 text-[1.65rem] font-bold leading-[1.25] tracking-tight text-ink md:text-[2.1rem]">
-                  <Lines lines={energy.titleLines} />
-                </h2>
-                <p className="mt-4 text-[1.05rem] leading-relaxed text-ink/66 md:text-[1.1rem]">{energy.body}</p>
-              </div>
-              <div className="grid gap-4">
-                {energy.preview.map(([name, desc]) => (
-                  <div key={name} className="rounded-2xl bg-white p-6 ring-1 ring-ink/8">
-                    <p className="text-lg font-bold tracking-tight text-ink">{name}</p>
-                    <p className="mt-2 text-[1.02rem] leading-relaxed text-ink/66">{desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="max-w-3xl">
+            <Eyebrow>{energy.eyebrow}</Eyebrow>
+            <SectionTitle>
+              <Lines lines={energy.titleLines} />
+            </SectionTitle>
+            <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/70 md:text-[1.18rem]">{energy.body}</p>
+          </div>
+        </Reveal>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
+          {energy.products.map((product, index) => {
+            const Icon = energyIcons[index] ?? PlugZap;
+            return (
+              <Reveal key={product.name} delay={index * 90}>
+                <article className="h-full rounded-2xl bg-white p-6 ring-1 ring-ink/8 transition-colors duration-300 hover:ring-energy/35 md:p-7">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-energy/10">
+                    <Icon className="h-6 w-6 text-energy" />
+                  </span>
+                  <h3 className="mt-5 text-[1.18rem] font-bold leading-snug tracking-tight text-ink">{product.name}</h3>
+                  <p className="mt-2.5 text-[1rem] leading-relaxed text-ink/64">{product.desc}</p>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+        <Reveal delay={120}>
+          <div className="mt-8 flex flex-col gap-3 rounded-2xl bg-white p-6 ring-1 ring-energy/25 md:flex-row md:items-center md:gap-6 md:p-7">
+            <p className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full bg-energy/10 px-4 py-1.5 text-[0.92rem] font-bold text-energy">
+              <TrendingUp className="h-4 w-4" />
+              {energy.futureTitle}
+            </p>
+            <p className="text-[1.02rem] leading-relaxed text-ink/70">{energy.futureBody}</p>
           </div>
         </Reveal>
       </Container>
@@ -605,7 +613,7 @@ function AlphaEnergySection({ content }: { content: HomeContent }) {
 function AlphaSupportSection({ content }: { content: HomeContent }) {
   const { support } = content;
   return (
-    <section id="alphasupport" className="py-20 md:py-32">
+    <section id="alphasupport" className="py-4 md:py-8">
       <Container>
         <Reveal>
           <div className="overflow-hidden rounded-[1.75rem] bg-forest text-white shadow-soft">
@@ -644,10 +652,62 @@ function AlphaSupportSection({ content }: { content: HomeContent }) {
   );
 }
 
+function CasesSection({ content }: { content: HomeContent }) {
+  const { cases } = content;
+  return (
+    <section id="cases" className="bg-white py-20 md:py-32">
+      <Container>
+        <Reveal>
+          <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+            <div className="max-w-3xl">
+              <Eyebrow>{cases.eyebrow}</Eyebrow>
+              <SectionTitle>
+                <Lines lines={cases.titleLines} />
+              </SectionTitle>
+            </div>
+            <p className="max-w-md text-[1.05rem] leading-relaxed text-ink/62 md:pb-2 md:text-[1.1rem]">
+              {cases.body}
+            </p>
+          </div>
+        </Reveal>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
+          {cases.items.map((item, index) => (
+            <Reveal key={item.image} delay={(index % 3) * 80}>
+              <figure className="group overflow-hidden rounded-2xl bg-paper ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft">
+                <div className="relative aspect-[4/3] overflow-hidden bg-ink/5">
+                  <Image
+                    src={item.image}
+                    alt={`${item.title} — ${item.site}`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"
+                    className="object-cover transition duration-700 group-hover:scale-[1.045]"
+                  />
+                </div>
+                <figcaption className="flex items-start justify-between gap-3 p-5">
+                  <div>
+                    <p className="text-[1.08rem] font-bold leading-snug tracking-tight text-ink">{item.title}</p>
+                    <p className="mt-0.5 text-[0.95rem] font-medium text-ink/55">{item.site}</p>
+                  </div>
+                  <span className="shrink-0 rounded-full bg-forest/10 px-3 py-1 text-[0.82rem] font-bold text-forest">
+                    {item.tag}
+                  </span>
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={100}>
+          <p className="mt-8 text-[0.95rem] leading-relaxed text-ink/48">{cases.note}</p>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
 function AudienceSection({ content }: { content: HomeContent }) {
   const { audience } = content;
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="py-20 md:py-28">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -675,7 +735,7 @@ function AudienceSection({ content }: { content: HomeContent }) {
 function IpSection({ content }: { content: HomeContent }) {
   const { ip } = content;
   return (
-    <section id="ip" className="py-20 md:py-32">
+    <section id="ip" className="bg-white py-20 md:py-32">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <Reveal className="lg:sticky lg:top-28">
@@ -853,73 +913,81 @@ function ContactSection({ content, inquiryHref }: { content: HomeContent; inquir
   return (
     <section id="contact" className="py-20 md:py-32">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-          <div>
-            <Reveal>
-              <Eyebrow>{contact.eyebrow}</Eyebrow>
-              <SectionTitle>
-                <Lines lines={contact.titleLines} />
-              </SectionTitle>
-              <p className="mt-6 text-[1.05rem] leading-relaxed text-ink/68 md:text-[1.12rem]">{contact.body}</p>
-              <a
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-4 text-[1.05rem] font-semibold text-white transition hover:bg-ink"
-                href={inquiryHref}
-              >
-                {contact.cta} <ArrowRight className="h-5 w-5" />
-              </a>
-            </Reveal>
-            <Reveal delay={130}>
-              <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        <Reveal>
+          <div className="max-w-3xl">
+            <Eyebrow>{contact.eyebrow}</Eyebrow>
+            <SectionTitle>
+              <Lines lines={contact.titleLines} />
+            </SectionTitle>
+            <p className="mt-6 text-[1.05rem] leading-relaxed text-ink/68 md:text-[1.12rem]">{contact.body}</p>
+            <a
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-4 text-[1.05rem] font-semibold text-white transition hover:bg-ink"
+              href={inquiryHref}
+            >
+              {contact.cta} <ArrowRight className="h-5 w-5" />
+            </a>
+          </div>
+        </Reveal>
+        <div className="mt-12 grid gap-6 md:mt-14 lg:grid-cols-[0.96fr_1.04fr]">
+          <Reveal delay={100}>
+            <div className="h-full rounded-[1.5rem] bg-white p-2 ring-1 ring-ink/8">
+              <div className="divide-y divide-ink/8">
                 {contact.categories.map((category, index) => {
                   const Icon = contactIcons[index] ?? Factory;
                   return (
-                    <div key={category.label} className="rounded-2xl bg-white p-5 ring-1 ring-ink/8">
-                      <Icon className="h-6 w-6 text-forest" />
-                      <p className="mt-3.5 text-[1.08rem] font-bold tracking-tight text-ink">{category.label}</p>
-                      <p className="mt-1.5 text-[0.98rem] leading-relaxed text-ink/62">{category.desc}</p>
+                    <div key={category.label} className="flex items-start gap-4 p-5 md:p-6">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest/10">
+                        <Icon className="h-5 w-5 text-forest" />
+                      </span>
+                      <div>
+                        <p className="text-[1.1rem] font-bold tracking-tight text-ink">{category.label}</p>
+                        <p className="mt-1 text-[0.98rem] leading-relaxed text-ink/60">{category.desc}</p>
+                      </div>
                     </div>
                   );
                 })}
               </div>
-            </Reveal>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
+            </div>
+          </Reveal>
+          <div className="grid gap-6 sm:grid-cols-2">
             {contact.contacts.map((person, index) => (
-              <Reveal key={person.email} delay={index * 110}>
+              <Reveal key={person.email} delay={160 + index * 90}>
                 <article
-                  className={`h-full rounded-2xl p-7 ring-1 transition-shadow duration-300 hover:shadow-soft md:p-8 ${
-                    person.primary ? "bg-white ring-forest/35" : "bg-white ring-ink/8"
+                  className={`flex h-full flex-col rounded-[1.5rem] bg-white p-6 ring-1 md:p-7 ${
+                    person.primary ? "ring-forest/35" : "ring-ink/8"
                   }`}
                 >
                   <p
-                    className={`inline-flex rounded-full px-3.5 py-1 text-[0.88rem] font-bold ${
+                    className={`inline-flex w-fit rounded-full px-3.5 py-1 text-[0.88rem] font-bold ${
                       person.primary ? "bg-forest/10 text-forest" : "bg-ink/6 text-ink/60"
                     }`}
                   >
                     {person.tag}
                   </p>
-                  <h3 className="mt-5 text-[1.75rem] font-bold tracking-tight text-ink">{person.name}</h3>
-                  <p className="mt-1 text-[1.08rem] font-semibold text-ink/62">{person.role}</p>
-                  <div className="mt-7 space-y-2.5">
+                  <h3 className="mt-4 text-2xl font-bold tracking-tight text-ink">{person.name}</h3>
+                  <p className="mt-0.5 text-[1.02rem] font-semibold text-ink/58">{person.role}</p>
+                  <div className="mt-5 divide-y divide-ink/8 border-t border-ink/8">
                     {person.phones.map((phone) => (
                       <a
                         key={phone.href}
                         href={phone.href}
-                        className="flex items-center justify-between gap-3 rounded-xl bg-paper px-5 py-3.5 transition-colors duration-200 hover:bg-forest/10"
+                        className="group flex items-center justify-between gap-3 py-3.5"
                       >
-                        <span className="flex items-center gap-2.5 text-[0.95rem] font-semibold text-ink/56">
-                          <Phone className="h-5 w-5 text-forest" />
+                        <span className="flex items-center gap-2.5 text-[0.95rem] font-semibold text-ink/52">
+                          <Phone className="h-4 w-4 text-forest" />
                           {phone.label}
                         </span>
-                        <span className="text-[1.05rem] font-bold tracking-tight text-ink">{phone.value}</span>
+                        <span className="text-[1.05rem] font-bold tracking-tight text-ink transition-colors group-hover:text-forest">
+                          {phone.value}
+                        </span>
                       </a>
                     ))}
-                    <a
-                      href={`mailto:${person.email}`}
-                      className="flex items-center gap-2.5 rounded-xl bg-forest px-5 py-3.5 text-white transition-colors duration-200 hover:bg-ink"
-                    >
-                      <Mail className="h-5 w-5 shrink-0" />
-                      <span className="break-all text-[1rem] font-semibold">{person.email}</span>
+                    <a href={`mailto:${person.email}`} className="group flex items-center justify-between gap-3 py-3.5">
+                      <span className="flex items-center gap-2.5 text-[0.95rem] font-semibold text-ink/52">
+                        <Mail className="h-4 w-4 text-forest" />
+                        {person.emailLabel}
+                      </span>
+                      <span className="break-all text-right text-[0.98rem] font-bold text-forest">{person.email}</span>
                     </a>
                   </div>
                 </article>

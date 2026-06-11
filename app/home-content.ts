@@ -1,14 +1,21 @@
 export type Locale = "ko" | "en";
 
-export interface LineupItem {
+export type Accent = "forest" | "ice" | "energy" | "amber";
+
+export interface LineupSubItem {
   name: string;
+  desc?: string;
+}
+
+export interface LineupCategory {
+  name: string;
+  tagline: string;
+  accent: Accent;
+  image: string;
+  imageAlt: string;
   anchor: string;
   englishName: string;
-  label: string;
-  dot: string;
-  image: string;
-  summary: string;
-  items: string[];
+  subItems: LineupSubItem[];
 }
 
 export interface HomeContent {
@@ -50,7 +57,11 @@ export interface HomeContent {
     titleLines: string[];
     aside: string;
     detailLabel: string;
-    items: LineupItem[];
+    lineupLabel: string;
+    categories: LineupCategory[];
+    statementPre: string;
+    statementHighlight: string;
+    statementPost: string;
   };
   alphafarm: {
     eyebrow: string;
@@ -72,18 +83,13 @@ export interface HomeContent {
     models: [string, string][];
     imageAlt: string;
   };
-  ems: {
+  energy: {
     eyebrow: string;
     titleLines: string[];
     body: string;
-    capabilities: { title: string; body: string }[];
-    models: { title: string; body: string; items: string[] }[];
-  };
-  energy: {
-    badge: string;
-    titleLines: string[];
-    body: string;
-    preview: [string, string][];
+    products: { name: string; desc: string }[];
+    futureTitle: string;
+    futureBody: string;
   };
   support: {
     eyebrow: string;
@@ -91,6 +97,13 @@ export interface HomeContent {
     body: string;
     items: string[];
     imageAlt: string;
+  };
+  cases: {
+    eyebrow: string;
+    titleLines: string[];
+    body: string;
+    note: string;
+    items: { image: string; title: string; site: string; tag: string }[];
   };
   audience: {
     eyebrow: string;
@@ -180,6 +193,20 @@ export const companyLegal = {
   representativeEmail: "kevinlee@ceslprimus.com"
 };
 
+const caseImages = {
+  suw1: "/media/cases/case-suwon-urban-01.jpg",
+  suw2: "/media/cases/case-suwon-urban-02.jpg",
+  mal1: "/media/cases/case-malaysia-exterior.jpg",
+  mal2: "/media/cases/case-malaysia-growroom.jpg",
+  ich1: "/media/cases/case-icheon-exterior.jpg",
+  ich2: "/media/cases/case-icheon-rack.jpg",
+  naj1: "/media/cases/case-naju-growroom-01.jpg",
+  naj2: "/media/cases/case-naju-growroom-02.jpg",
+  njl1: "/media/cases/case-naju-lab-01.jpg",
+  njl2: "/media/cases/case-naju-lab-02.jpg",
+  jn1: "/media/cases/case-jeonnam-container.jpg"
+};
+
 export const koContent: HomeContent = {
   locale: "ko",
   pageUrl: "https://www.ceslprimus.com",
@@ -188,6 +215,7 @@ export const koContent: HomeContent = {
     items: [
       { href: "#lineup", label: "라인업" },
       { href: "#alphafarm", label: "알파팜" },
+      { href: "#cases", label: "구축 사례" },
       { href: "#news", label: "소식" },
       { href: "#contact", label: "연락처" }
     ],
@@ -201,7 +229,7 @@ export const koContent: HomeContent = {
   hero: {
     eyebrow: "농식품 · 콜드체인 인프라 기술기업",
     titleLines: ["수직농장에서 콜드체인까지,", "식품 인프라를 플랫폼으로."],
-    sub: "쎄슬프라이머스는 프리미엄 딸기 수직농장에서 출발해 냉방·제습, 에너지·운영 관리, 콜드체인, 사업화 지원까지 — 식품 생산과 저장의 전 과정을 하나의 솔루션으로 연결합니다.",
+    sub: "쎄슬프라이머스는 프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 사업화 지원까지 — 식품 생산과 저장의 전 과정을 하나의 솔루션으로 연결합니다.",
     ctaPrimary: "솔루션 라인업 보기",
     ctaSecondary: "사업개발 문의",
     imageAlt: "쎄슬프라이머스 수직농장과 콜드체인 통합 솔루션 비주얼",
@@ -209,7 +237,7 @@ export const koContent: HomeContent = {
       { value: "2016", label: "법인 설립" },
       { value: "4", label: "솔루션 라인업" },
       { value: "10건", label: "특허 · 상표 · 저작권" },
-      { value: "2개국", label: "한국 · 말레이시아 거점" }
+      { value: "6곳", label: "국내외 구축 현장" }
     ]
   },
   positioning: {
@@ -217,7 +245,7 @@ export const koContent: HomeContent = {
     statementPre: "단순한 설비 공급을 넘어, 식품 생산·저장 인프라를",
     statementHighlight: " 하나의 통합 플랫폼",
     statementPost: "으로 만듭니다.",
-    body: "딸기 수직농장에서 검증한 운영 경험을 기반으로 기후제어, 에너지·운영 관리, 콜드체인, 사업화 지원으로 확장합니다. 생산 · 저장 · 공조 · 에너지 · 운영 데이터가 결합된 기술 기업, 쎄슬프라이머스입니다."
+    body: "딸기 수직농장에서 검증한 운영 경험을 기반으로 기후제어, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장합니다. 생산 · 저장 · 공조 · 에너지 · 운영 데이터가 결합된 기술 기업, 쎄슬프라이머스입니다."
   },
   problems: {
     eyebrow: "적용 영역",
@@ -230,56 +258,76 @@ export const koContent: HomeContent = {
     ]
   },
   lineup: {
-    eyebrow: "솔루션 라인업",
-    titleLines: ["알파팜에서 검증하고,", "네 개의 라인업으로 확장합니다."],
-    aside: "생산, 기후, 에너지, 운영 — 각 라인업은 따로 도입할 수도, 하나의 프로젝트로 묶을 수도 있습니다.",
+    eyebrow: "알파 솔루션 포트폴리오",
+    titleLines: ["네 개의 라인업,", "하나의 포트폴리오."],
+    aside: "각 라인업은 따로 도입할 수도, 사업 단계와 목적에 맞춰 하나의 프로젝트로 묶을 수도 있습니다.",
     detailLabel: "자세히 보기",
-    items: [
+    lineupLabel: "라인업",
+    categories: [
       {
         name: "알파팜",
+        tagline: "프리미엄 딸기 생산 · 리테일 · 공간경험 솔루션",
+        accent: "forest",
+        image: "/media/cases/case-suwon-urban-01.jpg",
+        imageAlt: "알파팜 도심형 딸기수직농장 재배랙",
         anchor: "#alphafarm",
         englishName: "AlphaFarm",
-        label: "프리미엄 딸기 수직농장 시스템",
-        dot: "bg-forest",
-        image: "/media/lineup-alphafarm-clean.png",
-        summary:
-          "재배, 운영, 판매까지 패키지로 제공하는 연중 딸기 사업솔루션입니다. 딸기 수직농장부터 컨테이너팜, 매장형 모델까지 포함합니다.",
-        items: ["딸기 수직농장", "알파 컨테이너팜", "알파카페", "공간형 설치 모델"]
+        subItems: [
+          { name: "알파코어", desc: "대형 프리미엄 딸기 생산기지" },
+          { name: "알파카페", desc: "생산과 프리미엄 리테일을 연결하는 매장형 모델" },
+          { name: "경험형 포트폴리오", desc: "호텔 · 쇼룸 · 베이커리 공간경험 설계" },
+          { name: "알파 컨테이너팜", desc: "소형 생산 · 검증형 모델" }
+        ]
       },
       {
         name: "알파쿨링",
+        tagline: "팜 · 식품공정 · 콜드체인 컨테이너 냉각제습 솔루션",
+        accent: "ice",
+        image: "/media/sns/lineup-cooling.png",
+        imageAlt: "알파쿨링 저온제습 공조 설비",
         anchor: "#alphacooling",
         englishName: "AlphaCooling",
-        label: "냉방 · 제습 · 공조 솔루션",
-        dot: "bg-ice",
-        image: "/media/sns/lineup-cooling.png",
-        summary:
-          "정밀한 습도 제어로 균일한 기후를 만들고 결로와 품질 리스크를 줄입니다. 수직농장부터 콜드체인 시설까지 적용합니다.",
-        items: ["수직농장 재배실", "식품 포장실", "저온저장시설", "콜드체인 시설"]
+        subItems: [
+          { name: "알파쿨링 팜", desc: "딸기 재배실 전용 저온제습 · 냉각 패키지" },
+          { name: "알파쿨링 식품 · 포장실", desc: "식품공정 · 포장실용 인라인 핫가스 재열 제습 유닛" },
+          { name: "알파쿨링 컨테이너", desc: "철도기술연구원 기술이전 특허 기반 에너지저장장치 연계 콜드체인 컨테이너" }
+        ]
       },
       {
-        name: "알파이엠스",
-        anchor: "#alphaems",
-        englishName: "AlphaEMS",
-        label: "에너지 · 운영 관리 플랫폼",
-        dot: "bg-energy",
+        name: "알파에너지",
+        tagline: "전력 · 제어 · 데이터 통합 관리 시스템",
+        accent: "energy",
         image: "/media/lineup-alphaenergy-clean.png",
-        summary:
-          "주요 설비의 운전상태와 전력 사용량을 통합 모니터링하고, 피크부하와 에너지 효율을 데이터로 관리합니다.",
-        items: ["설비 통합 모니터링", "전력 사용량 분석", "피크부하 관리", "냉동·냉장 설비 관리"]
+        imageAlt: "알파에너지 전력 제어 데이터 통합 관리",
+        anchor: "#alphaenergy",
+        englishName: "AlphaEnergy",
+        subItems: [
+          { name: "알파 파워 패널", desc: "전력센서 · 분전 · 제어" },
+          { name: "인공지능 컨트롤 게이트웨이", desc: "센서 · 제어반 · 장비 연결" },
+          { name: "알파 데이터 관리 시스템", desc: "이미지 · 센서 · 에너지 데이터 통합" },
+          { name: "알파 사전냉각 통합 실외기", desc: "쿨링 실외기 전력절감 · 피크부하 안정화 · 고온외기 대응" }
+        ]
       },
       {
         name: "알파서포트",
+        tagline: "실증 · 구축 · 운영 · 사업화 지원 서비스",
+        accent: "amber",
+        image: "/media/lineup-support-clean.png",
+        imageAlt: "알파서포트 사업개발 파트너십",
         anchor: "#alphasupport",
         englishName: "AlphaSupport",
-        label: "운영 · 교육 · 사업화 지원 서비스",
-        dot: "bg-amber",
-        image: "/media/lineup-support-clean.png",
-        summary:
-          "재배 운영교육과 시설 운영 프로토콜, 데이터 기반 운영관리부터 실증, 구축, 해외 사업화 제안까지 지원합니다.",
-        items: ["재배 운영교육", "시설 운영 프로토콜", "데이터 기반 관리", "실증 · 해외 사업화"]
+        subItems: [
+          { name: "아세안 시장 적합성 검증" },
+          { name: "현지 실증 · 생산기반 구축 지원" },
+          { name: "저온제습 공조 컨설팅" },
+          { name: "현지 사업화 제안 지원" },
+          { name: "프리미엄 농식품 리테일 지원" }
+        ]
       }
-    ]
+    ],
+    statementPre: "알파팜에서 검증된 운영 경험과 기술 기반을 토대로, ",
+    statementHighlight: "재배 · 기후 · 전력 · 콜드체인 · 데이터 · 사업화 지원",
+    statementPost: "을 연결한 통합 솔루션 포트폴리오를 제공합니다."
   },
   alphafarm: {
     eyebrow: "알파팜 — 라인업 01",
@@ -290,12 +338,12 @@ export const koContent: HomeContent = {
       "을 제공합니다. 고객이 초기 투자를 결정하면 재배, 운영, 판매까지 쎄슬프라이머스가 패키지로 책임집니다. 계약은 1년 기본, 이후 1년 단위로 연장하며 — 머리 아픈 일은 시스템과 운영팀이 대신합니다.",
     flow: ["생산 기반", "운영 관리", "판매 연결", "공간 경험", "사업화 지원"],
     models: [
-      ["알파팜 코어", "대형 프리미엄 딸기 생산기지"],
-      ["알파카페", "생산과 프리미엄 리테일을 연결하는 매장형 모델"],
-      ["경험형 포트폴리오", "호텔, 쇼룸, 베이커리 공간을 딸기 브랜드 경험으로 전환"],
+      ["알파코어", "안정적인 생산과 품질관리, 운영 지속성을 위한 대형 프리미엄 딸기 생산기지"],
+      ["알파카페", "생산한 딸기를 케이크 · 생과팩 · 음료 등 프리미엄 상품으로 판매하는 매장형 모델"],
+      ["경험형 포트폴리오", "호텔 · 오피스 · 쇼룸 · 베이커리 공간을 살아있는 브랜드 경험으로 전환"],
       ["알파 컨테이너팜", "40피트 하이큐브 기반의 소형 생산 · 검증형 모델"]
     ],
-    imageAlt: "알파팜 프리미엄 딸기 수직농장",
+    imageAlt: "알파팜 도심형 딸기수직농장 운영 사례",
     captionTitle: "생산 현장과 운영 시스템을 함께 설계합니다",
     captionBody: "재배 공간, 품질관리, 리테일 접점, 현지 사업화까지 하나의 흐름으로."
   },
@@ -305,57 +353,57 @@ export const koContent: HomeContent = {
     body: "단순 냉방이 아닙니다. 노점, 표면결로, 공급공기 상태까지 함께 관리하는 저온제습 중심의 공조 솔루션으로, 수직농장부터 식품 포장실, 저온저장시설, 콜드체인 시설까지 적용합니다.",
     flow: ["정밀 습도 제어", "균일한 기후", "품질 리스크 저감", "에너지 절감"],
     models: [
-      ["알파쿨링 팜", "수직농장과 재배실의 습도, 노점, 공급공기 상태를 통합 관리해 균일한 재배 기후를 만듭니다."],
-      ["알파쿨링 식품 · 포장실", "식품공정과 포장실의 결로, 곰팡이, 작업환경 리스크를 저온제습으로 줄입니다."],
-      ["콜드체인 컨테이너", "철도기술연구원 기술이전 기반, 에너지저장장치를 연계한 저온물류 컨테이너입니다."]
+      ["알파쿨링 팜", "딸기 재배실 전용 저온제습 · 냉각 패키지. 저온재배 조건의 습도와 결로를 냉각기 · 순환팬 · 기류 · 센서 통합 설계로 관리합니다."],
+      ["알파쿨링 식품 · 포장실", "식품공정과 포장실의 결로, 고습, 포장재 젖음 문제에 대응하는 인라인 핫가스 재열 제습 유닛입니다."],
+      ["알파쿨링 컨테이너", "철도기술연구원 기술이전 특허 기반, 에너지저장장치를 연계한 콜드체인 컨테이너입니다."]
     ],
     imageAlt: "알파쿨링 저온제습 공조 설비가 적용된 식품 작업장"
   },
-  ems: {
-    eyebrow: "알파이엠스 — 라인업 03",
-    titleLines: ["설비 운전과 전력 사용을", "한 화면에서 관리합니다."],
-    body: "알파이엠스는 에너지·운영 관리 플랫폼입니다. 냉동기와 공조기, 재배 설비의 운전상태와 전력 사용량을 통합 모니터링하고, 피크부하와 에너지 효율을 데이터로 관리합니다.",
-    capabilities: [
-      { title: "설비 모니터링", body: "냉동기, 공조기, 재배 설비의 운전상태를 한 화면에서 확인" },
-      { title: "에너지 절감", body: "전력 사용량을 분석해 낭비 구간과 절감 포인트를 도출" },
-      { title: "피크부하 관리", body: "수요 집중 시간대의 부하를 분산해 전력 비용과 리스크 관리" },
-      { title: "냉동 · 냉장 설비 관리", body: "온도 이탈, 이상 운전을 조기에 감지해 제품 손실 예방" }
-    ],
-    models: [
-      {
-        title: "알파이엠스 팜",
-        body: "재배 환경 데이터와 설비 운전 데이터를 통합해, 수직농장 운영을 데이터 기반으로 관리합니다.",
-        items: ["재배 환경 모니터링", "설비 운전 데이터 통합", "운영 리포트"]
-      },
-      {
-        title: "알파이엠스 콜드체인",
-        body: "냉동·냉장 설비와 저온 공간의 온도, 전력, 알람을 통합 모니터링해 운영 안정성을 높입니다.",
-        items: ["온도 · 알람 통합 관제", "전력 사용량 분석", "피크부하 대응"]
-      }
-    ]
-  },
   energy: {
-    badge: "개발 검토 중인 신규 라인업",
-    titleLines: ["알파에너지 — 버려지는 에너지를", "다시 쓰는 기술을 준비합니다."],
-    body: "폐열 회수와 냉열 저장으로 에너지 활용도를 높이는 방향으로 개발을 검토하고 있습니다. 전력·운영 관리는 알파이엠스가 담당합니다.",
-    preview: [
-      ["알파에너지 폐열 회수", "냉동 설비의 폐열을 회수해 재열, 세척수, 건조 공정에 다시 활용하는 모듈"],
-      ["알파에너지 냉열 저장", "냉수와 브라인의 냉열을 저장해 피크 냉방과 부하 완충에 활용하는 모듈"]
-    ]
+    eyebrow: "알파에너지 — 라인업 03",
+    titleLines: ["전력 · 제어 · 데이터를", "하나의 운영 레이어로 묶습니다."],
+    body: "알파에너지는 전력 · 제어 · 데이터 통합 관리 시스템입니다. 현장 설비의 전력, 센서, 제어기, 이미지 데이터를 하나의 운영 판단 구조로 연결해 에너지 효율과 운전 안정성을 함께 높입니다.",
+    products: [
+      { name: "알파 파워 패널", desc: "삼상 전력센서와 분전 · 제어 시스템으로 주요 설비의 운전 상태를 수집하고 관리합니다." },
+      { name: "인공지능 컨트롤 게이트웨이", desc: "센서, 릴레이, 제어반, 장비를 연결해 현장 운전 로직과 데이터 기반 제어를 적용합니다." },
+      { name: "알파 데이터 관리 시스템", desc: "온습도 · 이산화탄소 · 이미지 · 에너지 데이터를 통합해 운영 판단의 근거를 만듭니다." },
+      { name: "알파 사전냉각 통합 실외기", desc: "쿨링 실외기의 전력 절감, 피크부하 안정화, 고온 외기 대응을 담당합니다." }
+    ],
+    futureTitle: "다음 단계",
+    futureBody: "태양광 · 에너지저장장치 연계로 고소비 전력 시설에 맞춘 최적 전력 생산 솔루션으로 확장을 준비하고 있습니다."
   },
   support: {
     eyebrow: "알파서포트 — 라인업 04",
     titleLines: ["도입 이후가 진짜 시작입니다.", "운영과 사업화까지 함께 갑니다."],
-    body: "재배 운영교육과 시설 운영 프로토콜, 데이터 기반 운영관리부터 시장 적합성 검증, 현지 실증, 해외 사업화 제안까지 — 솔루션이 실제 사업이 되도록 지원합니다.",
+    body: "아세안 시장 적합성 검증부터 현지 실증과 생산기반 구축, 저온제습 공조 컨설팅, 현지 사업화 제안, 프리미엄 농식품 리테일 지원까지 — 솔루션이 실제 사업이 되도록 끝까지 함께합니다.",
     items: [
-      "재배 운영교육",
-      "시설 운영 프로토콜",
-      "데이터 기반 운영관리",
-      "시장 적합성 검증",
-      "현지 실증 · 구축 지원",
-      "해외 사업화 제안"
+      "아세안 시장 적합성 검증",
+      "현지 실증 · 생산기반 구축 지원",
+      "저온제습 공조 컨설팅",
+      "현지 사업화 제안 지원",
+      "프리미엄 농식품 리테일 지원",
+      "재배 운영교육 · 운영 프로토콜"
     ],
     imageAlt: "알파서포트 사업개발 파트너십"
+  },
+  cases: {
+    eyebrow: "구축 사례",
+    titleLines: ["현장이 증명합니다.", "국내외 6개 구축 현장."],
+    body: "수원 도심형 운영 사례부터 이천 · 나주 · 전남 구축 현장, 오픈을 준비 중인 말레이시아 알파팜까지 — 모두 실제 현장에서 촬영한 사진입니다.",
+    note: "※ 말레이시아 알파팜은 공조시스템 설치 마무리 후 7월 초 정식을 목표로 하는 오픈 준비 현장입니다.",
+    items: [
+      { image: caseImages.suw1, title: "도심형 딸기수직농장", site: "수원", tag: "운영 사례" },
+      { image: caseImages.mal1, title: "알파팜 말레이시아 전경", site: "말레이시아", tag: "오픈 준비" },
+      { image: caseImages.ich2, title: "딸기수직농장 재배랙", site: "이천", tag: "구축 사례" },
+      { image: caseImages.naj1, title: "딸기수직농장 재배실", site: "나주", tag: "구축 사례" },
+      { image: caseImages.mal2, title: "알파팜 말레이시아 재배실", site: "말레이시아", tag: "오픈 준비" },
+      { image: caseImages.jn1, title: "딸기 컨테이너팜", site: "전남", tag: "구축 사례" },
+      { image: caseImages.ich1, title: "딸기수직농장 외관", site: "이천", tag: "구축 사례" },
+      { image: caseImages.njl1, title: "수직농업연구실 구축", site: "나주", tag: "구축 사례" },
+      { image: caseImages.suw2, title: "도심형 딸기수직농장 재배실", site: "수원", tag: "운영 사례" },
+      { image: caseImages.naj2, title: "딸기수직농장 재배실 전경", site: "나주", tag: "구축 사례" },
+      { image: caseImages.njl2, title: "수직농업연구실 재배랙", site: "나주", tag: "구축 사례" }
+    ]
   },
   audience: {
     eyebrow: "적용 고객군",
@@ -389,7 +437,7 @@ export const koContent: HomeContent = {
   motion: {
     eyebrow: "브랜드 모션 필름",
     titleLines: ["하나의 흐름으로 이어지는", "쎄슬프라이머스의 확장"],
-    body: "수직농장에서 출발한 운영 경험이 기후제어, 에너지·운영 관리, 콜드체인, 사업화 지원으로 확장되는 방향을 담았습니다.",
+    body: "수직농장에서 출발한 운영 경험이 기후제어, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장되는 방향을 담았습니다.",
     videoFallback: "쎄슬프라이머스 포트폴리오 모션 필름"
   },
   news: {
@@ -417,7 +465,7 @@ export const koContent: HomeContent = {
       {
         question: "쎄슬프라이머스는 어떤 회사인가요?",
         answer:
-          "쎄슬프라이머스는 프리미엄 딸기 수직농장에서 출발해 냉방·제습, 에너지·운영 관리, 콜드체인, 사업화 지원으로 확장하는 기술기업입니다. 식품 생산과 저장 인프라를 하나의 통합 플랫폼으로 만드는 것을 목표로 합니다."
+          "쎄슬프라이머스는 프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장하는 기술기업입니다. 식품 생산과 저장 인프라를 하나의 통합 플랫폼으로 만드는 것을 목표로 합니다."
       },
       {
         question: "연중 딸기 사업솔루션이란 무엇인가요?",
@@ -430,14 +478,14 @@ export const koContent: HomeContent = {
           "수직농장, 식품 포장실, 저온저장시설, 콜드체인 시설에서 발생하는 고온다습 환경, 결로, 공급공기 품질 문제를 저온제습 중심의 공조 솔루션으로 해결합니다."
       },
       {
-        question: "알파이엠스는 어떤 플랫폼인가요?",
+        question: "알파에너지는 어떤 시스템인가요?",
         answer:
-          "주요 설비의 운전상태와 전력 사용량을 통합 모니터링하고, 피크부하와 에너지 운영 효율을 관리하는 에너지·운영 관리 플랫폼입니다. 농장형과 콜드체인형으로 제공됩니다."
+          "전력 · 제어 · 데이터 통합 관리 시스템입니다. 알파 파워 패널, 인공지능 컨트롤 게이트웨이, 알파 데이터 관리 시스템, 알파 사전냉각 통합 실외기로 구성되어 설비 운전과 피크부하, 에너지 효율을 데이터로 관리합니다."
       },
       {
-        question: "알파에너지는 바로 도입할 수 있나요?",
+        question: "실제 구축 사례가 있나요?",
         answer:
-          "알파에너지는 폐열 회수와 냉열 저장으로 에너지 활용도를 높이는 신규 라인업으로, 현재 개발 검토 단계입니다. 적용 가능 시점과 구성은 문의해 주시면 단계에 맞게 안내드립니다."
+          "수원 도심형 딸기수직농장 운영 사례를 비롯해 이천 · 나주 · 전남 구축 사례, 오픈을 준비 중인 말레이시아 알파팜 구축 레퍼런스까지 국내외 6개 현장 사례를 보유하고 있습니다."
       },
       {
         question: "어떤 문의를 할 수 있나요?",
@@ -452,7 +500,7 @@ export const koContent: HomeContent = {
     body: "수직농장, 식품공장, 저온물류, 해외 실증, 프리미엄 딸기 사업화 — 어떤 단계든 사업개발 담당자가 직접 검토하고 회신드립니다.",
     cta: "사업개발 문의하기",
     categories: [
-      { label: "프로젝트 문의", desc: "수직농장, 식품공장, 포장실 구축 · 개선 프로젝트" },
+      { label: "프로젝트 문의", desc: "수직농장, 식품공장, 포장실 구축 · 개선" },
       { label: "파트너십 문의", desc: "국내 사업개발 파트너, 기술 협력, 공동 사업" },
       { label: "해외 실증 문의", desc: "아세안 등 해외 실증, 구축, 현지 사업화" },
       { label: "냉동 · 냉장 설비 문의", desc: "저온창고, 콜드체인 시설의 제습 · 에너지 운영" }
@@ -461,7 +509,7 @@ export const koContent: HomeContent = {
       {
         name: "강호수",
         role: "프로 · 사업개발",
-        tag: "사업개발 총괄 문의",
+        tag: "사업개발 총괄",
         primary: true,
         phones: [{ label: "휴대전화", value: "010-3341-6036", href: "tel:01033416036" }],
         email: "rkdghtn636@gmail.com",
@@ -483,11 +531,12 @@ export const koContent: HomeContent = {
   },
   footer: {
     brandDesc:
-      "수직농장에서 콜드체인까지, 식품 인프라를 플랫폼으로 전환합니다. 알파팜, 알파쿨링, 알파이엠스, 알파서포트를 연결해 생산부터 사업화 지원까지 확장합니다.",
+      "수직농장에서 콜드체인까지, 식품 인프라를 플랫폼으로 전환합니다. 알파팜, 알파쿨링, 알파에너지, 알파서포트를 연결해 생산부터 사업화 지원까지 확장합니다.",
     inquiry: "사업개발 문의하기",
     navLinks: [
       { href: "#lineup", label: "라인업" },
       { href: "#alphafarm", label: "알파팜" },
+      { href: "#cases", label: "구축 사례" },
       { href: "#ip", label: "권리·특허" },
       { href: "#news", label: "소식" },
       { href: "#contact", label: "연락처" }
@@ -509,12 +558,12 @@ export const koContent: HomeContent = {
   },
   seo: {
     orgDescription:
-      "프리미엄 딸기 수직농장에서 출발해 냉방·제습, 에너지·운영 관리, 콜드체인, 사업화 지원으로 확장하는 농식품·콜드체인 인프라 기술기업입니다.",
+      "프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장하는 농식품·콜드체인 인프라 기술기업입니다. 알파팜, 알파쿨링, 알파에너지, 알파서포트 네 개 라인업을 제공합니다.",
     webPageName: "쎄슬프라이머스 | 수직농장에서 콜드체인까지, 식품 인프라 통합 솔루션",
-    lineupListName: "쎄슬프라이머스 솔루션 라인업",
+    lineupListName: "쎄슬프라이머스 알파 솔루션 포트폴리오",
     videoName: "쎄슬프라이머스 포트폴리오 모션 필름",
     videoDescription:
-      "프리미엄 딸기 수직농장에서 출발한 운영 경험이 기후제어, 에너지·운영 관리, 콜드체인, 사업화 지원으로 확장되는 흐름을 보여주는 브랜드 모션 필름입니다.",
+      "프리미엄 딸기 수직농장에서 출발한 운영 경험이 기후제어, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장되는 흐름을 보여주는 브랜드 모션 필름입니다.",
     breadcrumbHome: "홈"
   }
 };
@@ -527,6 +576,7 @@ export const enContent: HomeContent = {
     items: [
       { href: "#lineup", label: "Lineup" },
       { href: "#alphafarm", label: "AlphaFarm" },
+      { href: "#cases", label: "Cases" },
       { href: "#news", label: "News" },
       { href: "#contact", label: "Contact" }
     ],
@@ -540,7 +590,7 @@ export const enContent: HomeContent = {
   hero: {
     eyebrow: "Agri-food & cold-chain infrastructure technology",
     titleLines: ["From vertical farms to cold chain,", "food infrastructure as one platform."],
-    sub: "Starting from premium strawberry vertical farming, CESeL Primus connects cooling & dehumidification, energy & operations management, cold chain, and business development support — the entire journey of food production and storage, as one solution.",
+    sub: "Starting from premium strawberry vertical farming, CESeL Primus connects cooling & dehumidification, power · control · data management, cold chain, and business development support — the entire journey of food production and storage, as one solution.",
     ctaPrimary: "Explore the lineup",
     ctaSecondary: "Business inquiries",
     imageAlt: "CESeL Primus integrated vertical farm and cold-chain solution visual",
@@ -548,7 +598,7 @@ export const enContent: HomeContent = {
       { value: "2016", label: "Founded" },
       { value: "4", label: "Solution lineups" },
       { value: "10", label: "Registered IP rights" },
-      { value: "2", label: "Countries — Korea · Malaysia" }
+      { value: "6", label: "Deployment sites — KR · MY" }
     ]
   },
   positioning: {
@@ -556,7 +606,7 @@ export const enContent: HomeContent = {
     statementPre: "Beyond equipment supply — we turn food production and storage infrastructure into",
     statementHighlight: " one integrated platform",
     statementPost: ".",
-    body: "Building on operating experience proven in strawberry vertical farms, we expand into climate control, energy & operations management, cold chain, and business development support. CESeL Primus is a technology company where production, storage, HVAC, energy, and operations data come together."
+    body: "Building on operating experience proven in strawberry vertical farms, we expand into climate control, power · control · data management, cold chain, and business development support. CESeL Primus is a technology company where production, storage, HVAC, energy, and operations data come together."
   },
   problems: {
     eyebrow: "Where we apply",
@@ -569,56 +619,76 @@ export const enContent: HomeContent = {
     ]
   },
   lineup: {
-    eyebrow: "Solution lineup",
-    titleLines: ["Proven at AlphaFarm,", "extended across four lineups."],
-    aside: "Production, climate, energy, operations — adopt each lineup on its own, or combine them into a single project.",
+    eyebrow: "Alpha Solution Portfolio",
+    titleLines: ["Four lineups,", "one portfolio."],
+    aside: "Adopt each lineup on its own, or combine them into a single project to match your business stage and goals.",
     detailLabel: "Learn more",
-    items: [
+    lineupLabel: "Lineup",
+    categories: [
       {
         name: "AlphaFarm",
+        tagline: "Premium strawberry production · retail · space experience",
+        accent: "forest",
+        image: "/media/cases/case-suwon-urban-01.jpg",
+        imageAlt: "AlphaFarm urban strawberry vertical farm racks",
         anchor: "#alphafarm",
         englishName: "AlphaFarm",
-        label: "Premium strawberry vertical farm system",
-        dot: "bg-forest",
-        image: "/media/lineup-alphafarm-clean.png",
-        summary:
-          "A year-round strawberry business solution delivered as a package — cultivation, operations, and sales. From vertical farms to container farms and in-store models.",
-        items: ["Strawberry vertical farm", "Alpha Container Farm", "AlphaCafe", "In-space models"]
+        subItems: [
+          { name: "AlphaCore", desc: "Large-scale premium strawberry production base" },
+          { name: "AlphaCafe", desc: "In-store model connecting production with premium retail" },
+          { name: "Experience Portfolio", desc: "Space experience design for hotels, showrooms, and bakeries" },
+          { name: "Alpha ContainerFarm", desc: "Compact production and validation model" }
+        ]
       },
       {
         name: "AlphaCooling",
+        tagline: "Cooling & dehumidification for farms, food processes, and cold chain",
+        accent: "ice",
+        image: "/media/sns/lineup-cooling.png",
+        imageAlt: "AlphaCooling low-temperature dehumidification HVAC",
         anchor: "#alphacooling",
         englishName: "AlphaCooling",
-        label: "Cooling · Dehumidification · HVAC",
-        dot: "bg-ice",
-        image: "/media/sns/lineup-cooling.png",
-        summary:
-          "Precise humidity control creates a uniform climate and reduces condensation and quality risks — from vertical farms to cold-chain facilities.",
-        items: ["Grow rooms", "Food packing rooms", "Cold storage", "Cold-chain facilities"]
+        subItems: [
+          { name: "AlphaCooling Farm", desc: "Low-temp dehumidification & cooling package for strawberry grow rooms" },
+          { name: "AlphaCooling HGR", desc: "Inline hot-gas-reheat dehumidification unit for food processes and packing rooms" },
+          { name: "AlphaCooling Container", desc: "ESS-linked cold-chain container based on patented technology transferred from KRRI" }
+        ]
       },
       {
-        name: "AlphaEMS",
-        anchor: "#alphaems",
-        englishName: "AlphaEMS",
-        label: "Energy & operations management platform",
-        dot: "bg-energy",
+        name: "AlphaEnergy",
+        tagline: "Integrated power · control · data management system",
+        accent: "energy",
         image: "/media/lineup-alphaenergy-clean.png",
-        summary:
-          "Integrated monitoring of equipment operation and power consumption — managing peak load and energy efficiency with data.",
-        items: ["Equipment monitoring", "Power analytics", "Peak-load management", "Refrigeration management"]
+        imageAlt: "AlphaEnergy integrated power, control and data management",
+        anchor: "#alphaenergy",
+        englishName: "AlphaEnergy",
+        subItems: [
+          { name: "Alpha Power Panel", desc: "Power sensing · distribution · control" },
+          { name: "AI Control Gateway", desc: "Connecting sensors, control panels, and equipment" },
+          { name: "Alpha Data Management System", desc: "Integrating image, sensor, and energy data" },
+          { name: "Alpha PCU", desc: "PreCooling integrated outdoor unit — power savings, peak-load stability, hot-climate response" }
+        ]
       },
       {
         name: "AlphaSupport",
+        tagline: "Pilots · deployment · operations · business development",
+        accent: "amber",
+        image: "/media/lineup-support-clean.png",
+        imageAlt: "AlphaSupport business development partnership",
         anchor: "#alphasupport",
         englishName: "AlphaSupport",
-        label: "Operations · Training · Business development",
-        dot: "bg-amber",
-        image: "/media/lineup-support-clean.png",
-        summary:
-          "From cultivation training, operating protocols, and data-driven management to pilots, deployment, and overseas business development.",
-        items: ["Cultivation training", "Operating protocols", "Data-driven management", "Pilots · Overseas business"]
+        subItems: [
+          { name: "ASEAN market-fit validation" },
+          { name: "Local pilots & production-base deployment" },
+          { name: "Low-temp dehumidification HVAC consulting" },
+          { name: "Local commercialization proposals" },
+          { name: "Premium agri-food retail support" }
+        ]
       }
-    ]
+    ],
+    statementPre: "Built on operating experience proven at AlphaFarm, we deliver an integrated solution portfolio connecting ",
+    statementHighlight: "cultivation · climate · power · cold chain · data · business development",
+    statementPost: "."
   },
   alphafarm: {
     eyebrow: "AlphaFarm — Lineup 01",
@@ -629,12 +699,12 @@ export const enContent: HomeContent = {
       ". Once a client decides to invest, CESeL Primus takes responsibility for cultivation, operations, and sales as one package. Contracts start at one year and renew annually — the hard work is handled by the system and the operations team.",
     flow: ["Production base", "Operations", "Sales channels", "Space experience", "Business development"],
     models: [
-      ["AlphaFarm Core", "A large-scale premium strawberry production base"],
-      ["AlphaCafe", "An in-store model connecting production with premium retail"],
-      ["Experience Portfolio", "Turns hotels, showrooms, and bakeries into strawberry brand experiences"],
-      ["Alpha Container Farm", "A compact production and validation model in a 40-ft high-cube container"]
+      ["AlphaCore", "A large-scale premium strawberry production base for stable output and quality control"],
+      ["AlphaCafe", "An in-store model selling strawberries as cakes, fresh packs, and beverages"],
+      ["Experience Portfolio", "Turns hotels, offices, showrooms, and bakeries into living brand experiences"],
+      ["Alpha ContainerFarm", "A compact production and validation model in a 40-ft high-cube container"]
     ],
-    imageAlt: "AlphaFarm premium strawberry vertical farm",
+    imageAlt: "AlphaFarm urban strawberry vertical farm in operation",
     captionTitle: "We design the production site and the operating system together",
     captionBody: "Growing space, quality control, retail touchpoints, and local business development — in one flow."
   },
@@ -644,57 +714,57 @@ export const enContent: HomeContent = {
     body: "This is not simple air conditioning. A dehumidification-centered HVAC solution that also manages dew point, surface condensation, and supply-air condition — applied from vertical farms to food packing rooms, cold storage, and cold-chain facilities.",
     flow: ["Precise humidity control", "Uniform climate", "Lower quality risk", "Energy savings"],
     models: [
-      ["AlphaCooling Farm", "Manages humidity, dew point, and supply air in vertical farms and grow rooms for a uniform growing climate."],
-      ["AlphaCooling Food & Packing", "Reduces condensation, mold, and workplace risks in food processes and packing rooms with low-temperature dehumidification."],
-      ["Cold-chain Container", "A cold-chain container with energy storage, based on technology transferred from the Korea Railroad Research Institute."]
+      ["AlphaCooling Farm", "A low-temp dehumidification & cooling package for strawberry grow rooms — coolers, circulation fans, airflow, and sensors designed as one."],
+      ["AlphaCooling HGR", "An inline hot-gas-reheat dehumidification unit for condensation, high humidity, and wet-packaging problems in food processes and packing rooms."],
+      ["AlphaCooling Container", "An ESS-linked cold-chain container based on patented technology transferred from the Korea Railroad Research Institute."]
     ],
     imageAlt: "Food workspace with AlphaCooling low-temperature dehumidification HVAC"
   },
-  ems: {
-    eyebrow: "AlphaEMS — Lineup 03",
-    titleLines: ["Equipment operation and power,", "managed on one screen."],
-    body: "AlphaEMS is an energy and operations management platform. It monitors the operating status and power consumption of refrigeration, HVAC, and cultivation equipment — managing peak load and energy efficiency with data.",
-    capabilities: [
-      { title: "Equipment monitoring", body: "See refrigeration, HVAC, and cultivation equipment status on one screen" },
-      { title: "Energy savings", body: "Analyze power consumption to find waste and savings opportunities" },
-      { title: "Peak-load management", body: "Distribute load during peak hours to manage power cost and risk" },
-      { title: "Refrigeration management", body: "Detect temperature deviation and abnormal operation early to prevent product loss" }
-    ],
-    models: [
-      {
-        title: "AlphaEMS Farm",
-        body: "Integrates growing-environment data with equipment data to run vertical farm operations on data.",
-        items: ["Growing environment monitoring", "Equipment data integration", "Operations reports"]
-      },
-      {
-        title: "AlphaEMS Cold Chain",
-        body: "Integrated monitoring of temperature, power, and alarms across refrigeration equipment and cold spaces for stable operations.",
-        items: ["Temperature & alarm control", "Power analytics", "Peak-load response"]
-      }
-    ]
-  },
   energy: {
-    badge: "New lineup under development review",
-    titleLines: ["AlphaEnergy — preparing technology", "to reuse wasted energy."],
-    body: "We are reviewing development of heat recovery and cold thermal storage to raise energy utilization. Power and operations management remain the role of AlphaEMS.",
-    preview: [
-      ["AlphaEnergy Heat Recovery", "A module that recovers waste heat from refrigeration equipment for reheating, washing water, and drying processes"],
-      ["AlphaEnergy Cold Thermal Storage", "A module that stores cold energy from chilled water and brine for peak cooling and load buffering"]
-    ]
+    eyebrow: "AlphaEnergy — Lineup 03",
+    titleLines: ["Power, control, and data —", "bound into one operations layer."],
+    body: "AlphaEnergy is an integrated power · control · data management system. It connects equipment power, sensors, controllers, and image data into a single operational decision structure — raising energy efficiency and operational stability together.",
+    products: [
+      { name: "Alpha Power Panel", desc: "Collects and manages equipment operating status through three-phase power sensing, distribution, and control." },
+      { name: "AI Control Gateway", desc: "Connects sensors, relays, control panels, and equipment to apply on-site logic and data-driven control." },
+      { name: "Alpha Data Management System", desc: "Integrates temperature, humidity, CO2, image, and energy data as the basis for operational decisions." },
+      { name: "Alpha PCU", desc: "PreCooling integrated outdoor unit — outdoor-unit power savings, peak-load stabilization, and hot-climate response." }
+    ],
+    futureTitle: "Next step",
+    futureBody: "We are preparing an optimal power generation solution for power-intensive facilities, linking PV and energy storage systems."
   },
   support: {
     eyebrow: "AlphaSupport — Lineup 04",
     titleLines: ["Deployment is just the beginning.", "We stay through operations and growth."],
-    body: "From cultivation training, facility operating protocols, and data-driven management to market-fit validation, local pilots, and overseas business development — we make solutions become real businesses.",
+    body: "From ASEAN market-fit validation to local pilots, production-base deployment, dehumidification HVAC consulting, commercialization proposals, and premium agri-food retail support — we stay until the solution becomes a real business.",
     items: [
-      "Cultivation training",
-      "Facility operating protocols",
-      "Data-driven operations",
-      "Market-fit validation",
-      "Local pilots & deployment",
-      "Overseas business development"
+      "ASEAN market-fit validation",
+      "Local pilots & production-base deployment",
+      "Low-temp dehumidification HVAC consulting",
+      "Local commercialization proposals",
+      "Premium agri-food retail support",
+      "Cultivation training & operating protocols"
     ],
     imageAlt: "AlphaSupport business development partnership"
+  },
+  cases: {
+    eyebrow: "Deployment cases",
+    titleLines: ["Proven in the field —", "six sites in Korea and Malaysia."],
+    body: "From an urban farm in operation in Suwon to deployments in Icheon, Naju, and Jeonnam, and AlphaFarm Malaysia preparing to open — all photos were taken on site.",
+    note: "AlphaFarm Malaysia is an opening-preparation site, targeting first planting in early July after HVAC installation.",
+    items: [
+      { image: caseImages.suw1, title: "Urban strawberry vertical farm", site: "Suwon", tag: "In operation" },
+      { image: caseImages.mal1, title: "AlphaFarm Malaysia exterior", site: "Malaysia", tag: "Opening soon" },
+      { image: caseImages.ich2, title: "Cultivation racks", site: "Icheon", tag: "Deployment" },
+      { image: caseImages.naj1, title: "Vertical farm grow room", site: "Naju", tag: "Deployment" },
+      { image: caseImages.mal2, title: "AlphaFarm Malaysia grow room", site: "Malaysia", tag: "Opening soon" },
+      { image: caseImages.jn1, title: "Strawberry container farm", site: "Jeonnam", tag: "Deployment" },
+      { image: caseImages.ich1, title: "Vertical farm exterior", site: "Icheon", tag: "Deployment" },
+      { image: caseImages.njl1, title: "Vertical farming research lab", site: "Naju", tag: "Deployment" },
+      { image: caseImages.suw2, title: "Urban vertical farm grow room", site: "Suwon", tag: "In operation" },
+      { image: caseImages.naj2, title: "Grow room overview", site: "Naju", tag: "Deployment" },
+      { image: caseImages.njl2, title: "Research lab cultivation racks", site: "Naju", tag: "Deployment" }
+    ]
   },
   audience: {
     eyebrow: "Who we serve",
@@ -729,7 +799,7 @@ export const enContent: HomeContent = {
   motion: {
     eyebrow: "Brand motion film",
     titleLines: ["One continuous flow —", "how CESeL Primus expands"],
-    body: "From vertical farming origins to climate control, energy & operations management, cold chain, and business development support.",
+    body: "From vertical farming origins to climate control, power · control · data management, cold chain, and business development support.",
     videoFallback: "CESeL Primus portfolio motion film"
   },
   news: {
@@ -757,12 +827,12 @@ export const enContent: HomeContent = {
       {
         question: "What kind of company is CESeL Primus?",
         answer:
-          "CESeL Primus is a technology company that started from premium strawberry vertical farming and expands into cooling & dehumidification, energy & operations management, cold chain, and business development support. Our goal is to turn food production and storage infrastructure into one integrated platform."
+          "CESeL Primus is a technology company that started from premium strawberry vertical farming and expands into cooling & dehumidification, power · control · data management, cold chain, and business development support. Our goal is to turn food production and storage infrastructure into one integrated platform."
       },
       {
         question: "What is the year-round strawberry business solution?",
         answer:
-          "It is the business model AlphaFarm delivers. Once a client decides to invest, CESeL Primus takes responsibility for cultivation, operations, and sales as one package — creating a strawberry business that runs all year, regardless of season. Contracts start at one year and renew annually."
+          "It is the business model AlphaFarm delivers. Once a client decides to invest, CESeL Primus takes responsibility for cultivation, operations, and sales as one package — creating a strawberry business that runs all year. Contracts start at one year and renew annually."
       },
       {
         question: "What problems does AlphaCooling solve?",
@@ -770,14 +840,14 @@ export const enContent: HomeContent = {
           "It addresses hot and humid environments, condensation, and supply-air quality issues in vertical farms, food packing rooms, cold storage, and cold-chain facilities with a dehumidification-centered HVAC solution."
       },
       {
-        question: "What is AlphaEMS?",
+        question: "What is AlphaEnergy?",
         answer:
-          "An energy and operations management platform that monitors equipment operating status and power consumption, managing peak load and energy efficiency. It comes in Farm and Cold Chain editions."
+          "An integrated power · control · data management system composed of the Alpha Power Panel, AI Control Gateway, Alpha Data Management System, and Alpha PCU — managing equipment operation, peak load, and energy efficiency with data."
       },
       {
-        question: "Is AlphaEnergy available now?",
+        question: "Do you have real deployment cases?",
         answer:
-          "AlphaEnergy is a new lineup under development review, aimed at raising energy utilization through heat recovery and cold thermal storage. Contact us and we will guide you according to the current stage."
+          "Yes — an urban strawberry vertical farm in operation in Suwon, deployments in Icheon, Naju, and Jeonnam, and AlphaFarm Malaysia preparing to open: six sites in Korea and Malaysia."
       },
       {
         question: "What can I inquire about?",
@@ -801,7 +871,7 @@ export const enContent: HomeContent = {
       {
         name: "HoSoo Kang",
         role: "Pro · Business Development",
-        tag: "Business development — primary",
+        tag: "Business development",
         primary: true,
         phones: [{ label: "Mobile", value: "+82 10-3341-6036", href: "tel:+821033416036" }],
         email: "rkdghtn636@gmail.com",
@@ -823,11 +893,12 @@ export const enContent: HomeContent = {
   },
   footer: {
     brandDesc:
-      "From vertical farms to cold chain — we turn food infrastructure into a platform. AlphaFarm, AlphaCooling, AlphaEMS, and AlphaSupport connect production to business development.",
+      "From vertical farms to cold chain — we turn food infrastructure into a platform. AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaSupport connect production to business development.",
     inquiry: "Contact business development",
     navLinks: [
       { href: "#lineup", label: "Lineup" },
       { href: "#alphafarm", label: "AlphaFarm" },
+      { href: "#cases", label: "Cases" },
       { href: "#ip", label: "IP portfolio" },
       { href: "#news", label: "News" },
       { href: "#contact", label: "Contact" }
@@ -849,12 +920,12 @@ export const enContent: HomeContent = {
   },
   seo: {
     orgDescription:
-      "CESeL Primus is an agri-food and cold-chain infrastructure technology company that started from premium strawberry vertical farming and expands into cooling & dehumidification, energy & operations management, cold chain, and business development support.",
+      "CESeL Primus is an agri-food and cold-chain infrastructure technology company. Starting from premium strawberry vertical farming, it expands into cooling & dehumidification, power · control · data management, cold chain, and business development support — with the AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaSupport lineups.",
     webPageName: "CESeL Primus | From Vertical Farms to Cold Chain — Food Infrastructure as One Platform",
-    lineupListName: "CESeL Primus solution lineup",
+    lineupListName: "CESeL Primus Alpha Solution Portfolio",
     videoName: "CESeL Primus portfolio motion film",
     videoDescription:
-      "A brand motion film showing how operating experience from vertical farming expands into climate control, energy & operations management, cold chain, and business development support.",
+      "A brand motion film showing how operating experience from vertical farming expands into climate control, power · control · data management, cold chain, and business development support.",
     breadcrumbHome: "Home"
   }
 };
