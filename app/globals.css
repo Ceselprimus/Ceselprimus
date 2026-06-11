@@ -46,6 +46,18 @@ a {
   text-decoration: none;
 }
 
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
 ::selection {
   background: rgba(42, 212, 137, 0.28);
 }

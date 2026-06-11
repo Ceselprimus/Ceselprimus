@@ -343,7 +343,7 @@ function LineupSection({ content }: { content: HomeContent }) {
                 <Lines lines={lineup.titleLines} />
               </SectionTitle>
             </div>
-            <p className="max-w-md text-[1.02rem] leading-relaxed text-ink/62 md:pb-2">{lineup.aside}</p>
+            <p className="max-w-lg text-[1.02rem] leading-relaxed text-ink/62 md:pb-2">{lineup.aside}</p>
           </div>
         </Reveal>
         <div className="mt-10 grid gap-6 md:mt-12 lg:grid-cols-2">
@@ -462,9 +462,9 @@ function AlphaCoolingSection({ content }: { content: HomeContent }) {
     <section id="alphacooling" className="bg-white py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-          <Reveal delay={140} className="order-last lg:order-first lg:sticky lg:top-28">
+          <Reveal delay={140} className="order-last lg:order-first">
             <figure className="relative overflow-hidden rounded-2xl bg-ink shadow-soft">
-              <div className="relative aspect-[4/5] md:aspect-[4/4.4]">
+              <div className="relative aspect-[4/3]">
                 <Image
                   src="/media/concepts/alphacooling-farm-concept-1.webp"
                   alt={cooling.imageAlt}
@@ -618,7 +618,7 @@ function CasesSection({ content }: { content: HomeContent }) {
                 <Lines lines={cases.titleLines} />
               </SectionTitle>
             </div>
-            <p className="max-w-md text-[1.05rem] leading-relaxed text-ink/62 md:pb-2 md:text-[1.1rem]">
+            <p className="max-w-lg text-[1.05rem] leading-relaxed text-ink/62 md:pb-2 md:text-[1.1rem]">
               {cases.body}
             </p>
           </div>
@@ -807,7 +807,7 @@ function ContactSection({ content }: { content: HomeContent }) {
             <p className="mt-6 text-[1.05rem] leading-relaxed text-ink/68 md:text-[1.12rem]">{contact.body}</p>
           </div>
         </Reveal>
-        <div className="mt-12 grid gap-6 md:mt-14 lg:grid-cols-[0.96fr_1.04fr]">
+        <div className="mt-12 grid gap-6 md:mt-14 lg:grid-cols-[1fr_0.92fr]">
           <Reveal delay={100}>
             <div className="h-full rounded-[1.5rem] bg-white p-2 ring-1 ring-ink/8">
               <div className="divide-y divide-ink/8">
@@ -828,7 +828,7 @@ function ContactSection({ content }: { content: HomeContent }) {
               </div>
             </div>
           </Reveal>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid content-start gap-6">
             {contact.contacts.map((person, index) => (
               <Reveal key={person.email} delay={160 + index * 90}>
                 <article
@@ -866,7 +866,7 @@ function ContactSection({ content }: { content: HomeContent }) {
                         <Mail className="h-4 w-4 text-forest" />
                         {person.emailLabel}
                       </span>
-                      <span className="break-all text-right text-[0.98rem] font-bold text-forest">{person.email}</span>
+                      <span className="break-all text-right text-[1.02rem] font-bold text-forest">{person.email}</span>
                     </a>
                   </div>
                 </article>
