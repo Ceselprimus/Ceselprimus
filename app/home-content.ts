@@ -137,8 +137,12 @@ export interface HomeContent {
     teaserTitle: string;
     teaserBody: string;
     title: string;
-    subtitle: string;
+    statusLabel: string;
+    timeLabel: string;
     greeting: string;
+    greeting2: string;
+    chipsLabel: string;
+    followUps: string[];
     inquiryChip: string;
     inquiryLead: string;
     casesChip: string;
@@ -534,15 +538,23 @@ export const koContent: HomeContent = {
     ]
   },
   chat: {
-    launcher: "궁금한 점, 먼저 답해드려요",
-    teaserTitle: "무엇이 궁금하신가요?",
-    teaserBody: "결로 해결부터 연중 딸기 사업까지 — 클릭 한 번이면 바로 답해드립니다.",
+    launcher: "궁금한 점, 바로 답해드려요",
+    teaserTitle: "무엇이 궁금하신가요? 🍓",
+    teaserBody: "결로 해결부터 연중 딸기 사업까지 — 클릭 한 번이면 바로 답해드려요.",
     title: "쎄슬 도우미",
-    subtitle: "기다림 없이 바로 답합니다",
-    greeting: "안녕하세요, 쎄슬프라이머스입니다.\n아래에서 궁금한 항목을 선택해 주세요 — 바로 답해드립니다.",
-    inquiryChip: "담당자에게 직접 문의할래요",
-    inquiryLead: "사업개발 담당자에게 바로 연결해 드릴게요. 전화 또는 이메일을 선택해 주세요.",
-    casesChip: "구축 현장 사진 먼저 볼래요",
+    statusLabel: "지금 바로 응답",
+    timeLabel: "방금",
+    greeting: "안녕하세요! 👋 쎄슬프라이머스 도우미입니다.",
+    greeting2: "수직농장부터 콜드체인까지, 무엇이든 물어보세요.\n아래 질문을 누르면 기다림 없이 바로 답해드려요 ⚡",
+    chipsLabel: "자주 묻는 질문",
+    followUps: [
+      "도움이 되셨나요? 다른 질문도 골라보세요 🙂",
+      "더 깊은 이야기는 담당자가 직접 들려드릴 수 있어요 📞",
+      "백문이 불여일견 — 현장 사진으로 직접 확인해 보세요 📷"
+    ],
+    inquiryChip: "📞 담당자에게 직접 문의할래요",
+    inquiryLead: "사업개발 담당자에게 바로 연결해 드릴게요. 전화 또는 이메일을 선택해 주세요 😊",
+    casesChip: "📷 구축 현장 사진 먼저 볼래요",
     footnote: "자동 안내입니다 · 상세 상담은 담당자 직접 문의를 이용해 주세요"
   },
   contact: {
@@ -896,14 +908,22 @@ export const enContent: HomeContent = {
   },
   chat: {
     launcher: "Questions? Instant answers",
-    teaserTitle: "What brings you here?",
+    teaserTitle: "What brings you here? 🍓",
     teaserBody: "From condensation control to a year-round strawberry business — one click for instant answers.",
     title: "CESeL Assistant",
-    subtitle: "Instant automated answers",
-    greeting: "Hello, this is CESeL Primus.\nPick a question below — answers come instantly.",
-    inquiryChip: "Talk to our team directly",
-    inquiryLead: "Connecting you to our business development team — choose phone or email.",
-    casesChip: "Show me real site photos first",
+    statusLabel: "Replies instantly",
+    timeLabel: "Just now",
+    greeting: "Hi there! 👋 I am the CESeL Primus assistant.",
+    greeting2: "From vertical farms to cold chain — ask away.\nTap a question below for an instant answer ⚡",
+    chipsLabel: "Frequently asked",
+    followUps: [
+      "Was that helpful? Pick another question 🙂",
+      "For the full story, our team is one tap away 📞",
+      "Seeing is believing — check the real site photos 📷"
+    ],
+    inquiryChip: "📞 Talk to our team directly",
+    inquiryLead: "Connecting you to our business development team — choose phone or email 😊",
+    casesChip: "📷 Show me real site photos first",
     footnote: "Automated guide · For details, contact our team directly"
   },
   contact: {

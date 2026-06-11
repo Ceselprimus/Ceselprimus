@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Camera, MessageCircle, Phone, X } from "lucide-react";
+import { ArrowUpRight, MessageCircle, X } from "lucide-react";
 import ContactModal from "./ContactModal";
 import type { HomeContent } from "../home-content";
 
@@ -9,6 +10,16 @@ interface ChatMessage {
   role: "bot" | "user";
   text: string;
   typing?: boolean;
+}
+
+const chipEmojis = ["🏢", "🍓", "❄️", "⚡", "🏗️", "💬"];
+
+function BotAvatar() {
+  return (
+    <span className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white ring-1 ring-ink/10">
+      <Image src="/icon.png" alt="" width={22} height={22} className="h-[22px] w-[22px] object-contain" />
+    </span>
+  );
 }
 
 export default function ChatWidget({
@@ -27,60 +38,81 @@ export default function ChatWidget({
   const [asked, setAsked] = useState<number[]>([]);
   const [busy, setBusy] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const followUpIndex = useRef(0);
   const bodyRef = useRef<HTMLDivElement>(null);
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
-  // 첫 방문 후킹: 잠시 뒤 티저 말풍선 노출
   useEffect(() => {
     if (open || teaserDismissed) return;
     const timer = setTimeout(() => setTeaserVisible(true), 2600);
     return () => clearTimeout(timer);
   }, [open, teaserDismissed]);
 
-  // 새 메시지마다 아래로 스크롤
   useEffect(() => {
     const el = bodyRef.current;
-    if (el) el.scrollTop = el.scrollHeight;
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
   }, [messages, busy]);
+
+  useEffect(() => () => timers.current.forEach(clearTimeout), []);
+
+  const queue = (fn: () => void, delay: number) => {
+    timers.current.push(setTimeout(fn, delay));
+  };
+
+  const typeThen = (text: string, delay: number, after?: () => void) => {
+    setMessages((prev) => [...prev, { role: "bot", text: "", typing: true }]);
+    queue(() => {
+      setMessages((prev) => [...prev.slice(0, -1), { role: "bot", text }]);
+      if (after) after();
+    }, delay);
+  };
 
   const openPanel = () => {
     setOpen(true);
     setTeaserVisible(false);
     setTeaserDismissed(true);
     if (messages.length === 0) {
-      setMessages([{ role: "bot", text: chat.greeting }]);
+      setBusy(true);
+      queue(() => {
+        typeThen(chat.greeting, 700, () => {
+          queue(() => {
+            typeThen(chat.greeting2, 800, () => setBusy(false));
+          }, 350);
+        });
+      }, 250);
     }
   };
 
-  const pushAnswer = (question: string, answer: string, index?: number) => {
+  const nextFollowUp = () => {
+    const text = chat.followUps[followUpIndex.current % chat.followUps.length];
+    followUpIndex.current += 1;
+    return text;
+  };
+
+  const onQuestion = (question: string, answer: string, index: number) => {
     if (busy) return;
     setBusy(true);
-    setMessages((prev) => [...prev, { role: "user", text: question }, { role: "bot", text: "", typing: true }]);
-    if (index !== undefined) setAsked((prev) => [...prev, index]);
-    setTimeout(() => {
-      setMessages((prev) => {
-        const next = prev.slice(0, -1);
-        return [...next, { role: "bot", text: answer }];
+    setAsked((prev) => [...prev, index]);
+    setMessages((prev) => [...prev, { role: "user", text: question }]);
+    queue(() => {
+      typeThen(answer, 1000, () => {
+        queue(() => {
+          typeThen(nextFollowUp(), 550, () => setBusy(false));
+        }, 400);
       });
-      setBusy(false);
-    }, 850);
+    }, 300);
   };
 
   const onInquiry = () => {
     if (busy) return;
     setBusy(true);
-    setMessages((prev) => [
-      ...prev,
-      { role: "user", text: chat.inquiryChip },
-      { role: "bot", text: "", typing: true }
-    ]);
-    setTimeout(() => {
-      setMessages((prev) => {
-        const next = prev.slice(0, -1);
-        return [...next, { role: "bot", text: chat.inquiryLead }];
+    setMessages((prev) => [...prev, { role: "user", text: chat.inquiryChip }]);
+    queue(() => {
+      typeThen(chat.inquiryLead, 700, () => {
+        setBusy(false);
+        queue(() => setModalOpen(true), 250);
       });
-      setBusy(false);
-      setModalOpen(true);
-    }, 700);
+    }, 300);
   };
 
   const onCases = () => {
@@ -88,15 +120,16 @@ export default function ChatWidget({
     document.querySelector("#cases")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const remaining = faq.items.map((item, index) => ({ item, index })).filter(({ index }) => !asked.includes(index));
+  const remaining = faq.items
+    .map((item, index) => ({ item, index }))
+    .filter(({ index }) => !asked.includes(index));
 
   return (
     <>
-      {/* 플로팅 런처 + 티저 */}
       {!open ? (
-        <div className="fixed bottom-5 right-4 z-[90] flex flex-col items-end gap-2.5 md:bottom-6 md:right-6">
+        <div className="fixed bottom-5 right-4 z-[90] flex flex-col items-end gap-3 md:bottom-6 md:right-6">
           {teaserVisible ? (
-            <div className="chat-pop relative max-w-[280px] rounded-2xl rounded-br-md bg-white p-4 shadow-soft ring-1 ring-ink/10">
+            <div className="chat-pop relative max-w-[300px] rounded-2xl rounded-br-md bg-white p-4 pr-5 shadow-soft ring-1 ring-ink/10">
               <button
                 type="button"
                 aria-label="✕"
@@ -104,106 +137,133 @@ export default function ChatWidget({
                   setTeaserVisible(false);
                   setTeaserDismissed(true);
                 }}
-                className="absolute -left-2.5 -top-2.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-ink text-white shadow-card"
+                className="absolute -left-2.5 -top-2.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-ink text-white shadow-card transition hover:bg-energy"
               >
                 <X className="h-3.5 w-3.5" />
               </button>
-              <p className="text-[0.98rem] font-bold leading-snug text-ink">{chat.teaserTitle}</p>
-              <p className="mt-1 text-[0.9rem] leading-relaxed text-ink/62">{chat.teaserBody}</p>
+              <div className="flex items-start gap-3">
+                <BotAvatar />
+                <div>
+                  <p className="text-[1rem] font-bold leading-snug text-ink">{chat.teaserTitle}</p>
+                  <p className="mt-1 text-[0.92rem] leading-relaxed text-ink/65">{chat.teaserBody}</p>
+                </div>
+              </div>
             </div>
           ) : null}
           <button
             type="button"
             onClick={openPanel}
-            className="chat-launcher group inline-flex items-center gap-2.5 rounded-full bg-forest py-3.5 pl-4 pr-5 text-white shadow-soft transition hover:bg-ink"
+            className="chat-launcher group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-br from-forest to-[#093D2E] py-3.5 pl-4 pr-6 text-white shadow-soft ring-1 ring-white/15 transition-transform hover:scale-[1.04]"
           >
-            <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white/14">
+            <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-white/14">
               <MessageCircle className="h-5 w-5" />
-              <span aria-hidden className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-mint chat-ping" />
+              <span aria-hidden className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-forest bg-mint chat-ping" />
             </span>
-            <span className="text-[0.98rem] font-bold tracking-tight">{chat.launcher}</span>
+            <span className="text-[1.02rem] font-bold tracking-tight">{chat.launcher}</span>
           </button>
         </div>
       ) : null}
 
-      {/* 채팅 패널 */}
       {open ? (
-        <div className="chat-pop fixed bottom-0 left-0 right-0 z-[95] flex max-h-[82svh] flex-col overflow-hidden rounded-t-3xl bg-white shadow-soft ring-1 ring-ink/10 md:bottom-6 md:left-auto md:right-6 md:h-[600px] md:w-[392px] md:rounded-3xl">
-          <div className="flex items-center justify-between gap-3 bg-forest px-5 py-4 text-white">
-            <div className="flex items-center gap-3">
-              <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-white/14">
-                <MessageCircle className="h-5 w-5" />
-                <span aria-hidden className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-mint" />
-              </span>
-              <div>
-                <p className="text-[1.05rem] font-bold leading-tight">{chat.title}</p>
-                <p className="text-[0.85rem] text-white/72">{chat.subtitle}</p>
+        <div className="chat-pop fixed bottom-0 left-0 right-0 z-[95] flex max-h-[85svh] flex-col overflow-hidden rounded-t-3xl bg-white shadow-soft ring-1 ring-ink/10 md:bottom-6 md:left-auto md:right-6 md:h-[640px] md:w-[400px] md:rounded-[1.6rem]">
+          <div className="bg-gradient-to-br from-forest to-[#093D2E] px-5 pb-4 pt-5 text-white">
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <span className="relative">
+                  <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white ring-2 ring-white/30">
+                    <Image src="/icon.png" alt="" width={30} height={30} className="h-[30px] w-[30px] object-contain" />
+                  </span>
+                  <span aria-hidden className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full border-2 border-forest bg-mint" />
+                </span>
+                <div>
+                  <p className="text-[1.15rem] font-bold leading-tight">{chat.title}</p>
+                  <p className="mt-0.5 flex items-center gap-1.5 text-[0.85rem] text-white/75">
+                    <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-mint chat-ping" />
+                    {chat.statusLabel}
+                  </p>
+                </div>
               </div>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="✕"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/12 transition hover:bg-white/25"
+              >
+                <X className="h-5 w-5" />
+              </button>
             </div>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              aria-label="✕"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/12 transition hover:bg-white/24"
-            >
-              <X className="h-5 w-5" />
-            </button>
           </div>
 
-          <div ref={bodyRef} className="flex-1 space-y-3 overflow-y-auto bg-paper px-4 py-4">
-            {messages.map((message, index) =>
-              message.typing ? (
-                <div key={index} className="flex">
-                  <span className="inline-flex items-center gap-1.5 rounded-2xl rounded-bl-md bg-white px-4 py-3 ring-1 ring-ink/8">
-                    <span className="chat-dot h-2 w-2 rounded-full bg-forest/50" />
-                    <span className="chat-dot h-2 w-2 rounded-full bg-forest/50" style={{ animationDelay: "0.15s" }} />
-                    <span className="chat-dot h-2 w-2 rounded-full bg-forest/50" style={{ animationDelay: "0.3s" }} />
-                  </span>
+          <div ref={bodyRef} className="chat-body flex-1 space-y-1 overflow-y-auto bg-[#F2F5F1] px-4 pb-4 pt-5">
+            {messages.map((message, index) => {
+              const isBot = message.role === "bot";
+              const startOfGroup = isBot && (index === 0 || messages[index - 1].role !== "bot");
+              return (
+                <div key={index} className={`chat-msg ${startOfGroup ? "mt-3 first:mt-0" : "mt-1.5"}`}>
+                  {isBot && startOfGroup ? (
+                    <p className="mb-1.5 ml-12 flex items-baseline gap-2 text-[0.8rem] font-semibold text-ink/55">
+                      {chat.title}
+                      <span className="font-normal text-ink/38">{chat.timeLabel}</span>
+                    </p>
+                  ) : null}
+                  {isBot ? (
+                    <div className="flex items-end gap-2.5">
+                      {startOfGroup ? <BotAvatar /> : <span className="w-9 shrink-0" />}
+                      {message.typing ? (
+                        <span className="inline-flex items-center gap-1.5 rounded-2xl rounded-bl-md bg-white px-4 py-3.5 shadow-[0_2px_10px_rgba(11,31,26,0.06)]">
+                          <span className="chat-dot h-2 w-2 rounded-full bg-forest/55" />
+                          <span className="chat-dot h-2 w-2 rounded-full bg-forest/55" style={{ animationDelay: "0.15s" }} />
+                          <span className="chat-dot h-2 w-2 rounded-full bg-forest/55" style={{ animationDelay: "0.3s" }} />
+                        </span>
+                      ) : (
+                        <p className="max-w-[82%] whitespace-pre-line rounded-2xl rounded-bl-md bg-white px-4 py-3 text-[0.98rem] leading-relaxed text-ink shadow-[0_2px_10px_rgba(11,31,26,0.06)]">
+                          {message.text}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="flex justify-end">
+                      <p className="max-w-[82%] rounded-2xl rounded-br-md bg-gradient-to-br from-forest to-[#0B4A38] px-4 py-3 text-[0.98rem] font-semibold leading-relaxed text-white shadow-[0_3px_12px_rgba(13,92,69,0.28)]">
+                        {message.text}
+                      </p>
+                    </div>
+                  )}
                 </div>
-              ) : message.role === "bot" ? (
-                <div key={index} className="flex">
-                  <p className="max-w-[85%] whitespace-pre-line rounded-2xl rounded-bl-md bg-white px-4 py-3 text-[0.95rem] leading-relaxed text-ink ring-1 ring-ink/8">
-                    {message.text}
-                  </p>
-                </div>
-              ) : (
-                <div key={index} className="flex justify-end">
-                  <p className="max-w-[85%] rounded-2xl rounded-br-md bg-forest px-4 py-3 text-[0.95rem] font-semibold leading-relaxed text-white">
-                    {message.text}
-                  </p>
-                </div>
-              )
-            )}
+              );
+            })}
 
-            {!busy ? (
-              <div className="space-y-2 pt-1.5">
+            {!busy && messages.length > 0 ? (
+              <div className="chat-msg space-y-2 pt-4">
+                {remaining.length > 0 ? (
+                  <p className="ml-1 flex items-center gap-2 text-[0.8rem] font-bold tracking-wide text-ink/45">
+                    {chat.chipsLabel}
+                    <span aria-hidden className="h-px flex-1 bg-ink/10" />
+                  </p>
+                ) : null}
                 {remaining.map(({ item, index }) => (
                   <button
                     key={item.question}
                     type="button"
-                    onClick={() => pushAnswer(item.question, item.answer, index)}
-                    className="block w-full rounded-xl bg-white px-4 py-3 text-left text-[0.92rem] font-semibold text-ink ring-1 ring-forest/25 transition hover:bg-forest/[0.06] hover:ring-forest/50"
+                    onClick={() => onQuestion(item.question, item.answer, index)}
+                    className="flex w-full items-center gap-2.5 rounded-xl bg-white px-4 py-3 text-left text-[0.95rem] font-semibold text-ink shadow-[0_1px_6px_rgba(11,31,26,0.05)] ring-1 ring-ink/8 transition hover:-translate-y-0.5 hover:ring-forest/45 hover:shadow-card"
                   >
+                    <span aria-hidden className="text-[1.05rem]">{chipEmojis[index % chipEmojis.length]}</span>
                     {item.question}
                   </button>
                 ))}
                 <button
                   type="button"
                   onClick={onCases}
-                  className="flex w-full items-center gap-2 rounded-xl bg-white px-4 py-3 text-left text-[0.92rem] font-semibold text-ink ring-1 ring-ink/12 transition hover:ring-forest/50"
+                  className="flex w-full items-center gap-2.5 rounded-xl bg-white px-4 py-3 text-left text-[0.95rem] font-semibold text-ink shadow-[0_1px_6px_rgba(11,31,26,0.05)] ring-1 ring-ink/8 transition hover:-translate-y-0.5 hover:ring-forest/45 hover:shadow-card"
                 >
-                  <Camera className="h-4 w-4 shrink-0 text-forest" />
                   {chat.casesChip}
                 </button>
                 <button
                   type="button"
                   onClick={onInquiry}
-                  className="flex w-full items-center justify-between gap-2 rounded-xl bg-forest px-4 py-3.5 text-left text-[0.95rem] font-bold text-white transition hover:bg-ink"
+                  className="flex w-full items-center justify-between gap-2 rounded-xl bg-gradient-to-br from-forest to-[#093D2E] px-4 py-3.5 text-left text-[0.98rem] font-bold text-white shadow-[0_4px_14px_rgba(13,92,69,0.32)] transition hover:-translate-y-0.5 hover:brightness-110"
                 >
-                  <span className="flex items-center gap-2">
-                    <Phone className="h-4 w-4 shrink-0" />
-                    {chat.inquiryChip}
-                  </span>
+                  <span>{chat.inquiryChip}</span>
                   <ArrowUpRight className="h-4 w-4 shrink-0" />
                 </button>
               </div>
