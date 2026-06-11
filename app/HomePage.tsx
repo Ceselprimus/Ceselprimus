@@ -25,6 +25,8 @@ import {
 } from "lucide-react";
 import SiteHeader from "./components/SiteHeader";
 import Reveal from "./components/Reveal";
+import CasesGallery from "./components/CasesGallery";
+import FarmModels from "./components/FarmModels";
 import { companyLegal, type Accent, type HomeContent } from "./home-content";
 
 const baseUrl = "https://www.ceslprimus.com";
@@ -45,10 +47,6 @@ const accentStyles: Record<Accent, { text: string; dot: string; bgSoft: string }
   energy: { text: "text-energy", dot: "bg-energy", bgSoft: "bg-energy/10" },
   amber: { text: "text-amber", dot: "bg-amber", bgSoft: "bg-amber/10" }
 };
-
-function buildInquiryHref(content: HomeContent) {
-  return `mailto:${companyLegal.inquiryEmail}?subject=${encodeURIComponent(content.inquirySubject)}`;
-}
 
 function buildStructuredData(content: HomeContent) {
   const lang = content.locale === "ko" ? "ko-KR" : "en";
@@ -158,12 +156,11 @@ function buildStructuredData(content: HomeContent) {
 }
 
 export default function HomePage({ content }: { content: HomeContent }) {
-  const inquiryHref = buildInquiryHref(content);
   return (
     <main id="top" className="overflow-hidden">
       <StructuredData data={buildStructuredData(content)} />
-      <SiteHeader inquiryHref={inquiryHref} nav={content.nav} />
-      <Hero content={content} inquiryHref={inquiryHref} />
+      <SiteHeader inquiryHref="#contact" nav={content.nav} />
+      <Hero content={content} />
       <PositioningSection content={content} />
       <ProblemSection content={content} />
       <LineupSection content={content} />
@@ -177,8 +174,8 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <MotionSection content={content} />
       <NewsSection content={content} />
       <FaqSection content={content} />
-      <ContactSection content={content} inquiryHref={inquiryHref} />
-      <Footer content={content} inquiryHref={inquiryHref} />
+      <ContactSection content={content} />
+      <Footer content={content} />
     </main>
   );
 }
@@ -230,7 +227,7 @@ function SectionTitle({ children, dark = false }: { children: ReactNode; dark?: 
   );
 }
 
-function Hero({ content, inquiryHref }: { content: HomeContent; inquiryHref: string }) {
+function Hero({ content }: { content: HomeContent }) {
   const { hero } = content;
   return (
     <section className="relative min-h-[94svh] w-full overflow-hidden bg-ink text-white">
@@ -265,7 +262,7 @@ function Hero({ content, inquiryHref }: { content: HomeContent; inquiryHref: str
               </a>
               <a
                 className="inline-flex items-center gap-2 rounded-full px-7 py-4 text-[1.05rem] font-semibold text-white ring-1 ring-inset ring-white/40 transition hover:bg-white/10 hover:ring-white"
-                href={inquiryHref}
+                href="#contact"
               >
                 {hero.ctaSecondary}
               </a>
@@ -467,17 +464,11 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
               </div>
             </Reveal>
             <Reveal delay={200}>
-              <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                {alphafarm.models.map(([name, desc]) => (
-                  <div
-                    key={name}
-                    className="rounded-2xl bg-white p-6 ring-1 ring-ink/8 transition-colors duration-300 hover:ring-forest/40"
-                  >
-                    <p className="text-xl font-bold tracking-tight text-ink">{name}</p>
-                    <p className="mt-2.5 text-[1.02rem] leading-relaxed text-ink/66">{desc}</p>
-                  </div>
-                ))}
-              </div>
+              <FarmModels
+                models={alphafarm.models}
+                photoHint={alphafarm.photoHint}
+                closeLabel={content.cases.closeLabel}
+              />
             </Reveal>
           </div>
           <Reveal delay={140} className="lg:sticky lg:top-28">
@@ -670,35 +661,7 @@ function CasesSection({ content }: { content: HomeContent }) {
             </p>
           </div>
         </Reveal>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
-          {cases.items.map((item, index) => (
-            <Reveal key={item.image} delay={(index % 3) * 80}>
-              <figure className="group overflow-hidden rounded-2xl bg-paper ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft">
-                <div className="relative aspect-[4/3] overflow-hidden bg-ink/5">
-                  <Image
-                    src={item.image}
-                    alt={`${item.title} — ${item.site}`}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"
-                    className="object-cover transition duration-700 group-hover:scale-[1.045]"
-                  />
-                </div>
-                <figcaption className="flex items-start justify-between gap-3 p-5">
-                  <div>
-                    <p className="text-[1.08rem] font-bold leading-snug tracking-tight text-ink">{item.title}</p>
-                    <p className="mt-0.5 text-[0.95rem] font-medium text-ink/55">{item.site}</p>
-                  </div>
-                  <span className="shrink-0 rounded-full bg-forest/10 px-3 py-1 text-[0.82rem] font-bold text-forest">
-                    {item.tag}
-                  </span>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={100}>
-          <p className="mt-8 text-[0.95rem] leading-relaxed text-ink/48">{cases.note}</p>
-        </Reveal>
+        <CasesGallery cases={cases} />
       </Container>
     </section>
   );
@@ -908,7 +871,7 @@ function FaqSection({ content }: { content: HomeContent }) {
   );
 }
 
-function ContactSection({ content, inquiryHref }: { content: HomeContent; inquiryHref: string }) {
+function ContactSection({ content }: { content: HomeContent }) {
   const { contact } = content;
   return (
     <section id="contact" className="py-20 md:py-32">
@@ -920,12 +883,6 @@ function ContactSection({ content, inquiryHref }: { content: HomeContent; inquir
               <Lines lines={contact.titleLines} />
             </SectionTitle>
             <p className="mt-6 text-[1.05rem] leading-relaxed text-ink/68 md:text-[1.12rem]">{contact.body}</p>
-            <a
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-7 py-4 text-[1.05rem] font-semibold text-white transition hover:bg-ink"
-              href={inquiryHref}
-            >
-              {contact.cta} <ArrowRight className="h-5 w-5" />
-            </a>
           </div>
         </Reveal>
         <div className="mt-12 grid gap-6 md:mt-14 lg:grid-cols-[0.96fr_1.04fr]">
@@ -977,7 +934,7 @@ function ContactSection({ content, inquiryHref }: { content: HomeContent; inquir
                           <Phone className="h-4 w-4 text-forest" />
                           {phone.label}
                         </span>
-                        <span className="text-[1.05rem] font-bold tracking-tight text-ink transition-colors group-hover:text-forest">
+                        <span className="whitespace-nowrap text-[1.05rem] font-bold tracking-tight text-ink transition-colors group-hover:text-forest">
                           {phone.value}
                         </span>
                       </a>
@@ -1000,43 +957,24 @@ function ContactSection({ content, inquiryHref }: { content: HomeContent; inquir
   );
 }
 
-function Footer({ content, inquiryHref }: { content: HomeContent; inquiryHref: string }) {
+function Footer({ content }: { content: HomeContent }) {
   const { footer } = content;
   return (
     <footer className="bg-ink text-white">
-      <Container className="grid gap-12 border-b border-white/10 py-16 lg:grid-cols-[1.2fr_0.8fr]">
-        <div>
-          <Image
-            src="/media/cesel-logo-ci-white-transparent.png"
-            alt={content.locale === "ko" ? "쎄슬프라이머스" : "CESeL Primus"}
-            width={203}
-            height={50}
-            className="h-auto w-44"
-          />
-          <p className="mt-6 max-w-xl text-[1.02rem] leading-relaxed text-white/64">{footer.brandDesc}</p>
-          <div className="mt-7 flex flex-wrap gap-2.5">
-            {content.news.socialLinks.map(([label, href]) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full px-4 py-2 text-[0.95rem] font-medium text-white/70 ring-1 ring-white/16 transition-colors duration-200 hover:text-white hover:ring-mint"
-              >
-                {label}
-              </a>
-            ))}
+      <Container className="py-12 md:py-14">
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          <div>
+            <Image
+              src="/media/cesel-logo-ci-white-transparent.png"
+              alt={content.locale === "ko" ? "쎄슬프라이머스" : "CESeL Primus"}
+              width={203}
+              height={50}
+              className="h-auto w-36"
+            />
+            <p className="mt-4 text-[0.95rem] leading-relaxed text-white/55">{footer.brandDesc}</p>
           </div>
-        </div>
-        <div className="flex flex-col gap-7 lg:items-end">
-          <a
-            href={inquiryHref}
-            className="inline-flex w-fit items-center gap-2 rounded-full bg-mint px-6 py-3.5 text-[1.02rem] font-semibold text-ink transition hover:bg-white"
-          >
-            {footer.inquiry} <ArrowRight className="h-5 w-5" />
-          </a>
           <nav
-            className="flex flex-wrap gap-x-7 gap-y-3 text-[1rem] font-medium text-white/64 lg:justify-end"
+            className="flex max-w-md flex-wrap gap-x-6 gap-y-2.5 text-[0.95rem] font-medium text-white/60 md:justify-end"
             aria-label={content.locale === "ko" ? "푸터 메뉴" : "Footer menu"}
           >
             {footer.navLinks.map((link) => (
@@ -1046,27 +984,26 @@ function Footer({ content, inquiryHref }: { content: HomeContent; inquiryHref: s
             ))}
           </nav>
         </div>
-      </Container>
-      <Container className="py-12">
-        <div className="grid gap-9 lg:grid-cols-[200px_1fr]">
-          <div>
-            <p className="text-[1.05rem] font-bold text-white">{footer.bizTitle}</p>
-            <p className="mt-2 text-[0.92rem] leading-relaxed text-white/44">{footer.bizSub}</p>
-          </div>
-          <dl className="grid gap-x-10 gap-y-5 text-[0.98rem] leading-relaxed text-white/64 md:grid-cols-2">
-            {footer.bizRows.map(([label, value], index) => (
-              <div key={label} className={index === 3 || index === 5 ? "md:col-span-2" : ""}>
-                <dt className="font-semibold text-white/86">{label}</dt>
-                <dd className="ml-0 mt-1 break-keep">{value}</dd>
-              </div>
-            ))}
-          </dl>
+        <div className="mt-9 space-y-1.5 border-t border-white/10 pt-7 text-[0.88rem] leading-relaxed text-white/45">
+          {footer.bizLines.map((line) => (
+            <p key={line}>{line}</p>
+          ))}
         </div>
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-7 text-[0.92rem] text-white/42 md:flex-row md:items-center md:justify-between">
+        <div className="mt-7 flex flex-col gap-3 border-t border-white/10 pt-6 text-[0.85rem] text-white/40 md:flex-row md:items-center md:justify-between">
           <p>{footer.copyright}</p>
-          <p>
-            {footer.officialInquiry}: {companyLegal.inquiryEmail}
-          </p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {content.news.socialLinks.map(([label, href]) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="transition hover:text-white"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
         </div>
       </Container>
     </footer>

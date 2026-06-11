@@ -40,7 +40,7 @@ export default function SiteHeader({
             ? "bg-white/88 shadow-[0_1px_0_rgba(11,31,26,0.08)] backdrop-blur-xl"
             : open
               ? "bg-ink"
-              : "bg-gradient-to-b from-ink/64 via-ink/24 to-transparent"
+              : "border-b border-white/12 bg-ink/35 backdrop-blur-md"
         }`}
       >
         <div className="mx-auto flex h-[68px] w-[min(1140px,92vw)] items-center justify-between md:h-[78px]">

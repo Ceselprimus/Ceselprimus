@@ -70,7 +70,8 @@ export interface HomeContent {
     bodyStrong: string;
     bodyPost: string;
     flow: string[];
-    models: [string, string][];
+    models: { name: string; desc: string; image: string }[];
+    photoHint: string;
     imageAlt: string;
     captionTitle: string;
     captionBody: string;
@@ -103,7 +104,10 @@ export interface HomeContent {
     titleLines: string[];
     body: string;
     note: string;
+    viewAllLabel: string;
+    closeLabel: string;
     items: { image: string; title: string; site: string; tag: string }[];
+    allItems: { image: string; title: string; site: string; tag: string }[];
   };
   audience: {
     eyebrow: string;
@@ -138,7 +142,6 @@ export interface HomeContent {
     eyebrow: string;
     titleLines: string[];
     body: string;
-    cta: string;
     categories: { label: string; desc: string }[];
     contacts: {
       name: string;
@@ -152,13 +155,9 @@ export interface HomeContent {
   };
   footer: {
     brandDesc: string;
-    inquiry: string;
     navLinks: { href: string; label: string }[];
-    bizTitle: string;
-    bizSub: string;
-    bizRows: [string, string][];
+    bizLines: string[];
     copyright: string;
-    officialInquiry: string;
   };
   seo: {
     orgDescription: string;
@@ -206,6 +205,42 @@ const caseImages = {
   njl2: "/media/cases/case-naju-lab-02.jpg",
   jn1: "/media/cases/case-jeonnam-container.jpg"
 };
+
+const allCasePhotos = [
+  { image: caseImages.suw1, ko: ["도심형 딸기수직농장", "수원", "운영 사례"], en: ["Urban strawberry vertical farm", "Suwon", "In operation"] },
+  { image: caseImages.suw2, ko: ["도심형 딸기수직농장 재배실", "수원", "운영 사례"], en: ["Urban vertical farm grow room", "Suwon", "In operation"] },
+  { image: caseImages.mal1, ko: ["알파팜 말레이시아 전경", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia exterior", "Malaysia", "Opening soon"] },
+  { image: "/media/cases/case-malaysia-entrance.jpg", ko: ["알파팜 말레이시아 입구", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia entrance", "Malaysia", "Opening soon"] },
+  { image: caseImages.mal2, ko: ["알파팜 말레이시아 재배실", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia grow room", "Malaysia", "Opening soon"] },
+  { image: "/media/cases/case-malaysia-growroom-02.jpg", ko: ["알파팜 말레이시아 재배실", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia grow room", "Malaysia", "Opening soon"] },
+  { image: "/media/cases/case-malaysia-growroom-03.jpg", ko: ["알파팜 말레이시아 재배실", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia grow room", "Malaysia", "Opening soon"] },
+  { image: "/media/cases/case-malaysia-workroom.jpg", ko: ["알파팜 말레이시아 작업실", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia workroom", "Malaysia", "Opening soon"] },
+  { image: "/media/cases/case-malaysia-machine.jpg", ko: ["알파팜 말레이시아 양액 기계실", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia nutrient room", "Malaysia", "Opening soon"] },
+  { image: caseImages.ich1, ko: ["딸기수직농장 외관", "이천", "구축 사례"], en: ["Vertical farm exterior", "Icheon", "Deployment"] },
+  { image: "/media/cases/case-icheon-room-01.jpg", ko: ["재배실 내부", "이천", "구축 사례"], en: ["Grow room interior", "Icheon", "Deployment"] },
+  { image: "/media/cases/case-icheon-room-02.jpg", ko: ["재배실 내부", "이천", "구축 사례"], en: ["Grow room interior", "Icheon", "Deployment"] },
+  { image: "/media/cases/case-icheon-planting.jpg", ko: ["정식 준비 구간", "이천", "구축 사례"], en: ["Planting preparation area", "Icheon", "Deployment"] },
+  { image: "/media/cases/case-icheon-rack-01.jpg", ko: ["재배랙", "이천", "구축 사례"], en: ["Cultivation racks", "Icheon", "Deployment"] },
+  { image: "/media/cases/case-icheon-rack-02.jpg", ko: ["재배랙", "이천", "구축 사례"], en: ["Cultivation racks", "Icheon", "Deployment"] },
+  { image: "/media/cases/case-icheon-rack-03.jpg", ko: ["재배랙", "이천", "구축 사례"], en: ["Cultivation racks", "Icheon", "Deployment"] },
+  { image: caseImages.ich2, ko: ["재배랙", "이천", "구축 사례"], en: ["Cultivation racks", "Icheon", "Deployment"] },
+  { image: "/media/cases/case-icheon-rack-05.jpg", ko: ["재배랙", "이천", "구축 사례"], en: ["Cultivation racks", "Icheon", "Deployment"] },
+  { image: "/media/cases/case-icheon-space-01.jpg", ko: ["도심형 연계 공간", "이천", "구축 사례"], en: ["Urban-linked space", "Icheon", "Deployment"] },
+  { image: "/media/cases/case-icheon-space-02.jpg", ko: ["도심형 연계 공간", "이천", "구축 사례"], en: ["Urban-linked space", "Icheon", "Deployment"] },
+  { image: caseImages.naj1, ko: ["딸기수직농장 재배실", "나주", "구축 사례"], en: ["Vertical farm grow room", "Naju", "Deployment"] },
+  { image: "/media/cases/case-naju-growroom-03.jpg", ko: ["재배실 전경", "나주", "구축 사례"], en: ["Grow room overview", "Naju", "Deployment"] },
+  { image: caseImages.naj2, ko: ["재배실 전경", "나주", "구축 사례"], en: ["Grow room overview", "Naju", "Deployment"] },
+  { image: "/media/cases/case-naju-growroom-04.jpg", ko: ["재배실 전경", "나주", "구축 사례"], en: ["Grow room overview", "Naju", "Deployment"] },
+  { image: caseImages.njl1, ko: ["수직농업연구실 구축", "나주", "구축 사례"], en: ["Vertical farming research lab", "Naju", "Deployment"] },
+  { image: "/media/cases/case-naju-lab-03.jpg", ko: ["수직농업연구실 구축", "나주", "구축 사례"], en: ["Vertical farming research lab", "Naju", "Deployment"] },
+  { image: "/media/cases/case-naju-lab-controller.jpg", ko: ["연구실 제어기 설치", "나주", "구축 사례"], en: ["Lab controller installation", "Naju", "Deployment"] },
+  { image: caseImages.njl2, ko: ["수직농업연구실 재배랙", "나주", "구축 사례"], en: ["Research lab cultivation racks", "Naju", "Deployment"] },
+  { image: "/media/cases/case-naju-lab-04.jpg", ko: ["수직농업연구실 구축", "나주", "구축 사례"], en: ["Vertical farming research lab", "Naju", "Deployment"] },
+  { image: caseImages.jn1, ko: ["딸기 컨테이너팜", "전남", "구축 사례"], en: ["Strawberry container farm", "Jeonnam", "Deployment"] }
+];
+
+const casesAllKo = allCasePhotos.map((photo) => ({ image: photo.image, title: photo.ko[0], site: photo.ko[1], tag: photo.ko[2] }));
+const casesAllEn = allCasePhotos.map((photo) => ({ image: photo.image, title: photo.en[0], site: photo.en[1], tag: photo.en[2] }));
 
 export const koContent: HomeContent = {
   locale: "ko",
@@ -338,11 +373,12 @@ export const koContent: HomeContent = {
       "을 제공합니다. 고객이 초기 투자를 결정하면 재배, 운영, 판매까지 쎄슬프라이머스가 패키지로 책임집니다. 계약은 1년 기본, 이후 1년 단위로 연장하며 — 머리 아픈 일은 시스템과 운영팀이 대신합니다.",
     flow: ["생산 기반", "운영 관리", "판매 연결", "공간 경험", "사업화 지원"],
     models: [
-      ["알파코어", "안정적인 생산과 품질관리, 운영 지속성을 위한 대형 프리미엄 딸기 생산기지"],
-      ["알파카페", "생산한 딸기를 케이크 · 생과팩 · 음료 등 프리미엄 상품으로 판매하는 매장형 모델"],
-      ["경험형 포트폴리오", "호텔 · 오피스 · 쇼룸 · 베이커리 공간을 살아있는 브랜드 경험으로 전환"],
-      ["알파 컨테이너팜", "40피트 하이큐브 기반의 소형 생산 · 검증형 모델"]
+      { name: "알파코어", desc: "안정적인 생산과 품질관리, 운영 지속성을 위한 대형 프리미엄 딸기 생산기지", image: caseImages.naj2 },
+      { name: "알파카페", desc: "생산한 딸기를 케이크 · 생과팩 · 음료 등 프리미엄 상품으로 판매하는 매장형 모델", image: "/media/cases/case-icheon-space-01.jpg" },
+      { name: "경험형 포트폴리오", desc: "호텔 · 오피스 · 쇼룸 · 베이커리 공간을 살아있는 브랜드 경험으로 전환", image: caseImages.suw1 },
+      { name: "알파 컨테이너팜", desc: "40피트 하이큐브 기반의 소형 생산 · 검증형 모델", image: caseImages.jn1 }
     ],
+    photoHint: "사진 보기",
     imageAlt: "알파팜 도심형 딸기수직농장 운영 사례",
     captionTitle: "생산 현장과 운영 시스템을 함께 설계합니다",
     captionBody: "재배 공간, 품질관리, 리테일 접점, 현지 사업화까지 하나의 흐름으로."
@@ -391,6 +427,8 @@ export const koContent: HomeContent = {
     titleLines: ["현장이 증명합니다.", "국내외 6개 구축 현장."],
     body: "수원 도심형 운영 사례부터 이천 · 나주 · 전남 구축 현장, 오픈을 준비 중인 말레이시아 알파팜까지 — 모두 실제 현장에서 촬영한 사진입니다.",
     note: "※ 말레이시아 알파팜은 공조시스템 설치 마무리 후 7월 초 정식을 목표로 하는 오픈 준비 현장입니다.",
+    viewAllLabel: "현장 사진 전체 보기",
+    closeLabel: "닫기",
     items: [
       { image: caseImages.suw1, title: "도심형 딸기수직농장", site: "수원", tag: "운영 사례" },
       { image: caseImages.mal1, title: "알파팜 말레이시아 전경", site: "말레이시아", tag: "오픈 준비" },
@@ -403,7 +441,8 @@ export const koContent: HomeContent = {
       { image: caseImages.suw2, title: "도심형 딸기수직농장 재배실", site: "수원", tag: "운영 사례" },
       { image: caseImages.naj2, title: "딸기수직농장 재배실 전경", site: "나주", tag: "구축 사례" },
       { image: caseImages.njl2, title: "수직농업연구실 재배랙", site: "나주", tag: "구축 사례" }
-    ]
+    ],
+    allItems: casesAllKo
   },
   audience: {
     eyebrow: "적용 고객군",
@@ -498,7 +537,6 @@ export const koContent: HomeContent = {
     eyebrow: "연락처",
     titleLines: ["프로젝트 목적을 알려주시면,", "맞는 조합을 설계해 드립니다."],
     body: "수직농장, 식품공장, 저온물류, 해외 실증, 프리미엄 딸기 사업화 — 어떤 단계든 사업개발 담당자가 직접 검토하고 회신드립니다.",
-    cta: "사업개발 문의하기",
     categories: [
       { label: "프로젝트 문의", desc: "수직농장, 식품공장, 포장실 구축 · 개선" },
       { label: "파트너십 문의", desc: "국내 사업개발 파트너, 기술 협력, 공동 사업" },
@@ -530,9 +568,7 @@ export const koContent: HomeContent = {
     ]
   },
   footer: {
-    brandDesc:
-      "수직농장에서 콜드체인까지, 식품 인프라를 플랫폼으로 전환합니다. 알파팜, 알파쿨링, 알파에너지, 알파서포트를 연결해 생산부터 사업화 지원까지 확장합니다.",
-    inquiry: "사업개발 문의하기",
+    brandDesc: "수직농장에서 콜드체인까지, 식품 인프라를 플랫폼으로.",
     navLinks: [
       { href: "#lineup", label: "라인업" },
       { href: "#alphafarm", label: "알파팜" },
@@ -541,20 +577,13 @@ export const koContent: HomeContent = {
       { href: "#news", label: "소식" },
       { href: "#contact", label: "연락처" }
     ],
-    bizTitle: "사업자 정보",
-    bizSub: "사업자등록증 기준 공개 정보",
-    bizRows: [
-      ["상호", companyLegal.name],
-      ["대표자", companyLegal.representative],
-      ["사업자등록번호", companyLegal.businessNumber],
-      ["사업장 소재지", companyLegal.address],
-      ["업태", "농업, 임업 및 어업"],
-      ["종목", "종자 및 묘목 생산업 / 채소, 화훼 및 과실작물 시설재배업"],
-      ["사업개발 문의", companyLegal.inquiryPhone],
-      ["이메일", companyLegal.inquiryEmail]
+    bizLines: [
+      "주식회사 쎄슬프라이머스 농업회사법인  ·  대표자 이관호  ·  사업자등록번호 791-81-00425",
+      "서울특별시 서초구 양재대로2길 18, 4층 H6호 (우면동, 호반파크 2관)",
+      "업태 농업, 임업 및 어업  ·  종목 종자 및 묘목 생산업, 채소·화훼 및 과실작물 시설재배업",
+      "사업개발 문의 010-3341-6036  ·  이메일 rkdghtn636@gmail.com"
     ],
-    copyright: "저작권 2026 쎄슬프라이머스. 모든 권리 보유.",
-    officialInquiry: "공식 문의"
+    copyright: "저작권 2026 쎄슬프라이머스. 모든 권리 보유."
   },
   seo: {
     orgDescription:
@@ -699,11 +728,12 @@ export const enContent: HomeContent = {
       ". Once a client decides to invest, CESeL Primus takes responsibility for cultivation, operations, and sales as one package. Contracts start at one year and renew annually — the hard work is handled by the system and the operations team.",
     flow: ["Production base", "Operations", "Sales channels", "Space experience", "Business development"],
     models: [
-      ["AlphaCore", "A large-scale premium strawberry production base for stable output and quality control"],
-      ["AlphaCafe", "An in-store model selling strawberries as cakes, fresh packs, and beverages"],
-      ["Experience Portfolio", "Turns hotels, offices, showrooms, and bakeries into living brand experiences"],
-      ["Alpha ContainerFarm", "A compact production and validation model in a 40-ft high-cube container"]
+      { name: "AlphaCore", desc: "A large-scale premium strawberry production base for stable output and quality control", image: caseImages.naj2 },
+      { name: "AlphaCafe", desc: "An in-store model selling strawberries as cakes, fresh packs, and beverages", image: "/media/cases/case-icheon-space-01.jpg" },
+      { name: "Experience Portfolio", desc: "Turns hotels, offices, showrooms, and bakeries into living brand experiences", image: caseImages.suw1 },
+      { name: "Alpha ContainerFarm", desc: "A compact production and validation model in a 40-ft high-cube container", image: caseImages.jn1 }
     ],
+    photoHint: "View photo",
     imageAlt: "AlphaFarm urban strawberry vertical farm in operation",
     captionTitle: "We design the production site and the operating system together",
     captionBody: "Growing space, quality control, retail touchpoints, and local business development — in one flow."
@@ -752,6 +782,8 @@ export const enContent: HomeContent = {
     titleLines: ["Proven in the field —", "six sites in Korea and Malaysia."],
     body: "From an urban farm in operation in Suwon to deployments in Icheon, Naju, and Jeonnam, and AlphaFarm Malaysia preparing to open — all photos were taken on site.",
     note: "AlphaFarm Malaysia is an opening-preparation site, targeting first planting in early July after HVAC installation.",
+    viewAllLabel: "View all site photos",
+    closeLabel: "Close",
     items: [
       { image: caseImages.suw1, title: "Urban strawberry vertical farm", site: "Suwon", tag: "In operation" },
       { image: caseImages.mal1, title: "AlphaFarm Malaysia exterior", site: "Malaysia", tag: "Opening soon" },
@@ -764,7 +796,8 @@ export const enContent: HomeContent = {
       { image: caseImages.suw2, title: "Urban vertical farm grow room", site: "Suwon", tag: "In operation" },
       { image: caseImages.naj2, title: "Grow room overview", site: "Naju", tag: "Deployment" },
       { image: caseImages.njl2, title: "Research lab cultivation racks", site: "Naju", tag: "Deployment" }
-    ]
+    ],
+    allItems: casesAllEn
   },
   audience: {
     eyebrow: "Who we serve",
@@ -860,7 +893,6 @@ export const enContent: HomeContent = {
     eyebrow: "Contact",
     titleLines: ["Tell us your project goal —", "we will design the right combination."],
     body: "Vertical farms, food factories, cold logistics, overseas pilots, premium strawberry business — at any stage, our business development team reviews and replies directly.",
-    cta: "Contact business development",
     categories: [
       { label: "Project inquiries", desc: "Building or upgrading vertical farms, food factories, and packing rooms" },
       { label: "Partnership inquiries", desc: "Business development partners in Korea, technology collaboration, joint business" },
@@ -892,9 +924,7 @@ export const enContent: HomeContent = {
     ]
   },
   footer: {
-    brandDesc:
-      "From vertical farms to cold chain — we turn food infrastructure into a platform. AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaSupport connect production to business development.",
-    inquiry: "Contact business development",
+    brandDesc: "From vertical farms to cold chain — food infrastructure as one platform.",
     navLinks: [
       { href: "#lineup", label: "Lineup" },
       { href: "#alphafarm", label: "AlphaFarm" },
@@ -903,20 +933,12 @@ export const enContent: HomeContent = {
       { href: "#news", label: "News" },
       { href: "#contact", label: "Contact" }
     ],
-    bizTitle: "Business information",
-    bizSub: "Public information based on business registration",
-    bizRows: [
-      ["Company", companyLegal.nameEn],
-      ["CEO", companyLegal.representativeEn],
-      ["Business registration no.", companyLegal.businessNumber],
-      ["Address", companyLegal.addressEn],
-      ["Business type", "Agriculture, forestry and fishery"],
-      ["Business items", "Seed and seedling production / Greenhouse cultivation of vegetables, flowers and fruit crops"],
-      ["Business development", "+82 10-3341-6036"],
-      ["Email", companyLegal.inquiryEmail]
+    bizLines: [
+      "CESeL Primus Co., Ltd. (Agricultural corporation)  ·  CEO Kwanho Lee (Kevin Lee)  ·  Business registration no. 791-81-00425",
+      "4F H6, 18 Yangjae-daero 2-gil, Seocho-gu, Seoul, Republic of Korea",
+      "Business development +82 10-3341-6036  ·  Email rkdghtn636@gmail.com"
     ],
-    copyright: "© 2026 CESeL Primus Co., Ltd. All rights reserved.",
-    officialInquiry: "Official inquiries"
+    copyright: "© 2026 CESeL Primus Co., Ltd. All rights reserved."
   },
   seo: {
     orgDescription:
