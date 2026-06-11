@@ -60,7 +60,7 @@ function buildStructuredData(content: HomeContent) {
       alternateName: ["쎄슬프라이머스", "CESeL Primus", "CESeL Primus Co., Ltd."],
       url: baseUrl,
       logo: `${baseUrl}/media/cesel-logo-ci-transparent.png`,
-      image: `${baseUrl}/media/hero-integrated-solution-v2.png`,
+      image: `${baseUrl}/media/og-image.jpg`,
       taxID: companyLegal.businessNumber,
       foundingDate: companyLegal.startDate,
       address: {
@@ -99,7 +99,7 @@ function buildStructuredData(content: HomeContent) {
       name: content.seo.webPageName,
       isPartOf: { "@id": `${baseUrl}/#website` },
       about: { "@id": `${baseUrl}/#organization` },
-      primaryImageOfPage: `${baseUrl}/media/hero-integrated-solution-v2.png`,
+      primaryImageOfPage: `${baseUrl}/media/og-image.jpg`,
       dateModified: "2026-06-11",
       inLanguage: lang
     },
@@ -138,7 +138,7 @@ function buildStructuredData(content: HomeContent) {
       "@id": `${content.pageUrl}/#portfolio-motion`,
       name: content.seo.videoName,
       description: content.seo.videoDescription,
-      thumbnailUrl: [`${baseUrl}/media/hero-integrated-solution-v2.png`],
+      thumbnailUrl: [`${baseUrl}/media/og-image.jpg`],
       contentUrl: `${baseUrl}/media/cesel-portfolio-motion.mp4`,
       uploadDate: "2026-06-10",
       inLanguage: lang,
@@ -232,7 +232,7 @@ function Hero({ content }: { content: HomeContent }) {
   return (
     <section className="relative min-h-[94svh] w-full overflow-hidden bg-ink text-white">
       <Image
-        src="/media/hero-integrated-solution-v2.png"
+        src="/media/hero-integrated-solution-v2.webp"
         alt={hero.imageAlt}
         fill
         priority
@@ -504,7 +504,7 @@ function AlphaCoolingSection({ content }: { content: HomeContent }) {
             <figure className="relative overflow-hidden rounded-2xl bg-ink shadow-soft">
               <div className="relative aspect-[4/5] md:aspect-[4/4.4]">
                 <Image
-                  src="/media/sns/lineup-cooling.png"
+                  src="/media/sns/lineup-cooling.webp"
                   alt={cooling.imageAlt}
                   fill
                   sizes="(min-width: 1024px) 45vw, 92vw"
@@ -627,7 +627,7 @@ function AlphaSupportSection({ content }: { content: HomeContent }) {
               </div>
               <div className="relative min-h-[320px] md:min-h-[480px]">
                 <Image
-                  src="/media/lineup-support-clean.png"
+                  src="/media/lineup-support-clean.webp"
                   alt={support.imageAlt}
                   fill
                   sizes="(min-width: 768px) 45vw, 92vw"
@@ -755,7 +755,7 @@ function MotionSection({ content }: { content: HomeContent }) {
               loop
               muted
               playsInline
-              poster="/media/hero-integrated-solution-v2.png"
+              poster="/media/hero-integrated-solution-v2.webp"
             >
               <source src="/media/cesel-portfolio-motion.mp4" type="video/mp4" />
               {motion.videoFallback}

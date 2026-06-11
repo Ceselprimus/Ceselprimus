@@ -72,9 +72,9 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     images: [
       {
-        url: "/media/hero-integrated-solution-v2.png",
-        width: 1680,
-        height: 960,
+        url: "/media/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "쎄슬프라이머스 통합 솔루션 포트폴리오"
       }
     ],
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     title: "쎄슬프라이머스 | 수직농장에서 콜드체인까지, 식품 인프라 통합 솔루션",
     description:
       "알파팜, 알파쿨링, 알파에너지, 알파서포트를 연결한 식품 인프라 통합 솔루션입니다.",
-    images: ["/media/hero-integrated-solution-v2.png"]
+    images: ["/media/og-image.jpg"]
   },
   other: {
     "ai-content-declaration": "company profile, solution portfolio, contact information",

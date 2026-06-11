@@ -318,7 +318,7 @@ export const koContent: HomeContent = {
         name: "알파쿨링",
         tagline: "팜 · 식품공정 · 콜드체인 컨테이너 냉각제습 솔루션",
         accent: "ice",
-        image: "/media/sns/lineup-cooling.png",
+        image: "/media/sns/lineup-cooling.webp",
         imageAlt: "알파쿨링 저온제습 공조 설비",
         anchor: "#alphacooling",
         englishName: "AlphaCooling",
@@ -332,7 +332,7 @@ export const koContent: HomeContent = {
         name: "알파에너지",
         tagline: "전력 · 제어 · 데이터 통합 관리 시스템",
         accent: "energy",
-        image: "/media/lineup-alphaenergy-clean.png",
+        image: "/media/lineup-alphaenergy-clean.webp",
         imageAlt: "알파에너지 전력 제어 데이터 통합 관리",
         anchor: "#alphaenergy",
         englishName: "AlphaEnergy",
@@ -347,7 +347,7 @@ export const koContent: HomeContent = {
         name: "알파서포트",
         tagline: "실증 · 구축 · 운영 · 사업화 지원 서비스",
         accent: "amber",
-        image: "/media/lineup-support-clean.png",
+        image: "/media/lineup-support-clean.webp",
         imageAlt: "알파서포트 사업개발 파트너십",
         anchor: "#alphasupport",
         englishName: "AlphaSupport",
@@ -489,12 +489,12 @@ export const koContent: HomeContent = {
       ["인스타그램", socialHrefs.instagram]
     ],
     cards: [
-      { title: "알파 솔루션 포트폴리오", channel: "네이버 블로그", image: "/media/alpha-solution-portfolio-0610.png", href: socialHrefs.blog },
-      { title: "식품공장 저온제습 솔루션", channel: "페이스북", image: "/media/sns/sns-facebook-cooling.png", href: socialHrefs.facebook },
-      { title: "고온다습 환경 제어", channel: "링크드인", image: "/media/sns/sns-linkedin-cooling.png", href: socialHrefs.linkedin },
-      { title: "저온제습이 필요한 이유", channel: "네이버 블로그", image: "/media/sns/sns-blog-dehumidification.png", href: socialHrefs.blog },
-      { title: "식품공장 결로 문제", channel: "네이버 블로그", image: "/media/sns/sns-blog-condensation.png", href: socialHrefs.blog },
-      { title: "국내 사업개발 파트너 모집", channel: "인스타그램", image: "/media/sns/lineup-support.png", href: socialHrefs.instagram }
+      { title: "알파 솔루션 포트폴리오", channel: "네이버 블로그", image: "/media/alpha-solution-portfolio-0610.webp", href: socialHrefs.blog },
+      { title: "식품공장 저온제습 솔루션", channel: "페이스북", image: "/media/sns/sns-facebook-cooling.webp", href: socialHrefs.facebook },
+      { title: "고온다습 환경 제어", channel: "링크드인", image: "/media/sns/sns-linkedin-cooling.webp", href: socialHrefs.linkedin },
+      { title: "저온제습이 필요한 이유", channel: "네이버 블로그", image: "/media/sns/sns-blog-dehumidification.webp", href: socialHrefs.blog },
+      { title: "식품공장 결로 문제", channel: "네이버 블로그", image: "/media/sns/sns-blog-condensation.webp", href: socialHrefs.blog },
+      { title: "국내 사업개발 파트너 모집", channel: "인스타그램", image: "/media/sns/lineup-support.webp", href: socialHrefs.instagram }
     ]
   },
   faq: {
@@ -673,7 +673,7 @@ export const enContent: HomeContent = {
         name: "AlphaCooling",
         tagline: "Cooling & dehumidification for farms, food processes, and cold chain",
         accent: "ice",
-        image: "/media/sns/lineup-cooling.png",
+        image: "/media/sns/lineup-cooling.webp",
         imageAlt: "AlphaCooling low-temperature dehumidification HVAC",
         anchor: "#alphacooling",
         englishName: "AlphaCooling",
@@ -687,7 +687,7 @@ export const enContent: HomeContent = {
         name: "AlphaEnergy",
         tagline: "Integrated power · control · data management system",
         accent: "energy",
-        image: "/media/lineup-alphaenergy-clean.png",
+        image: "/media/lineup-alphaenergy-clean.webp",
         imageAlt: "AlphaEnergy integrated power, control and data management",
         anchor: "#alphaenergy",
         englishName: "AlphaEnergy",
@@ -702,7 +702,7 @@ export const enContent: HomeContent = {
         name: "AlphaSupport",
         tagline: "Pilots · deployment · operations · business development",
         accent: "amber",
-        image: "/media/lineup-support-clean.png",
+        image: "/media/lineup-support-clean.webp",
         imageAlt: "AlphaSupport business development partnership",
         anchor: "#alphasupport",
         englishName: "AlphaSupport",
@@ -845,12 +845,12 @@ export const enContent: HomeContent = {
       ["Instagram", socialHrefs.instagram]
     ],
     cards: [
-      { title: "Alpha Solution Portfolio", channel: "Naver Blog", image: "/media/alpha-solution-portfolio-0610.png", href: socialHrefs.blog },
-      { title: "Low-temp dehumidification for food factories", channel: "Facebook", image: "/media/sns/sns-facebook-cooling.png", href: socialHrefs.facebook },
-      { title: "Controlling hot and humid environments", channel: "LinkedIn", image: "/media/sns/sns-linkedin-cooling.png", href: socialHrefs.linkedin },
-      { title: "Why low-temperature dehumidification matters", channel: "Naver Blog", image: "/media/sns/sns-blog-dehumidification.png", href: socialHrefs.blog },
-      { title: "Condensation problems in food factories", channel: "Naver Blog", image: "/media/sns/sns-blog-condensation.png", href: socialHrefs.blog },
-      { title: "Business development partners — Korea", channel: "Instagram", image: "/media/sns/lineup-support.png", href: socialHrefs.instagram }
+      { title: "Alpha Solution Portfolio", channel: "Naver Blog", image: "/media/alpha-solution-portfolio-0610.webp", href: socialHrefs.blog },
+      { title: "Low-temp dehumidification for food factories", channel: "Facebook", image: "/media/sns/sns-facebook-cooling.webp", href: socialHrefs.facebook },
+      { title: "Controlling hot and humid environments", channel: "LinkedIn", image: "/media/sns/sns-linkedin-cooling.webp", href: socialHrefs.linkedin },
+      { title: "Why low-temperature dehumidification matters", channel: "Naver Blog", image: "/media/sns/sns-blog-dehumidification.webp", href: socialHrefs.blog },
+      { title: "Condensation problems in food factories", channel: "Naver Blog", image: "/media/sns/sns-blog-condensation.webp", href: socialHrefs.blog },
+      { title: "Business development partners — Korea", channel: "Instagram", image: "/media/sns/lineup-support.webp", href: socialHrefs.instagram }
     ]
   },
   faq: {
