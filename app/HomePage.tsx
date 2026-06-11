@@ -27,6 +27,7 @@ import SiteHeader from "./components/SiteHeader";
 import Reveal from "./components/Reveal";
 import CasesGallery from "./components/CasesGallery";
 import FarmModels from "./components/FarmModels";
+import InquiryButton from "./components/InquiryButton";
 import { companyLegal, type Accent, type HomeContent } from "./home-content";
 
 const baseUrl = "https://www.ceslprimus.com";
@@ -134,18 +135,6 @@ function buildStructuredData(content: HomeContent) {
     },
     {
       "@context": "https://schema.org",
-      "@type": "VideoObject",
-      "@id": `${content.pageUrl}/#portfolio-motion`,
-      name: content.seo.videoName,
-      description: content.seo.videoDescription,
-      thumbnailUrl: [`${baseUrl}/media/og-image.jpg`],
-      contentUrl: `${baseUrl}/media/cesel-portfolio-motion.mp4`,
-      uploadDate: "2026-06-10",
-      inLanguage: lang,
-      publisher: { "@id": `${baseUrl}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "@id": `${content.pageUrl}/#breadcrumb`,
       itemListElement: [
@@ -159,7 +148,7 @@ export default function HomePage({ content }: { content: HomeContent }) {
   return (
     <main id="top" className="overflow-hidden">
       <StructuredData data={buildStructuredData(content)} />
-      <SiteHeader inquiryHref="#contact" nav={content.nav} />
+      <SiteHeader nav={content.nav} contact={content.contact} />
       <Hero content={content} />
       <PositioningSection content={content} />
       <ProblemSection content={content} />
@@ -171,7 +160,6 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <CasesSection content={content} />
       <AudienceSection content={content} />
       <IpSection content={content} />
-      <MotionSection content={content} />
       <NewsSection content={content} />
       <FaqSection content={content} />
       <ContactSection content={content} />
@@ -260,12 +248,12 @@ function Hero({ content }: { content: HomeContent }) {
               >
                 {hero.ctaPrimary} <ArrowRight className="h-5 w-5" />
               </a>
-              <a
+              <InquiryButton
                 className="inline-flex items-center gap-2 rounded-full px-7 py-4 text-[1.05rem] font-semibold text-white ring-1 ring-inset ring-white/40 transition hover:bg-white/10 hover:ring-white"
-                href="#contact"
+                contact={content.contact}
               >
                 {hero.ctaSecondary}
-              </a>
+              </InquiryButton>
             </div>
           </div>
         </Container>
@@ -287,7 +275,7 @@ function Hero({ content }: { content: HomeContent }) {
 function PositioningSection({ content }: { content: HomeContent }) {
   const { positioning } = content;
   return (
-    <section id="about" className="bg-white py-20 md:py-28">
+    <section id="about" className="bg-white py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-4xl">
@@ -310,7 +298,7 @@ function PositioningSection({ content }: { content: HomeContent }) {
 function ProblemSection({ content }: { content: HomeContent }) {
   const { problems } = content;
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -342,7 +330,7 @@ function ProblemSection({ content }: { content: HomeContent }) {
 function LineupSection({ content }: { content: HomeContent }) {
   const { lineup } = content;
   return (
-    <section id="lineup" className="bg-white py-20 md:py-32">
+    <section id="lineup" className="bg-white py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
@@ -352,68 +340,53 @@ function LineupSection({ content }: { content: HomeContent }) {
                 <Lines lines={lineup.titleLines} />
               </SectionTitle>
             </div>
-            <p className="max-w-md text-[1.05rem] leading-relaxed text-ink/62 md:pb-2 md:text-[1.1rem]">
-              {lineup.aside}
-            </p>
+            <p className="max-w-md text-[1.02rem] leading-relaxed text-ink/62 md:pb-2">{lineup.aside}</p>
           </div>
         </Reveal>
-        <div className="mt-12 space-y-6 md:mt-16 md:space-y-8">
+        <div className="mt-10 grid gap-6 md:mt-12 lg:grid-cols-2">
           {lineup.categories.map((category, index) => {
             const accent = accentStyles[category.accent];
             const Icon = categoryIcons[category.accent];
             return (
-              <Reveal key={category.name}>
-                <article className="overflow-hidden rounded-[1.75rem] bg-paper ring-1 ring-ink/8">
-                  <div className="grid lg:grid-cols-[0.92fr_1.08fr]">
-                    <div className="p-7 md:p-10">
-                      <div className="flex items-center gap-3.5">
-                        <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${accent.bgSoft}`}>
-                          <Icon className={`h-6 w-6 ${accent.text}`} />
-                        </span>
-                        <p className={`text-[0.95rem] font-bold ${accent.text}`}>
-                          {lineup.lineupLabel} {String(index + 1).padStart(2, "0")}
-                        </p>
-                      </div>
-                      <h3 className={`mt-5 text-[2rem] font-bold tracking-tight md:text-[2.35rem] ${accent.text}`}>
-                        {category.name}
-                      </h3>
-                      <p className="mt-2 text-[1.08rem] font-semibold leading-snug text-ink/72 md:text-[1.16rem]">
-                        {category.tagline}
-                      </p>
-                      <div className="relative mt-7 aspect-[16/9] overflow-hidden rounded-2xl bg-ink">
-                        <Image
-                          src={category.image}
-                          alt={category.imageAlt}
-                          fill
-                          sizes="(min-width: 1024px) 42vw, 92vw"
-                          className="object-cover"
-                        />
-                      </div>
-                      <a
-                        href={category.anchor}
-                        className={`mt-7 inline-flex items-center gap-2 text-[1.02rem] font-semibold ${accent.text}`}
-                      >
-                        {lineup.detailLabel}
-                        <ArrowRight className="h-5 w-5" />
-                      </a>
-                    </div>
-                    <div className="border-t border-ink/8 bg-white p-7 md:p-10 lg:border-l lg:border-t-0">
-                      <div className="flex h-full flex-col justify-center divide-y divide-ink/8">
-                        {category.subItems.map((item) => (
-                          <div key={item.name} className="flex gap-4 py-4 first:pt-0 last:pb-0 md:py-5">
-                            <span aria-hidden className={`mt-[0.62rem] h-2 w-2 shrink-0 rounded-full ${accent.dot}`} />
-                            <div>
-                              <p className="text-[1.1rem] font-bold tracking-tight text-ink md:text-[1.16rem]">
-                                {item.name}
-                              </p>
-                              {item.desc ? (
-                                <p className="mt-1 text-[1rem] leading-relaxed text-ink/62">{item.desc}</p>
-                              ) : null}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+              <Reveal key={category.name} delay={(index % 2) * 100} className="h-full">
+                <article className="flex h-full flex-col overflow-hidden rounded-[1.5rem] bg-paper ring-1 ring-ink/8 transition duration-300 hover:shadow-soft">
+                  <div className="relative aspect-[16/7] overflow-hidden bg-ink">
+                    <Image
+                      src={category.image}
+                      alt={category.imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 92vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-transparent to-transparent" />
+                    <p className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/92 px-3.5 py-1.5 text-[0.88rem] font-bold text-ink">
+                      <Icon className={`h-4 w-4 ${accent.text}`} />
+                      {lineup.lineupLabel} {String(index + 1).padStart(2, "0")}
+                    </p>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6 md:p-7">
+                    <h3 className={`text-[1.65rem] font-bold tracking-tight md:text-[1.85rem] ${accent.text}`}>
+                      {category.name}
+                    </h3>
+                    <p className="mt-1 text-[1.02rem] font-semibold leading-snug text-ink/70">{category.tagline}</p>
+                    <ul className="mt-4 space-y-2.5">
+                      {category.subItems.map((item) => (
+                        <li key={item.name} className="flex gap-2.5">
+                          <span aria-hidden className={`mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full ${accent.dot}`} />
+                          <p className="text-[1rem] leading-relaxed">
+                            <span className="font-bold text-ink">{item.name}</span>
+                            {item.desc ? <span className="text-ink/58"> — {item.desc}</span> : null}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={category.anchor}
+                      className={`mt-auto inline-flex items-center gap-2 pt-5 text-[1rem] font-semibold ${accent.text}`}
+                    >
+                      {lineup.detailLabel}
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
                   </div>
                 </article>
               </Reveal>
@@ -421,9 +394,9 @@ function LineupSection({ content }: { content: HomeContent }) {
           })}
         </div>
         <Reveal delay={100}>
-          <div className="mx-auto mt-12 flex max-w-4xl items-start gap-4 md:mt-16">
-            <CheckCircle2 aria-hidden className="mt-1 h-7 w-7 shrink-0 text-forest" />
-            <p className="text-xl font-bold leading-relaxed tracking-tight text-ink md:text-[1.4rem]">
+          <div className="mx-auto mt-10 flex max-w-4xl items-start gap-4 md:mt-12">
+            <CheckCircle2 aria-hidden className="mt-1 h-6 w-6 shrink-0 text-forest" />
+            <p className="text-lg font-bold leading-relaxed tracking-tight text-ink md:text-[1.25rem]">
               {lineup.statementPre}
               <span className="text-forest">{lineup.statementHighlight}</span>
               {lineup.statementPost}
@@ -438,7 +411,7 @@ function LineupSection({ content }: { content: HomeContent }) {
 function AlphaFarmSection({ content }: { content: HomeContent }) {
   const { alphafarm } = content;
   return (
-    <section id="alphafarm" className="py-20 md:py-32">
+    <section id="alphafarm" className="py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div>
@@ -497,7 +470,7 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
 function AlphaCoolingSection({ content }: { content: HomeContent }) {
   const { cooling } = content;
   return (
-    <section id="alphacooling" className="bg-white py-20 md:py-32">
+    <section id="alphacooling" className="bg-white py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <Reveal delay={140} className="order-last lg:order-first lg:sticky lg:top-28">
@@ -560,7 +533,7 @@ function AlphaCoolingSection({ content }: { content: HomeContent }) {
 function AlphaEnergySection({ content }: { content: HomeContent }) {
   const { energy } = content;
   return (
-    <section id="alphaenergy" className="py-20 md:py-32">
+    <section id="alphaenergy" className="py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -646,7 +619,7 @@ function AlphaSupportSection({ content }: { content: HomeContent }) {
 function CasesSection({ content }: { content: HomeContent }) {
   const { cases } = content;
   return (
-    <section id="cases" className="bg-white py-20 md:py-32">
+    <section id="cases" className="bg-white py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
@@ -670,7 +643,7 @@ function CasesSection({ content }: { content: HomeContent }) {
 function AudienceSection({ content }: { content: HomeContent }) {
   const { audience } = content;
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -698,7 +671,7 @@ function AudienceSection({ content }: { content: HomeContent }) {
 function IpSection({ content }: { content: HomeContent }) {
   const { ip } = content;
   return (
-    <section id="ip" className="bg-white py-20 md:py-32">
+    <section id="ip" className="bg-white py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <Reveal className="lg:sticky lg:top-28">
@@ -727,50 +700,10 @@ function IpSection({ content }: { content: HomeContent }) {
   );
 }
 
-function MotionSection({ content }: { content: HomeContent }) {
-  const { motion } = content;
-  return (
-    <section id="motion-film" className="bg-ink py-20 text-white md:py-32">
-      <Container>
-        <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="flex items-center justify-center gap-3 text-[1rem] font-semibold text-mint">
-              <span aria-hidden className="h-px w-9 bg-mint/70" />
-              {motion.eyebrow}
-              <span aria-hidden className="h-px w-9 bg-mint/70" />
-            </p>
-            <h2 className="mt-5 text-[1.9rem] font-bold leading-[1.22] tracking-tight md:text-[2.7rem] md:leading-[1.14]">
-              <Lines lines={motion.titleLines} />
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-[1.05rem] leading-relaxed text-white/68 md:text-[1.12rem]">
-              {motion.body}
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={140}>
-          <div className="relative mt-12 overflow-hidden rounded-2xl ring-1 ring-white/14 md:mt-14">
-            <video
-              className="aspect-video h-full w-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              poster="/media/hero-integrated-solution-v2.webp"
-            >
-              <source src="/media/cesel-portfolio-motion.mp4" type="video/mp4" />
-              {motion.videoFallback}
-            </video>
-          </div>
-        </Reveal>
-      </Container>
-    </section>
-  );
-}
-
 function NewsSection({ content }: { content: HomeContent }) {
   const { news } = content;
   return (
-    <section id="news" className="py-20 md:py-32">
+    <section id="news" className="py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
@@ -834,7 +767,7 @@ function NewsSection({ content }: { content: HomeContent }) {
 function FaqSection({ content }: { content: HomeContent }) {
   const { faq } = content;
   return (
-    <section className="bg-white py-20 md:py-32">
+    <section className="bg-white py-16 md:py-24">
       <Container className="max-w-[820px]">
         <Reveal>
           <div className="text-center">
@@ -874,7 +807,7 @@ function FaqSection({ content }: { content: HomeContent }) {
 function ContactSection({ content }: { content: HomeContent }) {
   const { contact } = content;
   return (
-    <section id="contact" className="py-20 md:py-32">
+    <section id="contact" className="py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="max-w-3xl">

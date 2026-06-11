@@ -3,20 +3,21 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Globe, Menu, X } from "lucide-react";
+import InquiryButton from "./InquiryButton";
 import type { HomeContent } from "../home-content";
 
 export default function SiteHeader({
-  inquiryHref,
-  nav
+  nav,
+  contact
 }: {
-  inquiryHref: string;
   nav: HomeContent["nav"];
+  contact: HomeContent["contact"];
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 32);
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.62);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -37,10 +38,10 @@ export default function SiteHeader({
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           solid
-            ? "bg-white/88 shadow-[0_1px_0_rgba(11,31,26,0.08)] backdrop-blur-xl"
+            ? "bg-white/95 shadow-[0_1px_0_rgba(11,31,26,0.08)] backdrop-blur-xl"
             : open
               ? "bg-ink"
-              : "border-b border-white/12 bg-ink/35 backdrop-blur-md"
+              : "border-b border-white/12 bg-ink/55 backdrop-blur-md"
         }`}
       >
         <div className="mx-auto flex h-[68px] w-[min(1140px,92vw)] items-center justify-between md:h-[78px]">
@@ -51,7 +52,7 @@ export default function SiteHeader({
               width={203}
               height={50}
               priority
-              className={`h-auto w-36 transition md:w-44 ${dark ? "drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]" : ""}`}
+              className="h-auto w-36 transition md:w-44"
             />
           </a>
 
@@ -61,7 +62,7 @@ export default function SiteHeader({
                 key={item.href}
                 href={item.href}
                 className={`text-[1.02rem] font-semibold transition-colors duration-200 ${
-                  dark ? "text-white/82 hover:text-white" : "text-ink/72 hover:text-ink"
+                  dark ? "text-white hover:text-mint" : "text-ink/75 hover:text-ink"
                 }`}
               >
                 {item.label}
@@ -71,28 +72,28 @@ export default function SiteHeader({
               href={nav.langSwitch.href}
               className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.92rem] font-semibold ring-1 transition-colors duration-200 ${
                 dark
-                  ? "text-white/85 ring-white/30 hover:bg-white/10 hover:text-white"
+                  ? "text-white ring-white/35 hover:bg-white/10"
                   : "text-ink/70 ring-ink/15 hover:text-forest hover:ring-forest/40"
               }`}
             >
               <Globe className="h-4 w-4" />
               {nav.langSwitch.label}
             </a>
-            <a
-              href={inquiryHref}
+            <InquiryButton
+              contact={contact}
               className={`inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-[0.98rem] font-semibold transition-colors duration-200 ${
                 dark ? "bg-white text-ink hover:bg-mint" : "bg-forest text-white hover:bg-ink"
               }`}
             >
               {nav.inquiry} <ArrowUpRight className="h-4 w-4" />
-            </a>
+            </InquiryButton>
           </nav>
 
           <div className="flex items-center gap-1.5 md:hidden">
             <a
               href={nav.langSwitch.href}
               className={`inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.9rem] font-semibold ring-1 transition ${
-                dark ? "text-white ring-white/30" : "text-ink ring-ink/15"
+                dark ? "text-white ring-white/35" : "text-ink ring-ink/15"
               }`}
             >
               <Globe className="h-4 w-4" />
@@ -129,13 +130,12 @@ export default function SiteHeader({
             ))}
           </nav>
           <div className="mt-auto space-y-4">
-            <a
-              href={inquiryHref}
-              onClick={() => setOpen(false)}
+            <InquiryButton
+              contact={contact}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-mint px-6 py-4 text-lg font-semibold text-ink"
             >
               {nav.inquiry} <ArrowUpRight className="h-5 w-5" />
-            </a>
+            </InquiryButton>
             <p className="text-center text-[0.95rem] text-white/56">{nav.mobileContact}</p>
           </div>
         </div>

@@ -121,12 +121,6 @@ export interface HomeContent {
     names: string[];
     note?: string;
   };
-  motion: {
-    eyebrow: string;
-    titleLines: string[];
-    body: string;
-    videoFallback: string;
-  };
   news: {
     eyebrow: string;
     titleLines: string[];
@@ -142,6 +136,8 @@ export interface HomeContent {
     eyebrow: string;
     titleLines: string[];
     body: string;
+    modalTitle: string;
+    modalBody: string;
     categories: { label: string; desc: string }[];
     contacts: {
       name: string;
@@ -163,8 +159,6 @@ export interface HomeContent {
     orgDescription: string;
     webPageName: string;
     lineupListName: string;
-    videoName: string;
-    videoDescription: string;
     breadcrumbHome: string;
   };
 }
@@ -473,12 +467,6 @@ export const koContent: HomeContent = {
       "딸기 잎 색상도 채널을 위한 딥러닝 기반 딸기 생육상황 분석 소프트웨어"
     ]
   },
-  motion: {
-    eyebrow: "브랜드 모션 필름",
-    titleLines: ["하나의 흐름으로 이어지는", "쎄슬프라이머스의 확장"],
-    body: "수직농장에서 출발한 운영 경험이 기후제어, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장되는 방향을 담았습니다.",
-    videoFallback: "쎄슬프라이머스 포트폴리오 모션 필름"
-  },
   news: {
     eyebrow: "소식",
     titleLines: ["공식 채널의 최신 소식을", "한곳에서 만나보세요."],
@@ -537,6 +525,8 @@ export const koContent: HomeContent = {
     eyebrow: "연락처",
     titleLines: ["프로젝트 목적을 알려주시면,", "맞는 조합을 설계해 드립니다."],
     body: "수직농장, 식품공장, 저온물류, 해외 실증, 프리미엄 딸기 사업화 — 어떤 단계든 사업개발 담당자가 직접 검토하고 회신드립니다.",
+    modalTitle: "사업개발 문의",
+    modalBody: "전화 또는 이메일로 바로 연락 주세요. 담당자가 직접 회신드립니다.",
     categories: [
       { label: "프로젝트 문의", desc: "수직농장, 식품공장, 포장실 구축 · 개선" },
       { label: "파트너십 문의", desc: "국내 사업개발 파트너, 기술 협력, 공동 사업" },
@@ -590,9 +580,6 @@ export const koContent: HomeContent = {
       "프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장하는 농식품·콜드체인 인프라 기술기업입니다. 알파팜, 알파쿨링, 알파에너지, 알파서포트 네 개 라인업을 제공합니다.",
     webPageName: "쎄슬프라이머스 | 수직농장에서 콜드체인까지, 식품 인프라 통합 솔루션",
     lineupListName: "쎄슬프라이머스 알파 솔루션 포트폴리오",
-    videoName: "쎄슬프라이머스 포트폴리오 모션 필름",
-    videoDescription:
-      "프리미엄 딸기 수직농장에서 출발한 운영 경험이 기후제어, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장되는 흐름을 보여주는 브랜드 모션 필름입니다.",
     breadcrumbHome: "홈"
   }
 };
@@ -829,12 +816,6 @@ export const enContent: HomeContent = {
     ],
     note: "Registered in the Republic of Korea. Titles are translated from the official Korean registrations."
   },
-  motion: {
-    eyebrow: "Brand motion film",
-    titleLines: ["One continuous flow —", "how CESeL Primus expands"],
-    body: "From vertical farming origins to climate control, power · control · data management, cold chain, and business development support.",
-    videoFallback: "CESeL Primus portfolio motion film"
-  },
   news: {
     eyebrow: "News",
     titleLines: ["The latest from", "our official channels."],
@@ -893,6 +874,8 @@ export const enContent: HomeContent = {
     eyebrow: "Contact",
     titleLines: ["Tell us your project goal —", "we will design the right combination."],
     body: "Vertical farms, food factories, cold logistics, overseas pilots, premium strawberry business — at any stage, our business development team reviews and replies directly.",
+    modalTitle: "Business inquiries",
+    modalBody: "Reach us directly by phone or email — our team replies in person.",
     categories: [
       { label: "Project inquiries", desc: "Building or upgrading vertical farms, food factories, and packing rooms" },
       { label: "Partnership inquiries", desc: "Business development partners in Korea, technology collaboration, joint business" },
@@ -945,9 +928,6 @@ export const enContent: HomeContent = {
       "CESeL Primus is an agri-food and cold-chain infrastructure technology company. Starting from premium strawberry vertical farming, it expands into cooling & dehumidification, power · control · data management, cold chain, and business development support — with the AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaSupport lineups.",
     webPageName: "CESeL Primus | From Vertical Farms to Cold Chain — Food Infrastructure as One Platform",
     lineupListName: "CESeL Primus Alpha Solution Portfolio",
-    videoName: "CESeL Primus portfolio motion film",
-    videoDescription:
-      "A brand motion film showing how operating experience from vertical farming expands into climate control, power · control · data management, cold chain, and business development support.",
     breadcrumbHome: "Home"
   }
 };
