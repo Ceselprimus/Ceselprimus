@@ -419,55 +419,38 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
   return (
     <section id="alphafarm" className="py-16 md:py-24">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-          <div>
-            <Reveal>
+        <Reveal>
+          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+            <div>
               <Eyebrow>{alphafarm.eyebrow}</Eyebrow>
               <SectionTitle>
                 <Lines lines={alphafarm.titleLines} />
               </SectionTitle>
-              <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/70 md:text-[1.18rem]">
-                {alphafarm.bodyPre}
-                <strong className="font-bold text-ink">{alphafarm.bodyStrong}</strong>
-                {alphafarm.bodyPost}
-              </p>
-            </Reveal>
-            <Reveal delay={120}>
-              <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-5">
-                {alphafarm.flow.map((step, index) => (
-                  <div key={step} className="border-t-2 border-forest/25 pt-4">
-                    <p className="text-[0.9rem] font-bold text-forest">{String(index + 1).padStart(2, "0")}</p>
-                    <p className="mt-1.5 text-[1.05rem] font-semibold leading-snug text-ink">{step}</p>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-            <Reveal delay={200}>
-              <FarmModels
-                models={alphafarm.models}
-                photoHint={alphafarm.photoHint}
-                closeLabel={content.cases.closeLabel}
-              />
-            </Reveal>
+            </div>
+            <p className="text-[1.05rem] leading-relaxed text-ink/70 md:text-[1.12rem]">
+              {alphafarm.bodyPre}
+              <strong className="font-bold text-ink">{alphafarm.bodyStrong}</strong>
+              {alphafarm.bodyPost}
+            </p>
           </div>
-          <Reveal delay={140} className="lg:sticky lg:top-28">
-            <figure className="relative overflow-hidden rounded-2xl bg-ink shadow-soft">
-              <div className="relative aspect-[4/5] md:aspect-[4/4.4]">
-                <Image
-                  src="/media/cases/case-suwon-urban-02.jpg"
-                  alt={alphafarm.imageAlt}
-                  fill
-                  sizes="(min-width: 1024px) 45vw, 92vw"
-                  className="object-cover"
-                />
+        </Reveal>
+        <Reveal delay={100}>
+          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-6 rounded-2xl bg-white p-6 ring-1 ring-ink/8 sm:grid-cols-5 md:mt-12 md:p-7">
+            {alphafarm.flow.map((step, index) => (
+              <div key={step} className="border-t-2 border-forest/25 pt-3">
+                <p className="text-[0.88rem] font-bold text-forest">{String(index + 1).padStart(2, "0")}</p>
+                <p className="mt-1 text-[1.02rem] font-semibold leading-snug text-ink">{step}</p>
               </div>
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent p-7 pt-16 text-white">
-                <p className="text-xl font-bold leading-snug md:text-2xl">{alphafarm.captionTitle}</p>
-                <p className="mt-2.5 text-[1rem] leading-relaxed text-white/72">{alphafarm.captionBody}</p>
-              </figcaption>
-            </figure>
-          </Reveal>
-        </div>
+            ))}
+          </div>
+        </Reveal>
+        <Reveal delay={160}>
+          <FarmModels
+            models={alphafarm.models}
+            photoHint={alphafarm.photoHint}
+            closeLabel={content.cases.closeLabel}
+          />
+        </Reveal>
       </Container>
     </section>
   );
