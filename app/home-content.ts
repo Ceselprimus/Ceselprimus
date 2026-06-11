@@ -266,7 +266,7 @@ export const koContent: HomeContent = {
       { value: "2016", label: "법인 설립" },
       { value: "4", label: "솔루션 라인업" },
       { value: "10건", label: "특허 · 상표 · 저작권" },
-      { value: "6곳", label: "국내외 구축 현장" }
+      { value: "6곳+", label: "국내외 구축 현장" }
     ]
   },
   positioning: {
@@ -418,7 +418,7 @@ export const koContent: HomeContent = {
   },
   cases: {
     eyebrow: "구축 사례",
-    titleLines: ["현장이 증명합니다.", "국내외 6개 구축 현장."],
+    titleLines: ["현장이 증명합니다.", "국내외 6곳+ 구축 현장."],
     body: "수원 도심형 운영 사례부터 이천 · 나주 · 전남 구축 현장, 오픈을 준비 중인 말레이시아 알파팜까지 — 모두 실제 현장에서 촬영한 사진입니다.",
     note: "※ 말레이시아 알파팜은 공조시스템 설치 마무리 후 7월 초 정식을 목표로 하는 오픈 준비 현장입니다.",
     viewAllLabel: "현장 사진 전체 보기",
@@ -512,7 +512,7 @@ export const koContent: HomeContent = {
       {
         question: "실제 구축 사례가 있나요?",
         answer:
-          "수원 도심형 딸기수직농장 운영 사례를 비롯해 이천 · 나주 · 전남 구축 사례, 오픈을 준비 중인 말레이시아 알파팜 구축 레퍼런스까지 국내외 6개 현장 사례를 보유하고 있습니다."
+          "수원 도심형 딸기수직농장 운영 사례를 비롯해 이천 · 나주 · 전남 구축 사례, 오픈을 준비 중인 말레이시아 알파팜 구축 레퍼런스까지 국내외 6곳 이상의 현장 사례를 보유하고 있습니다."
       },
       {
         question: "어떤 문의를 할 수 있나요?",
@@ -614,7 +614,7 @@ export const enContent: HomeContent = {
       { value: "2016", label: "Founded" },
       { value: "4", label: "Solution lineups" },
       { value: "10", label: "Registered IP rights" },
-      { value: "6", label: "Deployment sites — KR · MY" }
+      { value: "6+", label: "Deployment sites — KR · MY" }
     ]
   },
   positioning: {
@@ -766,7 +766,7 @@ export const enContent: HomeContent = {
   },
   cases: {
     eyebrow: "Deployment cases",
-    titleLines: ["Proven in the field —", "six sites in Korea and Malaysia."],
+    titleLines: ["Proven in the field —", "6+ sites in Korea and Malaysia."],
     body: "From an urban farm in operation in Suwon to deployments in Icheon, Naju, and Jeonnam, and AlphaFarm Malaysia preparing to open — all photos were taken on site.",
     note: "AlphaFarm Malaysia is an opening-preparation site, targeting first planting in early July after HVAC installation.",
     viewAllLabel: "View all site photos",
@@ -861,7 +861,7 @@ export const enContent: HomeContent = {
       {
         question: "Do you have real deployment cases?",
         answer:
-          "Yes — an urban strawberry vertical farm in operation in Suwon, deployments in Icheon, Naju, and Jeonnam, and AlphaFarm Malaysia preparing to open: six sites in Korea and Malaysia."
+          "Yes — an urban strawberry vertical farm in operation in Suwon, deployments in Icheon, Naju, and Jeonnam, and AlphaFarm Malaysia preparing to open — 6+ sites across Korea and Malaysia."
       },
       {
         question: "What can I inquire about?",
