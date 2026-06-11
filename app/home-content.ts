@@ -132,6 +132,18 @@ export interface HomeContent {
     title: string;
     items: { question: string; answer: string }[];
   };
+  chat: {
+    launcher: string;
+    teaserTitle: string;
+    teaserBody: string;
+    title: string;
+    subtitle: string;
+    greeting: string;
+    inquiryChip: string;
+    inquiryLead: string;
+    casesChip: string;
+    footnote: string;
+  };
   contact: {
     eyebrow: string;
     titleLines: string[];
@@ -521,6 +533,18 @@ export const koContent: HomeContent = {
       }
     ]
   },
+  chat: {
+    launcher: "궁금한 점, 먼저 답해드려요",
+    teaserTitle: "무엇이 궁금하신가요?",
+    teaserBody: "결로 해결부터 연중 딸기 사업까지 — 클릭 한 번이면 바로 답해드립니다.",
+    title: "쎄슬 도우미",
+    subtitle: "기다림 없이 바로 답합니다",
+    greeting: "안녕하세요, 쎄슬프라이머스입니다.\n아래에서 궁금한 항목을 선택해 주세요 — 바로 답해드립니다.",
+    inquiryChip: "담당자에게 직접 문의할래요",
+    inquiryLead: "사업개발 담당자에게 바로 연결해 드릴게요. 전화 또는 이메일을 선택해 주세요.",
+    casesChip: "구축 현장 사진 먼저 볼래요",
+    footnote: "자동 안내입니다 · 상세 상담은 담당자 직접 문의를 이용해 주세요"
+  },
   contact: {
     eyebrow: "연락처",
     titleLines: ["프로젝트 목적을 알려주시면,", "맞는 조합을 설계해 드립니다."],
@@ -869,6 +893,18 @@ export const enContent: HomeContent = {
           "Project inquiries, partnership inquiries, overseas pilot inquiries, and refrigeration equipment inquiries. Our business development team reviews each project and replies directly."
       }
     ]
+  },
+  chat: {
+    launcher: "Questions? Instant answers",
+    teaserTitle: "What brings you here?",
+    teaserBody: "From condensation control to a year-round strawberry business — one click for instant answers.",
+    title: "CESeL Assistant",
+    subtitle: "Instant automated answers",
+    greeting: "Hello, this is CESeL Primus.\nPick a question below — answers come instantly.",
+    inquiryChip: "Talk to our team directly",
+    inquiryLead: "Connecting you to our business development team — choose phone or email.",
+    casesChip: "Show me real site photos first",
+    footnote: "Automated guide · For details, contact our team directly"
   },
   contact: {
     eyebrow: "Contact",

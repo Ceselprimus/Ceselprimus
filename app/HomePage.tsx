@@ -29,6 +29,7 @@ import CasesGallery from "./components/CasesGallery";
 import FarmModels from "./components/FarmModels";
 import InquiryButton from "./components/InquiryButton";
 import HeroMedia from "./components/HeroMedia";
+import ChatWidget from "./components/ChatWidget";
 import { companyLegal, type Accent, type HomeContent } from "./home-content";
 
 const baseUrl = "https://www.ceslprimus.com";
@@ -165,6 +166,7 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <FaqSection content={content} />
       <ContactSection content={content} />
       <Footer content={content} />
+      <ChatWidget chat={content.chat} faq={content.faq} contact={content.contact} />
     </main>
   );
 }
