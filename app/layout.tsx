@@ -98,9 +98,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const fontHref =
+    "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css";
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link rel="stylesheet" href={fontHref} media="print" id="font-css" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: 'document.getElementById("font-css").media="all";'
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

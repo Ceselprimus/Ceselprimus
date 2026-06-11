@@ -28,6 +28,7 @@ import Reveal from "./components/Reveal";
 import CasesGallery from "./components/CasesGallery";
 import FarmModels from "./components/FarmModels";
 import InquiryButton from "./components/InquiryButton";
+import HeroMedia from "./components/HeroMedia";
 import { companyLegal, type Accent, type HomeContent } from "./home-content";
 
 const baseUrl = "https://www.ceslprimus.com";
@@ -219,17 +220,7 @@ function Hero({ content }: { content: HomeContent }) {
   const { hero } = content;
   return (
     <section className="relative min-h-[94svh] w-full overflow-hidden bg-ink text-white">
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/media/hero-main-poster.webp"
-        aria-label={hero.imageAlt}
-      >
-        <source src="/media/hero-main.mp4" type="video/mp4" />
-      </video>
+      <HeroMedia alt={hero.imageAlt} />
       <div className="hero-mask absolute inset-0" />
       <div className="relative z-10 flex min-h-[94svh] flex-col">
         <Container className="flex flex-1 flex-col justify-center pb-16 pt-36 md:pt-40">
@@ -893,34 +884,34 @@ function Footer({ content }: { content: HomeContent }) {
               height={50}
               className="h-auto w-36"
             />
-            <p className="mt-4 text-[0.95rem] leading-relaxed text-white/55">{footer.brandDesc}</p>
+            <p className="mt-4 text-[0.95rem] leading-relaxed text-white/72">{footer.brandDesc}</p>
           </div>
           <nav
-            className="flex max-w-md flex-wrap gap-x-6 gap-y-2.5 text-[0.95rem] font-medium text-white/60 md:justify-end"
+            className="flex max-w-md flex-wrap gap-x-6 gap-y-1 text-[0.95rem] font-medium text-white/75 md:justify-end"
             aria-label={content.locale === "ko" ? "푸터 메뉴" : "Footer menu"}
           >
             {footer.navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="transition hover:text-white">
+              <a key={link.href} href={link.href} className="inline-flex py-1.5 transition hover:text-white">
                 {link.label}
               </a>
             ))}
           </nav>
         </div>
-        <div className="mt-9 space-y-1.5 border-t border-white/10 pt-7 text-[0.88rem] leading-relaxed text-white/45">
+        <div className="mt-9 space-y-1.5 border-t border-white/10 pt-7 text-[0.88rem] leading-relaxed text-white/68">
           {footer.bizLines.map((line) => (
             <p key={line}>{line}</p>
           ))}
         </div>
-        <div className="mt-7 flex flex-col gap-3 border-t border-white/10 pt-6 text-[0.85rem] text-white/40 md:flex-row md:items-center md:justify-between">
+        <div className="mt-7 flex flex-col gap-3 border-t border-white/10 pt-6 text-[0.88rem] text-white/65 md:flex-row md:items-center md:justify-between">
           <p>{footer.copyright}</p>
-          <div className="flex flex-wrap gap-x-5 gap-y-2">
+          <div className="flex flex-wrap gap-x-5 gap-y-1">
             {content.news.socialLinks.map(([label, href]) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="transition hover:text-white"
+                className="inline-flex py-1.5 text-white/75 transition hover:text-white"
               >
                 {label}
               </a>
