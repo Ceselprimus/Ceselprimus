@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 export interface LightboxItem {
@@ -27,6 +27,7 @@ export default function Lightbox({
   const item = items[index];
   const prev = (index - 1 + items.length) % items.length;
   const next = (index + 1) % items.length;
+  const touchX = useRef<number | null>(null);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -65,7 +66,19 @@ export default function Lightbox({
           <X className="h-6 w-6" />
         </button>
       </div>
-      <div className="relative min-h-0 flex-1 px-3 md:px-20" onClick={onClose}>
+      <div
+        className="relative min-h-0 flex-1 px-3 md:px-20"
+        onClick={onClose}
+        onTouchStart={(event) => {
+          touchX.current = event.touches[0]?.clientX ?? null;
+        }}
+        onTouchEnd={(event) => {
+          if (touchX.current === null) return;
+          const delta = (event.changedTouches[0]?.clientX ?? touchX.current) - touchX.current;
+          touchX.current = null;
+          if (Math.abs(delta) > 48) onIndex(delta > 0 ? prev : next);
+        }}
+      >
         <div className="relative h-full w-full" onClick={(event) => event.stopPropagation()}>
           <Image
             key={item.image}

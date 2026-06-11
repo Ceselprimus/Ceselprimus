@@ -344,7 +344,7 @@ function LineupSection({ content }: { content: HomeContent }) {
             return (
               <Reveal key={category.name} delay={(index % 2) * 100} className="h-full">
                 <article className="flex h-full flex-col overflow-hidden rounded-[1.5rem] bg-paper ring-1 ring-ink/8 transition duration-300 hover:shadow-soft">
-                  <div className="relative aspect-[16/7] overflow-hidden bg-ink">
+                  <div className="relative aspect-[16/9] overflow-hidden bg-ink md:aspect-[16/7]">
                     <Image
                       src={category.image}
                       alt={category.imageAlt}
@@ -452,7 +452,7 @@ function AlphaCoolingSection({ content }: { content: HomeContent }) {
   return (
     <section id="alphacooling" className="bg-white py-16 md:py-24">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <Reveal delay={140} className="order-last lg:order-first">
             <figure className="relative overflow-hidden rounded-2xl bg-ink shadow-soft">
               <div className="relative aspect-[4/3]">
@@ -723,7 +723,7 @@ function NewsSection({ content }: { content: HomeContent }) {
                     alt={item.title}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"
-                    className="object-cover transition duration-700 group-hover:scale-[1.045]"
+                    className="object-contain p-3 transition duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="flex items-start justify-between gap-4 p-6">
