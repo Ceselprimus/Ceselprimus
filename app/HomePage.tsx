@@ -219,14 +219,17 @@ function Hero({ content }: { content: HomeContent }) {
   const { hero } = content;
   return (
     <section className="relative min-h-[94svh] w-full overflow-hidden bg-ink text-white">
-      <Image
-        src="/media/hero-integrated-solution-v2.webp"
-        alt={hero.imageAlt}
-        fill
-        priority
-        sizes="100vw"
-        className="slow-drift object-cover"
-      />
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/media/hero-main-poster.webp"
+        aria-label={hero.imageAlt}
+      >
+        <source src="/media/hero-main.mp4" type="video/mp4" />
+      </video>
       <div className="hero-mask absolute inset-0" />
       <div className="relative z-10 flex min-h-[94svh] flex-col">
         <Container className="flex flex-1 flex-col justify-center pb-16 pt-36 md:pt-40">
@@ -477,7 +480,7 @@ function AlphaCoolingSection({ content }: { content: HomeContent }) {
             <figure className="relative overflow-hidden rounded-2xl bg-ink shadow-soft">
               <div className="relative aspect-[4/5] md:aspect-[4/4.4]">
                 <Image
-                  src="/media/sns/lineup-cooling.webp"
+                  src="/media/concepts/alphacooling-farm-concept-1.webp"
                   alt={cooling.imageAlt}
                   fill
                   sizes="(min-width: 1024px) 45vw, 92vw"
@@ -600,7 +603,7 @@ function AlphaSupportSection({ content }: { content: HomeContent }) {
               </div>
               <div className="relative min-h-[320px] md:min-h-[480px]">
                 <Image
-                  src="/media/lineup-support-clean.webp"
+                  src="/media/concepts/alphasupport-concept.webp"
                   alt={support.imageAlt}
                   fill
                   sizes="(min-width: 768px) 45vw, 92vw"
