@@ -36,16 +36,17 @@ export default function InquiryButton({
       </button>
       {open ? (
         <div
-          className="fixed inset-0 z-[110] flex items-center justify-center bg-ink/60 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[110] overflow-y-auto bg-ink/60 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
           aria-label={contact.modalTitle}
           onClick={() => setOpen(false)}
         >
-          <div
-            className="max-h-[90svh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-soft md:p-8"
-            onClick={(event) => event.stopPropagation()}
-          >
+          <div className="flex min-h-full items-center justify-center p-4">
+            <div
+              className="my-4 w-full max-w-2xl rounded-3xl bg-white p-6 shadow-soft md:p-8"
+              onClick={(event) => event.stopPropagation()}
+            >
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h3 className="text-2xl font-bold tracking-tight text-ink md:text-[1.7rem]">
@@ -103,6 +104,7 @@ export default function InquiryButton({
                   </div>
                 </div>
               ))}
+            </div>
             </div>
           </div>
         </div>
