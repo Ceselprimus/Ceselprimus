@@ -361,13 +361,16 @@ function LineupSection({ content }: { content: HomeContent }) {
                       sizes="(min-width: 1024px) 50vw, 92vw"
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-transparent to-transparent" />
-                    <p className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/92 px-3.5 py-1.5 text-[0.88rem] font-bold text-ink">
-                      <Icon className={`h-4 w-4 ${accent.text}`} />
-                      {lineup.lineupLabel} {String(index + 1).padStart(2, "0")}
-                    </p>
                   </div>
                   <div className="flex flex-1 flex-col p-6 md:p-7">
+                    <div className="mb-3 flex items-center gap-2.5">
+                      <span className={`flex h-9 w-9 items-center justify-center rounded-lg ${accent.bgSoft}`}>
+                        <Icon className={`h-5 w-5 ${accent.text}`} />
+                      </span>
+                      <p className={`text-[0.95rem] font-bold tracking-wide ${accent.text}`}>
+                        {lineup.lineupLabel} {String(index + 1).padStart(2, "0")}
+                      </p>
+                    </div>
                     <h3 className={`text-[1.65rem] font-bold tracking-tight md:text-[1.85rem] ${accent.text}`}>
                       {category.name}
                     </h3>
