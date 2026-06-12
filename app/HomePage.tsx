@@ -438,11 +438,7 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
           </div>
         </Reveal>
         <Reveal delay={160}>
-          <FarmModels
-            models={alphafarm.models}
-            photoHint={alphafarm.photoHint}
-            closeLabel={content.cases.closeLabel}
-          />
+          <FarmModels models={alphafarm.models} />
         </Reveal>
       </Container>
     </section>

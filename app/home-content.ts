@@ -71,7 +71,6 @@ export interface HomeContent {
     bodyPost: string;
     flow: string[];
     models: { name: string; desc: string; image: string }[];
-    photoHint: string;
     imageAlt: string;
     captionTitle: string;
     captionBody: string;
@@ -104,10 +103,8 @@ export interface HomeContent {
     titleLines: string[];
     body: string;
     note: string;
-    viewAllLabel: string;
     closeLabel: string;
     items: { image: string; title: string; site: string; tag: string }[];
-    allItems: { image: string; title: string; site: string; tag: string }[];
   };
   audience: {
     eyebrow: string;
@@ -207,7 +204,6 @@ const caseImages = {
   suw2: "/media/cases/case-suwon-urban-02.webp",
   mal1: "/media/cases/case-malaysia-exterior.webp",
   mal2: "/media/cases/case-malaysia-growroom.webp",
-  ich1: "/media/cases/case-icheon-exterior.webp",
   ich2: "/media/cases/case-icheon-rack.webp",
   naj1: "/media/cases/case-naju-growroom-01.webp",
   naj2: "/media/cases/case-naju-growroom-02.webp",
@@ -215,42 +211,6 @@ const caseImages = {
   njl2: "/media/cases/case-naju-lab-02.webp",
   jn1: "/media/cases/case-jeonnam-container.webp"
 };
-
-const allCasePhotos = [
-  { image: caseImages.suw1, ko: ["도심형 딸기수직농장", "수원", "운영 사례"], en: ["Urban strawberry vertical farm", "Suwon", "In operation"] },
-  { image: caseImages.suw2, ko: ["도심형 딸기수직농장 재배실", "수원", "운영 사례"], en: ["Urban vertical farm grow room", "Suwon", "In operation"] },
-  { image: caseImages.mal1, ko: ["알파팜 말레이시아 전경", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia exterior", "Malaysia", "Opening soon"] },
-  { image: "/media/cases/case-malaysia-entrance.webp", ko: ["알파팜 말레이시아 입구", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia entrance", "Malaysia", "Opening soon"] },
-  { image: caseImages.mal2, ko: ["알파팜 말레이시아 재배실", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia grow room", "Malaysia", "Opening soon"] },
-  { image: "/media/cases/case-malaysia-growroom-02.webp", ko: ["알파팜 말레이시아 재배실", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia grow room", "Malaysia", "Opening soon"] },
-  { image: "/media/cases/case-malaysia-growroom-03.webp", ko: ["알파팜 말레이시아 재배실", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia grow room", "Malaysia", "Opening soon"] },
-  { image: "/media/cases/case-malaysia-workroom.webp", ko: ["알파팜 말레이시아 작업실", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia workroom", "Malaysia", "Opening soon"] },
-  { image: "/media/cases/case-malaysia-machine.webp", ko: ["알파팜 말레이시아 양액 기계실", "말레이시아", "오픈 준비"], en: ["AlphaFarm Malaysia nutrient room", "Malaysia", "Opening soon"] },
-  { image: caseImages.ich1, ko: ["딸기수직농장 외관", "이천", "구축 사례"], en: ["Vertical farm exterior", "Icheon", "Deployment"] },
-  { image: "/media/cases/case-icheon-room-01.webp", ko: ["재배실 내부", "이천", "구축 사례"], en: ["Grow room interior", "Icheon", "Deployment"] },
-  { image: "/media/cases/case-icheon-room-02.webp", ko: ["재배실 내부", "이천", "구축 사례"], en: ["Grow room interior", "Icheon", "Deployment"] },
-  { image: "/media/cases/case-icheon-planting.webp", ko: ["정식 준비 구간", "이천", "구축 사례"], en: ["Planting preparation area", "Icheon", "Deployment"] },
-  { image: "/media/cases/case-icheon-rack-01.webp", ko: ["재배랙", "이천", "구축 사례"], en: ["Cultivation racks", "Icheon", "Deployment"] },
-  { image: "/media/cases/case-icheon-rack-02.webp", ko: ["재배랙", "이천", "구축 사례"], en: ["Cultivation racks", "Icheon", "Deployment"] },
-  { image: "/media/cases/case-icheon-rack-03.webp", ko: ["재배랙", "이천", "구축 사례"], en: ["Cultivation racks", "Icheon", "Deployment"] },
-  { image: caseImages.ich2, ko: ["재배랙", "이천", "구축 사례"], en: ["Cultivation racks", "Icheon", "Deployment"] },
-  { image: "/media/cases/case-icheon-rack-05.webp", ko: ["재배랙", "이천", "구축 사례"], en: ["Cultivation racks", "Icheon", "Deployment"] },
-  { image: "/media/cases/case-icheon-space-01.webp", ko: ["도심형 연계 공간", "이천", "구축 사례"], en: ["Urban-linked space", "Icheon", "Deployment"] },
-  { image: "/media/cases/case-icheon-space-02.webp", ko: ["도심형 연계 공간", "이천", "구축 사례"], en: ["Urban-linked space", "Icheon", "Deployment"] },
-  { image: caseImages.naj1, ko: ["딸기수직농장 재배실", "나주", "구축 사례"], en: ["Vertical farm grow room", "Naju", "Deployment"] },
-  { image: "/media/cases/case-naju-growroom-03.webp", ko: ["재배실 전경", "나주", "구축 사례"], en: ["Grow room overview", "Naju", "Deployment"] },
-  { image: caseImages.naj2, ko: ["재배실 전경", "나주", "구축 사례"], en: ["Grow room overview", "Naju", "Deployment"] },
-  { image: "/media/cases/case-naju-growroom-04.webp", ko: ["재배실 전경", "나주", "구축 사례"], en: ["Grow room overview", "Naju", "Deployment"] },
-  { image: caseImages.njl1, ko: ["수직농업연구실 구축", "나주", "구축 사례"], en: ["Vertical farming research lab", "Naju", "Deployment"] },
-  { image: "/media/cases/case-naju-lab-03.webp", ko: ["수직농업연구실 구축", "나주", "구축 사례"], en: ["Vertical farming research lab", "Naju", "Deployment"] },
-  { image: "/media/cases/case-naju-lab-controller.webp", ko: ["연구실 제어기 설치", "나주", "구축 사례"], en: ["Lab controller installation", "Naju", "Deployment"] },
-  { image: caseImages.njl2, ko: ["수직농업연구실 재배랙", "나주", "구축 사례"], en: ["Research lab cultivation racks", "Naju", "Deployment"] },
-  { image: "/media/cases/case-naju-lab-04.webp", ko: ["수직농업연구실 구축", "나주", "구축 사례"], en: ["Vertical farming research lab", "Naju", "Deployment"] },
-  { image: caseImages.jn1, ko: ["딸기 컨테이너팜", "전남", "구축 사례"], en: ["Strawberry container farm", "Jeonnam", "Deployment"] }
-];
-
-const casesAllKo = allCasePhotos.map((photo) => ({ image: photo.image, title: photo.ko[0], site: photo.ko[1], tag: photo.ko[2] }));
-const casesAllEn = allCasePhotos.map((photo) => ({ image: photo.image, title: photo.en[0], site: photo.en[1], tag: photo.en[2] }));
 
 export const koContent: HomeContent = {
   locale: "ko",
@@ -266,7 +226,7 @@ export const koContent: HomeContent = {
     ],
     inquiry: "사업개발 문의",
     langSwitch: { href: "/en", label: "EN" },
-    mobileContact: "강호수 프로 010-3341-6036 · 이관호 대표 +82 10-3761-7953",
+    mobileContact: "강호수 프로 010-3341-6036 · 이관호 대표 왓츠앱 +60 17-551-8024",
     menuOpen: "메뉴 열기",
     menuClose: "메뉴 닫기",
     homeAria: "쎄슬프라이머스 홈"
@@ -281,7 +241,7 @@ export const koContent: HomeContent = {
     stats: [
       { value: "2016", label: "법인 설립" },
       { value: "4", label: "솔루션 라인업" },
-      { value: "10건", label: "특허 · 상표 · 저작권" },
+      { value: "10건+", label: "특허 · 상표 · 저작권" },
       { value: "6곳+", label: "국내외 구축 현장" }
     ]
   },
@@ -388,7 +348,6 @@ export const koContent: HomeContent = {
       { name: "경험형 포트폴리오", desc: "호텔 · 오피스 · 쇼룸 · 베이커리 공간을 살아있는 브랜드 경험으로 전환", image: "/media/concepts/alphaexperience-concept.webp" },
       { name: "알파 컨테이너팜", desc: "40피트 하이큐브 기반의 소형 생산 · 검증형 모델", image: "/media/concepts/containerfarm-concept.webp" }
     ],
-    photoHint: "사진 보기",
     imageAlt: "알파팜 도심형 딸기수직농장 운영 사례",
     captionTitle: "생산 현장과 운영 시스템을 함께 설계합니다",
     captionBody: "재배 공간, 품질관리, 리테일 접점, 현지 사업화까지 하나의 흐름으로."
@@ -437,7 +396,6 @@ export const koContent: HomeContent = {
     titleLines: ["현장이 증명합니다.", "국내외 6곳+ 구축 현장."],
     body: "수원 도심형 운영 사례부터 이천 · 나주 · 전남 구축 현장, 오픈을 준비 중인 말레이시아 알파팜까지 — 모두 실제 현장에서 촬영한 사진입니다.",
     note: "※ 말레이시아 알파팜은 공조시스템 설치 마무리 후 7월 초 정식을 목표로 하는 오픈 준비 현장입니다.",
-    viewAllLabel: "현장 사진 전체 보기",
     closeLabel: "닫기",
     items: [
       { image: caseImages.suw1, title: "도심형 딸기수직농장", site: "수원", tag: "운영 사례" },
@@ -446,13 +404,11 @@ export const koContent: HomeContent = {
       { image: caseImages.naj1, title: "딸기수직농장 재배실", site: "나주", tag: "구축 사례" },
       { image: caseImages.mal2, title: "알파팜 말레이시아 재배실", site: "말레이시아", tag: "오픈 준비" },
       { image: caseImages.jn1, title: "딸기 컨테이너팜", site: "전남", tag: "구축 사례" },
-      { image: caseImages.ich1, title: "딸기수직농장 외관", site: "이천", tag: "구축 사례" },
       { image: caseImages.njl1, title: "수직농업연구실 구축", site: "나주", tag: "구축 사례" },
       { image: caseImages.suw2, title: "도심형 딸기수직농장 재배실", site: "수원", tag: "운영 사례" },
       { image: caseImages.naj2, title: "딸기수직농장 재배실 전경", site: "나주", tag: "구축 사례" },
       { image: caseImages.njl2, title: "수직농업연구실 재배랙", site: "나주", tag: "구축 사례" }
-    ],
-    allItems: casesAllKo
+    ]
   },
   audience: {
     eyebrow: "적용 고객군",
@@ -468,7 +424,7 @@ export const koContent: HomeContent = {
   },
   ip: {
     eyebrow: "권리 · 특허 포트폴리오",
-    titleLines: ["10건의 등록 권리가", "기술의 깊이를 증명합니다."],
+    titleLines: ["10건+의 등록 권리가", "기술의 깊이를 증명합니다."],
     body: "스마트팜 자동화, 생육 분석, 수직재배, 컨테이너, 데이터 분석까지 — 특허·상표·저작권 포트폴리오가 솔루션의 기반입니다.",
     names: [
       "로봇을 활용한 스마트 팜 자동화 시스템",
@@ -584,10 +540,7 @@ export const koContent: HomeContent = {
         role: "대표",
         tag: "경영 · 해외 사업",
         primary: false,
-        phones: [
-          { label: "국내", value: "+82 10-3761-7953", href: "tel:+821037617953" },
-          { label: "말레이시아", value: "+60 17-551-8024", href: "tel:+60175518024" }
-        ],
+        phones: [{ label: "왓츠앱", value: "+60 17-551-8024", href: "https://wa.me/60175518024" }],
         email: "kevinlee@ceslprimus.com",
         emailLabel: "이메일"
       }
@@ -606,7 +559,6 @@ export const koContent: HomeContent = {
     bizLines: [
       "주식회사 쎄슬프라이머스 농업회사법인  ·  대표자 이관호  ·  사업자등록번호 791-81-00425",
       "서울특별시 서초구 양재대로2길 18, 4층 H6호 (우면동, 호반파크 2관)",
-      "업태 농업, 임업 및 어업  ·  종목 종자 및 묘목 생산업, 채소·화훼 및 과실작물 시설재배업",
       "사업개발 문의 010-3341-6036  ·  이메일 rkdghtn636@gmail.com"
     ],
     copyright: "저작권 2026 쎄슬프라이머스. 모든 권리 보유."
@@ -634,7 +586,7 @@ export const enContent: HomeContent = {
     ],
     inquiry: "Contact us",
     langSwitch: { href: "/", label: "한국어" },
-    mobileContact: "HoSoo Kang +82 10-3341-6036 · Kevin Lee +82 10-3761-7953",
+    mobileContact: "HoSoo Kang +82 10-3341-6036 · Kevin Lee WhatsApp +60 17-551-8024",
     menuOpen: "Open menu",
     menuClose: "Close menu",
     homeAria: "CESeL Primus home"
@@ -649,7 +601,7 @@ export const enContent: HomeContent = {
     stats: [
       { value: "2016", label: "Founded" },
       { value: "4", label: "Solution lineups" },
-      { value: "10", label: "Registered IP rights" },
+      { value: "10+", label: "Registered IP rights" },
       { value: "6+", label: "Deployment sites — KR · MY" }
     ]
   },
@@ -756,7 +708,6 @@ export const enContent: HomeContent = {
       { name: "Experience Portfolio", desc: "Turns hotels, offices, showrooms, and bakeries into living brand experiences", image: "/media/concepts/alphaexperience-concept.webp" },
       { name: "Alpha ContainerFarm", desc: "A compact production and validation model in a 40-ft high-cube container", image: "/media/concepts/containerfarm-concept.webp" }
     ],
-    photoHint: "View photo",
     imageAlt: "AlphaFarm urban strawberry vertical farm in operation",
     captionTitle: "We design the production site and the operating system together",
     captionBody: "Growing space, quality control, retail touchpoints, and local business development — in one flow."
@@ -805,7 +756,6 @@ export const enContent: HomeContent = {
     titleLines: ["Proven in the field —", "6+ sites in Korea and Malaysia."],
     body: "From an urban farm in operation in Suwon to deployments in Icheon, Naju, and Jeonnam, and AlphaFarm Malaysia preparing to open — all photos were taken on site.",
     note: "AlphaFarm Malaysia is an opening-preparation site, targeting first planting in early July after HVAC installation.",
-    viewAllLabel: "View all site photos",
     closeLabel: "Close",
     items: [
       { image: caseImages.suw1, title: "Urban strawberry vertical farm", site: "Suwon", tag: "In operation" },
@@ -814,13 +764,11 @@ export const enContent: HomeContent = {
       { image: caseImages.naj1, title: "Vertical farm grow room", site: "Naju", tag: "Deployment" },
       { image: caseImages.mal2, title: "AlphaFarm Malaysia grow room", site: "Malaysia", tag: "Opening soon" },
       { image: caseImages.jn1, title: "Strawberry container farm", site: "Jeonnam", tag: "Deployment" },
-      { image: caseImages.ich1, title: "Vertical farm exterior", site: "Icheon", tag: "Deployment" },
       { image: caseImages.njl1, title: "Vertical farming research lab", site: "Naju", tag: "Deployment" },
       { image: caseImages.suw2, title: "Urban vertical farm grow room", site: "Suwon", tag: "In operation" },
       { image: caseImages.naj2, title: "Grow room overview", site: "Naju", tag: "Deployment" },
       { image: caseImages.njl2, title: "Research lab cultivation racks", site: "Naju", tag: "Deployment" }
-    ],
-    allItems: casesAllEn
+    ]
   },
   audience: {
     eyebrow: "Who we serve",
@@ -836,7 +784,7 @@ export const enContent: HomeContent = {
   },
   ip: {
     eyebrow: "IP portfolio",
-    titleLines: ["Ten registered rights prove", "the depth of our technology."],
+    titleLines: ["10+ registered rights prove", "the depth of our technology."],
     body: "Smart farm automation, growth analytics, vertical cultivation, containers, and data analysis — a portfolio of patents, trademarks, and copyrights underpins our solutions.",
     names: [
       "Smart farm automation system using robots",
@@ -953,10 +901,7 @@ export const enContent: HomeContent = {
         role: "CEO",
         tag: "Management · Global business",
         primary: false,
-        phones: [
-          { label: "Korea", value: "+82 10-3761-7953", href: "tel:+821037617953" },
-          { label: "Malaysia", value: "+60 17-551-8024", href: "tel:+60175518024" }
-        ],
+        phones: [{ label: "WhatsApp", value: "+60 17-551-8024", href: "https://wa.me/60175518024" }],
         email: "kevinlee@ceslprimus.com",
         emailLabel: "Email"
       }
