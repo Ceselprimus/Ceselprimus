@@ -3,7 +3,7 @@ import HomePage from "../HomePage";
 import { enContent } from "../home-content";
 
 export const metadata: Metadata = {
-  title: "CESeL Primus | From Vertical Farms to Cold Chain — Food Infrastructure as One Platform",
+  title: { absolute: "CESeL Primus | From Vertical Farms to Cold Chain — Food Infrastructure as One Platform" },
   description:
     "CESeL Primus is an agri-food and cold-chain infrastructure technology company. Starting from premium strawberry vertical farming, we connect cooling & dehumidification, energy & operations management, cold chain, and business development support — AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaSupport.",
   alternates: {
