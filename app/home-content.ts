@@ -163,6 +163,16 @@ export interface HomeContent {
     body: string;
     modalTitle: string;
     modalBody: string;
+    form: {
+      intro: string;
+      name: string;
+      contact: string;
+      company: string;
+      region: string;
+      submit: string;
+      sent: string;
+      orLabel: string;
+    };
     categories: { label: string; desc: string }[];
     contacts: {
       name: string;
@@ -546,7 +556,17 @@ export const koContent: HomeContent = {
     titleLines: ["프로젝트 목적을 알려주시면,", "맞는 조합을 설계해 드립니다."],
     body: "수직농장, 식품공장, 저온물류, 해외 실증, 프리미엄 딸기 사업화 — 어떤 단계든 사업개발 담당자가 직접 검토하고 회신드립니다.",
     modalTitle: "사업개발 문의",
-    modalBody: "전화 또는 이메일로 바로 연락 주세요. 담당자가 직접 회신드립니다.",
+    modalBody: "연락처를 남겨주시면 담당자가 먼저 연락드립니다. 바로 연락도 가능합니다.",
+    form: {
+      intro: "성함과 연락처를 남겨주세요. (모두 선택 입력)",
+      name: "이름",
+      contact: "연락처 (전화 또는 이메일)",
+      company: "회사 · 기관명",
+      region: "지역 · 국가",
+      submit: "문의 남기기",
+      sent: "접수되었습니다! 담당자가 곧 연락드리겠습니다 😊",
+      orLabel: "또는 바로 연락하기"
+    },
     categories: [
       { label: "프로젝트 문의", desc: "수직농장, 식품공장, 포장실 구축 · 개선" },
       { label: "파트너십 문의", desc: "국내 사업개발 파트너, 기술 협력, 공동 사업" },
@@ -935,7 +955,17 @@ export const enContent: HomeContent = {
     titleLines: ["Tell us your project goal —", "we will design the right combination."],
     body: "Vertical farms, food factories, cold logistics, overseas pilots, premium strawberry business — at any stage, our business development team reviews and replies directly.",
     modalTitle: "Business inquiries",
-    modalBody: "Reach us directly by phone or email — our team replies in person.",
+    modalBody: "Leave your details and our team will reach out first — or contact us directly.",
+    form: {
+      intro: "Leave your name and contact. (All optional)",
+      name: "Name",
+      contact: "Phone or email",
+      company: "Company · organization",
+      region: "Region · country",
+      submit: "Send inquiry",
+      sent: "Received! Our team will reach out soon 😊",
+      orLabel: "Or reach us directly"
+    },
     categories: [
       { label: "Project inquiries", desc: "Building or upgrading vertical farms, food factories, and packing rooms" },
       { label: "Partnership inquiries", desc: "Business development partners in Korea, technology collaboration, joint business" },

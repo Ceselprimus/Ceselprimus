@@ -369,7 +369,7 @@ export default function ChatWidget({
         </div>
       ) : null}
 
-      <ContactModal contact={contact} open={modalOpen} onClose={() => setModalOpen(false)} />
+      <ContactModal contact={contact} open={modalOpen} onClose={() => setModalOpen(false)} showForm={false} />
     </>
   );
 }
