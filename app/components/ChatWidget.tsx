@@ -39,6 +39,8 @@ export default function ChatWidget({
   const [asked, setAsked] = useState<number[]>([]);
   const [busy, setBusy] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [form, setForm] = useState({ name: "", contact: "", company: "", region: "" });
   const followUpIndex = useRef(0);
   const bodyRef = useRef<HTMLDivElement>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -104,24 +106,51 @@ export default function ChatWidget({
     }, 300);
   };
 
-  const onInquiry = () => {
-    if (busy) return;
-    setBusy(true);
-    const transcript = messages
+  const transcript = () =>
+    messages
       .filter((message) => message.role === "user")
       .map((message) => message.text)
       .join(" / ");
-    logInquiry({
-      type: "챗봇 상담 → 담당자 문의",
-      message: transcript || "(질문 선택 없이 바로 담당자 문의)"
-    });
+
+  const onInquiry = () => {
+    if (busy) return;
+    setBusy(true);
     setMessages((prev) => [...prev, { role: "user", text: chat.inquiryChip }]);
     queue(() => {
       typeThen(chat.inquiryLead, 700, () => {
         setBusy(false);
-        queue(() => setModalOpen(true), 250);
+        setShowForm(true);
       });
     }, 300);
+  };
+
+  const submitForm = () => {
+    const contact = form.contact.trim();
+    const isEmail = contact.includes("@");
+    logInquiry({
+      type: "챗봇 콜백 신청",
+      name: form.name.trim(),
+      phone: isEmail ? "" : contact,
+      email: isEmail ? contact : "",
+      company: form.company.trim(),
+      region: form.region.trim(),
+      message: transcript() || "(질문 선택 없음)"
+    });
+    setShowForm(false);
+    setBusy(true);
+    typeThen(chat.form.thanks, 700, () => {
+      setBusy(false);
+      queue(() => setModalOpen(true), 300);
+    });
+  };
+
+  const skipForm = () => {
+    logInquiry({
+      type: "챗봇 상담 → 담당자 문의",
+      message: transcript() || "(질문 선택 없이 바로 담당자 문의)"
+    });
+    setShowForm(false);
+    queue(() => setModalOpen(true), 100);
   };
 
   const onCases = () => {
@@ -241,7 +270,51 @@ export default function ChatWidget({
               );
             })}
 
-            {!busy && messages.length > 0 ? (
+            {!busy && showForm ? (
+              <div className="chat-msg space-y-2.5 pt-4">
+                <p className="ml-1 text-[0.82rem] leading-relaxed text-ink/50">{chat.form.intro}</p>
+                <input
+                  value={form.name}
+                  onChange={(event) => setForm({ ...form, name: event.target.value })}
+                  placeholder={chat.form.name}
+                  className="w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition placeholder:text-ink/40 focus:border-forest focus:ring-2 focus:ring-forest/15"
+                />
+                <input
+                  value={form.contact}
+                  onChange={(event) => setForm({ ...form, contact: event.target.value })}
+                  placeholder={chat.form.contact}
+                  className="w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition placeholder:text-ink/40 focus:border-forest focus:ring-2 focus:ring-forest/15"
+                />
+                <input
+                  value={form.company}
+                  onChange={(event) => setForm({ ...form, company: event.target.value })}
+                  placeholder={chat.form.company}
+                  className="w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition placeholder:text-ink/40 focus:border-forest focus:ring-2 focus:ring-forest/15"
+                />
+                <input
+                  value={form.region}
+                  onChange={(event) => setForm({ ...form, region: event.target.value })}
+                  placeholder={chat.form.region}
+                  className="w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition placeholder:text-ink/40 focus:border-forest focus:ring-2 focus:ring-forest/15"
+                />
+                <button
+                  type="button"
+                  onClick={submitForm}
+                  className="mt-1 w-full rounded-xl bg-gradient-to-br from-forest to-[#093D2E] px-4 py-3.5 text-[0.98rem] font-bold text-white shadow-[0_4px_14px_rgba(13,92,69,0.32)] transition hover:-translate-y-0.5 hover:brightness-110"
+                >
+                  {chat.form.submit}
+                </button>
+                <button
+                  type="button"
+                  onClick={skipForm}
+                  className="w-full py-1 text-center text-[0.9rem] font-semibold text-ink/45 transition hover:text-forest"
+                >
+                  {chat.form.skip}
+                </button>
+              </div>
+            ) : null}
+
+            {!busy && messages.length > 0 && !showForm ? (
               <div className="chat-msg space-y-2 pt-4">
                 {remaining.length > 0 ? (
                   <p className="ml-1 flex items-center gap-2 text-[0.8rem] font-bold tracking-wide text-ink/45">

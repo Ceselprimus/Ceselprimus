@@ -146,6 +146,16 @@ export interface HomeContent {
     inquiryLead: string;
     casesChip: string;
     footnote: string;
+    form: {
+      intro: string;
+      name: string;
+      contact: string;
+      company: string;
+      region: string;
+      submit: string;
+      skip: string;
+      thanks: string;
+    };
   };
   contact: {
     eyebrow: string;
@@ -517,9 +527,19 @@ export const koContent: HomeContent = {
       "백문이 불여일견 — 현장 사진으로 직접 확인해 보세요 📷"
     ],
     inquiryChip: "📞 담당자에게 직접 문의할래요",
-    inquiryLead: "사업개발 담당자에게 바로 연결해 드릴게요. 전화 또는 이메일을 선택해 주세요 😊",
+    inquiryLead: "정보를 남겨주시면 담당자가 먼저 연락드릴게요. (모두 선택 입력이에요 😊)",
     casesChip: "📷 구축 현장 사진 먼저 볼래요",
-    footnote: "자동 안내입니다 · 상세 상담은 담당자 직접 문의를 이용해 주세요"
+    footnote: "자동 안내입니다 · 상세 상담은 담당자 직접 문의를 이용해 주세요",
+    form: {
+      intro: "남겨주신 정보는 영업개발 담당자만 확인합니다.",
+      name: "이름",
+      contact: "연락처 (전화 또는 이메일)",
+      company: "회사 · 기관명",
+      region: "지역 · 국가",
+      submit: "남기고 상담 연결",
+      skip: "정보 없이 바로 연결",
+      thanks: "감사합니다! 담당자가 곧 연락드릴게요 😊 아래에서 바로 연락하셔도 됩니다."
+    }
   },
   contact: {
     eyebrow: "연락처",
@@ -896,9 +916,19 @@ export const enContent: HomeContent = {
       "Seeing is believing — check the real site photos 📷"
     ],
     inquiryChip: "📞 Talk to our team directly",
-    inquiryLead: "Connecting you to our business development team — choose phone or email 😊",
+    inquiryLead: "Leave your details and our team will reach out first. (All optional 😊)",
     casesChip: "📷 Show me real site photos first",
-    footnote: "Automated guide · For details, contact our team directly"
+    footnote: "Automated guide · For details, contact our team directly",
+    form: {
+      intro: "Your details are seen only by our business development team.",
+      name: "Name",
+      contact: "Phone or email",
+      company: "Company · organization",
+      region: "Region · country",
+      submit: "Send & connect",
+      skip: "Connect without details",
+      thanks: "Thank you! Our team will be in touch soon 😊 You can also reach us directly below."
+    }
   },
   contact: {
     eyebrow: "Contact",
