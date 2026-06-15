@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { Mail, Phone, X } from "lucide-react";
+import { logInquiry } from "../lib/inquiry-log";
 import type { HomeContent } from "../home-content";
 
 export default function ContactModal({
@@ -78,6 +79,13 @@ export default function ContactModal({
                     <a
                       key={phone.href}
                       href={phone.href}
+                      onClick={() =>
+                        logInquiry({
+                          type: `연락처 클릭 · ${phone.label}`,
+                          message: `${person.name} · ${phone.value}`,
+                          phone: phone.value
+                        })
+                      }
                       className="flex items-center justify-between gap-2 rounded-xl bg-white px-4 py-3 ring-1 ring-ink/8 transition hover:ring-forest/40"
                     >
                       <span className="flex items-center gap-2 text-[0.9rem] font-semibold text-ink/55">
@@ -91,6 +99,13 @@ export default function ContactModal({
                   ))}
                   <a
                     href={`mailto:${person.email}`}
+                    onClick={() =>
+                      logInquiry({
+                        type: "연락처 클릭 · 이메일",
+                        message: `${person.name} · ${person.email}`,
+                        email: person.email
+                      })
+                    }
                     className="flex items-center gap-2.5 rounded-xl bg-forest px-4 py-3 text-white transition hover:bg-ink"
                   >
                     <Mail className="h-4 w-4 shrink-0" />

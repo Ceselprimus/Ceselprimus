@@ -30,6 +30,7 @@ import FarmModels from "./components/FarmModels";
 import InquiryButton from "./components/InquiryButton";
 import HeroMedia from "./components/HeroMedia";
 import ChatWidget from "./components/ChatWidget";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import { companyLegal, type Accent, type HomeContent } from "./home-content";
 
 const baseUrl = "https://www.ceslprimus.com";
@@ -72,6 +73,7 @@ function buildStructuredData(content: HomeContent) {
         addressCountry: "KR"
       },
       description: content.seo.orgDescription,
+      knowsAbout: content.seo.knowsAbout,
       sameAs: content.news.socialLinks.map(([, href]) => href),
       contactPoint: content.contact.contacts.flatMap((contact) =>
         contact.phones.map((phone) => ({
@@ -167,6 +169,7 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <ContactSection content={content} />
       <Footer content={content} />
       <ChatWidget chat={content.chat} faq={content.faq} contact={content.contact} />
+      <FloatingWhatsApp whatsapp={content.whatsapp} />
     </main>
   );
 }

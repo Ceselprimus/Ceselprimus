@@ -1,3 +1,4 @@
+// 홈페이지 한/영 콘텐츠 사전
 export type Locale = "ko" | "en";
 
 export type Accent = "forest" | "ice" | "energy" | "amber";
@@ -22,6 +23,7 @@ export interface HomeContent {
   locale: Locale;
   pageUrl: string;
   inquirySubject: string;
+  whatsapp: { number: string; prefill: string; aria: string };
   nav: {
     items: { href: string; label: string }[];
     inquiry: string;
@@ -173,6 +175,7 @@ export interface HomeContent {
     webPageName: string;
     lineupListName: string;
     breadcrumbHome: string;
+    knowsAbout: string[];
   };
 }
 
@@ -216,6 +219,11 @@ export const koContent: HomeContent = {
   locale: "ko",
   pageUrl: "https://www.ceslprimus.com",
   inquirySubject: "쎄슬프라이머스 사업개발 문의",
+  whatsapp: {
+    number: "821037617953",
+    prefill: "안녕하세요, 쎄슬프라이머스에 문의드립니다.",
+    aria: "왓츠앱으로 문의하기"
+  },
   nav: {
     items: [
       { href: "#lineup", label: "라인업" },
@@ -226,7 +234,7 @@ export const koContent: HomeContent = {
     ],
     inquiry: "사업개발 문의",
     langSwitch: { href: "/en", label: "EN" },
-    mobileContact: "강호수 프로 010-3341-6036 · 이관호 대표 왓츠앱 +60 17-551-8024",
+    mobileContact: "사업개발 문의 010-3341-6036 · 해외사업 왓츠앱 +82 10-3761-7953",
     menuOpen: "메뉴 열기",
     menuClose: "메뉴 닫기",
     homeAria: "쎄슬프라이머스 홈"
@@ -527,20 +535,20 @@ export const koContent: HomeContent = {
     ],
     contacts: [
       {
-        name: "강호수",
-        role: "프로 · 사업개발",
-        tag: "사업개발 총괄",
+        name: "사업개발 문의",
+        role: "프로젝트 · 파트너십 · 국내 사업개발",
+        tag: "국내 · 사업개발",
         primary: true,
         phones: [{ label: "휴대전화", value: "010-3341-6036", href: "tel:01033416036" }],
         email: "rkdghtn636@gmail.com",
         emailLabel: "이메일"
       },
       {
-        name: "이관호",
-        role: "대표",
-        tag: "경영 · 해외 사업",
+        name: "해외사업 문의",
+        role: "해외 실증 · 사업화",
+        tag: "해외 · 경영",
         primary: false,
-        phones: [{ label: "왓츠앱", value: "+60 17-551-8024", href: "https://wa.me/60175518024" }],
+        phones: [{ label: "왓츠앱", value: "+82 10-3761-7953", href: "https://wa.me/821037617953" }],
         email: "kevinlee@ceslprimus.com",
         emailLabel: "이메일"
       }
@@ -568,7 +576,20 @@ export const koContent: HomeContent = {
       "프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장하는 농식품·콜드체인 인프라 기술기업입니다. 알파팜, 알파쿨링, 알파에너지, 알파서포트 네 개 라인업을 제공합니다.",
     webPageName: "쎄슬프라이머스 | 수직농장에서 콜드체인까지, 식품 인프라 통합 솔루션",
     lineupListName: "쎄슬프라이머스 알파 솔루션 포트폴리오",
-    breadcrumbHome: "홈"
+    breadcrumbHome: "홈",
+    knowsAbout: [
+      "딸기수직농장",
+      "수직농장",
+      "스마트팜",
+      "쿨링시스템",
+      "저온제습 공조",
+      "콜드체인",
+      "에너지 관리 시스템",
+      "해외진출",
+      "아세안 사업화",
+      "농식품 컨설팅",
+      "연중 딸기 사업솔루션"
+    ]
   }
 };
 
@@ -576,6 +597,11 @@ export const enContent: HomeContent = {
   locale: "en",
   pageUrl: "https://www.ceslprimus.com/en",
   inquirySubject: "CESeL Primus Business Development Inquiry",
+  whatsapp: {
+    number: "821037617953",
+    prefill: "Hello, I'd like to ask about CESeL Primus.",
+    aria: "Chat with us on WhatsApp"
+  },
   nav: {
     items: [
       { href: "#lineup", label: "Lineup" },
@@ -586,7 +612,7 @@ export const enContent: HomeContent = {
     ],
     inquiry: "Contact us",
     langSwitch: { href: "/", label: "한국어" },
-    mobileContact: "HoSoo Kang +82 10-3341-6036 · Kevin Lee WhatsApp +60 17-551-8024",
+    mobileContact: "Business development +82 10-3341-6036 · Global business WhatsApp +82 10-3761-7953",
     menuOpen: "Open menu",
     menuClose: "Close menu",
     homeAria: "CESeL Primus home"
@@ -888,20 +914,20 @@ export const enContent: HomeContent = {
     ],
     contacts: [
       {
-        name: "HoSoo Kang",
-        role: "Pro · Business Development",
-        tag: "Business development",
+        name: "Business Development",
+        role: "Projects · Partnerships · Korea",
+        tag: "Korea · BD",
         primary: true,
         phones: [{ label: "Mobile", value: "+82 10-3341-6036", href: "tel:+821033416036" }],
         email: "rkdghtn636@gmail.com",
         emailLabel: "Email"
       },
       {
-        name: "Kevin Lee",
-        role: "CEO",
-        tag: "Management · Global business",
+        name: "Global Business",
+        role: "Overseas pilots · Commercialization",
+        tag: "Global · Management",
         primary: false,
-        phones: [{ label: "WhatsApp", value: "+60 17-551-8024", href: "https://wa.me/60175518024" }],
+        phones: [{ label: "WhatsApp", value: "+82 10-3761-7953", href: "https://wa.me/821037617953" }],
         email: "kevinlee@ceslprimus.com",
         emailLabel: "Email"
       }
@@ -929,6 +955,19 @@ export const enContent: HomeContent = {
       "CESeL Primus is an agri-food and cold-chain infrastructure technology company. Starting from premium strawberry vertical farming, it expands into cooling & dehumidification, power · control · data management, cold chain, and business development support — with the AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaSupport lineups.",
     webPageName: "CESeL Primus | From Vertical Farms to Cold Chain — Food Infrastructure as One Platform",
     lineupListName: "CESeL Primus Alpha Solution Portfolio",
-    breadcrumbHome: "Home"
+    breadcrumbHome: "Home",
+    knowsAbout: [
+      "Strawberry vertical farming",
+      "Vertical farm",
+      "Smart farm",
+      "Cooling system",
+      "Low-temperature dehumidification HVAC",
+      "Cold chain",
+      "Energy management system",
+      "Overseas expansion",
+      "ASEAN commercialization",
+      "Agri-food consulting",
+      "Year-round strawberry business solution"
+    ]
   }
 };

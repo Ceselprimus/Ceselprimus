@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, MessageCircle, X } from "lucide-react";
 import ContactModal from "./ContactModal";
+import { logInquiry } from "../lib/inquiry-log";
 import type { HomeContent } from "../home-content";
 
 interface ChatMessage {
@@ -106,6 +107,14 @@ export default function ChatWidget({
   const onInquiry = () => {
     if (busy) return;
     setBusy(true);
+    const transcript = messages
+      .filter((message) => message.role === "user")
+      .map((message) => message.text)
+      .join(" / ");
+    logInquiry({
+      type: "챗봇 상담 → 담당자 문의",
+      message: transcript || "(질문 선택 없이 바로 담당자 문의)"
+    });
     setMessages((prev) => [...prev, { role: "user", text: chat.inquiryChip }]);
     queue(() => {
       typeThen(chat.inquiryLead, 700, () => {
