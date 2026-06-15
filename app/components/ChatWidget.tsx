@@ -40,7 +40,7 @@ export default function ChatWidget({
   const [busy, setBusy] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({ name: "", contact: "", company: "", region: "" });
+  const [form, setForm] = useState({ name: "", contact: "", company: "", region: "", website: "" });
   const followUpIndex = useRef(0);
   const bodyRef = useRef<HTMLDivElement>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -134,7 +134,8 @@ export default function ChatWidget({
       email: isEmail ? contact : "",
       company: form.company.trim(),
       region: form.region.trim(),
-      message: transcript() || "(질문 선택 없음)"
+      message: transcript() || "(질문 선택 없음)",
+      website: form.website
     });
     setShowForm(false);
     setBusy(true);
@@ -273,6 +274,16 @@ export default function ChatWidget({
             {!busy && showForm ? (
               <div className="chat-msg space-y-2.5 pt-4">
                 <p className="ml-1 text-[0.82rem] leading-relaxed text-ink/50">{chat.form.intro}</p>
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  value={form.website}
+                  onChange={(event) => setForm({ ...form, website: event.target.value })}
+                  className="absolute left-[-9999px] h-0 w-0 opacity-0"
+                />
                 <input
                   value={form.name}
                   onChange={(event) => setForm({ ...form, name: event.target.value })}

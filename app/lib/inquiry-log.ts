@@ -7,6 +7,7 @@ export interface InquiryPayload {
   company?: string;
   region?: string;
   message?: string;
+  website?: string;
 }
 
 function readablePage(path: string): string {
