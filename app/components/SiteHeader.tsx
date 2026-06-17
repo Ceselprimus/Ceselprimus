@@ -56,7 +56,7 @@ export default function SiteHeader({
             />
           </a>
 
-          <nav className="hidden items-center gap-8 lg:flex" aria-label={nav.homeAria}>
+          <nav className="hidden items-center gap-6 xl:flex" aria-label={nav.homeAria}>
             {nav.items.map((item) => (
               <a
                 key={item.href}
@@ -89,7 +89,7 @@ export default function SiteHeader({
             </InquiryButton>
           </nav>
 
-          <div className="flex items-center gap-1.5 lg:hidden">
+          <div className="flex items-center gap-1.5 xl:hidden">
             <a
               href={nav.langSwitch.href}
               className={`inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.9rem] font-semibold ring-1 transition ${
@@ -115,7 +115,7 @@ export default function SiteHeader({
       </header>
 
       {open ? (
-        <div className="fixed inset-0 z-40 flex flex-col bg-ink px-8 pb-12 pt-28 text-white lg:hidden">
+        <div className="fixed inset-0 z-40 flex flex-col bg-ink px-8 pb-12 pt-28 text-white xl:hidden">
           <nav className="flex flex-col gap-2" aria-label={nav.homeAria}>
             {nav.items.map((item, index) => (
               <a

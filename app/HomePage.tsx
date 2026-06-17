@@ -431,7 +431,7 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
           </div>
         </Reveal>
         <Reveal delay={100}>
-          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-6 rounded-2xl bg-white p-6 ring-1 ring-ink/8 sm:grid-cols-5 md:mt-12 md:p-7">
+          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-6 rounded-2xl bg-white p-6 ring-1 ring-ink/8 sm:grid-cols-3 lg:grid-cols-5 md:mt-12 md:p-7">
             {alphafarm.flow.map((step, index) => (
               <div key={step} className="border-t-2 border-forest/25 pt-3">
                 <p className="text-[0.88rem] font-bold text-forest">{String(index + 1).padStart(2, "0")}</p>
@@ -661,7 +661,7 @@ function IpSection({ content }: { content: HomeContent }) {
               <Lines lines={ip.titleLines} />
             </SectionTitle>
             <p className="mt-6 text-[1.05rem] leading-relaxed text-ink/66 md:text-[1.12rem]">{ip.body}</p>
-            {ip.note ? <p className="mt-4 text-[0.95rem] leading-relaxed text-ink/48">{ip.note}</p> : null}
+            {ip.note ? <p className="mt-4 text-[0.95rem] leading-relaxed text-ink/60">{ip.note}</p> : null}
           </Reveal>
           <div>
             {ip.names.map((name, index) => (
@@ -854,11 +854,11 @@ function ContactSection({ content }: { content: HomeContent }) {
                       </a>
                     ))}
                     <a href={`mailto:${person.email}`} className="group flex items-center justify-between gap-3 py-3.5">
-                      <span className="flex items-center gap-2.5 text-[0.95rem] font-semibold text-ink/52">
+                      <span className="flex shrink-0 items-center gap-2.5 text-[0.95rem] font-semibold text-ink/52">
                         <Mail className="h-4 w-4 text-forest" />
                         {person.emailLabel}
                       </span>
-                      <span className="break-all text-right text-[1.02rem] font-bold text-forest">{person.email}</span>
+                      <span className="min-w-0 break-words text-right text-[0.9rem] font-bold text-forest">{person.email}</span>
                     </a>
                   </div>
                 </article>

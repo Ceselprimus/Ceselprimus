@@ -172,7 +172,7 @@ export default function ContactModal({
                     className="flex items-center gap-2.5 rounded-xl bg-forest px-4 py-3 text-white transition hover:bg-ink"
                   >
                     <Mail className="h-4 w-4 shrink-0" />
-                    <span className="break-all text-[0.95rem] font-semibold leading-snug">{person.email}</span>
+                    <span className="min-w-0 break-words text-[0.8rem] font-semibold leading-snug">{person.email}</span>
                   </a>
                 </div>
               </div>
