@@ -23,6 +23,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.9,
       alternates: { languages }
-    }
+    },
+    { url: `${baseUrl}/alphafarm`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/alphacooling`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/alphasupport`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/contact`, lastModified, changeFrequency: "weekly", priority: 0.7 }
   ];
 }
