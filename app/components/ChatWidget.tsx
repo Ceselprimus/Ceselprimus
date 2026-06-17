@@ -40,7 +40,7 @@ export default function ChatWidget({
   const [busy, setBusy] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({ name: "", contact: "", company: "", region: "", website: "" });
+  const [form, setForm] = useState({ name: "", age: "", company: "", route: "", phone: "", website: "" });
   const followUpIndex = useRef(0);
   const bodyRef = useRef<HTMLDivElement>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -79,7 +79,10 @@ export default function ChatWidget({
       queue(() => {
         typeThen(chat.greeting, 700, () => {
           queue(() => {
-            typeThen(chat.greeting2, 800, () => setBusy(false));
+            typeThen(chat.greeting2, 800, () => {
+              setBusy(false);
+              setShowForm(true);
+            });
           }, 350);
         });
       }, 250);
@@ -106,52 +109,35 @@ export default function ChatWidget({
     }, 300);
   };
 
-  const transcript = () =>
-    messages
-      .filter((message) => message.role === "user")
-      .map((message) => message.text)
-      .join(" / ");
-
   const onInquiry = () => {
     if (busy) return;
+    setShowForm(false);
     setBusy(true);
     setMessages((prev) => [...prev, { role: "user", text: chat.inquiryChip }]);
     queue(() => {
       typeThen(chat.inquiryLead, 700, () => {
         setBusy(false);
-        setShowForm(true);
+        queue(() => setModalOpen(true), 250);
       });
     }, 300);
   };
 
   const submitForm = () => {
-    const contact = form.contact.trim();
-    const isEmail = contact.includes("@");
     logInquiry({
-      type: "챗봇 콜백 신청",
+      type: "챗봇 사전정보",
       name: form.name.trim(),
-      phone: isEmail ? "" : contact,
-      email: isEmail ? contact : "",
+      phone: form.phone.trim(),
       company: form.company.trim(),
-      region: form.region.trim(),
-      message: transcript() || "(질문 선택 없음)",
+      message: `나이: ${form.age.trim() || "-"} / 방문경로: ${form.route.trim() || "-"}`,
       website: form.website
     });
     setShowForm(false);
     setBusy(true);
-    typeThen(chat.form.thanks, 700, () => {
-      setBusy(false);
-      queue(() => setModalOpen(true), 300);
-    });
+    typeThen(chat.form.thanks, 700, () => setBusy(false));
   };
 
   const skipForm = () => {
-    logInquiry({
-      type: "챗봇 상담 → 담당자 문의",
-      message: transcript() || "(질문 선택 없이 바로 담당자 문의)"
-    });
     setShowForm(false);
-    queue(() => setModalOpen(true), 100);
   };
 
   const onCases = () => {
@@ -291,9 +277,10 @@ export default function ChatWidget({
                   className="w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition placeholder:text-ink/40 focus:border-forest focus:ring-2 focus:ring-forest/15"
                 />
                 <input
-                  value={form.contact}
-                  onChange={(event) => setForm({ ...form, contact: event.target.value })}
-                  placeholder={chat.form.contact}
+                  value={form.age}
+                  inputMode="numeric"
+                  onChange={(event) => setForm({ ...form, age: event.target.value })}
+                  placeholder={chat.form.age}
                   className="w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition placeholder:text-ink/40 focus:border-forest focus:ring-2 focus:ring-forest/15"
                 />
                 <input
@@ -303,9 +290,16 @@ export default function ChatWidget({
                   className="w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition placeholder:text-ink/40 focus:border-forest focus:ring-2 focus:ring-forest/15"
                 />
                 <input
-                  value={form.region}
-                  onChange={(event) => setForm({ ...form, region: event.target.value })}
-                  placeholder={chat.form.region}
+                  value={form.route}
+                  onChange={(event) => setForm({ ...form, route: event.target.value })}
+                  placeholder={chat.form.route}
+                  className="w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition placeholder:text-ink/40 focus:border-forest focus:ring-2 focus:ring-forest/15"
+                />
+                <input
+                  value={form.phone}
+                  inputMode="tel"
+                  onChange={(event) => setForm({ ...form, phone: event.target.value })}
+                  placeholder={chat.form.phone}
                   className="w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition placeholder:text-ink/40 focus:border-forest focus:ring-2 focus:ring-forest/15"
                 />
                 <button

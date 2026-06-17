@@ -149,9 +149,10 @@ export interface HomeContent {
     form: {
       intro: string;
       name: string;
-      contact: string;
+      age: string;
       company: string;
-      region: string;
+      route: string;
+      phone: string;
       submit: string;
       skip: string;
       thanks: string;
@@ -541,14 +542,15 @@ export const koContent: HomeContent = {
     casesChip: "📷 구축 현장 사진 먼저 볼래요",
     footnote: "자동 안내입니다 · 상세 상담은 담당자 직접 문의를 이용해 주세요",
     form: {
-      intro: "남겨주신 정보는 영업개발 담당자만 확인합니다.",
+      intro: "간단한 정보를 남겨주시면 담당자가 먼저 연락드려요. (모두 선택 입력)",
       name: "이름",
-      contact: "연락처 (전화 또는 이메일)",
-      company: "회사 · 기관명",
-      region: "지역 · 국가",
-      submit: "남기고 상담 연결",
-      skip: "정보 없이 바로 연결",
-      thanks: "감사합니다! 담당자가 곧 연락드릴게요 😊 아래에서 바로 연락하셔도 됩니다."
+      age: "나이",
+      company: "회사 · 기관 (선택)",
+      route: "방문 경로 (검색 · SNS · 지인 등)",
+      phone: "전화번호 (선택)",
+      submit: "남기기",
+      skip: "질문 먼저 볼게요",
+      thanks: "감사합니다! 담당자가 곧 연락드릴게요 😊 궁금한 점은 아래에서 골라보세요."
     }
   },
   contact: {
@@ -940,14 +942,15 @@ export const enContent: HomeContent = {
     casesChip: "📷 Show me real site photos first",
     footnote: "Automated guide · For details, contact our team directly",
     form: {
-      intro: "Your details are seen only by our business development team.",
+      intro: "Leave a few details and our team will reach out. (All optional)",
       name: "Name",
-      contact: "Phone or email",
-      company: "Company · organization",
-      region: "Region · country",
-      submit: "Send & connect",
-      skip: "Connect without details",
-      thanks: "Thank you! Our team will be in touch soon 😊 You can also reach us directly below."
+      age: "Age",
+      company: "Company (optional)",
+      route: "How did you find us? (search, SNS, referral)",
+      phone: "Phone (optional)",
+      submit: "Submit",
+      skip: "Browse questions first",
+      thanks: "Thank you! Our team will reach out soon 😊 Pick a question below anytime."
     }
   },
   contact: {
