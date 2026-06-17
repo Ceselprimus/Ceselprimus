@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Check, Mail, Phone, X } from "lucide-react";
 import { logInquiry } from "../lib/inquiry-log";
 import type { HomeContent } from "../home-content";
@@ -59,7 +60,7 @@ export default function ContactModal({
   const inputClass =
     "w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-[0.98rem] text-ink outline-none transition placeholder:text-ink/40 focus:border-forest focus:ring-2 focus:ring-forest/15";
 
-  return (
+  const modal = (
     <div
       className="fixed inset-0 z-[110] overflow-y-auto bg-ink/60 backdrop-blur-sm"
       role="dialog"
@@ -181,4 +182,6 @@ export default function ContactModal({
       </div>
     </div>
   );
+
+  return typeof document !== "undefined" ? createPortal(modal, document.body) : null;
 }
