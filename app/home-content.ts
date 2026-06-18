@@ -373,7 +373,7 @@ export const koContent: HomeContent = {
     flow: ["생산 기반", "운영 관리", "판매 연결", "공간 경험", "사업화 지원"],
     models: [
       { name: "알파코어", desc: "안정적인 생산과 품질관리, 운영 지속성을 위한 대형 프리미엄 딸기 생산기지", image: "/media/concepts/alphacore-concept.webp" },
-      { name: "알파카페", desc: "생산한 딸기를 케이크 · 생과팩 · 음료 등 프리미엄 상품으로 판매하는 매장형 모델", image: "/media/concepts/alphacafe-concept.webp" },
+      { name: "알파카페", desc: "생산한 딸기를 케이크 · 생과팩 · 음료 등 프리미엄 상품으로 판매하는 매장형 모델", image: "/media/concepts/alphacafe-concept-2.webp" },
       { name: "경험형 포트폴리오", desc: "호텔 · 오피스 · 쇼룸 · 베이커리 공간을 살아있는 브랜드 경험으로 전환", image: "/media/concepts/alphaexperience-concept.webp" },
       { name: "알파 컨테이너팜", desc: "40피트 하이큐브 기반의 소형 생산 · 검증형 모델", image: "/media/concepts/containerfarm-concept.webp" }
     ],
@@ -772,7 +772,7 @@ export const enContent: HomeContent = {
     flow: ["Production base", "Operations", "Sales channels", "Space experience", "Business development"],
     models: [
       { name: "AlphaCore", desc: "A large-scale premium strawberry production base for stable output and quality control", image: "/media/concepts/alphacore-concept.webp" },
-      { name: "AlphaCafe", desc: "An in-store model selling strawberries as cakes, fresh packs, and beverages", image: "/media/concepts/alphacafe-concept.webp" },
+      { name: "AlphaCafe", desc: "An in-store model selling strawberries as cakes, fresh packs, and beverages", image: "/media/concepts/alphacafe-concept-2.webp" },
       { name: "Experience Portfolio", desc: "Turns hotels, offices, showrooms, and bakeries into living brand experiences", image: "/media/concepts/alphaexperience-concept.webp" },
       { name: "Alpha ContainerFarm", desc: "A compact production and validation model in a 40-ft high-cube container", image: "/media/concepts/containerfarm-concept.webp" }
     ],
