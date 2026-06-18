@@ -530,7 +530,7 @@ export const koContent: HomeContent = {
     statusLabel: "지금 바로 응답",
     timeLabel: "방금",
     greeting: "안녕하세요! 👋 쎄슬프라이머스 도우미입니다.",
-    greeting2: "수직농장부터 콜드체인까지, 무엇이든 물어보세요.\n아래 질문을 누르면 기다림 없이 바로 답해드려요 ⚡",
+    greeting2: "수직농장부터 콜드체인까지, 무엇이든 도와드릴게요 ⚡\n아래에 간단히 정보를 남기시거나, 건너뛰고 바로 질문하셔도 좋아요.",
     chipsLabel: "자주 묻는 질문",
     followUps: [
       "도움이 되셨나요? 다른 질문도 골라보세요 🙂",
@@ -930,7 +930,7 @@ export const enContent: HomeContent = {
     statusLabel: "Replies instantly",
     timeLabel: "Just now",
     greeting: "Hi there! 👋 I am the CESeL Primus assistant.",
-    greeting2: "From vertical farms to cold chain — ask away.\nTap a question below for an instant answer ⚡",
+    greeting2: "From vertical farms to cold chain — happy to help ⚡\nLeave a few details below, or skip and ask a question.",
     chipsLabel: "Frequently asked",
     followUps: [
       "Was that helpful? Pick another question 🙂",
