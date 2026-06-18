@@ -70,7 +70,7 @@ export default function ContactModal({
     >
       <div className="flex min-h-full items-center justify-center p-4">
         <div
-          className="my-4 w-full max-w-xl rounded-3xl bg-white p-6 shadow-soft md:p-8"
+          className="my-4 w-full max-w-2xl rounded-3xl bg-white p-6 shadow-soft md:p-8"
           onClick={(event) => event.stopPropagation()}
         >
           <div className="flex items-start justify-between gap-4">
@@ -161,7 +161,7 @@ export default function ContactModal({
                         <Phone className="h-4 w-4 shrink-0 text-forest" />
                         {phone.label}
                       </span>
-                      <span className="whitespace-nowrap text-[1.02rem] font-bold tracking-tight text-ink">{phone.value}</span>
+                      <span className="whitespace-nowrap text-[0.92rem] font-bold tracking-tight text-ink">{phone.value}</span>
                     </a>
                   ))}
                   <a
