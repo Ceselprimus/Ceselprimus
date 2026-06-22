@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: { absolute: "쿨링시스템 · 저온제습 기반 기후제어 | 알파쿨링" },
   description:
     "쿨링시스템과 저온제습으로 식품공장 결로·고온다습 문제를 해결합니다. 쎄슬프라이머스 알파쿨링은 수직농장, 식품 포장실, 저온저장·콜드체인 시설의 습도·결로·공급공기 품질을 통합 관리합니다.",
-  keywords: ["쿨링시스템", "냉각 시스템", "저온제습", "식품공장 결로", "결로 해결", "고온다습 환경 제어", "콜드체인", "핫가스 재열 제습", "HGR", "알파쿨링"],
+  keywords: ["쿨링시스템", "냉각 시스템", "저온제습", "식품공장 결로", "결로 해결", "고온다습 환경 제어", "콜드체인", "cold chain", "식품창고", "food warehouse", "저온저장고", "cold storage", "저온저장고 결로", "냉장창고 공조", "핫가스 재열 제습", "HGR", "알파쿨링"],
   alternates: { canonical: "/alphacooling" },
   openGraph: {
     title: "쿨링시스템·저온제습·결로 해결 | 쎄슬프라이머스 알파쿨링",
@@ -67,6 +67,22 @@ export default function AlphaCoolingPage() {
       backHref="/#alphacooling"
       backLabel="홈에서 알파쿨링 자세히 보기"
       jsonLd={jsonLd}
+      relatedKeywords={[
+        "쿨링시스템, 알파쿨링 / Cooling System, AlphaCooling",
+        "저온제습 시스템 / Low-Temperature Dehumidification System",
+        "결로 방지 솔루션 / Condensation Control Solution",
+        "식품공장 공조 솔루션 / Food Factory HVAC Solution",
+        "식품 포장실 공조 / Food Packaging Room HVAC",
+        "저온저장고 공조 / Cold Storage HVAC",
+        "식품창고 결로·곰팡이 / Food Warehouse Condensation & Mold",
+        "냉장·냉동창고 공조 / Refrigerated & Frozen Warehouse HVAC",
+        "콜드체인 공조 / Cold Chain HVAC",
+        "수직농장 냉방 / Vertical Farm Cooling",
+        "딸기농장 냉방 / Strawberry Farm Cooling",
+        "식품공장 결로 개선 / Food Factory Condensation Improvement",
+        "고습환경 제습 / High-Humidity Dehumidification",
+        "공조 에너지 절감 / HVAC Energy Saving"
+      ]}
     />
   );
 }

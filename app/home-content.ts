@@ -266,7 +266,7 @@ export const koContent: HomeContent = {
     sub: "쎄슬프라이머스는 프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 사업화 지원까지 — 식품 생산과 저장의 전 과정을 하나의 솔루션으로 연결합니다.",
     ctaPrimary: "솔루션 라인업 보기",
     ctaSecondary: "사업개발 문의",
-    imageAlt: "쎄슬프라이머스 수직농장과 콜드체인 통합 솔루션 비주얼",
+    imageAlt: "쎄슬프라이머스 딸기수직농장·콜드체인 통합 솔루션 / CESeL Primus strawberry vertical farm and cold chain solution",
     stats: [
       { value: "2016", label: "법인 설립" },
       { value: "4", label: "솔루션 라인업" },
@@ -303,7 +303,7 @@ export const koContent: HomeContent = {
         tagline: "프리미엄 딸기 생산 · 리테일 · 공간경험 솔루션",
         accent: "forest",
         image: "/media/cases/case-suwon-urban-01.webp",
-        imageAlt: "알파팜 도심형 딸기수직농장 재배랙",
+        imageAlt: "알파팜 도심형 딸기수직농장 재배랙 / AlphaFarm urban strawberry vertical farm rack",
         anchor: "#alphafarm",
         englishName: "AlphaFarm",
         subItems: [
@@ -318,7 +318,7 @@ export const koContent: HomeContent = {
         tagline: "팜 · 식품공정 · 콜드체인 컨테이너 냉각제습 솔루션",
         accent: "ice",
         image: "/media/concepts/alphacooling-farm-concept-2.webp",
-        imageAlt: "알파쿨링 저온제습 공조 설비",
+        imageAlt: "알파쿨링 저온제습 쿨링시스템 / AlphaCooling low-temperature dehumidification cooling system",
         anchor: "#alphacooling",
         englishName: "AlphaCooling",
         subItems: [
@@ -332,7 +332,7 @@ export const koContent: HomeContent = {
         tagline: "전력 · 제어 · 데이터 통합 관리 시스템",
         accent: "energy",
         image: "/media/concepts/alphaenergy-concept.webp",
-        imageAlt: "알파에너지 전력 제어 데이터 통합 관리",
+        imageAlt: "알파에너지 전력·제어·데이터 통합 관리 / AlphaEnergy power, control and data management",
         anchor: "#alphaenergy",
         englishName: "AlphaEnergy",
         subItems: [
@@ -347,7 +347,7 @@ export const koContent: HomeContent = {
         tagline: "실증 · 구축 · 운영 · 사업화 지원 서비스",
         accent: "amber",
         image: "/media/concepts/alphasupport-concept.webp",
-        imageAlt: "알파서포트 사업개발 파트너십",
+        imageAlt: "알파서포트 해외진출 사업개발 파트너십 / AlphaSupport overseas expansion partnership",
         anchor: "#alphasupport",
         englishName: "AlphaSupport",
         subItems: [
@@ -391,7 +391,7 @@ export const koContent: HomeContent = {
       ["알파쿨링 식품 · 포장실", "식품공정과 포장실의 결로, 고습, 포장재 젖음 문제에 대응하는 인라인 핫가스 재열 제습 유닛입니다."],
       ["알파쿨링 컨테이너", "철도기술연구원 기술이전 특허 기반, 에너지저장장치를 연계한 콜드체인 컨테이너입니다."]
     ],
-    imageAlt: "알파쿨링 저온제습 공조 설비가 적용된 식품 작업장"
+    imageAlt: "식품공장·저온저장고 저온제습 쿨링시스템 / Food factory and cold storage low-temperature dehumidification cooling system"
   },
   energy: {
     eyebrow: "알파에너지 — 라인업 03",
@@ -626,6 +626,9 @@ export const koContent: HomeContent = {
       "쿨링시스템",
       "저온제습 공조",
       "콜드체인",
+      "식품창고",
+      "저온저장고",
+      "식품공장 결로",
       "에너지 관리 시스템",
       "해외진출",
       "아세안 사업화",
@@ -1026,6 +1029,9 @@ export const enContent: HomeContent = {
       "Cooling system",
       "Low-temperature dehumidification HVAC",
       "Cold chain",
+      "Food warehouse",
+      "Cold storage",
+      "Food factory condensation",
       "Energy management system",
       "Overseas expansion",
       "ASEAN commercialization",

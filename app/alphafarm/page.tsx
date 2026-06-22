@@ -67,6 +67,20 @@ export default function AlphaFarmPage() {
       backHref="/#alphafarm"
       backLabel="홈에서 알파팜 자세히 보기"
       jsonLd={jsonLd}
+      relatedKeywords={[
+        "딸기수직농장, 알파팜 / Strawberry Vertical Farm, AlphaFarm",
+        "프리미엄 딸기 수직농장 / Premium Strawberry Vertical Farm",
+        "연중 딸기 생산 / Year-Round Strawberry Production",
+        "연중 프리미엄 딸기 사업모델 / Year-Round Premium Strawberry Business Model",
+        "고밀도 딸기 재배 / High-Density Strawberry Cultivation",
+        "스마트팜 딸기 재배 / Smart Farm Strawberry Cultivation",
+        "딸기 재배랙 / Strawberry Growing Rack",
+        "딸기 재배 시스템 / Strawberry Growing System",
+        "딸기 환경제어 / Strawberry Environmental Control",
+        "프리미엄 딸기 생산기지 / Premium Strawberry Production Base",
+        "딸기 생산·판매 일체형 모델 / Integrated Strawberry Production and Retail Model",
+        "도심형 딸기농장 / Urban Strawberry Farm"
+      ]}
     />
   );
 }

@@ -67,6 +67,20 @@ export default function AlphaSupportPage() {
       backHref="/#alphasupport"
       backLabel="홈에서 알파서포트 자세히 보기"
       jsonLd={jsonLd}
+      relatedKeywords={[
+        "해외진출·컨설팅, 알파서포트 / Overseas Expansion & Consulting, AlphaSupport",
+        "스마트팜 해외진출 / Smart Farm Overseas Expansion",
+        "수직농장 해외진출 / Vertical Farm Overseas Expansion",
+        "아세안 수직농장 사업 / ASEAN Vertical Farm Business",
+        "연중 딸기 사업모델 / Year-Round Strawberry Business Model",
+        "수직농장 사업모델 / Vertical Farm Business Model",
+        "스마트팜 사업개발 / Smart Farm Business Development",
+        "재배기술 컨설팅 / Cultivation Technology Consulting",
+        "시설구축 컨설팅 / Facility Development Consulting",
+        "현지 생산·브랜드화 / Local Production and Branding",
+        "해외 파트너 발굴 / Overseas Partner Development",
+        "기술료·로열티 모델 / Technical Fee and Royalty Model"
+      ]}
     />
   );
 }

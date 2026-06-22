@@ -67,6 +67,18 @@ export default function ContactPage() {
       backHref="/#contact"
       backLabel="홈 연락처로 이동"
       jsonLd={jsonLd}
+      relatedKeywords={[
+        "스마트팜 사업개발 / Smart Farm Business Development",
+        "재배기술 컨설팅 / Cultivation Technology Consulting",
+        "시설구축 컨설팅 / Facility Development Consulting",
+        "스마트팜 운영지원 / Smart Farm Operation Support",
+        "딸기수직농장 / Strawberry Vertical Farm",
+        "쿨링시스템 / Cooling System",
+        "해외진출 / Overseas Expansion",
+        "연중 딸기 사업모델 / Year-Round Strawberry Business Model",
+        "데이터 기반 운영 / Data-Based Operation",
+        "자체 생산시설 구축 / In-House Production Facility Development"
+      ]}
     />
   );
 }

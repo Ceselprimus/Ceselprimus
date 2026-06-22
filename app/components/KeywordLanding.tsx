@@ -14,6 +14,7 @@ export interface KeywordLandingProps {
   backHref: string;
   backLabel: string;
   jsonLd: object;
+  relatedKeywords?: string[];
 }
 
 export default function KeywordLanding(p: KeywordLandingProps) {
@@ -81,6 +82,24 @@ export default function KeywordLanding(p: KeywordLandingProps) {
           </div>
         </div>
       </section>
+
+      {p.relatedKeywords && p.relatedKeywords.length > 0 ? (
+        <section className="border-t border-ink/10 bg-paper">
+          <div className="mx-auto w-[min(1140px,92vw)] py-10">
+            <p className="text-[0.82rem] font-bold tracking-wide text-ink/45">관련 키워드 · Related Keywords</p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {p.relatedKeywords.map((kw, i) => (
+                <li
+                  key={i}
+                  className="rounded-full bg-white px-3.5 py-1.5 text-[0.85rem] text-ink/55 ring-1 ring-ink/8"
+                >
+                  {kw}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
 
       <footer className="bg-ink py-10 text-center">
         <a href="/" className="text-[0.95rem] font-semibold text-white transition hover:text-mint">
