@@ -251,6 +251,7 @@ export const koContent: HomeContent = {
       { href: "#alphafarm", label: "알파팜" },
       { href: "#cases", label: "구축 사례" },
       { href: "#news", label: "소식" },
+      { href: "/insights", label: "인사이트" },
       { href: "#contact", label: "연락처" }
     ],
     inquiry: "사업개발 문의",
@@ -604,11 +605,13 @@ export const koContent: HomeContent = {
       { href: "#cases", label: "구축 사례" },
       { href: "#ip", label: "권리·특허" },
       { href: "#news", label: "소식" },
+      { href: "/insights", label: "인사이트" },
       { href: "#contact", label: "연락처" }
     ],
     bizLines: [
       "주식회사 쎄슬프라이머스 농업회사법인  ·  대표자 이관호  ·  사업자등록번호 791-81-00425",
-      "서울특별시 서초구 양재대로2길 18, 4층 H6호 (우면동, 호반파크 2관)",
+      "본사  ·  서울특별시 서초구 양재대로2길 18, 4층 H6호 (우면동, 호반파크 2관)",
+      "공장  ·  전라남도 함평군 나산면 삼축리 616-13",
       "사업개발 문의 010-3341-6036  ·  이메일 rkdghtn636@gmail.com"
     ],
     copyright: "저작권 2026 쎄슬프라이머스. 모든 권리 보유."
@@ -653,6 +656,7 @@ export const enContent: HomeContent = {
       { href: "#alphafarm", label: "AlphaFarm" },
       { href: "#cases", label: "Cases" },
       { href: "#news", label: "News" },
+      { href: "/insights", label: "Insights" },
       { href: "#contact", label: "Contact" }
     ],
     inquiry: "Contact us",
@@ -1007,11 +1011,13 @@ export const enContent: HomeContent = {
       { href: "#cases", label: "Cases" },
       { href: "#ip", label: "IP portfolio" },
       { href: "#news", label: "News" },
+      { href: "/insights", label: "Insights" },
       { href: "#contact", label: "Contact" }
     ],
     bizLines: [
       "CESeL Primus Co., Ltd. (Agricultural corporation)  ·  CEO Kwanho Lee (Kevin Lee)  ·  Business registration no. 791-81-00425",
-      "4F H6, 18 Yangjae-daero 2-gil, Seocho-gu, Seoul, Republic of Korea",
+      "HQ  ·  4F H6, 18 Yangjae-daero 2-gil, Seocho-gu, Seoul, Republic of Korea",
+      "Factory  ·  616-13 Samchuk-ri, Nasan-myeon, Hampyeong-gun, Jeollanam-do, Republic of Korea",
       "Business development +82 10-3341-6036  ·  Email rkdghtn636@gmail.com"
     ],
     copyright: "© 2026 CESeL Primus Co., Ltd. All rights reserved."
