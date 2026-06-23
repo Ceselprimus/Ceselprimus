@@ -24,6 +24,7 @@ import {
   Zap
 } from "lucide-react";
 import SiteHeader from "./components/SiteHeader";
+import HashScroll from "./components/HashScroll";
 import Reveal from "./components/Reveal";
 import CasesGallery from "./components/CasesGallery";
 import FarmModels from "./components/FarmModels";
@@ -151,6 +152,7 @@ function buildStructuredData(content: HomeContent) {
 export default function HomePage({ content }: { content: HomeContent }) {
   return (
     <main id="top" className="overflow-hidden">
+      <HashScroll />
       <StructuredData data={buildStructuredData(content)} />
       <SiteHeader nav={content.nav} contact={content.contact} />
       <Hero content={content} />
