@@ -443,6 +443,37 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
         <Reveal delay={160}>
           <FarmModels models={alphafarm.models} />
         </Reveal>
+        <Reveal delay={200}>
+          <div className="mt-10 grid gap-8 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:mt-12 md:p-9 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <figure className="relative overflow-hidden rounded-2xl bg-ink">
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src={alphafarm.core.image}
+                  alt={alphafarm.core.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 48vw, 92vw"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+            <div>
+              <Eyebrow>{alphafarm.core.eyebrow}</Eyebrow>
+              <p className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">{alphafarm.core.name}</p>
+              <p className="mt-2 text-[1.05rem] font-semibold text-forest md:text-[1.12rem]">{alphafarm.core.lead}</p>
+              <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/72 md:text-[1.08rem]">{alphafarm.core.body}</p>
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                {alphafarm.core.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-paper px-3.5 py-1.5 text-[0.9rem] font-semibold text-ink ring-1 ring-ink/10"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );

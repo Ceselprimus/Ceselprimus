@@ -76,6 +76,15 @@ export interface HomeContent {
     imageAlt: string;
     captionTitle: string;
     captionBody: string;
+    core: {
+      eyebrow: string;
+      name: string;
+      lead: string;
+      body: string;
+      tags: string[];
+      image: string;
+      imageAlt: string;
+    };
   };
   cooling: {
     eyebrow: string;
@@ -247,12 +256,12 @@ export const koContent: HomeContent = {
   },
   nav: {
     items: [
-      { href: "#lineup", label: "라인업" },
-      { href: "#alphafarm", label: "알파팜" },
-      { href: "#cases", label: "구축 사례" },
-      { href: "#news", label: "소식" },
+      { href: "/#lineup", label: "라인업" },
+      { href: "/#alphafarm", label: "알파팜" },
+      { href: "/#cases", label: "구축 사례" },
+      { href: "/#news", label: "소식" },
       { href: "/insights", label: "인사이트" },
-      { href: "#contact", label: "연락처" }
+      { href: "/#contact", label: "연락처" }
     ],
     inquiry: "사업개발 문의",
     langSwitch: { href: "/en", label: "EN" },
@@ -380,7 +389,23 @@ export const koContent: HomeContent = {
     ],
     imageAlt: "알파팜 도심형 딸기수직농장 운영 사례",
     captionTitle: "생산 현장과 운영 시스템을 함께 설계합니다",
-    captionBody: "재배 공간, 품질관리, 리테일 접점, 현지 사업화까지 하나의 흐름으로."
+    captionBody: "재배 공간, 품질관리, 리테일 접점, 현지 사업화까지 하나의 흐름으로.",
+    core: {
+      eyebrow: "알파팜 핵심 유닛 · AlphaCore",
+      name: "알파코어 (AlphaCore)",
+      lead: "프리미엄 딸기 생산을 위한 모듈형 수직농장 생산 유닛",
+      body:
+        "코어-1(Core-1)은 재배실 약 165㎡(약 50평) 규모에서 연간 약 10~12톤 생산을 목표로 하며, 코어-2 · 코어-3처럼 유닛을 반복 증설해 손쉽게 확장합니다. 대형 모델 Core-20은 SOFC(고체산화물연료전지, Solid Oxide Fuel Cell) 데이터센터 등 현장 발전 시스템과 연계해, 폐열과 CO₂를 프리미엄 딸기 생산 자원으로 전환하는 순환 인프라 모델로 확장됩니다.",
+      tags: [
+        "Core-1 · 약 165㎡ / 연 10~12톤",
+        "Core-2 · Core-3 모듈 증설",
+        "Core-20 · 순환 인프라 모델",
+        "SOFC 고체산화물연료전지 연계",
+        "폐열 · CO₂ 자원화"
+      ],
+      image: "/media/concepts/alphacore-concept-2.webp",
+      imageAlt: "알파코어 모듈형 딸기 수직농장과 SOFC 고체산화물연료전지 데이터센터 순환 인프라 조감도"
+    }
   },
   cooling: {
     eyebrow: "알파쿨링 — 라인업 02",
@@ -600,13 +625,13 @@ export const koContent: HomeContent = {
   footer: {
     brandDesc: "수직농장에서 콜드체인까지, 식품 인프라를 플랫폼으로.",
     navLinks: [
-      { href: "#lineup", label: "라인업" },
-      { href: "#alphafarm", label: "알파팜" },
-      { href: "#cases", label: "구축 사례" },
-      { href: "#ip", label: "권리·특허" },
-      { href: "#news", label: "소식" },
+      { href: "/#lineup", label: "라인업" },
+      { href: "/#alphafarm", label: "알파팜" },
+      { href: "/#cases", label: "구축 사례" },
+      { href: "/#ip", label: "권리·특허" },
+      { href: "/#news", label: "소식" },
       { href: "/insights", label: "인사이트" },
-      { href: "#contact", label: "연락처" }
+      { href: "/#contact", label: "연락처" }
     ],
     bizLines: [
       "주식회사 쎄슬프라이머스 농업회사법인  ·  대표자 이관호  ·  사업자등록번호 791-81-00425",
@@ -636,7 +661,12 @@ export const koContent: HomeContent = {
       "해외진출",
       "아세안 사업화",
       "농식품 컨설팅",
-      "연중 딸기 사업솔루션"
+      "연중 딸기 사업솔루션",
+      "알파코어 모듈형 수직농장",
+      "SOFC 고체산화물연료전지",
+      "Solid Oxide Fuel Cell",
+      "SOFC 데이터센터 연계 순환 인프라",
+      "폐열·CO2 자원화"
     ]
   }
 };
@@ -652,12 +682,12 @@ export const enContent: HomeContent = {
   },
   nav: {
     items: [
-      { href: "#lineup", label: "Lineup" },
-      { href: "#alphafarm", label: "AlphaFarm" },
-      { href: "#cases", label: "Cases" },
-      { href: "#news", label: "News" },
+      { href: "/#lineup", label: "Lineup" },
+      { href: "/#alphafarm", label: "AlphaFarm" },
+      { href: "/#cases", label: "Cases" },
+      { href: "/#news", label: "News" },
       { href: "/insights", label: "Insights" },
-      { href: "#contact", label: "Contact" }
+      { href: "/#contact", label: "Contact" }
     ],
     inquiry: "Contact us",
     langSwitch: { href: "/", label: "한국어" },
@@ -785,7 +815,23 @@ export const enContent: HomeContent = {
     ],
     imageAlt: "AlphaFarm urban strawberry vertical farm in operation",
     captionTitle: "We design the production site and the operating system together",
-    captionBody: "Growing space, quality control, retail touchpoints, and local business development — in one flow."
+    captionBody: "Growing space, quality control, retail touchpoints, and local business development — in one flow.",
+    core: {
+      eyebrow: "AlphaFarm core unit · AlphaCore",
+      name: "AlphaCore",
+      lead: "A modular vertical-farm production unit for premium strawberries",
+      body:
+        "Core-1 targets roughly 10–12 tons a year from a ~165 ㎡ cultivation room and scales easily by repeatedly adding units such as Core-2 and Core-3. The large-scale Core-20 links with on-site power systems such as SOFC (solid oxide fuel cell) data centers, becoming a circular-infrastructure model that converts waste heat and CO₂ into productive resources for premium strawberry farming.",
+      tags: [
+        "Core-1 · ~165 ㎡ / 10–12 t per year",
+        "Core-2 · Core-3 modular scaling",
+        "Core-20 · circular infrastructure",
+        "SOFC (solid oxide fuel cell) linkage",
+        "Waste heat · CO₂ to resources"
+      ],
+      image: "/media/concepts/alphacore-concept-2.webp",
+      imageAlt: "AlphaCore modular strawberry vertical farm linked with an SOFC solid oxide fuel cell data center as circular infrastructure"
+    }
   },
   cooling: {
     eyebrow: "AlphaCooling — Lineup 02",
@@ -1006,13 +1052,13 @@ export const enContent: HomeContent = {
   footer: {
     brandDesc: "From vertical farms to cold chain — food infrastructure as one platform.",
     navLinks: [
-      { href: "#lineup", label: "Lineup" },
-      { href: "#alphafarm", label: "AlphaFarm" },
-      { href: "#cases", label: "Cases" },
-      { href: "#ip", label: "IP portfolio" },
-      { href: "#news", label: "News" },
+      { href: "/#lineup", label: "Lineup" },
+      { href: "/#alphafarm", label: "AlphaFarm" },
+      { href: "/#cases", label: "Cases" },
+      { href: "/#ip", label: "IP portfolio" },
+      { href: "/#news", label: "News" },
       { href: "/insights", label: "Insights" },
-      { href: "#contact", label: "Contact" }
+      { href: "/#contact", label: "Contact" }
     ],
     bizLines: [
       "CESeL Primus Co., Ltd. (Agricultural corporation)  ·  CEO Kwanho Lee (Kevin Lee)  ·  Business registration no. 791-81-00425",
@@ -1042,7 +1088,12 @@ export const enContent: HomeContent = {
       "Overseas expansion",
       "ASEAN commercialization",
       "Agri-food consulting",
-      "Year-round strawberry business solution"
+      "Year-round strawberry business solution",
+      "AlphaCore modular vertical farm",
+      "SOFC solid oxide fuel cell",
+      "SOFC-powered data center",
+      "Circular infrastructure converting waste heat and CO2",
+      "Core-20"
     ]
   }
 };
