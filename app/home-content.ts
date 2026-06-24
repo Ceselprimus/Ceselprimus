@@ -84,6 +84,10 @@ export interface HomeContent {
       tags: string[];
       image: string;
       imageAlt: string;
+      sofcLabel: string;
+      sofcNote: string;
+      sofcImage: string;
+      sofcImageAlt: string;
     };
   };
   cooling: {
@@ -404,7 +408,13 @@ export const koContent: HomeContent = {
         "폐열 · CO₂ 자원화"
       ],
       image: "/media/concepts/alphacore-concept-2.webp",
-      imageAlt: "알파코어 모듈형 딸기 수직농장과 SOFC 고체산화물연료전지 데이터센터 순환 인프라 조감도"
+      imageAlt: "알파코어 모듈형 딸기 수직농장과 SOFC 고체산화물연료전지 데이터센터 순환 인프라 조감도",
+      sofcLabel: "SOFC란? · 고체산화물연료전지 (Solid Oxide Fuel Cell)",
+      sofcNote:
+        "SOFC는 고온 전기화학 반응으로 전기를 생산하는 고효율 연료전지입니다. 저소음·저배출·연속운전과 연료 선택 유연성을 갖춰, 안정 전원이 필요한 데이터센터 현장발전 기술로 주목받고 있습니다.",
+      sofcImage: "/media/concepts/sofc-infographic.webp",
+      sofcImageAlt:
+        "SOFC 고체산화물연료전지 작동 인포그래픽 — 연료(천연가스·바이오가스)로 고효율 전기를 생산해 데이터센터에 공급하고, 폐열과 CO₂를 수직농장 작물 재배에 재사용하는 순환 인프라"
     }
   },
   cooling: {
@@ -830,7 +840,13 @@ export const enContent: HomeContent = {
         "Waste heat · CO₂ to resources"
       ],
       image: "/media/concepts/alphacore-concept-2.webp",
-      imageAlt: "AlphaCore modular strawberry vertical farm linked with an SOFC solid oxide fuel cell data center as circular infrastructure"
+      imageAlt: "AlphaCore modular strawberry vertical farm linked with an SOFC solid oxide fuel cell data center as circular infrastructure",
+      sofcLabel: "What is SOFC? · Solid Oxide Fuel Cell",
+      sofcNote:
+        "SOFC delivers efficient, low-noise, low-emission continuous power via high-temperature electrochemical reactions — on-site generation well suited to data centers that need stable power.",
+      sofcImage: "/media/concepts/sofc-infographic.webp",
+      sofcImageAlt:
+        "SOFC solid oxide fuel cell infographic — fuel such as natural gas or biogas generates efficient electricity for data centers, while waste heat and CO₂ are reused for vertical-farm cultivation as circular infrastructure"
     }
   },
   cooling: {

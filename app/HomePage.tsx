@@ -476,6 +476,22 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
             </div>
           </div>
         </Reveal>
+        <Reveal delay={240}>
+          <div className="mt-6 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:mt-8 md:p-8">
+            <p className="text-[0.82rem] font-bold uppercase tracking-wide text-forest">{alphafarm.core.sofcLabel}</p>
+            <p className="mt-2 max-w-3xl text-[1rem] leading-relaxed text-ink/70 md:text-[1.05rem]">{alphafarm.core.sofcNote}</p>
+            <figure className="mt-5 overflow-hidden rounded-xl ring-1 ring-ink/8">
+              <Image
+                src={alphafarm.core.sofcImage}
+                alt={alphafarm.core.sofcImageAlt}
+                width={1600}
+                height={900}
+                sizes="(min-width: 1024px) 90vw, 100vw"
+                className="h-auto w-full"
+              />
+            </figure>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );
