@@ -57,7 +57,7 @@ export default function InsightsPage() {
 
       <section className="mx-auto w-[min(1140px,92vw)] py-14 md:py-20">
         <div className="grid gap-6 md:grid-cols-2">
-          {articles.map((a) => (
+          {[...articles].sort((a, b) => b.date.localeCompare(a.date)).map((a) => (
             <a
               key={a.slug}
               href={`/insights/${a.slug}`}
