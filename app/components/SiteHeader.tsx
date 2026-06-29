@@ -38,7 +38,7 @@ export default function SiteHeader({
         }`}
       >
         <div className="mx-auto flex h-[68px] w-[min(1140px,92vw)] items-center justify-between md:h-[78px]">
-          <a href="/" aria-label={nav.homeAria} onClick={() => setOpen(false)}>
+          <a href={nav.homeHref} aria-label={nav.homeAria} onClick={() => setOpen(false)}>
             <Image
               src={dark ? "/media/cesel-logo-ci-white-transparent.png" : "/media/cesel-logo-ci-transparent.png"}
               alt={nav.homeAria}

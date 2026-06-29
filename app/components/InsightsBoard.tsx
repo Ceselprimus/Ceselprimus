@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { articles } from "../insights/articles";
 
@@ -13,6 +13,12 @@ export default function InsightsBoard() {
   const [cat, setCat] = useState("전체");
   const [q, setQ] = useState("");
   const [page, setPage] = useState(1);
+
+  // 라인업 등에서 /insights?cat=알파팜 으로 들어오면 해당 카테고리로 자동 필터
+  useEffect(() => {
+    const c = new URLSearchParams(window.location.search).get("cat");
+    if (c && categories.includes(c)) setCat(c);
+  }, [categories]);
 
   const filtered = useMemo(() => {
     const query = q.trim().toLowerCase();

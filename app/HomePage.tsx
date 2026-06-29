@@ -336,6 +336,8 @@ function LineupSection({ content }: { content: HomeContent }) {
     "#alphacooling": "/alphacooling",
     "#alphasupport": "/alphasupport"
   };
+  const insightCats = new Set(articles.map((a) => a.category));
+  const insightsLabel = content.locale === "en" ? "Related insights" : "관련 인사이트";
   return (
     <section id="lineup" className="bg-white py-16 md:py-24">
       <Container>
@@ -390,13 +392,24 @@ function LineupSection({ content }: { content: HomeContent }) {
                         </li>
                       ))}
                     </ul>
-                    <a
-                      href={detailHrefMap[category.anchor] ?? category.anchor}
-                      className={`mt-auto inline-flex items-center gap-2 pt-5 text-[1rem] font-semibold ${accent.text}`}
-                    >
-                      {lineup.detailLabel}
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
+                    <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 pt-5">
+                      <a
+                        href={detailHrefMap[category.anchor] ?? category.anchor}
+                        className={`inline-flex items-center gap-2 text-[1rem] font-semibold ${accent.text}`}
+                      >
+                        {lineup.detailLabel}
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                      {insightCats.has(category.name) ? (
+                        <a
+                          href={`/insights?cat=${encodeURIComponent(category.name)}`}
+                          className="inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-ink/55 transition hover:text-forest"
+                        >
+                          {insightsLabel}
+                          <ArrowRight className="h-4 w-4" />
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
                 </article>
               </Reveal>

@@ -32,6 +32,7 @@ export interface HomeContent {
     menuOpen: string;
     menuClose: string;
     homeAria: string;
+    homeHref: string;
   };
   hero: {
     eyebrow: string;
@@ -272,7 +273,8 @@ export const koContent: HomeContent = {
     mobileContact: "사업개발 문의 010-3341-6036 · 해외사업 왓츠앱 +82 10-3761-7953",
     menuOpen: "메뉴 열기",
     menuClose: "메뉴 닫기",
-    homeAria: "쎄슬프라이머스 홈"
+    homeAria: "쎄슬프라이머스 홈",
+    homeHref: "/"
   },
   hero: {
     eyebrow: "농식품 · 콜드체인 인프라 기술기업",
@@ -692,19 +694,20 @@ export const enContent: HomeContent = {
   },
   nav: {
     items: [
-      { href: "/#lineup", label: "Lineup" },
-      { href: "/#alphafarm", label: "AlphaFarm" },
-      { href: "/#cases", label: "Cases" },
-      { href: "/#news", label: "News" },
+      { href: "/en#lineup", label: "Lineup" },
+      { href: "/en#alphafarm", label: "AlphaFarm" },
+      { href: "/en#cases", label: "Cases" },
+      { href: "/en#news", label: "News" },
       { href: "/insights", label: "Insights" },
-      { href: "/#contact", label: "Contact" }
+      { href: "/en#contact", label: "Contact" }
     ],
     inquiry: "Contact us",
     langSwitch: { href: "/", label: "한국어" },
     mobileContact: "Business development +82 10-3341-6036 · Global business WhatsApp +82 10-3761-7953",
     menuOpen: "Open menu",
     menuClose: "Close menu",
-    homeAria: "CESeL Primus home"
+    homeAria: "CESeL Primus home",
+    homeHref: "/en"
   },
   hero: {
     eyebrow: "Agri-food & cold-chain infrastructure technology",
@@ -1068,13 +1071,13 @@ export const enContent: HomeContent = {
   footer: {
     brandDesc: "From vertical farms to cold chain — food infrastructure as one platform.",
     navLinks: [
-      { href: "/#lineup", label: "Lineup" },
-      { href: "/#alphafarm", label: "AlphaFarm" },
-      { href: "/#cases", label: "Cases" },
-      { href: "/#ip", label: "IP portfolio" },
-      { href: "/#news", label: "News" },
+      { href: "/en#lineup", label: "Lineup" },
+      { href: "/en#alphafarm", label: "AlphaFarm" },
+      { href: "/en#cases", label: "Cases" },
+      { href: "/en#ip", label: "IP portfolio" },
+      { href: "/en#news", label: "News" },
       { href: "/insights", label: "Insights" },
-      { href: "/#contact", label: "Contact" }
+      { href: "/en#contact", label: "Contact" }
     ],
     bizLines: [
       "CESeL Primus Co., Ltd. (Agricultural corporation)  ·  CEO Kwanho Lee (Kevin Lee)  ·  Business registration no. 791-81-00425",
