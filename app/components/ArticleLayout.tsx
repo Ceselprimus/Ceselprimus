@@ -68,10 +68,21 @@ export default function ArticleLayout({ article }: { article: Article }) {
         </h1>
         <p className="mt-5 text-[1.1rem] leading-relaxed text-ink/70">{article.lead}</p>
 
-        <figure className="relative mt-8 overflow-hidden rounded-2xl bg-ink/5">
-          <div className="relative aspect-[16/9]">
-            <Image src={article.heroImage} alt={article.heroAlt} fill className="object-cover" sizes="(min-width:760px) 760px, 92vw" />
-          </div>
+        <figure className="mt-8 overflow-hidden rounded-2xl bg-ink/5">
+          {article.heroContain ? (
+            <Image
+              src={article.heroImage}
+              alt={article.heroAlt}
+              width={article.heroWidth ?? 1200}
+              height={article.heroHeight ?? 800}
+              className="h-auto w-full"
+              sizes="(min-width:760px) 760px, 92vw"
+            />
+          ) : (
+            <div className="relative aspect-[16/9]">
+              <Image src={article.heroImage} alt={article.heroAlt} fill className="object-cover" sizes="(min-width:760px) 760px, 92vw" />
+            </div>
+          )}
         </figure>
 
         <div className="mt-10 space-y-9">

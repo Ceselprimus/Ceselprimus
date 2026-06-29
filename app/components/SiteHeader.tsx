@@ -13,15 +13,7 @@ export default function SiteHeader({
   nav: HomeContent["nav"];
   contact: HomeContent["contact"];
 }) {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.62);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -30,8 +22,9 @@ export default function SiteHeader({
     };
   }, [open]);
 
-  const solid = scrolled && !open;
-  const dark = !solid;
+  // 헤더는 항상 밝은(흰색) 배경 + 진회색 로고로 통일. 모바일 메뉴가 열린 경우에만 다크 오버레이.
+  const solid = !open;
+  const dark = open;
 
   return (
     <>

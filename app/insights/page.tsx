@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import SiteHeader from "../components/SiteHeader";
 import ChatWidget from "../components/ChatWidget";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
+import InsightsBoard from "../components/InsightsBoard";
 import { koContent } from "../home-content";
-import { articles } from "./articles";
 
 const url = "https://www.ceslprimus.com/insights";
 
@@ -55,27 +54,7 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-[min(1140px,92vw)] py-14 md:py-20">
-        <div className="grid gap-6 md:grid-cols-2">
-          {[...articles].sort((a, b) => b.date.localeCompare(a.date)).map((a) => (
-            <a
-              key={a.slug}
-              href={`/insights/${a.slug}`}
-              className="group flex flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-ink/8 transition hover:-translate-y-1 hover:shadow-card"
-            >
-              <div className="relative aspect-[16/9] bg-ink/5">
-                <Image src={a.heroImage} alt={a.heroAlt} fill className="object-cover transition duration-500 group-hover:scale-105" sizes="(min-width:768px) 50vw, 92vw" />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <p className="text-[0.85rem] font-semibold text-forest">{a.category} · {a.date}</p>
-                <h2 className="mt-2 text-[1.25rem] font-bold leading-snug tracking-tight text-ink">{a.title}</h2>
-                <p className="mt-2.5 line-clamp-3 text-[0.98rem] leading-relaxed text-ink/65">{a.description}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-forest">자세히 보기 →</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
+      <InsightsBoard />
 
       <footer className="bg-ink py-10 text-center">
         <a href="/" className="text-[0.95rem] font-semibold text-white transition hover:text-mint">쎄슬프라이머스 홈으로</a>

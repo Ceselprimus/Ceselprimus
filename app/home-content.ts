@@ -309,7 +309,7 @@ export const koContent: HomeContent = {
     eyebrow: "알파 솔루션 포트폴리오",
     titleLines: ["네 개의 라인업,", "하나의 포트폴리오."],
     aside: "각 라인업은 따로 도입할 수도, 사업 단계와 목적에 맞춰 하나의 프로젝트로 묶을 수도 있습니다.",
-    detailLabel: "자세히 보기",
+    detailLabel: "상세보기",
     lineupLabel: "라인업",
     categories: [
       {

@@ -18,6 +18,9 @@ export interface Article {
   readMin: number;
   heroImage: string;
   heroAlt: string;
+  heroContain?: boolean;
+  heroWidth?: number;
+  heroHeight?: number;
   lead: string;
   sections: Section[];
   faq: Faq[];
@@ -262,6 +265,324 @@ export const articles: Article[] = [
     ],
     ctaTitle: "딸기 수직농장 사업, 조건에 맞게 설계해 드립니다.",
     ctaBody: "보유 공간·목표 생산량·판로를 알려주시면 알파팜 담당자가 연중 딸기 사업 모델을 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기"
+  },
+  {
+    slug: "alphafarm-core-resource-circulation",
+    title: "버려지는 폐열과 CO₂, 프리미엄 딸기 매출로 바꾸다",
+    metaTitle: "폐열·CO₂ 자원순환 — 알파팜 코어 모델 | 쎄슬프라이머스",
+    description:
+      "데이터센터·발전소·브루어리·바이오가스·산업단지의 폐열과 CO₂를 프리미엄 딸기 수직농장의 생산자원으로 전환하는 알파팜 코어 자원순환 모델을 소개합니다.",
+    keywords: ["폐열활용", "CO2활용", "자원순환", "알파팜코어", "딸기수직농장", "ESG", "데이터센터"],
+    date: "2026-06-28",
+    category: "알파팜",
+    readMin: 4,
+    heroImage: "/media/series/series-1.webp",
+    heroAlt: "알파팜 코어 폐열·CO₂ 자원순환 인프라 / AlphaFarm Core waste heat and CO₂ circular infrastructure",
+    heroContain: true,
+    heroWidth: 1200,
+    heroHeight: 1200,
+    lead:
+      "데이터센터·발전소·브루어리·바이오가스 시설·산업단지에서 나오는 폐열과 CO₂. 지금까지는 처리 부담과 인허가·ESG 과제였지만, 조건이 맞으면 프리미엄 딸기 수직농장의 생산자원이 될 수 있습니다.",
+    sections: [
+      {
+        h: "폐열·CO₂를 자산으로 바꾸는 알파팜 코어 모델",
+        paras: [
+          "쎄슬프라이머스는 알파팜 코어 모델을 통해 폐열, 정제·조절된 CO₂, 안정적인 전력, 유휴 부지를 고부가 프리미엄 딸기 생산 인프라로 전환하는 자원순환 모델을 제안합니다. 단순히 스마트팜을 설치하는 것이 아니라, 기업이 고민하는 문제를 동시에 해결하는 사업모델입니다."
+        ],
+        bullets: [
+          "폐열 → 냉방·제습 보조 에너지로 활용",
+          "CO₂ → 프리미엄 딸기 생육 자원으로 활용",
+          "유휴 부지 → 고부가 식품생산 공간으로 전환",
+          "ESG 과제 → 눈에 보이는 자원순환 사례로",
+          "부산물 처리 부담 → 프리미엄 딸기 매출 기회로"
+        ]
+      },
+      {
+        h: "어디에 적용할 수 있나",
+        paras: ["알파팜 코어 1개 모듈은 운영 조건에 따라 연간 10톤 이상의 프리미엄 딸기 생산을 목표로 설계됩니다."],
+        bullets: ["SOFC 데이터센터", "CHP·CCGT 발전소", "브루어리·발효공장", "바이오가스·자원회수 시설", "석유화학·수소 생산기지"]
+      }
+    ],
+    faq: [
+      { q: "배기가스를 그대로 사용하나요?", a: "아니요. 포집·정제·조절된 CO₂를 농업용 자원으로 활용 가능한지 기술적으로 검토하는 구조입니다. 폐열도 온도·열량 조건을 별도로 확인합니다." },
+      { q: "어떤 기업에 적합한가요?", a: "폐열, 정제 가능한 CO₂, 안정적 전력, 유휴 부지를 보유한 시설이라면 검토해 볼 수 있습니다. 조건에 따라 적용 가능성을 함께 진단합니다." }
+    ],
+    relatedKeywords: [
+      "폐열 활용 / Waste Heat Recovery",
+      "CO₂ 활용 / CO₂ Utilization",
+      "자원순환 인프라 / Circular Infrastructure",
+      "알파팜 코어 / AlphaFarm Core",
+      "딸기수직농장 / Strawberry Vertical Farm",
+      "ESG 자원순환 / ESG Circularity"
+    ],
+    ctaTitle: "폐열·CO₂ 보유 시설, 적용 가능성을 검토해 드립니다.",
+    ctaBody: "폐열·CO₂·전력·유휴 부지 조건을 알려주시면 알파팜 코어 모델 적용 가능성을 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기"
+  },
+  {
+    slug: "alphafarm-core20-sofc-datacenter",
+    title: "숫자로 보는 데이터센터 연계 수직농장 — 알파팜 코어-20",
+    metaTitle: "알파팜 코어-20 SOFC 데이터센터 연계 모델 (숫자) | 쎄슬프라이머스",
+    description:
+      "SOFC 데이터센터와 연계한 알파팜 코어-20 모델을 숫자로 정리했습니다. 약 1,000평 규모, 연 200~240톤, CAPEX·OPEX 절감 구조까지.",
+    keywords: ["Core20", "SOFC", "데이터센터", "CAPEX절감", "OPEX절감", "폐열재이용", "CO2재이용", "수직농장"],
+    date: "2026-06-28",
+    category: "알파팜",
+    readMin: 4,
+    heroImage: "/media/series/series-2.webp",
+    heroAlt: "알파팜 코어-20 SOFC 데이터센터 연계 모델 숫자 / AlphaFarm Core-20 SOFC data center model figures",
+    heroContain: true,
+    heroWidth: 1200,
+    heroHeight: 676,
+    lead:
+      "폐열과 CO₂를 생산자원으로 전환하는 알파팜 코어 모델 중에서도, SOFC 데이터센터와 연계한 코어-20 모델을 숫자로 정리했습니다. 약 1,000평 규모의 프리미엄 딸기 수직농장입니다.",
+    sections: [
+      {
+        h: "코어-20, 숫자로 보면",
+        paras: ["핵심은 단순한 ESG 이미지가 아니라, CAPEX와 OPEX 구조 자체를 개선할 수 있는 사업모델이라는 점입니다."],
+        bullets: [
+          "연간 예상 생산량 200~240톤",
+          "기준 판매가 30,000원/kg · 연 매출 약 60~72억원",
+          "CAPEX 약 35% 절감 (유틸리티 인프라 공동 활용)",
+          "전력비 최대 45% 절감 · 방열동력 60%+ 절감 목표",
+          "CO₂ 구매비 Zero · 연 약 438톤 CO₂ 재이용"
+        ]
+      },
+      {
+        h: "데이터센터 옆 농장이 아니라, 루프를 닫는 인프라",
+        paras: ["알파팜 코어-20은 SOFC 데이터센터의 전력·폐열·CO₂ 루프를 닫는 자원순환형 사업 인프라입니다. 데이터센터 입장에서는 처리 부담을 ERE 실적·ESG 가치·프리미엄 식품 생산 자산으로 전환할 수 있습니다."]
+      }
+    ],
+    faq: [
+      { q: "제시된 매출·수익은 보장되나요?", a: "운영 조건·품종·지역에 따라 달라지는 검토용 추정치입니다. 수익을 보장하기보다 현장 조건에 맞춰 사업성을 함께 검토합니다." },
+      { q: "일반 코어-20 대비 무엇이 다른가요?", a: "데이터센터의 방열·배관·계측 등 유틸리티 인프라를 공동 활용해 설치비(CAPEX)를 약 35% 절감할 수 있는 구조입니다." }
+    ],
+    relatedKeywords: [
+      "알파팜 코어-20 / AlphaFarm Core-20",
+      "SOFC 데이터센터 / SOFC Data Center",
+      "CAPEX 절감 / CAPEX Reduction",
+      "OPEX 절감 / OPEX Reduction",
+      "CO₂ 재이용 / CO₂ Reuse",
+      "자원순환 인프라 / Circular Infrastructure"
+    ],
+    ctaTitle: "데이터센터 연계 모델, 조건에 맞게 검토해 드립니다.",
+    ctaBody: "전력·폐열·CO₂·부지 조건을 알려주시면 코어-20 연계 모델의 사업성을 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기"
+  },
+  {
+    slug: "alphacafe-farm-to-retail",
+    title: "알파카페 — 생산과 리테일을 잇는 팜투리테일 모델",
+    metaTitle: "알파카페 팜투리테일 모델 — 프리미엄 딸기 | 쎄슬프라이머스",
+    description:
+      "프리미엄 딸기 생산기지와 카페 리테일을 결합해 딸기를 케이크·디저트·음료·생과팩·선물상품으로 직접 판매하는 알파팜+알파카페 팜투리테일 모델을 소개합니다.",
+    keywords: ["알파카페", "팜투리테일", "프리미엄딸기", "딸기수직농장", "알파팜", "스마트팜"],
+    date: "2026-06-28",
+    category: "알파팜",
+    readMin: 3,
+    heroImage: "/media/series/series-3.webp",
+    heroAlt: "알파카페 팜투리테일 모델 / AlphaCafe farm-to-retail model",
+    heroContain: true,
+    heroWidth: 1200,
+    heroHeight: 899,
+    lead:
+      "알파카페는 적용 방식에 따라 매장 단독+알파재배기 모델, 알파팜+알파카페 모델 등으로 구성됩니다. 이번에 소개하는 것은 생산과 리테일을 결합한 알파팜+알파카페 모델입니다.",
+    sections: [
+      {
+        h: "생산–판매–고객경험을 하나로",
+        paras: [
+          "프리미엄 딸기 생산기지와 카페 리테일을 결합해, 생산된 딸기를 케이크·디저트·음료·생과팩·선물상품으로 직접 판매하는 팜투리테일 모델입니다. 재배실·작업실·매장을 하나의 사업공간으로 구성해 생산, 판매, 고객 경험을 연결하는 것이 핵심입니다.",
+          "알파카페는 단순한 카페가 아니라, 프리미엄 딸기 생산과 리테일을 결합한 새로운 사업화 모델입니다."
+        ]
+      }
+    ],
+    faq: [
+      { q: "일반 카페와 무엇이 다른가요?", a: "단순 판매 매장이 아니라, 프리미엄 딸기 '생산'과 '리테일'을 한 공간에서 결합한 사업화 모델입니다. 매장 단독형부터 생산기지 결합형까지 조건에 맞게 구성합니다." }
+    ],
+    relatedKeywords: [
+      "알파카페 / AlphaCafe",
+      "팜투리테일 / Farm-to-Retail",
+      "프리미엄 딸기 / Premium Strawberry",
+      "딸기수직농장 / Strawberry Vertical Farm",
+      "알파팜 / AlphaFarm"
+    ],
+    ctaTitle: "알파카페 모델, 공간·판로에 맞게 설계해 드립니다.",
+    ctaBody: "보유 공간과 판매 채널을 알려주시면 알파카페 팜투리테일 모델을 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기"
+  },
+  {
+    slug: "alphafarm-high-density-rack",
+    title: "알파팜 고밀도 재배랙 기술",
+    metaTitle: "알파팜 고밀도 딸기 재배랙 기술 — 수직농장 | 쎄슬프라이머스",
+    description:
+      "폭 1.8m 광폭 설계로 빛·양액·기류를 균일하게 전달하는 알파팜 고밀도 딸기 수직재배랙 기술과 연중 생산 프로토콜(DSRP)을 소개합니다.",
+    keywords: ["고밀도재배랙", "딸기수직농장", "저온제습", "에너지절감", "연중생산", "스마트팜"],
+    date: "2026-06-28",
+    category: "알파팜",
+    readMin: 4,
+    heroImage: "/media/series/series-4.webp",
+    heroAlt: "알파팜 고밀도 딸기 재배랙 기술 / AlphaFarm high-density cultivation rack",
+    heroContain: true,
+    heroWidth: 1200,
+    heroHeight: 849,
+    lead:
+      "알파팜 재배랙은 딸기를 많이 심기 위한 구조물이 아닙니다. 폭 1.8m 광폭 설계로 빛·양액·기류가 랙 전체에 균일하게 전달되고 작업성까지 확보한 고밀도 딸기 수직재배 시스템입니다.",
+    sections: [
+      {
+        h: "고밀도 재배랙 + 핵심 기술",
+        paras: ["기본형 7단 224주, 밀식형 14단 448주까지 적용할 수 있습니다. 여기에 광량 최적화(FlexiLight), 레이어별 에어플로우(AirSpine), 양분 정량공급(DualFlow-Loop), 상토 화분 트레이(SmartTray-4) 기술이 함께 적용됩니다."],
+        bullets: [
+          "기본 7단 224주 / 밀식 14단 448주",
+          "15°C·50%RH 저온제습 쿨링(알파쿨링) 결합",
+          "전력 소비 절감 기술(알파에너지) 결합",
+          "균일 생육 · 병해 리스크 저감 · 작업 효율 향상"
+        ]
+      },
+      {
+        h: "연중 생산 프로토콜 (DSRP)",
+        paras: ["모종 교체 기반 연중 생산 프로토콜(DSRP)은 분기 25% 모종 교체, 수직농장 육묘, 개화묘 재배를 통해 수확 공백을 줄이고 안정적인 연중 생산을 지원합니다."]
+      }
+    ],
+    faq: [
+      { q: "한 랙에 몇 주까지 심을 수 있나요?", a: "기본형은 7단 224주, 밀식형은 14단 448주까지 적용 가능합니다. 현장 층고와 운영 조건에 맞춰 구성합니다." }
+    ],
+    relatedKeywords: [
+      "고밀도 재배랙 / High-Density Rack",
+      "딸기수직농장 / Strawberry Vertical Farm",
+      "저온제습 / Low-Temperature Dehumidification",
+      "에너지 절감 / Energy Saving",
+      "연중 생산 / Year-Round Production"
+    ],
+    ctaTitle: "고밀도 재배랙, 현장 조건에 맞게 설계해 드립니다.",
+    ctaBody: "공간 층고와 목표 생산량을 알려주시면 재배랙 구성과 운영 방식을 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기"
+  },
+  {
+    slug: "alphafarm-core-brewery-fermentation",
+    title: "알파팜 코어 양조장·발효공장 연계 모델",
+    metaTitle: "알파팜 코어 양조장·발효공장 연계 모델 | 쎄슬프라이머스",
+    description:
+      "발효 CO₂·폐열·전력·유휴공간·판매채널을 프리미엄 딸기 생산과 연결하는 알파팜 코어 1~3 양조장·발효공장 연계 사업모델을 소개합니다.",
+    keywords: ["양조장", "발효공장", "알파팜코어", "딸기수직농장", "프리미엄딸기", "디저트연계"],
+    date: "2026-06-28",
+    category: "알파팜",
+    readMin: 3,
+    heroImage: "/media/series/series-5.webp",
+    heroAlt: "알파팜 코어 양조장·발효공장 연계 모델 / AlphaFarm Core brewery and fermentation model",
+    heroContain: true,
+    heroWidth: 1200,
+    heroHeight: 676,
+    lead:
+      "양조장과 발효공장은 발효 과정에서 CO₂가 발생하고, 유휴공간·전력 인프라·직영매장 같은 자원을 갖춘 경우가 많습니다. 이 자원을 프리미엄 딸기 생산과 연결하는 코어 1~3 사업모델입니다.",
+    sections: [
+      {
+        h: "기존 자원으로 만드는 새로운 매출",
+        paras: [
+          "알파팜 코어 1~3 모델은 발효 CO₂, 활용 가능한 폐열, 기존 전력 인프라, 유휴공간과 판매채널을 활용해 프리미엄 딸기를 생산하고, 이를 디저트·음료·직영매장·방문형 콘텐츠와 연계하는 소형·중형 모델입니다.",
+          "핵심은 대형 인프라 프로젝트가 아니라, 이미 보유한 공간과 채널을 바탕으로 프리미엄 딸기 생산 기반과 부가 매출 기회를 만드는 현실적인 코어형 모델이라는 점입니다."
+        ]
+      }
+    ],
+    faq: [
+      { q: "적용 전 무엇을 검토하나요?", a: "발효 CO₂ 품질, 폐열의 온도·열량, 전력 여유, 설치 공간, 판매채널을 함께 검토한 뒤 조건에 맞는 모델을 제안합니다." }
+    ],
+    relatedKeywords: [
+      "양조장 연계 / Brewery Integration",
+      "발효공장 / Fermentation Plant",
+      "알파팜 코어 / AlphaFarm Core",
+      "프리미엄 딸기 / Premium Strawberry",
+      "디저트 연계 / Dessert Business"
+    ],
+    ctaTitle: "양조장·발효공장 연계, 보유 자원으로 검토해 드립니다.",
+    ctaBody: "발효 CO₂·폐열·공간·판로 조건을 알려주시면 코어 연계 모델을 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기"
+  },
+  {
+    slug: "alphafarm-core-power-plant",
+    title: "알파팜 코어 열병합·복합화력 발전소 연계 모델",
+    metaTitle: "알파팜 코어 발전소(CHP·CCPP) 연계 모델 | 쎄슬프라이머스",
+    description:
+      "발전소의 포집·정제 CO₂·폐열·전력·유휴 부지를 프리미엄 딸기 생산과 연결하는 알파팜 코어 5 발전소 연계 실증 모델을 소개합니다.",
+    keywords: ["열병합발전", "복합화력발전", "탄소활용", "폐열활용", "알파팜코어", "딸기수직농장"],
+    date: "2026-06-28",
+    category: "알파팜",
+    readMin: 4,
+    heroImage: "/media/series/series-6.webp",
+    heroAlt: "알파팜 코어 열병합·복합화력 발전소 연계 모델 / AlphaFarm Core power plant model",
+    heroContain: true,
+    heroWidth: 1200,
+    heroHeight: 676,
+    lead:
+      "발전소는 포집·정제 가능한 CO₂, 활용 가능한 폐열, 전력 인프라, 유휴 부지를 보유한 경우가 많습니다. 알파팜 코어 5 모델은 이 자원을 프리미엄 딸기 생산과 연결하는 발전소 연계 실증 모델입니다.",
+    sections: [
+      {
+        h: "코어 5 기준 실증 모델",
+        paras: [
+          "코어 5 기준으로 연간 50톤 이상의 프리미엄 딸기 생산과 약 15억원 수준의 매출 잠재력을 검토할 수 있습니다. 중요한 점은 발전소 배기가스를 직접 사용하는 모델이 아니라는 것입니다. CO₂는 반드시 포집·정제·조절 과정을 거쳐 농업용 활용 가능성을 검토하며, 폐열도 온도·열량 조건을 별도로 확인합니다.",
+          "대규모 탄소감축 설비가 아니라, 발전소 자원을 활용해 프리미엄 식품생산·식음료 연계·방문형 콘텐츠·자원순환 실증 가치를 만드는 현실적인 사업모델입니다."
+        ]
+      }
+    ],
+    faq: [
+      { q: "발전소 배기가스를 직접 쓰나요?", a: "아니요. 포집·정제·조절된 CO₂의 농업용 활용 가능성을 기술적으로 검토하는 구조이며, 폐열도 온도·열량 조건을 별도로 확인합니다." }
+    ],
+    relatedKeywords: [
+      "열병합발전 / CHP",
+      "복합화력발전 / Combined Cycle Power Plant",
+      "탄소 활용 / CO₂ Utilization",
+      "폐열 활용 / Waste Heat Utilization",
+      "알파팜 코어 / AlphaFarm Core"
+    ],
+    ctaTitle: "발전소 연계 모델, 자원 조건으로 검토해 드립니다.",
+    ctaBody: "CO₂·폐열·전력·부지 조건을 알려주시면 발전소 연계 실증 모델을 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기"
+  },
+  {
+    slug: "alphafarm-core-petrochem-hydrogen",
+    title: "알파팜 코어 석유화학·수소 생산기지 연계 모델",
+    metaTitle: "알파팜 코어 석유화학·수소 생산기지 연계 모델 | 쎄슬프라이머스",
+    description:
+      "산업단지·수소 생산기지의 포집·정제 CO₂·폐열·전력·부지를 프리미엄 딸기 생산과 연결하는 알파팜 코어 3~10 전략형 자원활용 모델을 소개합니다.",
+    keywords: ["석유화학", "수소생산", "탄소활용", "폐열활용", "알파팜코어", "식량안보"],
+    date: "2026-06-28",
+    category: "알파팜",
+    readMin: 4,
+    heroImage: "/media/series/series-7.webp",
+    heroAlt: "알파팜 코어 석유화학·수소 생산기지 연계 모델 / AlphaFarm Core petrochemical and hydrogen model",
+    heroContain: true,
+    heroWidth: 1200,
+    heroHeight: 676,
+    lead:
+      "석유화학단지와 수소 생산기지는 CO₂·폐열·전력 인프라·부지 등 다양한 산업 자원을 보유한 전략적 인프라입니다. 알파팜 코어 3~10 모델은 이 자원을 프리미엄 딸기 생산과 연결합니다.",
+    sections: [
+      {
+        h: "산업단지 속 프리미엄 식품생산 쇼케이스",
+        paras: [
+          "코어 3~10 규모를 중심으로 검토할 수 있으며, 코어 10 기준으로 연간 100톤 이상의 프리미엄 딸기 생산과 약 30억원 수준의 매출 잠재력을 목표로 합니다.",
+          "포집·정제·조절된 CO₂와 활용 가능한 폐열을 고부가 식품생산에 연결함으로써, 산업단지 내부 또는 인근에 탄소활용·식량안보·프리미엄 식품생산을 보여주는 가시적인 쇼케이스를 구축할 수 있습니다."
+        ]
+      }
+    ],
+    faq: [
+      { q: "검토 시 무엇을 확인하나요?", a: "CO₂ 품질, 폐열 온도·열량, 전력 여유, 부지 조건, 안전·인허가, 운영 주체, 판매채널을 함께 확인한 뒤 적용 가능성을 진단합니다." }
+    ],
+    relatedKeywords: [
+      "석유화학 연계 / Petrochemical Integration",
+      "수소 생산기지 / Hydrogen Production",
+      "탄소 활용 / CO₂ Utilization",
+      "폐열 활용 / Waste Heat Utilization",
+      "알파팜 코어 / AlphaFarm Core",
+      "식량안보 / Food Security"
+    ],
+    ctaTitle: "석유화학·수소기지 연계, 전략적으로 검토해 드립니다.",
+    ctaBody: "CO₂·폐열·전력·부지·인허가 조건을 알려주시면 코어 3~10 연계 모델을 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
     lineupLabel: "알파팜 솔루션 보기"
   }
