@@ -780,7 +780,7 @@ function NewsSection({ content }: { content: HomeContent }) {
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-paper">
                   <Image
-                    src={a.heroImage}
+                    src={content.locale === "en" && a.heroImageEn ? a.heroImageEn : a.heroImage}
                     alt={a.heroAlt}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"

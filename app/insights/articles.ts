@@ -17,6 +17,7 @@ export interface Article {
   category: string;
   readMin: number;
   heroImage: string;
+  heroImageEn?: string;
   heroAlt: string;
   heroContain?: boolean;
   heroWidth?: number;
@@ -279,6 +280,7 @@ export const articles: Article[] = [
     category: "알파팜",
     readMin: 4,
     heroImage: "/media/series/series-1.webp",
+    heroImageEn: "/media/series/series-1-en.webp",
     heroAlt: "알파팜 코어 폐열·CO₂ 자원순환 인프라 / AlphaFarm Core waste heat and CO₂ circular infrastructure",
     heroContain: true,
     heroWidth: 1200,
@@ -333,6 +335,7 @@ export const articles: Article[] = [
     category: "알파팜",
     readMin: 4,
     heroImage: "/media/series/series-2.webp",
+    heroImageEn: "/media/series/series-2-en.webp",
     heroAlt: "알파팜 코어-20 SOFC 데이터센터 연계 모델 숫자 / AlphaFarm Core-20 SOFC data center model figures",
     heroContain: true,
     heroWidth: 1200,
@@ -384,6 +387,7 @@ export const articles: Article[] = [
     category: "알파팜",
     readMin: 3,
     heroImage: "/media/series/series-3.webp",
+    heroImageEn: "/media/series/series-3-en.webp",
     heroAlt: "알파카페 팜투리테일 모델 / AlphaCafe farm-to-retail model",
     heroContain: true,
     heroWidth: 1200,
@@ -425,6 +429,7 @@ export const articles: Article[] = [
     category: "알파팜",
     readMin: 4,
     heroImage: "/media/series/series-4.webp",
+    heroImageEn: "/media/series/series-4-en.webp",
     heroAlt: "알파팜 고밀도 딸기 재배랙 기술 / AlphaFarm high-density cultivation rack",
     heroContain: true,
     heroWidth: 1200,
@@ -473,6 +478,7 @@ export const articles: Article[] = [
     category: "알파팜",
     readMin: 3,
     heroImage: "/media/series/series-5.webp",
+    heroImageEn: "/media/series/series-5-en.webp",
     heroAlt: "알파팜 코어 양조장·발효공장 연계 모델 / AlphaFarm Core brewery and fermentation model",
     heroContain: true,
     heroWidth: 1200,
@@ -514,6 +520,7 @@ export const articles: Article[] = [
     category: "알파팜",
     readMin: 4,
     heroImage: "/media/series/series-6.webp",
+    heroImageEn: "/media/series/series-6-en.webp",
     heroAlt: "알파팜 코어 열병합·복합화력 발전소 연계 모델 / AlphaFarm Core power plant model",
     heroContain: true,
     heroWidth: 1200,
@@ -555,6 +562,7 @@ export const articles: Article[] = [
     category: "알파팜",
     readMin: 4,
     heroImage: "/media/series/series-7.webp",
+    heroImageEn: "/media/series/series-7-en.webp",
     heroAlt: "알파팜 코어 석유화학·수소 생산기지 연계 모델 / AlphaFarm Core petrochemical and hydrogen model",
     heroContain: true,
     heroWidth: 1200,
