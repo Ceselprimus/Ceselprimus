@@ -736,6 +736,10 @@ function IpSection({ content }: { content: HomeContent }) {
 function NewsSection({ content }: { content: HomeContent }) {
   const { news } = content;
   const latestInsights = [...articles].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 9);
+  const isEn = content.locale === "en";
+  const latestLabel = isEn ? "Latest insights" : "최신 인사이트";
+  const viewAllLabel = isEn ? "View all" : "전체 보기";
+  const channelsLabel = isEn ? "Official channels" : "공식 채널";
   return (
     <section id="news" className="py-16 md:py-24">
       <Container>
@@ -765,9 +769,9 @@ function NewsSection({ content }: { content: HomeContent }) {
 
         <Reveal delay={80}>
           <div className="mt-12 flex items-end justify-between md:mt-14">
-            <p className="text-[1.05rem] font-bold text-ink">최신 인사이트</p>
+            <p className="text-[1.05rem] font-bold text-ink">{latestLabel}</p>
             <a href="/insights" className="inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-forest hover:underline">
-              전체 보기 <ArrowUpRight className="h-4 w-4" />
+              {viewAllLabel} <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
         </Reveal>
@@ -800,7 +804,7 @@ function NewsSection({ content }: { content: HomeContent }) {
         </div>
 
         <Reveal delay={80}>
-          <p className="mt-14 text-[1.05rem] font-bold text-ink md:mt-16">공식 채널</p>
+          <p className="mt-14 text-[1.05rem] font-bold text-ink md:mt-16">{channelsLabel}</p>
         </Reveal>
         <div className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {news.cards.map((item, index) => (
