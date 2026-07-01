@@ -121,7 +121,58 @@ export const articles: Article[] = [
     ctaTitle: "결로 문제, 현장 조건에 맞게 진단해 드립니다.",
     ctaBody: "시설 종류와 현재 겪는 결로·습도 문제를 알려주시면 저온제습 공조 담당자가 직접 검토해 회신드립니다.",
     lineupHref: "/alphacooling",
-    lineupLabel: "알파쿨링 솔루션 보기"
+    lineupLabel: "알파쿨링 솔루션 보기",
+    categoryEn: "AlphaCooling",
+    en: {
+      title: "Why Condensation Forms in Food Factories — and How to Stop It",
+      metaTitle: "Food Factory Condensation — Causes & Low-Temp Dehumidification Fix | CESeL Primus",
+      description:
+        "The causes of condensation in food factories and packing rooms — dew point, surface condensation, supply air — and how low-temperature dehumidification solves it, and why cooling and ventilation alone fail.",
+      lead:
+        "Every summer, water droplets form across food factories and packing rooms. Condensation dripping from the ceiling onto products and packaging leads straight to hygiene incidents and claims. Condensation isn't fixed by 'just cooling more' — you have to understand the cause.",
+      sections: [
+        {
+          h: "Why condensation forms — dew point and surfaces",
+          paras: [
+            "The colder air gets, the less moisture it can hold; that threshold is the 'dew point.' When a cold surface — ceiling, wall, pipe, floor — drops below the surrounding air's dew point, moisture condenses on it as droplets.",
+            "It's worst in summer for a clear reason: hot, humid outdoor air entering through doors and loading bays spikes indoor humidity, and meeting cold cooling surfaces makes condensation surge. So condensation is really a problem of surface temperature, air dew point, and supply-air humidity."
+          ],
+          bullets: ["Surface temperature: cold ceilings, pipes, etc.", "Dew point: the temperature at which air begins to condense", "Supply-air humidity: raised by incoming outdoor air"]
+        },
+        {
+          h: "The real cost of condensation",
+          paras: ["Condensation isn't a minor nuisance — it becomes direct loss."],
+          bullets: [
+            "Hygiene: dripping ceiling condensation contaminates products, HACCP non-conformance risk",
+            "Mold & bacteria: constantly wet surfaces breed mold → odor and re-work costs",
+            "Quality: wet packaging, label defects, product moisture uptake",
+            "Safety: slippery floors and worker accidents"
+          ]
+        },
+        {
+          h: "Why cooling and ventilation alone fail",
+          paras: [
+            "Common fixes miss condensation for a reason. Cooling harder makes surfaces colder and can worsen condensation. Ventilation backfires in seasons when outdoor air is more humid than indoors. Ordinary dehumidifiers lose efficiency and frost up in cold spaces.",
+            "The key is an integrated design that lowers the supply air's humidity (dew point) while keeping the space cold. Temperature and humidity must be controlled together — not separately — to prevent condensation from forming at all."
+          ]
+        },
+        {
+          h: "The low-temperature dehumidification fix — AlphaCooling",
+          paras: [
+            "AlphaCooling designs cooling, dehumidification, reheat, and airflow as one, lowering the supply air's dew point while maintaining low temperature. For food processes and packing rooms, an inline hot-gas-reheat (HGR) unit removes humidity without overcooling.",
+            "By integrating coolers, circulation fans, airflow, and sensors to even out humidity and surface temperature across the whole space, the very conditions that create condensation disappear — from vertical-farm grow rooms to food packing rooms, cold storage, and cold-chain spaces."
+          ]
+        }
+      ],
+      faq: [
+        { q: "Why is condensation so bad in summer?", a: "In summer both outdoor temperature and humidity are high, so humid air entering through doorways meets cold cooling surfaces and condensation surges — the gap between surface temperature and supply-air dew point widens." },
+        { q: "Won't more ventilation solve it?", a: "When outdoor air is more humid than indoor air, ventilation actually pulls in moisture and worsens condensation. Dehumidification that lowers the dew point must go with it." },
+        { q: "How much does it cost to adopt?", a: "It varies greatly by space size, target temperature/humidity, and existing equipment, so it can't be stated uniformly. We assess on site and propose to fit your conditions." }
+      ],
+      ctaTitle: "We'll diagnose your condensation problem to fit your site.",
+      ctaBody: "Tell us your facility type and the condensation/humidity issues you face, and our low-temp dehumidification HVAC team will review and reply directly.",
+      lineupLabel: "Explore the AlphaCooling solution"
+    }
   },
   {
     slug: "cold-storage-condensation-mold",
@@ -195,7 +246,51 @@ export const articles: Article[] = [
     ctaTitle: "저온저장고·식품창고 결로, 근본부터 잡습니다.",
     ctaBody: "저장 공간 종류와 곰팡이·결로 상황을 알려주시면 저온제습 공조 담당자가 직접 검토해 회신드립니다.",
     lineupHref: "/alphacooling",
-    lineupLabel: "알파쿨링 솔루션 보기"
+    lineupLabel: "알파쿨링 솔루션 보기",
+    categoryEn: "AlphaCooling",
+    en: {
+      title: "Condensation and Mold in Cold Storage — Root Causes and Fixes",
+      metaTitle: "Cold Storage & Food Warehouse Condensation and Mold — Low-Temp Dehumidification | CESeL Primus",
+      description:
+        "Why condensation and black mold form on the walls and ceilings of cold storage and underground food warehouses, why ventilation and drainage aren't enough, and the low-temperature dehumidification fix.",
+      lead:
+        "Condensation and black mold on the walls and ceilings of cold storage or underground food warehouses directly threaten stored-product quality and hygiene. Here's why more exhaust fans don't fix it — and how to solve it at the root.",
+      sections: [
+        {
+          h: "How condensation and mold form in cold, underground spaces",
+          paras: [
+            "Cold storage has low surface temperatures, so air reaches its dew point easily. Add an underground location — outside moisture ingress, ground moisture, and poor ventilation — and humidity stays high. Condensation becomes constant, and wet surfaces are the ideal environment for mold.",
+            "Once mold takes hold, odor and spores transfer to stored products and won't disappear without re-surfacing the walls. So the approach must be to prevent it forming, not wipe it after."
+          ]
+        },
+        {
+          h: "Why ventilation and drainage aren't enough",
+          paras: [
+            "Ventilation only helps when outdoor air is drier than indoors. In a rainy season, when it's more humid outside, ventilation brings moisture in. Drainage only carries away water that already formed — it doesn't lower the humidity (dew point) in the air. So with ventilation and drainage alone, condensation and mold keep coming back."
+          ]
+        },
+        {
+          h: "Storage quality and hygiene risks",
+          paras: ["Left unaddressed, condensation and mold lead to the following losses."],
+          bullets: ["Mold odor and spores transferring to stored goods", "Packaging damage, label defects, surface icing", "Hygiene-inspection and HACCP risk", "Inventory loss and claims"]
+        },
+        {
+          h: "How to fix it — AlphaCooling low-temp dehumidification",
+          paras: [
+            "AlphaCooling blocks surface condensation and mold at the root with a low-temperature dehumidification cooler and airflow design that lowers the supply air's dew point while keeping the space cold — applied to food warehouses, cold storage, refrigerated/frozen warehouses, and cold-chain facilities.",
+            "The same principle applies to businesses that use underground space, such as underground strawberry vertical farms: condensation, ventilation, drainage, and dehumidification are bound into one design to stabilize the whole space."
+          ]
+        }
+      ],
+      faq: [
+        { q: "I added exhaust fans but mold keeps forming.", a: "If you don't lower the humidity (dew point) in the air, condensation and mold recur. In more humid seasons ventilation can backfire, so low-temperature dehumidification that keeps the space cold while removing moisture is key." },
+        { q: "Can it be applied to underground spaces?", a: "Yes. Underground hinges on condensation, ventilation, and drainage conditions, which we manage together in one integrated design — including cases that use underground space for production and storage, such as underground strawberry vertical farms." },
+        { q: "Can I keep my existing refrigeration unit and just add to it?", a: "After assessing your equipment capacity and operating method, we propose to fit your conditions, including making use of existing equipment." }
+      ],
+      ctaTitle: "We solve cold storage and warehouse condensation at the root.",
+      ctaBody: "Tell us your storage type and mold/condensation situation, and our low-temp dehumidification HVAC team will review and reply directly.",
+      lineupLabel: "Explore the AlphaCooling solution"
+    }
   },
   {
     slug: "year-round-strawberry-vertical-farm",
@@ -280,7 +375,57 @@ export const articles: Article[] = [
     ctaTitle: "딸기 수직농장 사업, 조건에 맞게 설계해 드립니다.",
     ctaBody: "보유 공간·목표 생산량·판로를 알려주시면 알파팜 담당자가 연중 딸기 사업 모델을 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
-    lineupLabel: "알파팜 솔루션 보기"
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "How Year-Round Strawberry Farming Works with a Vertical Farm",
+      metaTitle: "Year-Round Strawberry Business with a Vertical Farm — AlphaFarm | CESeL Primus",
+      description:
+        "How to produce and sell premium strawberries all year regardless of season, and how AlphaFarm delivers cultivation, operations, and sales as a year-round strawberry business solution.",
+      lead:
+        "Strawberries have a short, weather-sensitive season, so supply concentrates in spring while summer and autumn prices climb. A strawberry vertical farm removes this 'season,' producing uniform premium strawberries year-round by precisely controlling the indoor environment.",
+      sections: [
+        {
+          h: "A vertical farm removes the season",
+          paras: [
+            "A strawberry vertical farm grows strawberries at high density on stacked racks indoors. Because temperature, humidity, CO₂, light, and nutrients are precisely controlled, it harvests a stable, uniform crop year-round regardless of weather or season.",
+            "Where open-field and greenhouse farming depend on climate, pests, and sunlight, a vertical farm 'designs the growing environment itself' — keeping sweetness, size, and shipping timing consistent, which suits the premium market."
+          ]
+        },
+        {
+          h: "Why 'year-round' is the core of the business",
+          paras: [
+            "Strawberry profit depends heavily on 'when you sell.' Prices are low when supply floods in season and premium when volume is scarce off-season. Year-round production gives pricing power through off-season supply and lets you deliver a consistent quality to fixed buyers — cafés, hotels, bakeries — all year.",
+            "Not being tied to a season means revenue isn't concentrated in one period. Stable year-round supply raises both business predictability and buyer trust."
+          ]
+        },
+        {
+          h: "Key variables of the business",
+          paras: ["A vertical-farm strawberry business isn't just about equipment — these four have to work together."],
+          bullets: [
+            "Environment control: temperature/humidity/CO₂/light tuned for strawberries, run stably",
+            "Cultivation know-how: cultivar, nutrient, and growth management for sweetness and yield",
+            "Operational continuity: an operating system that runs power, equipment, and data reliably",
+            "Sales channels: retail and wholesale outlets that can command premium prices"
+          ]
+        },
+        {
+          h: "AlphaFarm — a year-round strawberry business solution",
+          paras: [
+            "CESeL Primus AlphaFarm doesn't just sell equipment — it takes responsibility for cultivation, operations, and sales as one package. Once a client decides to invest, it designs everything from the production base to operations and sales as one flow. Contracts start at one year and renew annually.",
+            "It comprises AlphaCore (a modular vertical-farm production base), AlphaCafe (a farm-to-retail store model), an experience portfolio (hotels, showrooms, bakeries), and Alpha ContainerFarm (a compact validation model) — lowering the barrier so you can start even without growing experience."
+          ]
+        }
+      ],
+      faq: [
+        { q: "Do vertical-farm strawberries taste worse than open-field?", a: "Because the environment is precisely controlled, sweetness and quality can be kept consistent — an advantage for uniform premium quality. Cultivar and nutrient/growth management drive the taste." },
+        { q: "Can I start with no farming experience?", a: "AlphaFarm provides cultivation, operations, and sales as a package, so you can start even without experience, receiving operating know-how and systems. Operating training and protocols are provided." },
+        { q: "How much is the initial investment and return?", a: "It varies widely by space, target output, sales channels, and region, so it can't be stated uniformly. Rather than guaranteeing returns, we assess on site and propose a fitting model and phased expansion plan." }
+      ],
+      ctaTitle: "We'll design your strawberry vertical farm business to fit your conditions.",
+      ctaBody: "Tell us your space, target output, and sales channels, and the AlphaFarm team will review a year-round strawberry business model and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
   },
   {
     slug: "alphafarm-core-resource-circulation",
