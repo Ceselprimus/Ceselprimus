@@ -698,7 +698,7 @@ export const enContent: HomeContent = {
       { href: "/en#alphafarm", label: "AlphaFarm" },
       { href: "/en#cases", label: "Cases" },
       { href: "/en#news", label: "News" },
-      { href: "/insights", label: "Insights" },
+      { href: "/en/insights", label: "Insights" },
       { href: "/en#contact", label: "Contact" }
     ],
     inquiry: "Contact us",
@@ -1076,7 +1076,7 @@ export const enContent: HomeContent = {
       { href: "/en#cases", label: "Cases" },
       { href: "/en#ip", label: "IP portfolio" },
       { href: "/en#news", label: "News" },
-      { href: "/insights", label: "Insights" },
+      { href: "/en/insights", label: "Insights" },
       { href: "/en#contact", label: "Contact" }
     ],
     bizLines: [

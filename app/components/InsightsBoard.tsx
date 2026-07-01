@@ -2,32 +2,46 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { articles } from "../insights/articles";
+import { articles, type Article } from "../insights/articles";
 
 const PAGE_SIZE = 6;
 
-export default function InsightsBoard() {
-  const sorted = useMemo(() => [...articles].sort((a, b) => b.date.localeCompare(a.date)), []);
-  const categories = useMemo(() => ["전체", ...Array.from(new Set(sorted.map((a) => a.category)))], [sorted]);
+export default function InsightsBoard({ locale = "ko" }: { locale?: "ko" | "en" }) {
+  const isEn = locale === "en";
+  const L = isEn
+    ? { all: "All", search: "Search (title, keyword)", more: "Read more →", none: "No results found.", searchAria: "Search insights" }
+    : { all: "전체", search: "검색 (제목·키워드)", more: "자세히 보기 →", none: "검색 결과가 없습니다.", searchAria: "인사이트 검색" };
 
-  const [cat, setCat] = useState("전체");
+  const cat = (a: Article) => (isEn ? a.categoryEn ?? a.category : a.category);
+  const title = (a: Article) => (isEn && a.en ? a.en.title : a.title);
+  const desc = (a: Article) => (isEn && a.en ? a.en.description : a.description);
+  const img = (a: Article) => (isEn ? a.heroImageEn ?? a.heroImage : a.heroImage);
+  const href = (a: Article) => (isEn ? `/en/insights/${a.slug}` : `/insights/${a.slug}`);
+
+  const sorted = useMemo(() => {
+    const base = isEn ? articles.filter((a) => a.en) : articles;
+    return [...base].sort((a, b) => b.date.localeCompare(a.date));
+  }, [isEn]);
+
+  const categories = useMemo(() => [L.all, ...Array.from(new Set(sorted.map((a) => cat(a))))], [sorted, L.all]);
+
+  const [catFilter, setCatFilter] = useState(L.all);
   const [q, setQ] = useState("");
   const [page, setPage] = useState(1);
 
-  // 라인업 등에서 /insights?cat=알파팜 으로 들어오면 해당 카테고리로 자동 필터
   useEffect(() => {
     const c = new URLSearchParams(window.location.search).get("cat");
-    if (c && categories.includes(c)) setCat(c);
+    if (c && categories.includes(c)) setCatFilter(c);
   }, [categories]);
 
   const filtered = useMemo(() => {
     const query = q.trim().toLowerCase();
     return sorted.filter((a) => {
-      const catOk = cat === "전체" || a.category === cat;
-      const qOk = !query || (a.title + " " + a.description + " " + a.keywords.join(" ")).toLowerCase().includes(query);
+      const catOk = catFilter === L.all || cat(a) === catFilter;
+      const qOk = !query || (title(a) + " " + desc(a) + " " + a.keywords.join(" ")).toLowerCase().includes(query);
       return catOk && qOk;
     });
-  }, [sorted, cat, q]);
+  }, [sorted, catFilter, q, L.all]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const current = Math.min(page, totalPages);
@@ -42,11 +56,11 @@ export default function InsightsBoard() {
               key={c}
               type="button"
               onClick={() => {
-                setCat(c);
+                setCatFilter(c);
                 setPage(1);
               }}
               className={`rounded-full px-4 py-2 text-[0.92rem] font-semibold transition ${
-                cat === c ? "bg-forest text-white" : "bg-white text-ink/70 ring-1 ring-ink/12 hover:text-forest"
+                catFilter === c ? "bg-forest text-white" : "bg-white text-ink/70 ring-1 ring-ink/12 hover:text-forest"
               }`}
             >
               {c}
@@ -60,8 +74,8 @@ export default function InsightsBoard() {
             setQ(e.target.value);
             setPage(1);
           }}
-          placeholder="검색 (제목·키워드)"
-          aria-label="인사이트 검색"
+          placeholder={L.search}
+          aria-label={L.searchAria}
           className="w-full rounded-full bg-white px-5 py-2.5 text-[0.95rem] text-ink outline-none ring-1 ring-ink/12 focus:ring-forest md:w-72"
         />
       </div>
@@ -71,12 +85,12 @@ export default function InsightsBoard() {
           {shown.map((a) => (
             <a
               key={a.slug}
-              href={`/insights/${a.slug}`}
+              href={href(a)}
               className="group flex flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-ink/8 transition hover:-translate-y-1 hover:shadow-card"
             >
               <div className="relative aspect-[16/9] bg-paper">
                 <Image
-                  src={a.heroImage}
+                  src={img(a)}
                   alt={a.heroAlt}
                   fill
                   className="object-contain p-2 transition duration-500 group-hover:scale-[1.03]"
@@ -85,17 +99,17 @@ export default function InsightsBoard() {
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <p className="text-[0.85rem] font-semibold text-forest">
-                  {a.category} · {a.date}
+                  {cat(a)} · {a.date}
                 </p>
-                <h2 className="mt-2 text-[1.25rem] font-bold leading-snug tracking-tight text-ink">{a.title}</h2>
-                <p className="mt-2.5 line-clamp-3 text-[0.98rem] leading-relaxed text-ink/65">{a.description}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-forest">자세히 보기 →</span>
+                <h2 className="mt-2 text-[1.25rem] font-bold leading-snug tracking-tight text-ink">{title(a)}</h2>
+                <p className="mt-2.5 line-clamp-3 text-[0.98rem] leading-relaxed text-ink/65">{desc(a)}</p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-forest">{L.more}</span>
               </div>
             </a>
           ))}
         </div>
       ) : (
-        <p className="mt-14 text-center text-[1rem] text-ink/50">검색 결과가 없습니다.</p>
+        <p className="mt-14 text-center text-[1rem] text-ink/50">{L.none}</p>
       )}
 
       {totalPages > 1 ? (

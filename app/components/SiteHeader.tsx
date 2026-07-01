@@ -8,11 +8,14 @@ import type { HomeContent } from "../home-content";
 
 export default function SiteHeader({
   nav,
-  contact
+  contact,
+  langHref
 }: {
   nav: HomeContent["nav"];
   contact: HomeContent["contact"];
+  langHref?: string;
 }) {
+  const langSwitchHref = langHref ?? nav.langSwitch.href;
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -62,7 +65,7 @@ export default function SiteHeader({
               </a>
             ))}
             <a
-              href={nav.langSwitch.href}
+              href={langSwitchHref}
               className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.92rem] font-semibold ring-1 transition-colors duration-200 ${
                 dark
                   ? "text-white ring-white/35 hover:bg-white/10"
@@ -84,7 +87,7 @@ export default function SiteHeader({
 
           <div className="flex items-center gap-1.5 xl:hidden">
             <a
-              href={nav.langSwitch.href}
+              href={langSwitchHref}
               className={`inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.9rem] font-semibold ring-1 transition ${
                 dark ? "text-white ring-white/35" : "text-ink ring-ink/15"
               }`}

@@ -7,6 +7,17 @@ export interface Section {
   paras: string[];
   bullets?: string[];
 }
+export interface ArticleEn {
+  title: string;
+  metaTitle: string;
+  description: string;
+  lead: string;
+  sections: Section[];
+  faq: Faq[];
+  ctaTitle: string;
+  ctaBody: string;
+  lineupLabel: string;
+}
 export interface Article {
   slug: string;
   title: string;
@@ -30,6 +41,8 @@ export interface Article {
   ctaBody: string;
   lineupHref: string;
   lineupLabel: string;
+  categoryEn?: string;
+  en?: ArticleEn;
 }
 
 export const articles: Article[] = [
@@ -657,7 +670,58 @@ export const articles: Article[] = [
     ctaTitle: "딸기 수직농장, 우리 조건에서 가능한지 검토해 드립니다.",
     ctaBody: "보유 공간·전력·목표 생산량을 알려주시면 알파팜 담당자가 도입 가능성을 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
-    lineupLabel: "알파팜 솔루션 보기"
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "What Is a Strawberry Vertical Farm? Concept and Principles",
+      metaTitle: "What Is a Strawberry Vertical Farm — Concept, Principles, Benefits | CESeL Primus",
+      description:
+        "The concept and working principles of strawberry vertical farming, how it differs from open-field and greenhouse cultivation, and why year-round production is possible.",
+      lead:
+        "A strawberry vertical farm grows strawberries indoors on stacked cultivation racks, producing a uniform crop year-round regardless of weather or season. Here is the concept and how it works.",
+      sections: [
+        {
+          h: "What is a strawberry vertical farm",
+          paras: [
+            "A strawberry vertical farm stacks cultivation racks vertically to grow strawberries at high density indoors. Nutrients reach the roots through a nutrient solution instead of soil, light comes from LEDs, and temperature, humidity, and CO₂ are precisely controlled by equipment. In short, people design the entire growing environment."
+          ]
+        },
+        {
+          h: "How it works — controlling the environment",
+          paras: ["The core of a strawberry vertical farm is optimizing every condition strawberries need to grow."],
+          bullets: [
+            "Light: LED intensity and spectrum tuned to strawberry growth",
+            "Temperature & humidity: a uniform climate via low-temperature dehumidification",
+            "CO₂ & nutrients: supplied in the right amount for each growth stage",
+            "Stacked structure: multiple layers on a small footprint for higher productivity"
+          ]
+        },
+        {
+          h: "How it differs from open-field and greenhouse farming",
+          paras: [
+            "Open-field and greenhouse cultivation depend heavily on weather, sunlight, and pests, and strawberry season concentrates in winter and spring. A vertical farm controls conditions indoors, isolated from the outside, so it produces a uniform crop year-round regardless of season."
+          ]
+        },
+        {
+          h: "Why it draws attention",
+          paras: ["Strawberry vertical farms draw attention as a premium business for clear reasons."],
+          bullets: [
+            "Year-round production → off-season supply and pricing power",
+            "Uniform sweetness and size → suited to premium and wholesale markets",
+            "Production near cities → freshness and logistics advantages",
+            "Data-driven operation → easier quality and productivity management"
+          ]
+        }
+      ],
+      faq: [
+        { q: "Do vertical-farm strawberries taste worse?", a: "Because the environment is precisely controlled, sweetness and quality can be kept consistent — an advantage for uniform premium quality. Cultivar and nutrient/growth management drive the taste." },
+        { q: "Don't electricity and operating costs run high?", a: "LED and HVAC power are real costs, but low-temperature dehumidification, energy-saving design, and operational optimization keep them managed. It varies by scale and conditions, so an on-site review is needed." },
+        { q: "Can anyone start one?", a: "There is a business model (AlphaFarm) that supports cultivation and operations as a package, so you can start even without growing experience. Space, power, and sales-channel conditions are reviewed together." }
+      ],
+      ctaTitle: "We'll assess whether a strawberry vertical farm fits your conditions.",
+      ctaBody: "Tell us your available space, power, and target output, and the AlphaFarm team will review feasibility and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
   },
   {
     slug: "strawberry-vertical-farm-startup",
@@ -714,7 +778,50 @@ export const articles: Article[] = [
     ctaTitle: "딸기 수직농장 창업, 조건에 맞게 설계해 드립니다.",
     ctaBody: "보유 공간·투자 여력·판로를 알려주시면 알파팜 담당자가 창업 방향을 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
-    lineupLabel: "알파팜 솔루션 보기"
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "Starting a Strawberry Vertical Farm — What to Prepare First",
+      metaTitle: "Strawberry Vertical Farm Startup Guide — Preparation & Steps | CESeL Primus",
+      description:
+        "Key things to check before starting a strawberry vertical farm — space, power, investment, cultivation know-how, and sales channels — plus a lower-risk starting sequence.",
+      lead:
+        "Starting a strawberry vertical farm isn't just about installing equipment — space, power, cultivation know-how, and sales channels all have to come together. Here's what to check first and a sequence that lowers risk.",
+      sections: [
+        {
+          h: "5 things to check before you start",
+          paras: ["Once these five are in place, the big picture of a strawberry vertical farm startup comes together."],
+          bullets: [
+            "Space: available floor area and ceiling height",
+            "Power & equipment: power capacity and cooling/dehumidification conditions",
+            "Investment: initial budget and a phased expansion plan",
+            "Cultivation know-how: cultivar, nutrient, and growth management (or support)",
+            "Sales channels: outlets that can command premium prices"
+          ]
+        },
+        {
+          h: "A sequence that lowers risk",
+          paras: [
+            "Starting large carries big risk. It's safer to validate small, secure data, and then expand.",
+            "For example, validate production and operations with a compact container-type model, and once yield and quality are confirmed, scale by repeatedly adding modules."
+          ]
+        },
+        {
+          h: "Do you have to do it all yourself — a packaged approach",
+          paras: [
+            "Preparing cultivation, operations, and sales entirely on your own is a high barrier. AlphaFarm is a year-round strawberry business solution that provides cultivation, operations, and sales as a package, designed so you can start even without growing experience."
+          ]
+        }
+      ],
+      faq: [
+        { q: "Can I start with no cultivation experience at all?", a: "Yes. With a packaged model (AlphaFarm), you receive operating know-how and systems together, so you can start without experience. Operating training and protocols are also provided." },
+        { q: "How much is the initial investment and return?", a: "It varies widely by space, target output, sales channels, and region, so it can't be stated uniformly. Rather than guaranteeing returns, we assess on site and propose a fitting model and phased expansion plan." },
+        { q: "Can I start small and grow?", a: "Yes. We recommend starting small with a container-type validation model, securing data, and then scaling by repeatedly adding modules." }
+      ],
+      ctaTitle: "We'll design your strawberry vertical farm startup to fit your conditions.",
+      ctaBody: "Tell us your space, investment capacity, and sales channels, and the AlphaFarm team will review your startup direction and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
   }
 ];
 

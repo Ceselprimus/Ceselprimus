@@ -40,7 +40,7 @@ export default function InsightsPage() {
   return (
     <main id="top" className="bg-paper text-ink">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <SiteHeader nav={c.nav} contact={c.contact} />
+      <SiteHeader nav={c.nav} contact={c.contact} langHref="/en/insights" />
 
       <section className="bg-ink text-white">
         <div className="mx-auto w-[min(1140px,92vw)] pb-16 pt-32 md:pb-20 md:pt-44">

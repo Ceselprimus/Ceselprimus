@@ -23,6 +23,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(a.date + "T00:00:00+09:00"),
       changeFrequency: "monthly" as const,
       priority: 0.7
-    }))
+    })),
+    { url: `${baseUrl}/en/insights`, lastModified, changeFrequency: "weekly", priority: 0.6 },
+    ...articles
+      .filter((a) => a.en)
+      .map((a) => ({
+        url: `${baseUrl}/en/insights/${a.slug}`,
+        lastModified: new Date(a.date + "T00:00:00+09:00"),
+        changeFrequency: "monthly" as const,
+        priority: 0.6
+      }))
   ];
 }

@@ -735,8 +735,10 @@ function IpSection({ content }: { content: HomeContent }) {
 
 function NewsSection({ content }: { content: HomeContent }) {
   const { news } = content;
-  const latestInsights = [...articles].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 9);
   const isEn = content.locale === "en";
+  const insightsBase = isEn ? "/en/insights" : "/insights";
+  const insightPool = isEn ? articles.filter((a) => a.en) : articles;
+  const latestInsights = [...insightPool].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 9);
   const latestLabel = isEn ? "Latest insights" : "최신 인사이트";
   const viewAllLabel = isEn ? "View all" : "전체 보기";
   const channelsLabel = isEn ? "Official channels" : "공식 채널";
@@ -770,7 +772,7 @@ function NewsSection({ content }: { content: HomeContent }) {
         <Reveal delay={80}>
           <div className="mt-12 flex items-end justify-between md:mt-14">
             <p className="text-[1.05rem] font-bold text-ink">{latestLabel}</p>
-            <a href="/insights" className="inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-forest hover:underline">
+            <a href={insightsBase} className="inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-forest hover:underline">
               {viewAllLabel} <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
@@ -779,7 +781,7 @@ function NewsSection({ content }: { content: HomeContent }) {
           {latestInsights.map((a, index) => (
             <Reveal key={a.slug} delay={(index % 3) * 90}>
               <a
-                href={`/insights/${a.slug}`}
+                href={`${insightsBase}/${a.slug}`}
                 className="group block overflow-hidden rounded-2xl bg-white ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-paper">
@@ -793,8 +795,8 @@ function NewsSection({ content }: { content: HomeContent }) {
                 </div>
                 <div className="flex items-start justify-between gap-4 p-6">
                   <div>
-                    <p className="text-[0.95rem] font-bold text-forest">{a.category}</p>
-                    <h3 className="mt-1.5 text-xl font-bold leading-snug tracking-tight text-ink md:text-[1.32rem]">{a.title}</h3>
+                    <p className="text-[0.95rem] font-bold text-forest">{isEn ? a.categoryEn ?? a.category : a.category}</p>
+                    <h3 className="mt-1.5 text-xl font-bold leading-snug tracking-tight text-ink md:text-[1.32rem]">{isEn && a.en ? a.en.title : a.title}</h3>
                   </div>
                   <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-ink/35 transition group-hover:text-forest" />
                 </div>
