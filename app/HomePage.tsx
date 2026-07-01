@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import SiteHeader from "./components/SiteHeader";
 import HashScroll from "./components/HashScroll";
-import { articles } from "./insights/articles";
+import { articles, isLive } from "./insights/articles";
 import Reveal from "./components/Reveal";
 import CasesGallery from "./components/CasesGallery";
 import FarmModels from "./components/FarmModels";
@@ -737,7 +737,7 @@ function NewsSection({ content }: { content: HomeContent }) {
   const { news } = content;
   const isEn = content.locale === "en";
   const insightsBase = isEn ? "/en/insights" : "/insights";
-  const insightPool = isEn ? articles.filter((a) => a.en) : articles;
+  const insightPool = (isEn ? articles.filter((a) => a.en) : articles).filter((a) => isLive(a));
   const latestInsights = [...insightPool].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 9);
   const latestLabel = isEn ? "Latest insights" : "최신 인사이트";
   const viewAllLabel = isEn ? "View all" : "전체 보기";

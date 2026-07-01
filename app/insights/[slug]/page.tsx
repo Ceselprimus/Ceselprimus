@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ArticleLayout from "../../components/ArticleLayout";
-import { articles, getArticle } from "../articles";
+import { articles, getArticle, isLive } from "../articles";
 
 export function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+  return articles.filter((a) => isLive(a)).map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -32,6 +32,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const article = getArticle(slug);
-  if (!article) notFound();
+  if (!article || !isLive(article)) notFound();
   return <ArticleLayout article={article} />;
 }

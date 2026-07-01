@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { articles } from "./insights/articles";
+import { articles, isLive } from "./insights/articles";
 
 const baseUrl = "https://www.ceslprimus.com";
 const lastModified = new Date("2026-06-23T00:00:00+09:00");
@@ -18,15 +18,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/alphasupport`, lastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/contact`, lastModified, changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/insights`, lastModified, changeFrequency: "weekly", priority: 0.7 },
-    ...articles.map((a) => ({
-      url: `${baseUrl}/insights/${a.slug}`,
-      lastModified: new Date(a.date + "T00:00:00+09:00"),
-      changeFrequency: "monthly" as const,
-      priority: 0.7
-    })),
+    ...articles
+      .filter((a) => isLive(a))
+      .map((a) => ({
+        url: `${baseUrl}/insights/${a.slug}`,
+        lastModified: new Date(a.date + "T00:00:00+09:00"),
+        changeFrequency: "monthly" as const,
+        priority: 0.7
+      })),
     { url: `${baseUrl}/en/insights`, lastModified, changeFrequency: "weekly", priority: 0.6 },
     ...articles
-      .filter((a) => a.en)
+      .filter((a) => a.en && isLive(a))
       .map((a) => ({
         url: `${baseUrl}/en/insights/${a.slug}`,
         lastModified: new Date(a.date + "T00:00:00+09:00"),

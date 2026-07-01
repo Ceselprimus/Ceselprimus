@@ -4,7 +4,7 @@ import InquiryButton from "./InquiryButton";
 import ChatWidget from "./ChatWidget";
 import FloatingWhatsApp from "./FloatingWhatsApp";
 import { koContent, enContent } from "../home-content";
-import type { Article } from "../insights/articles";
+import { articles, isLive, type Article } from "../insights/articles";
 
 const baseUrl = "https://www.ceslprimus.com";
 
@@ -40,6 +40,12 @@ export default function ArticleLayout({ article, locale = "ko" }: { article: Art
         read: `${article.date} · 약 ${article.readMin}분`,
         rights: "© 2026 쎄슬프라이머스. 모든 권리 보유."
       };
+
+  const related = articles
+    .filter((a) => a.slug !== article.slug && a.category === article.category && isLive(a) && (!isEn || a.en))
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 3);
+  const relatedHeading = isEn ? "Related insights" : "관련 인사이트";
 
   const jsonLd = [
     {

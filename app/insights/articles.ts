@@ -25,6 +25,7 @@ export interface Article {
   description: string;
   keywords: string[];
   date: string;
+  publishAt?: string;
   category: string;
   readMin: number;
   heroImage: string;
@@ -1166,5 +1167,11 @@ export const articles: Article[] = [
     }
   }
 ];
+
+// 예약 발행: publishAt(없으면 date)이 오늘 이하인 글만 공개.
+export function isLive(a: Article, today: string = new Date().toISOString().slice(0, 10)): boolean {
+  return (a.publishAt ?? a.date) <= today;
+}
+export const liveArticles = (today?: string) => articles.filter((a) => isLive(a, today));
 
 export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);

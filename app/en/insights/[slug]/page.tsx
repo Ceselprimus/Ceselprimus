@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ArticleLayout from "../../../components/ArticleLayout";
-import { articles, getArticle } from "../../../insights/articles";
+import { articles, getArticle, isLive } from "../../../insights/articles";
 
 export function generateStaticParams() {
-  return articles.filter((a) => a.en).map((a) => ({ slug: a.slug }));
+  return articles.filter((a) => a.en && isLive(a)).map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -35,6 +35,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function EnArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const article = getArticle(slug);
-  if (!article || !article.en) notFound();
+  if (!article || !article.en || !isLive(article)) notFound();
   return <ArticleLayout article={article} locale="en" />;
 }

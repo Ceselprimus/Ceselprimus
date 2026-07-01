@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { articles, type Article } from "../insights/articles";
+import { articles, isLive, type Article } from "../insights/articles";
 
 const PAGE_SIZE = 6;
 
@@ -19,7 +19,7 @@ export default function InsightsBoard({ locale = "ko" }: { locale?: "ko" | "en" 
   const href = (a: Article) => (isEn ? `/en/insights/${a.slug}` : `/insights/${a.slug}`);
 
   const sorted = useMemo(() => {
-    const base = isEn ? articles.filter((a) => a.en) : articles;
+    const base = (isEn ? articles.filter((a) => a.en) : articles).filter((a) => isLive(a));
     return [...base].sort((a, b) => b.date.localeCompare(a.date));
   }, [isEn]);
 

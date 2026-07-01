@@ -1,0 +1,19 @@
+name: Daily rebuild (scheduled publishing)
+
+# 매일 00:05 KST(15:05 UTC)에 Vercel 재빌드를 트리거해,
+# 그날 publishAt이 된 예약 글이 자동 공개(사이트맵·게시판 반영)되게 합니다.
+on:
+  schedule:
+    - cron: "5 15 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        run: |
+          if [ -z "${{ secrets.VERCEL_DEPLOY_HOOK }}" ]; then
+            echo "VERCEL_DEPLOY_HOOK secret이 설정되지 않았습니다."; exit 1
+          fi
+          curl -sf -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}" && echo "재빌드 트리거 완료"
