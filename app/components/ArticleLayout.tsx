@@ -171,7 +171,9 @@ export default function ArticleLayout({ article, locale = "ko" }: { article: Art
           <p className="text-[0.82rem] font-bold tracking-wide text-ink/45">{L.related}</p>
           <ul className="mt-3 flex flex-wrap gap-2">
             {article.relatedKeywords.map((kw, i) => (
-              <li key={i} className="rounded-full bg-white px-3.5 py-1.5 text-[0.85rem] text-ink/55 ring-1 ring-ink/8">{kw}</li>
+              <li key={i} className="rounded-full bg-white px-3.5 py-1.5 text-[0.85rem] text-ink/55 ring-1 ring-ink/8">
+                {isEn && kw.includes(" / ") ? kw.split(" / ")[1] : kw}
+              </li>
             ))}
           </ul>
         </div>
