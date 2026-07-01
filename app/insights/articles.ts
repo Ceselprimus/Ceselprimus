@@ -480,7 +480,43 @@ export const articles: Article[] = [
     ctaTitle: "폐열·CO₂ 보유 시설, 적용 가능성을 검토해 드립니다.",
     ctaBody: "폐열·CO₂·전력·유휴 부지 조건을 알려주시면 알파팜 코어 모델 적용 가능성을 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
-    lineupLabel: "알파팜 솔루션 보기"
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "Turn Waste Heat and CO₂ into Premium Strawberry Revenue",
+      metaTitle: "Waste Heat & CO₂ Circular Infrastructure — AlphaFarm Core | CESeL Primus",
+      description:
+        "How to convert waste heat and CO₂ from data centers, power plants, breweries, biogas, and industrial sites into productive resources for premium strawberry vertical farming — the AlphaFarm Core circular model.",
+      lead:
+        "Waste heat and CO₂ from data centers, power plants, breweries, biogas facilities, and industrial campuses have long been treated as burdens — permitting risk, ESG pressure, disposal cost. Under the right conditions, they can become productive inputs for premium strawberry vertical farming.",
+      sections: [
+        {
+          h: "The AlphaFarm Core model turns burdens into assets",
+          paras: [
+            "CESeL Primus introduces the AlphaFarm Core Model — a circular infrastructure model that converts waste heat, conditioned CO₂, stable power, and idle land into high-value premium strawberry production. It is not a conventional smart-farm install, but a business model that solves several corporate challenges at once."
+          ],
+          bullets: [
+            "Waste heat → thermal input for cooling and dehumidification support",
+            "Conditioned CO₂ → growth input for premium strawberries",
+            "Idle land → high-value food production space",
+            "ESG pressure → a visible resource-circularity showcase",
+            "Byproducts → premium strawberry revenue"
+          ]
+        },
+        {
+          h: "Where it can apply",
+          paras: ["Each AlphaFarm Core module is designed to target more than 10 tons of premium strawberries a year, depending on cultivar and operating conditions."],
+          bullets: ["SOFC-powered data centers", "CHP / CCGT power plants", "Breweries and fermentation plants", "Biogas and resource-recovery facilities", "Petrochemical and hydrogen production sites"]
+        }
+      ],
+      faq: [
+        { q: "Do you use raw flue gas directly?", a: "No. The model reviews whether captured, purified, and controlled CO₂ can be used as an agricultural input, and waste heat is separately checked for temperature and volume." },
+        { q: "What kind of facilities are a good fit?", a: "Facilities with waste heat, purifiable CO₂, stable power, and available land are worth reviewing. We assess feasibility for your specific conditions." }
+      ],
+      ctaTitle: "We'll review feasibility for facilities with waste heat and CO₂.",
+      ctaBody: "Tell us your waste heat, CO₂, power, and idle-land conditions, and we'll review AlphaFarm Core feasibility and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
   },
   {
     slug: "alphafarm-core20-sofc-datacenter",
@@ -532,7 +568,40 @@ export const articles: Article[] = [
     ctaTitle: "데이터센터 연계 모델, 조건에 맞게 검토해 드립니다.",
     ctaBody: "전력·폐열·CO₂·부지 조건을 알려주시면 코어-20 연계 모델의 사업성을 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
-    lineupLabel: "알파팜 솔루션 보기"
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "AlphaFarm Core-20 for SOFC Data Centers — By the Numbers",
+      metaTitle: "AlphaFarm Core-20 × SOFC Data Center — The Business Case | CESeL Primus",
+      description:
+        "The AlphaFarm Core-20 model linked with SOFC data centers, by the numbers — a large-scale premium strawberry vertical farm with strong CAPEX and OPEX improvements.",
+      lead:
+        "Among the AlphaFarm Core models that convert waste heat and CO₂ into productive resources, here is the Core-20 model linked with SOFC data centers — a large-scale premium strawberry vertical farm of roughly 3,300 ㎡.",
+      sections: [
+        {
+          h: "Core-20, by the numbers",
+          paras: ["The point isn't an ESG image — it's a business model that can improve both CAPEX and OPEX structure."],
+          bullets: [
+            "Estimated annual output: 200–240 tons",
+            "Benchmark price KRW 30,000/kg · est. annual revenue ~KRW 6.0–7.2 billion",
+            "CAPEX reduction ~35% by sharing utility infrastructure",
+            "Power cost up to 45% cut · heat-rejection power 60%+ reduction target",
+            "Zero external CO₂ purchase · ~438 tons/year CO₂ reuse potential"
+          ]
+        },
+        {
+          h: "Not a farm next to a data center — an infrastructure that closes the loop",
+          paras: ["AlphaFarm Core-20 is a resource-circularity layer that closes the power, heat, and CO₂ loop of an SOFC data center. For the operator, waste heat and CO₂ turn from burdens into ERE performance, ESG value, and premium food production."]
+        }
+      ],
+      faq: [
+        { q: "Are the stated revenue and returns guaranteed?", a: "They are review estimates that vary by operating conditions, cultivar, and region. Rather than guaranteeing returns, we assess business viability for your site." },
+        { q: "How is it different from a standard Core-20?", a: "By sharing the data center's heat-rejection, piping, and metering utility infrastructure, installation CAPEX can be reduced by about 35%." }
+      ],
+      ctaTitle: "We'll review the data-center-linked model for your conditions.",
+      ctaBody: "Tell us your power, waste heat, CO₂, and site conditions, and we'll assess the Core-20 linked model's viability and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
   },
   {
     slug: "alphacafe-farm-to-retail",
@@ -574,7 +643,31 @@ export const articles: Article[] = [
     ctaTitle: "알파카페 모델, 공간·판로에 맞게 설계해 드립니다.",
     ctaBody: "보유 공간과 판매 채널을 알려주시면 알파카페 팜투리테일 모델을 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
-    lineupLabel: "알파팜 솔루션 보기"
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "AlphaCafe — A Farm-to-Retail Model Linking Production and Retail",
+      metaTitle: "AlphaCafe Farm-to-Retail Model — Premium Strawberries | CESeL Primus",
+      description:
+        "The AlphaFarm + AlphaCafe model that combines a premium strawberry production base with café retail — selling strawberries directly as cakes, desserts, drinks, fresh packs, and gifts.",
+      lead:
+        "AlphaCafe can be configured in several formats, including a store-only model with an Alpha grow unit and an integrated AlphaFarm + AlphaCafe model. This post introduces the AlphaFarm + AlphaCafe model that combines production and retail.",
+      sections: [
+        {
+          h: "Production, sales, and customer experience as one",
+          paras: [
+            "It combines a premium strawberry production base with café retail, selling freshly grown strawberries directly as cakes, desserts, drinks, fresh packs, and premium gift items. Connecting the grow room, work room, and store into one business space links production, retail, and customer experience.",
+            "AlphaCafe is not just a café. It is a new commercialization model that combines premium strawberry production with retail."
+          ]
+        }
+      ],
+      faq: [
+        { q: "How is it different from a regular café?", a: "It isn't just a sales store — it combines premium strawberry 'production' and 'retail' in one space as a commercialization model, configured from a store-only format to a production-base-integrated format to fit your conditions." }
+      ],
+      ctaTitle: "We'll design the AlphaCafe model to fit your space and channels.",
+      ctaBody: "Tell us your available space and sales channels, and we'll review an AlphaCafe farm-to-retail model and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
   },
   {
     slug: "alphafarm-high-density-rack",
@@ -623,7 +716,39 @@ export const articles: Article[] = [
     ctaTitle: "고밀도 재배랙, 현장 조건에 맞게 설계해 드립니다.",
     ctaBody: "공간 층고와 목표 생산량을 알려주시면 재배랙 구성과 운영 방식을 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
-    lineupLabel: "알파팜 솔루션 보기"
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "AlphaFarm High-Density Cultivation Rack Technology",
+      metaTitle: "AlphaFarm High-Density Strawberry Cultivation Rack | CESeL Primus",
+      description:
+        "AlphaFarm's high-density strawberry vertical cultivation rack — a wide 1.8 m internal design delivering even light, nutrients, and airflow — and the DSRP year-round production protocol.",
+      lead:
+        "The AlphaFarm rack isn't just a structure for planting more strawberries. With a wide 1.8 m internal design, it delivers light, nutrients, and airflow evenly across the rack while keeping good workability — a high-density strawberry vertical cultivation system.",
+      sections: [
+        {
+          h: "High-density rack + core technologies",
+          paras: ["The standard model supports 7 tiers / 224 plants, and the dense model up to 14 tiers / 448 plants, with technologies for optimized lighting, layered airflow, metered nutrients, and growing-media trays."],
+          bullets: [
+            "Standard 7 tiers / 224 plants · dense 14 tiers / 448 plants",
+            "FlexiLight, AirSpine, DualFlow-Loop, and SmartTray-4 technologies",
+            "Combined with 15°C / 50%RH low-temperature dehumidification (AlphaCooling)",
+            "Combined with power-saving technology (AlphaEnergy)",
+            "Uniform growth · lower disease risk · better work efficiency"
+          ]
+        },
+        {
+          h: "DSRP year-round production protocol",
+          paras: ["DSRP, the seedling-replacement year-round production protocol, combines quarterly 25% seedling replacement with vertical-farm seedling raising and flowering-seedling cultivation to minimize harvest gaps and support stable year-round production."]
+        }
+      ],
+      faq: [
+        { q: "How many plants fit on one rack?", a: "The standard model supports 7 tiers / 224 plants and the dense model up to 14 tiers / 448 plants, configured to your ceiling height and operating conditions." }
+      ],
+      ctaTitle: "We'll design a high-density rack to fit your site.",
+      ctaBody: "Tell us your ceiling height and target output, and we'll review rack configuration and operation and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
   },
   {
     slug: "alphafarm-core-brewery-fermentation",
@@ -665,7 +790,31 @@ export const articles: Article[] = [
     ctaTitle: "양조장·발효공장 연계, 보유 자원으로 검토해 드립니다.",
     ctaBody: "발효 CO₂·폐열·공간·판로 조건을 알려주시면 코어 연계 모델을 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
-    lineupLabel: "알파팜 솔루션 보기"
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "AlphaFarm Core Model for Breweries and Fermentation Plants",
+      metaTitle: "AlphaFarm Core × Breweries and Fermentation Plants | CESeL Primus",
+      description:
+        "The AlphaFarm Core 1–3 model that connects fermentation CO₂, waste heat, power, idle space, and sales channels with premium strawberry production for breweries and fermentation plants.",
+      lead:
+        "Breweries and fermentation plants generate CO₂ during fermentation and often have idle space, existing power infrastructure, and direct retail channels. This Core 1–3 model connects those resources with premium strawberry production.",
+      sections: [
+        {
+          h: "New revenue from existing resources",
+          paras: [
+            "AlphaFarm Core 1–3 uses fermentation CO₂, usable waste heat, existing power, idle space, and sales channels to grow premium strawberries, then links them to desserts, beverages, direct retail, and visitor-based content — a practical small-to-mid model.",
+            "The point isn't a large-scale infrastructure project. It's a realistic Core model that builds a premium food production base and new revenue from the space and channels you already have."
+          ]
+        }
+      ],
+      faq: [
+        { q: "What should be reviewed before applying?", a: "Fermentation CO₂ quality, waste-heat temperature and volume, available power capacity, installation space, and sales channels are reviewed together before we propose a fitting model." }
+      ],
+      ctaTitle: "We'll review a brewery/fermentation link with your resources.",
+      ctaBody: "Tell us your fermentation CO₂, waste heat, space, and channels, and we'll review a Core link model and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
   },
   {
     slug: "alphafarm-core-power-plant",
@@ -707,7 +856,31 @@ export const articles: Article[] = [
     ctaTitle: "발전소 연계 모델, 자원 조건으로 검토해 드립니다.",
     ctaBody: "CO₂·폐열·전력·부지 조건을 알려주시면 발전소 연계 실증 모델을 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
-    lineupLabel: "알파팜 솔루션 보기"
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "AlphaFarm Core CHP & Combined-Cycle Power Plant Integration Model",
+      metaTitle: "AlphaFarm Core × CHP / CCPP Power Plant Integration | CESeL Primus",
+      description:
+        "The AlphaFarm Core 5 pilot model that connects a power plant's captured and purified CO₂, waste heat, power, and idle land with premium strawberry production.",
+      lead:
+        "Power plants often have capturable, purifiable CO₂, usable waste heat, power infrastructure, and available land. The AlphaFarm Core 5 model connects these resources with premium strawberry production as a pilot-scale integration model.",
+      sections: [
+        {
+          h: "A Core 5 pilot model",
+          paras: [
+            "Based on Core 5, the model can be reviewed for annual production of 50 tons or more and revenue potential of roughly KRW 1.5 billion. Importantly, it does not use raw flue gas directly — CO₂ must be captured, purified, and controlled before agricultural use is considered, and waste heat is separately checked for temperature and volume.",
+            "It is not a large-scale carbon-reduction facility, but a practical resource-utilization model that creates premium food production, food-and-beverage linkage, visitor content, and visible circular-resource value from a power plant's resources."
+          ]
+        }
+      ],
+      faq: [
+        { q: "Do you use the power plant's flue gas directly?", a: "No. It reviews the agricultural use of captured, purified, and controlled CO₂, and waste heat is separately checked for temperature and volume conditions." }
+      ],
+      ctaTitle: "We'll review a power-plant link based on your resources.",
+      ctaBody: "Tell us your CO₂, waste heat, power, and site conditions, and we'll review a power-plant integration pilot and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
   },
   {
     slug: "alphafarm-core-petrochem-hydrogen",
@@ -750,7 +923,31 @@ export const articles: Article[] = [
     ctaTitle: "석유화학·수소기지 연계, 전략적으로 검토해 드립니다.",
     ctaBody: "CO₂·폐열·전력·부지·인허가 조건을 알려주시면 코어 3~10 연계 모델을 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
-    lineupLabel: "알파팜 솔루션 보기"
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "AlphaFarm Core Petrochemical / Hydrogen Production Integration Model",
+      metaTitle: "AlphaFarm Core × Petrochemical / Hydrogen Production | CESeL Primus",
+      description:
+        "The AlphaFarm Core 3–10 strategic model that connects captured and purified CO₂, waste heat, power, and land from petrochemical complexes and hydrogen production sites with premium strawberry production.",
+      lead:
+        "Petrochemical complexes and hydrogen production sites hold valuable industrial resources — CO₂, waste heat, power infrastructure, and land. The AlphaFarm Core 3–10 model connects these with premium strawberry production.",
+      sections: [
+        {
+          h: "A premium food-production showcase inside industrial sites",
+          paras: [
+            "The model can be reviewed around Core 3–10; based on Core 10, it targets annual production of more than 100 tons and revenue potential of roughly KRW 3 billion.",
+            "By linking captured, purified, and controlled CO₂ and usable waste heat with high-value food production, it can build a visible showcase for carbon utilization, food security, and premium food production inside or near industrial sites."
+          ]
+        }
+      ],
+      faq: [
+        { q: "What is checked when reviewing?", a: "CO₂ quality, waste-heat temperature and volume, available power capacity, site conditions, safety and permitting, operating structure, and sales channels are reviewed together to assess feasibility." }
+      ],
+      ctaTitle: "We'll review a petrochemical/hydrogen link strategically.",
+      ctaBody: "Tell us your CO₂, waste heat, power, site, and permitting conditions, and we'll review a Core 3–10 link model and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
   },
   {
     slug: "what-is-strawberry-vertical-farm",
