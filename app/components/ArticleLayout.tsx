@@ -184,6 +184,25 @@ export default function ArticleLayout({ article, locale = "ko" }: { article: Art
           </ul>
         </div>
 
+        {related.length > 0 ? (
+          <div className="mt-12 border-t border-ink/10 pt-8">
+            <p className="text-[0.95rem] font-bold text-forest">{relatedHeading}</p>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              {related.map((r) => (
+                <li key={r.slug}>
+                  <a
+                    href={`${insightsBase}/${r.slug}`}
+                    className="flex items-start gap-2 text-[1.02rem] font-semibold leading-snug text-ink transition hover:text-forest"
+                  >
+                    <span aria-hidden className="mt-0.5 text-forest">›</span>
+                    <span>{isEn && r.en ? r.en.title : r.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
         <div className="mt-10 border-t border-ink/10 pt-6">
           <a href={insightsBase} className="text-[0.95rem] font-semibold text-forest hover:underline">{L.back}</a>
         </div>
