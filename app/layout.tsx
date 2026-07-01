@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+
+const GA_ID = "G-EE93PZ4M0Q";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ceslprimus.com"),
@@ -99,6 +102,13 @@ export default function RootLayout({
         />
         {children}
         <Analytics />
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+        </Script>
       </body>
     </html>
   );

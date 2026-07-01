@@ -48,6 +48,10 @@ export function logInquiry(payload: InquiryPayload): void {
   try {
     const path = typeof window !== "undefined" ? window.location.pathname : "";
     const ref = typeof document !== "undefined" ? document.referrer : "";
+    const w = typeof window !== "undefined" ? (window as unknown as { gtag?: (...args: unknown[]) => void }) : undefined;
+    if (w && typeof w.gtag === "function") {
+      w.gtag("event", "generate_lead", { inquiry_type: payload.type });
+    }
     void fetch("/api/inquiry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
