@@ -1,10 +1,10 @@
 name: Daily rebuild (scheduled publishing)
 
-# 매일 00:05 KST(15:05 UTC)에 Vercel 재빌드를 트리거해,
+# 매일 오전 9시 KST(00:00 UTC)에 Vercel 재빌드를 트리거해,
 # 그날 publishAt이 된 예약 글이 자동 공개(사이트맵·게시판 반영)되게 합니다.
 on:
   schedule:
-    - cron: "5 15 * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch: {}
 
 jobs:

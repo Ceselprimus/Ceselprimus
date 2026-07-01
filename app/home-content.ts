@@ -950,12 +950,12 @@ export const enContent: HomeContent = {
       ["Instagram", socialHrefs.instagram]
     ],
     cards: [
-      { title: "Alpha Solution Portfolio", channel: "Naver Blog", image: "/media/alpha-solution-portfolio-0610.webp", href: socialHrefs.blog },
-      { title: "Low-temp dehumidification for food factories", channel: "Facebook", image: "/media/sns/sns-facebook-cooling.webp", href: socialHrefs.facebook },
-      { title: "Controlling hot and humid environments", channel: "LinkedIn", image: "/media/sns/sns-linkedin-cooling.webp", href: socialHrefs.linkedin },
-      { title: "Why low-temperature dehumidification matters", channel: "Naver Blog", image: "/media/sns/sns-blog-dehumidification.webp", href: socialHrefs.blog },
-      { title: "Condensation problems in food factories", channel: "Naver Blog", image: "/media/sns/sns-blog-condensation.webp", href: socialHrefs.blog },
-      { title: "Business development partners — Korea", channel: "Instagram", image: "/media/sns/lineup-support.webp", href: socialHrefs.instagram }
+      { title: "Alpha Solution Portfolio", channel: "Naver Blog", image: "/media/cases/case-suwon-urban-01.webp", href: socialHrefs.blog },
+      { title: "Low-temp dehumidification for food factories", channel: "Facebook", image: "/media/sns/sns-blog-condensation.webp", href: socialHrefs.facebook },
+      { title: "Controlling hot and humid environments", channel: "LinkedIn", image: "/media/cases/case-naju-growroom-01.webp", href: socialHrefs.linkedin },
+      { title: "Why low-temperature dehumidification matters", channel: "Naver Blog", image: "/media/cases/case-jeonnam-container.webp", href: socialHrefs.blog },
+      { title: "Condensation problems in food factories", channel: "Naver Blog", image: "/media/cases/case-naju-growroom-02.webp", href: socialHrefs.blog },
+      { title: "Business development partners — Korea", channel: "Instagram", image: "/media/cases/case-malaysia-exterior.webp", href: socialHrefs.instagram }
     ]
   },
   faq: {

@@ -823,7 +823,7 @@ function NewsSection({ content }: { content: HomeContent }) {
                     alt={item.title}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"
-                    className="object-contain p-3 transition duration-700 group-hover:scale-[1.03]"
+                    className={`${isEn ? "object-cover" : "object-contain p-3"} transition duration-700 group-hover:scale-[1.03]`}
                   />
                 </div>
                 <div className="flex items-start justify-between gap-4 p-6">
