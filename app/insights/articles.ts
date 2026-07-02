@@ -57,9 +57,12 @@ export const articles: Article[] = [
     date: "2026-07-02",
     category: "알파팜",
     readMin: 4,
-    heroImage: "/media/concepts/alphacore-concept-2.webp",
-    heroImageEn: "/media/concepts/alphacore-concept-2.webp",
-    heroAlt: "알파팜 물 회수·내부 재이용 모델 / AlphaFarm water recovery and internal reuse",
+    heroImage: "/media/series/series-8.webp",
+    heroImageEn: "/media/series/series-8-en.webp",
+    heroContain: true,
+    heroWidth: 1672,
+    heroHeight: 941,
+    heroAlt: "알파팜 물 회수·내부 재이용 물수지 인포그래픽 / AlphaFarm water recovery and internal reuse infographic",
     lead:
       "수직농장은 물을 많이 쓰는 시설로만 보이기 쉽습니다. 하지만 알파팜은 저온제습 응축수와 배액수를 회수해, 물을 소비만 하는 것을 넘어 고순도에 가까운 저TDS 응축수를 '생산·재사용'하는 물순환형 인프라가 될 수 있습니다.",
     sections: [
