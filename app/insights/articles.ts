@@ -48,6 +48,102 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "alphafarm-water-recovery",
+    title: "알파팜은 물을 생산합니다 — 응축수 회수·내부 재이용",
+    metaTitle: "알파팜 물 회수·내부 재이용 — 저TDS 응축수 생산 | 쎄슬프라이머스",
+    description:
+      "딸기 수직농장의 저온제습 응축수와 배액수를 회수해 외부 보충수를 70~85% 줄이는 알파팜 물순환 모델. 데이터센터·반도체 유틸리티수·전처리수 활용 가능성까지.",
+    keywords: ["알파팜 물 회수", "응축수 회수", "저TDS 응축수", "물순환 수직농장", "내부 재이용", "데이터센터 유틸리티수", "ESG"],
+    date: "2026-07-02",
+    category: "알파팜",
+    readMin: 4,
+    heroImage: "/media/concepts/alphacore-concept-2.webp",
+    heroImageEn: "/media/concepts/alphacore-concept-2.webp",
+    heroAlt: "알파팜 물 회수·내부 재이용 모델 / AlphaFarm water recovery and internal reuse",
+    lead:
+      "수직농장은 물을 많이 쓰는 시설로만 보이기 쉽습니다. 하지만 알파팜은 저온제습 응축수와 배액수를 회수해, 물을 소비만 하는 것을 넘어 고순도에 가까운 저TDS 응축수를 '생산·재사용'하는 물순환형 인프라가 될 수 있습니다.",
+    sections: [
+      {
+        h: "알파팜의 물 순환 구조",
+        paras: ["알파팜의 물 흐름은 단순합니다. 회수된 응축수는 우선 자체 관수에 재사용해 외부 보충수 사용을 줄입니다."],
+        bullets: ["관수수", "→ 식물 증산", "→ 저온제습 응축수 회수", "→ 여과·살균·수질보정", "→ 내부 재사용"]
+      },
+      {
+        h: "숫자로 보는 물수지",
+        paras: ["규모별로 물수지를 이렇게 검토할 수 있습니다."],
+        bullets: [
+          "코어 1 — 응축수 회수 0.4~0.6톤/일 · 필요 공급 0.8~1.1톤/일 · 외부 보충수 0.2~0.4톤/일",
+          "코어 20 — 응축수 회수 9~13톤/일 · 필요 공급 16~22톤/일 · 외부 보충수 3~7톤/일",
+          "외부 보충수 약 70~85% 절감 (최적 운영 시 최대 90% 목표)"
+        ]
+      },
+      {
+        h: "데이터센터·반도체 유틸리티수로도",
+        paras: [
+          "회수된 응축수는 자체 관수 재사용이 우선이고, 수질 조건이 확보되면 간단한 후처리를 거쳐 데이터센터나 반도체 공장의 비음용 유틸리티수 또는 전처리수로도 활용 가능성을 검토할 수 있습니다.",
+          "알파팜이 프리미엄 딸기 생산을 넘어, 식품 생산·물 회수·내부 재이용을 잇는 자원순환 인프라로 확장되는 지점입니다."
+        ]
+      }
+    ],
+    faq: [
+      { q: "정말 딸기 농장이 물을 '생산'하나요?", a: "저온제습 과정에서 발생하는 응축수를 회수하는 것입니다. 코어 20 기준 하루 약 9~13톤 회수가 가능해, 물을 소비만 하는 게 아니라 회수·재사용하는 구조입니다." },
+      { q: "회수한 물을 데이터센터에 쓸 수 있나요?", a: "우선 자체 관수 재사용이 원칙이고, 수질 조건이 확보되면 간단한 후처리를 거쳐 데이터센터·반도체 공장의 비음용 유틸리티수·전처리수로 활용 가능성을 검토할 수 있습니다." },
+      { q: "외부 물을 얼마나 줄이나요?", a: "약 70~85% 절감, 최적 운영 시 최대 90% 절감을 목표로 합니다. 단 실제 회수율·절감률은 배액률·운영조건·수질관리·회수시스템 구성에 따라 달라집니다." }
+    ],
+    relatedKeywords: [
+      "응축수 회수 / Condensate Recovery",
+      "저TDS 응축수 / Low-TDS Condensate",
+      "물순환 수직농장 / Circular-Water Vertical Farm",
+      "데이터센터 유틸리티수 / Data Center Utility Water",
+      "내부 재이용 / Internal Reuse",
+      "ESG 자원순환 / ESG Circularity"
+    ],
+    ctaTitle: "물 회수·재이용 모델, 조건에 맞게 검토해 드립니다.",
+    ctaBody: "시설 규모·용수 조건을 알려주시면 알파팜 물 회수·내부 재이용 모델을 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "AlphaFarm Produces Water — Condensate Recovery & Internal Reuse",
+      metaTitle: "AlphaFarm Water Recovery & Internal Reuse — Low-TDS Condensate | CESeL Primus",
+      description:
+        "AlphaFarm recovers condensate and drainage water from strawberry vertical farming to cut external fresh water make-up by 70–85%, with potential utility/pretreatment water for data centers and semiconductor plants.",
+      lead:
+        "Vertical farms are often seen as water consumers. AlphaFarm takes a different approach — by combining low-temperature dehumidification, condensate recovery, and drainage reuse, it can produce low-TDS condensate water close to high-purity water and reuse it internally.",
+      sections: [
+        {
+          h: "AlphaFarm's circular water pathway",
+          paras: ["AlphaFarm's water flow is simple. Recovered condensate is first prioritized for internal irrigation reuse, cutting external make-up."],
+          bullets: ["Irrigation water", "→ plant transpiration", "→ low-temperature dehumidification & condensate recovery", "→ filtration, sterilization, water quality adjustment", "→ internal reuse"]
+        },
+        {
+          h: "Water balance, by the numbers",
+          paras: ["The water balance can be reviewed by scale as follows."],
+          bullets: [
+            "Core-1 — recovery 0.4–0.6 t/day · required supply 0.8–1.1 t/day · external make-up 0.2–0.4 t/day",
+            "Core-20 — recovery 9–13 t/day · required supply 16–22 t/day · external make-up 3–7 t/day",
+            "~70–85% reduction in external fresh-water make-up (target up to 90% under optimized operation)"
+          ]
+        },
+        {
+          h: "Also as utility water for data centers and semiconductor plants",
+          paras: [
+            "Recovered condensate is first prioritized for internal irrigation reuse. Subject to water-quality verification and simple post-treatment, it may also be considered as non-potable utility water or pretreatment water for adjacent data centers or semiconductor facilities.",
+            "This is where AlphaFarm expands beyond premium strawberry production into a resource-circularity platform connecting food production, water recovery, and internal reuse."
+          ]
+        }
+      ],
+      faq: [
+        { q: "Does a strawberry farm really 'produce' water?", a: "It recovers condensate generated during low-temperature dehumidification. At the Core-20 scale, roughly 9–13 tons/day can be recovered — so it recovers and reuses water rather than only consuming it." },
+        { q: "Can the recovered water be used by data centers?", a: "Internal irrigation reuse comes first. Subject to water-quality verification and simple post-treatment, it may be considered as non-potable utility or pretreatment water for data centers and semiconductor plants." },
+        { q: "How much external water does it save?", a: "About 70–85%, targeting up to 90% under optimized operation. Actual recovery and reduction vary with drainage ratio, operating conditions, water-quality management, and recovery-system configuration." }
+      ],
+      ctaTitle: "We'll review a water recovery & reuse model for your conditions.",
+      ctaBody: "Tell us your facility scale and water conditions, and we'll review an AlphaFarm water recovery & internal reuse model and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
+  },
+  {
     slug: "food-factory-condensation",
     title: "식품공장 결로, 왜 생기고 어떻게 잡나",
     metaTitle: "식품공장 결로 해결 가이드 — 저온제습 쿨링시스템 | 쎄슬프라이머스",
