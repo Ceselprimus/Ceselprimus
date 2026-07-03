@@ -83,6 +83,7 @@ export interface HomeContent {
       lead: string;
       body: string;
       tags: string[];
+      features: { title: string; desc: string }[];
       image: string;
       imageAlt: string;
       sofcLabel: string;
@@ -277,9 +278,9 @@ export const koContent: HomeContent = {
     homeHref: "/"
   },
   hero: {
-    eyebrow: "농식품 · 콜드체인 인프라 기술기업",
-    titleLines: ["수직농장에서 콜드체인까지,", "식품 인프라를 플랫폼으로."],
-    sub: "쎄슬프라이머스는 프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 사업화 지원까지 — 식품 생산과 저장의 전 과정을 하나의 솔루션으로 연결합니다.",
+    eyebrow: "프리미엄 딸기수직농장 · 콜드체인 인프라 기술기업",
+    titleLines: ["딸기수직농장에서 콜드체인까지,", "식품 인프라를 플랫폼으로."],
+    sub: "쎄슬프라이머스는 프리미엄 딸기수직농장 알파팜에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 사업화 지원까지 — 식품 생산과 저장의 전 과정을 하나의 솔루션으로 연결합니다.",
     ctaPrimary: "솔루션 라인업 보기",
     ctaSecondary: "사업개발 문의",
     imageAlt: "쎄슬프라이머스 딸기수직농장·콜드체인 통합 솔루션 / CESeL Primus strawberry vertical farm and cold chain solution",
@@ -401,13 +402,21 @@ export const koContent: HomeContent = {
       name: "알파코어 (AlphaCore)",
       lead: "프리미엄 딸기 생산을 위한 모듈형 수직농장 생산 유닛",
       body:
-        "코어-1(Core-1)은 재배실 약 165㎡(약 50평) 규모에서 연간 약 10~12톤 생산을 목표로 하며, 코어-2 · 코어-3처럼 유닛을 반복 증설해 손쉽게 확장합니다. 대형 모델 Core-20은 SOFC(고체산화물연료전지, Solid Oxide Fuel Cell) 데이터센터 등 현장 발전 시스템과 연계해, 폐열과 CO₂를 프리미엄 딸기 생산 자원으로 전환하는 순환 인프라 모델로 확장됩니다.",
+        "코어-1(Core-1)은 재배실 약 165㎡(약 50평) 규모에서 연간 약 10~12톤의 프리미엄 딸기 생산을 목표로 하며, 코어-2 · 코어-3처럼 유닛을 반복 증설해 단계적으로 확장합니다. 대형 모델 Core-20은 데이터센터 · SOFC(고체산화물연료전지) 현장 발전 시스템과 연계해 폐열 · CO₂ · 전력을 프리미엄 딸기 생산 자원으로 전환합니다. 알파코어는 단순 재배랙이 아니라 고밀도 재배 · 연중생산 · 저온제습 · 에너지 절감 · 물 생산 · 데이터센터 연계까지 통합한 모듈형 수직농장 생산 시스템입니다.",
       tags: [
         "Core-1 · 약 165㎡ / 연 10~12톤",
         "Core-2 · Core-3 모듈 증설",
         "Core-20 · 순환 인프라 모델",
         "SOFC 고체산화물연료전지 연계",
         "폐열 · CO₂ 자원화"
+      ],
+      features: [
+        { title: "고밀도 재배랙 기술", desc: "광폭 설계 기반 — 기본형 7단 224주, 밀식형 14단 448주까지. 제한된 면적에서도 높은 공간 생산성을 확보합니다." },
+        { title: "연중생산 프로토콜", desc: "휴지기 없는 연중 생산. 분기별 예비모 교체와 안정적 수확 유지로 생산 단절을 줄여 균일한 공급과 수익성을 확보합니다." },
+        { title: "저온제습 알파쿨링", desc: "15℃ / 50% RH 수준의 정밀 환경제어. 냉방과 제습을 통합 운전해 프리미엄 딸기 재배 환경을 만듭니다." },
+        { title: "에너지 절감 알파에너지", desc: "저온제습·최적 환기로 냉방 부하와 전력소비를 절감. 고온다습·고전기요금 지역에서 특히 강한 경쟁력이 됩니다." },
+        { title: "고순도에 가까운 물 생산", desc: "식물 증산·저온제습 과정의 저TDS 응축수를 회수·재이용. 수질 확보 시 유틸리티수·전처리수 활용까지 검토할 수 있습니다." },
+        { title: "폐열·CO₂ 연계 데이터센터 모델", desc: "Core-20은 데이터센터·SOFC 발전·산업단지와 연계해 폐열·CO₂·전력을 딸기 생산 자원으로 전환하는 자원순환 인프라입니다." }
       ],
       image: "/media/concepts/alphacore-concept-2.webp",
       imageAlt: "알파코어 모듈형 딸기 수직농장과 SOFC 고체산화물연료전지 데이터센터 순환 인프라 조감도",
@@ -710,9 +719,9 @@ export const enContent: HomeContent = {
     homeHref: "/en"
   },
   hero: {
-    eyebrow: "Agri-food & cold-chain infrastructure technology",
-    titleLines: ["From vertical farms to cold chain,", "food infrastructure as one platform."],
-    sub: "Starting from premium strawberry vertical farming, CESeL Primus connects cooling & dehumidification, power · control · data management, cold chain, and business development support — the entire journey of food production and storage, as one solution.",
+    eyebrow: "Premium strawberry vertical farm · cold-chain infrastructure",
+    titleLines: ["From strawberry vertical farms to cold chain,", "food infrastructure as one platform."],
+    sub: "Starting from the AlphaFarm premium strawberry vertical farm, CESeL Primus connects cooling & dehumidification, power · control · data management, cold chain, and business development support — the entire journey of food production and storage, as one solution.",
     ctaPrimary: "Explore the lineup",
     ctaSecondary: "Business inquiries",
     imageAlt: "CESeL Primus integrated vertical farm and cold-chain solution visual",
@@ -834,13 +843,21 @@ export const enContent: HomeContent = {
       name: "AlphaCore",
       lead: "A modular vertical-farm production unit for premium strawberries",
       body:
-        "Core-1 targets roughly 10–12 tons a year from a ~165 ㎡ cultivation room and scales easily by repeatedly adding units such as Core-2 and Core-3. The large-scale Core-20 links with on-site power systems such as SOFC (solid oxide fuel cell) data centers, becoming a circular-infrastructure model that converts waste heat and CO₂ into productive resources for premium strawberry farming.",
+        "Core-1 targets roughly 10–12 tons of premium strawberries a year from a ~165 ㎡ cultivation room and scales step by step by repeatedly adding units such as Core-2 and Core-3. The large-scale Core-20 links with data centers and SOFC (solid oxide fuel cell) on-site power systems, converting waste heat, CO₂, and power into productive resources for premium strawberry farming. AlphaCore is not simply a cultivation rack — it is an integrated modular vertical-farm system combining high-density cultivation, year-round production, low-temperature dehumidification, energy efficiency, water production, and data-center linkage.",
       tags: [
         "Core-1 · ~165 ㎡ / 10–12 t per year",
         "Core-2 · Core-3 modular scaling",
         "Core-20 · circular infrastructure",
         "SOFC (solid oxide fuel cell) linkage",
         "Waste heat · CO₂ to resources"
+      ],
+      features: [
+        { title: "High-density cultivation rack", desc: "Wide-format design — 7 tiers / 224 plants (standard) up to 14 tiers / 448 plants (high-density). Stable, high productivity within a limited footprint." },
+        { title: "Year-round production protocol", desc: "Continuous production with no seasonal downtime. Scheduled mother-plant replacement and stable harvest management for uniform supply and profitability." },
+        { title: "AlphaCooling low-temp dehumidification", desc: "Precise control at ~15°C / 50% RH, integrating cooling and dehumidification to create the foundation for premium strawberry cultivation." },
+        { title: "AlphaEnergy efficiency", desc: "Low-temp dehumidification and optimized ventilation cut cooling load and power use — a key advantage in hot-humid or high-electricity-cost markets." },
+        { title: "Water production near high-purity", desc: "Recovers low-TDS condensate from transpiration and dehumidification for internal reuse, with potential utility/pretreatment-water use after simple post-treatment." },
+        { title: "Waste-heat & CO₂ data-center model", desc: "Core-20 links with data centers, SOFC power, and industrial complexes to convert waste heat, CO₂, and power into strawberry-production resources." }
       ],
       image: "/media/concepts/alphacore-concept-2.webp",
       imageAlt: "AlphaCore modular strawberry vertical farm linked with an SOFC solid oxide fuel cell data center as circular infrastructure",

@@ -204,7 +204,16 @@ export default function ArticleLayout({ article, locale = "ko" }: { article: Art
         ) : null}
 
         <div className="mt-10 border-t border-ink/10 pt-6">
-          <a href={insightsBase} className="text-[0.95rem] font-semibold text-forest hover:underline">{L.back}</a>
+          <p className="text-[1rem] leading-relaxed text-ink/70">
+            {isEn ? "Learn more about the " : "쎄슬프라이머스의 "}
+            <a href={isEn ? "/en" : "/"} className="font-bold text-forest hover:underline">
+              {isEn ? "AlphaFarm premium strawberry vertical farm" : "알파팜 딸기수직농장"}
+            </a>
+            {isEn
+              ? " — production, cooling, and cold-chain platform by CESeL Primus."
+              : " 통합 솔루션(생산·냉방·콜드체인)을 홈에서 확인하세요."}
+          </p>
+          <a href={insightsBase} className="mt-4 inline-block text-[0.95rem] font-semibold text-forest hover:underline">{L.back}</a>
         </div>
       </article>
 

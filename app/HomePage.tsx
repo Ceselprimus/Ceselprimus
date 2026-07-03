@@ -495,6 +495,17 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
             </div>
           </div>
         </Reveal>
+        <Reveal delay={240}>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {alphafarm.core.features.map((f, i) => (
+              <div key={f.title} className="rounded-2xl bg-white p-5 ring-1 ring-ink/8">
+                <p className="text-[0.82rem] font-bold text-forest">{String(i + 1).padStart(2, "0")}</p>
+                <p className="mt-1.5 text-[1.05rem] font-bold tracking-tight text-ink">{f.title}</p>
+                <p className="mt-2 text-[0.96rem] leading-relaxed text-ink/68">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </Container>
     </section>
   );
