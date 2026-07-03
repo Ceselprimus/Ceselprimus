@@ -418,8 +418,8 @@ export const koContent: HomeContent = {
         { title: "고순도에 가까운 물 생산", desc: "식물 증산·저온제습 과정의 저TDS 응축수를 회수·재이용. 수질 확보 시 유틸리티수·전처리수 활용까지 검토할 수 있습니다." },
         { title: "폐열·CO₂ 연계 데이터센터 모델", desc: "Core-20은 데이터센터·SOFC 발전·산업단지와 연계해 폐열·CO₂·전력을 딸기 생산 자원으로 전환하는 자원순환 인프라입니다." }
       ],
-      image: "/media/concepts/alphacore-concept-2.webp",
-      imageAlt: "알파코어 모듈형 딸기 수직농장과 SOFC 고체산화물연료전지 데이터센터 순환 인프라 조감도",
+      image: "/media/concepts/alphacore-concept.webp",
+      imageAlt: "알파코어 모듈형 딸기 수직농장 재배실 내부 — 고밀도 재배랙과 LED 생육광",
       sofcLabel: "SOFC란? · 고체산화물연료전지 (Solid Oxide Fuel Cell)",
       sofcNote:
         "SOFC는 고온 전기화학 반응으로 전기를 생산하는 고효율 연료전지입니다. 저소음·저배출·연속운전과 연료 선택 유연성을 갖춰, 안정 전원이 필요한 데이터센터 현장발전 기술로 주목받고 있습니다.",
@@ -859,8 +859,8 @@ export const enContent: HomeContent = {
         { title: "Water production near high-purity", desc: "Recovers low-TDS condensate from transpiration and dehumidification for internal reuse, with potential utility/pretreatment-water use after simple post-treatment." },
         { title: "Waste-heat & CO₂ data-center model", desc: "Core-20 links with data centers, SOFC power, and industrial complexes to convert waste heat, CO₂, and power into strawberry-production resources." }
       ],
-      image: "/media/concepts/alphacore-concept-2.webp",
-      imageAlt: "AlphaCore modular strawberry vertical farm linked with an SOFC solid oxide fuel cell data center as circular infrastructure",
+      image: "/media/concepts/alphacore-concept.webp",
+      imageAlt: "Inside an AlphaCore modular strawberry vertical farm growing room — high-density cultivation racks under LED grow lights",
       sofcLabel: "What is SOFC? · Solid Oxide Fuel Cell",
       sofcNote:
         "SOFC delivers efficient, low-noise, low-emission continuous power via high-temperature electrochemical reactions — on-site generation well suited to data centers that need stable power.",
