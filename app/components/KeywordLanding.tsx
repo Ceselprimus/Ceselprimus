@@ -8,13 +8,14 @@ export interface KeywordLandingProps {
   eyebrow: string;
   title: string;
   intro: string;
+  homeAnchor: { href: string; text: string; suffix: string };
   blocks: { heading: string; body: string }[];
   ctaTitle: string;
   ctaBody: string;
   backHref: string;
   backLabel: string;
   jsonLd: object;
-  relatedKeywords?: string[];
+  relatedInsights?: { title: string; href: string }[];
 }
 
 export default function KeywordLanding(p: KeywordLandingProps) {
@@ -34,6 +35,15 @@ export default function KeywordLanding(p: KeywordLandingProps) {
             {p.title}
           </h1>
           <p className="mt-6 max-w-2xl text-[1.1rem] leading-relaxed text-white/75 md:text-[1.2rem]">{p.intro}</p>
+          <p className="mt-4 max-w-2xl text-[0.98rem] leading-relaxed text-white/55">
+            <a
+              href={p.homeAnchor.href}
+              className="font-semibold text-mint underline decoration-mint/40 underline-offset-4 hover:text-white"
+            >
+              {p.homeAnchor.text}
+            </a>
+            {p.homeAnchor.suffix}
+          </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href="/#lineup"
@@ -83,17 +93,19 @@ export default function KeywordLanding(p: KeywordLandingProps) {
         </div>
       </section>
 
-      {p.relatedKeywords && p.relatedKeywords.length > 0 ? (
+      {p.relatedInsights && p.relatedInsights.length > 0 ? (
         <section className="border-t border-ink/10 bg-paper">
           <div className="mx-auto w-[min(1140px,92vw)] py-10">
-            <p className="text-[0.82rem] font-bold tracking-wide text-ink/45">관련 키워드 · Related Keywords</p>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {p.relatedKeywords.map((kw, i) => (
-                <li
-                  key={i}
-                  className="rounded-full bg-white px-3.5 py-1.5 text-[0.85rem] text-ink/55 ring-1 ring-ink/8"
-                >
-                  {kw}
+            <p className="text-[0.82rem] font-bold tracking-wide text-ink/45">관련 인사이트</p>
+            <ul className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-3">
+              {p.relatedInsights.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className="inline-flex items-center rounded-full bg-white px-4 py-2 text-[0.9rem] font-medium text-ink/70 ring-1 ring-ink/8 transition hover:text-forest hover:ring-forest/30"
+                  >
+                    {item.title}
+                  </a>
                 </li>
               ))}
             </ul>

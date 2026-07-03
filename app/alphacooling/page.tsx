@@ -44,6 +44,11 @@ export default function AlphaCoolingPage() {
       eyebrow="알파쿨링 — 쿨링시스템·저온제습"
       title="알파쿨링, 냉방·제습·결로 문제 해결."
       intro="알파쿨링은 고온다습 환경의 냉방·제습·결로 문제를 개선하는 저온제습 기반 기후제어 솔루션입니다. 정밀한 습도 제어로 균일한 기후를 만들고, 결로·품질 리스크와 에너지 사용 구조까지 함께 개선합니다."
+      homeAnchor={{
+        href: "/#alphacooling",
+        text: "딸기수직농장 냉방·제습 알파쿨링",
+        suffix: " 은 쎄슬프라이머스 홈페이지의 통합 솔루션 라인업에서 함께 확인하실 수 있습니다."
+      }}
       blocks={[
         {
           heading: "식품공장 결로 문제 해결",
@@ -65,23 +70,13 @@ export default function AlphaCoolingPage() {
       ctaTitle="결로·고습 문제, 현장 조건에 맞는 쿨링시스템으로 잡습니다."
       ctaBody="시설 종류와 현재 겪는 문제를 알려주시면, 저온제습 공조 담당자가 직접 검토해 회신드립니다."
       backHref="/#alphacooling"
-      backLabel="홈에서 알파쿨링 자세히 보기"
+      backLabel="홈에서 알파쿨링 냉방·제습 솔루션 보기"
       jsonLd={jsonLd}
-      relatedKeywords={[
-        "쿨링시스템, 알파쿨링 / Cooling System, AlphaCooling",
-        "저온제습 시스템 / Low-Temperature Dehumidification System",
-        "결로 방지 솔루션 / Condensation Control Solution",
-        "식품공장 공조 솔루션 / Food Factory HVAC Solution",
-        "식품 포장실 공조 / Food Packaging Room HVAC",
-        "저온저장고 공조 / Cold Storage HVAC",
-        "식품창고 결로·곰팡이 / Food Warehouse Condensation & Mold",
-        "냉장·냉동창고 공조 / Refrigerated & Frozen Warehouse HVAC",
-        "콜드체인 공조 / Cold Chain HVAC",
-        "수직농장 냉방 / Vertical Farm Cooling",
-        "딸기농장 냉방 / Strawberry Farm Cooling",
-        "식품공장 결로 개선 / Food Factory Condensation Improvement",
-        "고습환경 제습 / High-Humidity Dehumidification",
-        "공조 에너지 절감 / HVAC Energy Saving"
+      relatedInsights={[
+        { title: "식품공장 결로, 왜 생기고 어떻게 잡나", href: "/insights/food-factory-condensation" },
+        { title: "지하·저온저장고 결로·곰팡이, 근본 원인과 해결법", href: "/insights/cold-storage-condensation-mold" },
+        { title: "알파팜은 물을 생산합니다 — 응축수 회수·내부 재이용", href: "/insights/alphafarm-water-recovery" },
+        { title: "알파팜 고밀도 재배랙 기술", href: "/insights/alphafarm-high-density-rack" }
       ]}
     />
   );

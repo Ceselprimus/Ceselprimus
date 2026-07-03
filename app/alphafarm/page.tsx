@@ -4,14 +4,14 @@ import KeywordLanding from "../components/KeywordLanding";
 const url = "https://www.ceslprimus.com/alphafarm";
 
 export const metadata: Metadata = {
-  title: { absolute: "딸기수직농장 · 연중 프리미엄 딸기 사업솔루션 | 알파팜" },
+  title: { absolute: "알파팜 라인업 — 알파코어·알파카페·컨테이너팜 | 쎄슬프라이머스" },
   description:
-    "딸기수직농장으로 시작하는 연중 딸기 사업솔루션. 쎄슬프라이머스 알파팜은 재배·운영·판매를 패키지로 연결해 계절과 관계없이 운영되는 딸기 사업 구조를 설계합니다. 알파코어·알파카페·컨테이너팜.",
-  keywords: ["딸기수직농장", "딸기 수직농장", "연중 딸기 사업솔루션", "수직농장 창업", "스마트팜 딸기", "알파팜", "프리미엄 딸기"],
+    "쎄슬프라이머스의 프리미엄 딸기 재배 라인업 알파팜을 소개합니다. 알파코어(생산기지)·알파카페(리테일)·컨테이너팜(소형 검증형)으로 구성되며, 딸기수직농장 통합 솔루션 전체는 홈페이지에서 확인할 수 있습니다.",
+  keywords: ["알파팜", "알파코어", "알파카페", "컨테이너팜", "연중 딸기 사업솔루션", "프리미엄 딸기 재배"],
   alternates: { canonical: "/alphafarm" },
   openGraph: {
-    title: "딸기수직농장·연중 딸기 사업솔루션 | 쎄슬프라이머스 알파팜",
-    description: "재배·운영·판매를 패키지로 연결하는 연중 딸기 사업솔루션, 알파팜.",
+    title: "알파팜 라인업 | 쎄슬프라이머스",
+    description: "알파코어·알파카페·컨테이너팜으로 구성된 알파팜 라인업 소개.",
     url,
     siteName: "쎄슬프라이머스",
     locale: "ko_KR",
@@ -25,7 +25,7 @@ const jsonLd = {
   "@type": "WebPage",
   "@id": `${url}/#webpage`,
   url,
-  name: "딸기수직농장·연중 딸기 사업솔루션 | 쎄슬프라이머스 알파팜",
+  name: "알파팜 라인업 | 쎄슬프라이머스",
   inLanguage: "ko-KR",
   isPartOf: { "@id": "https://www.ceslprimus.com/#website" },
   about: { "@id": "https://www.ceslprimus.com/#organization" },
@@ -44,6 +44,11 @@ export default function AlphaFarmPage() {
       eyebrow="알파팜 — 딸기수직농장"
       title="알파팜, 연중 프리미엄 딸기 사업 패키지."
       intro="쎄슬프라이머스의 알파팜은 단순 딸기수직농장 설비가 아니라, 재배·운영·판매까지 연결하는 연중 프리미엄 딸기 사업솔루션입니다. 고객이 초기 투자를 결정하면 계절과 관계없이 연중 운영되는 딸기 사업 구조를 만듭니다."
+      homeAnchor={{
+        href: "/#alphafarm",
+        text: "딸기수직농장 알파팜",
+        suffix: " 통합 솔루션의 전체 라인업은 쎄슬프라이머스 홈페이지에서 확인하실 수 있습니다."
+      }}
       blocks={[
         {
           heading: "연중 딸기 사업솔루션",
@@ -65,21 +70,13 @@ export default function AlphaFarmPage() {
       ctaTitle="딸기수직농장 사업, 어디서부터 시작할지 함께 설계합니다."
       ctaBody="도심형 매장부터 대형 생산기지, 해외 진출까지 — 프로젝트 목적을 알려주시면 사업개발 담당자가 직접 검토해 회신드립니다."
       backHref="/#alphafarm"
-      backLabel="홈에서 알파팜 자세히 보기"
+      backLabel="홈에서 딸기수직농장 알파팜 전체 보기"
       jsonLd={jsonLd}
-      relatedKeywords={[
-        "딸기수직농장, 알파팜 / Strawberry Vertical Farm, AlphaFarm",
-        "프리미엄 딸기 수직농장 / Premium Strawberry Vertical Farm",
-        "연중 딸기 생산 / Year-Round Strawberry Production",
-        "연중 프리미엄 딸기 사업모델 / Year-Round Premium Strawberry Business Model",
-        "고밀도 딸기 재배 / High-Density Strawberry Cultivation",
-        "스마트팜 딸기 재배 / Smart Farm Strawberry Cultivation",
-        "딸기 재배랙 / Strawberry Growing Rack",
-        "딸기 재배 시스템 / Strawberry Growing System",
-        "딸기 환경제어 / Strawberry Environmental Control",
-        "프리미엄 딸기 생산기지 / Premium Strawberry Production Base",
-        "딸기 생산·판매 일체형 모델 / Integrated Strawberry Production and Retail Model",
-        "도심형 딸기농장 / Urban Strawberry Farm"
+      relatedInsights={[
+        { title: "딸기 수직농장이란? 개념부터 원리까지", href: "/insights/what-is-strawberry-vertical-farm" },
+        { title: "딸기 수직농장 창업, 무엇부터 준비해야 하나", href: "/insights/strawberry-vertical-farm-startup" },
+        { title: "딸기 수직농장으로 연중 딸기 사업, 어떻게 가능한가", href: "/insights/year-round-strawberry-vertical-farm" },
+        { title: "알파카페 — 생산과 리테일을 잇는 팜투리테일 모델", href: "/insights/alphacafe-farm-to-retail" }
       ]}
     />
   );

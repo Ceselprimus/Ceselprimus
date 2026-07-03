@@ -4,14 +4,14 @@ import KeywordLanding from "../components/KeywordLanding";
 const url = "https://www.ceslprimus.com/contact";
 
 export const metadata: Metadata = {
-  title: { absolute: "쎄슬프라이머스 컨설팅 | 딸기수직농장·쿨링시스템·해외진출 상담" },
+  title: { absolute: "프로젝트 상담·문의 | 쎄슬프라이머스" },
   description:
-    "쎄슬프라이머스는 연중 딸기 사업솔루션, 냉방·제습 문제, 전력·데이터 운영관리, 해외 실증·사업화 지원에 대한 프로젝트 컨설팅·상담을 제공합니다. 프로젝트·파트너십·해외 실증·냉동냉장 설비 문의를 받습니다.",
-  keywords: ["컨설팅", "쎄슬프라이머스 컨설팅", "딸기수직농장 컨설팅", "스마트팜 컨설팅", "저온제습 컨설팅", "해외진출 컨설팅", "프로젝트 문의", "파트너십 문의"],
+    "쎄슬프라이머스는 딸기수직농장 알파팜, 냉방·제습 알파쿨링, 전력·데이터 알파에너지, 해외진출 알파서포트에 대한 프로젝트 상담을 제공합니다. 프로젝트·파트너십·해외 실증·냉동냉장 설비 문의를 받습니다.",
+  keywords: ["프로젝트 상담", "쎄슬프라이머스 문의", "파트너십 문의", "해외 실증 문의", "냉동냉장 설비 문의"],
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "쎄슬프라이머스 컨설팅 | 프로젝트 상담",
-    description: "딸기수직농장·쿨링시스템·해외진출 프로젝트 컨설팅·상담.",
+    title: "프로젝트 상담·문의 | 쎄슬프라이머스",
+    description: "딸기수직농장·쿨링시스템·해외진출 프로젝트 상담.",
     url,
     siteName: "쎄슬프라이머스",
     locale: "ko_KR",
@@ -25,7 +25,7 @@ const jsonLd = {
   "@type": "WebPage",
   "@id": `${url}/#webpage`,
   url,
-  name: "쎄슬프라이머스 컨설팅 | 프로젝트 상담",
+  name: "프로젝트 상담·문의 | 쎄슬프라이머스",
   inLanguage: "ko-KR",
   isPartOf: { "@id": "https://www.ceslprimus.com/#website" },
   about: { "@id": "https://www.ceslprimus.com/#organization" },
@@ -44,6 +44,11 @@ export default function ContactPage() {
       eyebrow="컨설팅 · 프로젝트 문의"
       title="프로젝트 컨설팅 문의."
       intro="쎄슬프라이머스는 연중 딸기 사업솔루션, 냉방·제습 문제, 전력·데이터 운영관리, 해외 실증·사업화 지원에 대한 프로젝트 상담을 제공합니다."
+      homeAnchor={{
+        href: "/",
+        text: "딸기수직농장 알파팜 쎄슬프라이머스",
+        suffix: " 홈페이지에서 전체 솔루션과 구축 사례를 먼저 확인하실 수 있습니다."
+      }}
       blocks={[
         {
           heading: "프로젝트 문의",
@@ -65,19 +70,11 @@ export default function ContactPage() {
       ctaTitle="어떤 단계든, 담당자가 직접 검토해 회신드립니다."
       ctaBody="프로젝트 목적을 알려주시면 사업개발 담당자가 맞는 조합을 설계해 연락드립니다."
       backHref="/#contact"
-      backLabel="홈 연락처로 이동"
+      backLabel="홈에서 전체 솔루션 보기"
       jsonLd={jsonLd}
-      relatedKeywords={[
-        "스마트팜 사업개발 / Smart Farm Business Development",
-        "재배기술 컨설팅 / Cultivation Technology Consulting",
-        "시설구축 컨설팅 / Facility Development Consulting",
-        "스마트팜 운영지원 / Smart Farm Operation Support",
-        "딸기수직농장 / Strawberry Vertical Farm",
-        "쿨링시스템 / Cooling System",
-        "해외진출 / Overseas Expansion",
-        "연중 딸기 사업모델 / Year-Round Strawberry Business Model",
-        "데이터 기반 운영 / Data-Based Operation",
-        "자체 생산시설 구축 / In-House Production Facility Development"
+      relatedInsights={[
+        { title: "딸기 수직농장이란? 개념부터 원리까지", href: "/insights/what-is-strawberry-vertical-farm" },
+        { title: "식품공장 결로, 왜 생기고 어떻게 잡나", href: "/insights/food-factory-condensation" }
       ]}
     />
   );
