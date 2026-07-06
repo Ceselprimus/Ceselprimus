@@ -48,6 +48,214 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "alphafarm-low-power-dehumidification",
+    title: "왜 알파팜의 저전력 저온제습이 중요한가",
+    metaTitle: "알파팜 저전력 저온제습 — 딸기수직농장 VPD 환경제어 | 쎄슬프라이머스",
+    description:
+      "딸기 수직농장의 품질과 수익성을 좌우하는 것은 온도와 습도의 정밀 제어입니다. 알파팜이 VPD를 관리하고 LED 현열로 제습 재열 전력을 줄이는 저전력 저온제습 기술을 정리했습니다.",
+    keywords: ["알파팜 저온제습", "저전력 저온제습", "딸기수직농장 VPD", "딸기 수직농장 환경제어", "제습 재열", "LED 현열", "프리미엄 딸기"],
+    date: "2026-07-06",
+    category: "알파팜",
+    readMin: 4,
+    heroImage: "/media/series/series-11.webp",
+    heroImageEn: "/media/series/series-11-en.webp",
+    heroContain: true,
+    heroWidth: 1122,
+    heroHeight: 1402,
+    heroAlt: "왜 알파팜의 저전력 저온제습이 중요한가 — VPD·저온제습 인포그래픽 / Why AlphaFarm low-power low-temperature dehumidification matters infographic",
+    lead:
+      "딸기 수직농장은 단순히 냉방을 잘한다고 좋은 품질이 만들어지지 않습니다. 핵심은 온도와 습도를 함께 제어해 작물에 맞는 VPD, 즉 Vapor Pressure Deficit를 안정적으로 유지하는 것입니다.",
+    sections: [
+      {
+        h: "습도만 낮추는 것이 아니라, VPD를 관리",
+        paras: [
+          "작물 재배에서 습도 관리의 중요성은 아무리 강조해도 지나치지 않습니다. 그러나 중요한 것은 습도를 무조건 낮추는 것이 아니라, 온도와 함께 관리해 최적의 VPD를 만드는 것입니다.",
+          "VPD는 쉽게 말하면 작물이 느끼는 공기 중 수분 환경입니다. 습도가 너무 높으면 병해와 생육 문제가 생기기 쉽고, 반대로 무조건 낮추기만 해도 작물에 부담이 됩니다. 예컨대 15℃·50%RH 조건은 VPD 약 0.9kPa로, 딸기 생육에 적합한 균형점입니다."
+        ],
+        bullets: ["온도(T) + 습도(RH) = 작물이 느끼는 VPD", "15℃ / 50%RH → VPD 약 0.9kPa", "VPD는 온도와 상대습도에 따라 달라짐"]
+      },
+      {
+        h: "딸기는 저온성 작물",
+        paras: [
+          "딸기는 원래 저온에서 품질이 좋아지는 작물입니다. 특히 대형·고당도·우수한 식감을 가진 프리미엄 딸기를 식감 있게 키우려면 저온제습이 더욱 중요합니다."
+        ],
+        bullets: ["대형", "고당도", "우수한 식감", "프리미엄 품질"]
+      },
+      {
+        h: "저전력의 비밀은 제습 재열",
+        paras: [
+          "일반 제습은 수분을 제거한 뒤 공기를 다시 데우는 재열 과정에서 많은 전력이 필요합니다. 알파팜은 딸기 수직농장의 LED 현열을 제습 재열에 활용해, 제습에 필요한 전력을 크게 절감합니다.",
+          "습한 공기 유입(재배존) → 냉각·제습 코일(수분 제거) → LED 현열 활용 제습 재열 → 최적화된 저온·건조 공기를 재배존으로 공급하는 저전력 순환 구조입니다."
+        ],
+        bullets: ["습한 공기 유입 (재배존)", "냉각·제습 코일 (수분 제거)", "LED 현열 활용 제습 재열", "최적화된 저온·건조 공기 재공급"]
+      },
+      {
+        h: "알파팜이 만드는 가치",
+        paras: [
+          "알파팜은 단순 냉방이 아니라, 저온·저습·VPD를 함께 설계하는 딸기 특화 환경제어 솔루션입니다."
+        ],
+        bullets: [
+          "정밀 VPD 관리 — 온도와 습도를 함께 제어해 최적 생육 환경 유지",
+          "저온성 작물에 최적 — 저온·저습 환경으로 딸기 본연의 품질 극대화",
+          "프리미엄 딸기 품질 향상 — 대형·고당도·식감 우수",
+          "제습 전력 절감 — LED 현열 재열로 제습 전력 비용 대폭 절감"
+        ]
+      }
+    ],
+    faq: [
+      { q: "VPD가 왜 중요한가요?", a: "VPD는 작물이 느끼는 공기 중 수분 환경입니다. 습도만 낮추면 작물에 부담이 될 수 있어, 온도와 함께 관리해 최적 VPD(딸기는 15℃·50%RH에서 약 0.9kPa)를 유지하는 것이 품질과 수익성의 핵심입니다." },
+      { q: "저온제습이 왜 전력을 많이 쓰나요?", a: "일반 제습은 수분 제거 후 공기를 다시 데우는 재열 과정에서 전력이 많이 듭니다. 알파팜은 수직농장 LED에서 발생하는 현열을 재열에 활용해 이 전력을 절감합니다." },
+      { q: "알파팜 저온제습은 어디에 적용되나요?", a: "딸기 수직농장 재배존이 기본이며, 저온·저습·VPD 정밀 제어가 필요한 프리미엄 재배 환경에 적용합니다. 식품공정·저온저장 등으로도 확장 가능합니다." }
+    ],
+    relatedKeywords: [
+      "VPD 관리 / VPD Management",
+      "저온제습 / Low-Temperature Dehumidification",
+      "제습 재열 / Dehumidification Reheat",
+      "LED 현열 활용 / LED Sensible Heat Utilization",
+      "딸기 환경제어 / Strawberry Climate Control",
+      "프리미엄 딸기 / Premium Strawberry"
+    ],
+    ctaTitle: "저온·저습·VPD 환경, 재배 조건에 맞게 설계해 드립니다.",
+    ctaBody: "재배 품목과 목표 환경을 알려주시면 알파팜 저전력 저온제습 설계를 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "Why AlphaFarm's Low-Power Low-Temperature Dehumidification Matters",
+      metaTitle: "AlphaFarm Low-Power Low-Temperature Dehumidification — VPD Climate Control | CESeL Primus",
+      description:
+        "In strawberry vertical farming, quality and profitability depend on precise control of temperature and humidity. How AlphaFarm manages VPD and cuts dehumidification reheat power using LED sensible heat.",
+      lead:
+        "Strawberry vertical farming is not just about cooling. The real challenge is managing temperature and humidity together to maintain the right VPD, or Vapor Pressure Deficit, for the crop.",
+      sections: [
+        {
+          h: "Not just lower humidity — manage VPD",
+          paras: [
+            "Humidity control is essential in crop production. But simply lowering humidity is not enough. The key is to manage temperature and humidity together to maintain an optimal VPD.",
+            "VPD is, in simple terms, the moisture environment a crop feels. Too much humidity invites disease and growth problems, while forcing it too low also stresses the plant. For example, 15°C / 50%RH gives a VPD of roughly 0.9 kPa — a balance point well suited to strawberry growth."
+          ],
+          bullets: ["Temperature (T) + Humidity (RH) = the VPD the crop feels", "15°C / 50%RH → VPD ≈ 0.9 kPa", "VPD varies with temperature and relative humidity"]
+        },
+        {
+          h: "Strawberries prefer cool conditions",
+          paras: [
+            "Strawberry quality improves in cooler conditions. For large, sweet, premium fruit with excellent texture, low-temperature dehumidification is especially important."
+          ],
+          bullets: ["Large", "High Brix", "Excellent texture", "Premium quality"]
+        },
+        {
+          h: "The secret to low power: reheat for dehumidification",
+          paras: [
+            "In conventional dehumidification, reheat uses significant energy after moisture removal. AlphaFarm reduces this load by using sensible heat from the vertical farm's LED lighting for reheat.",
+            "Humid air inlet (grow zone) → cooling/dehumidifying coil (moisture removal) → reheat using LED sensible heat → optimized cool, dry air supplied back to the grow zone — a low-power circulation system."
+          ],
+          bullets: ["Humid air inlet (grow zone)", "Cooling / dehumidifying coil (moisture removal)", "Reheat using LED sensible heat", "Optimized cool, dry air re-supplied"]
+        },
+        {
+          h: "Value created by AlphaFarm",
+          paras: [
+            "AlphaFarm is not simply a cooling system. It is a strawberry-specific climate-control solution designed around low temperature, low humidity, and VPD."
+          ],
+          bullets: [
+            "Precise VPD control — manage temperature and humidity together for optimal growth",
+            "Ideal for cool-climate crops — low-temp, low-humidity conditions maximize strawberry quality",
+            "Better premium strawberry quality — large, sweet, excellent texture",
+            "Lower dehumidification energy — reduce reheat power by using LED sensible heat"
+          ]
+        }
+      ],
+      faq: [
+        { q: "Why does VPD matter?", a: "VPD is the moisture environment a crop feels. Lowering humidity alone can stress the plant, so managing it together with temperature to hold an optimal VPD (about 0.9 kPa at 15°C / 50%RH for strawberries) is central to both quality and profitability." },
+        { q: "Why does low-temperature dehumidification use so much power?", a: "Conventional dehumidification spends significant energy reheating the air after moisture removal. AlphaFarm uses sensible heat from the vertical farm's LEDs for that reheat, cutting the power required." },
+        { q: "Where does AlphaFarm dehumidification apply?", a: "Primarily to strawberry vertical-farm grow zones, and to any premium cultivation environment that needs precise low-temperature, low-humidity, VPD control. It can also extend to food processes and cold storage." }
+      ],
+      ctaTitle: "We'll design a low-temp, low-humidity, VPD environment for your conditions.",
+      ctaBody: "Tell us your crop and target environment, and we'll review an AlphaFarm low-power dehumidification design and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
+  },
+  {
+    slug: "knowledge-center-chp-strawberry-farm",
+    title: "지식산업센터 유휴공간 재생형 열병합 연계 딸기수직농장 구축 모델",
+    metaTitle: "지식산업센터 유휴공간 딸기수직농장 — 열병합 연계 사업모델 | 쎄슬프라이머스",
+    description:
+      "지식산업센터 공실·유휴공간을 프리미엄 딸기수직농장과 열병합(CHP) 연계로 전환하는 복합 사업모델. Core 5·Core 10 사업성 시뮬레이션과 폐열·CO₂ 자원화, 정책자금 검토까지.",
+    keywords: ["지식산업센터 딸기수직농장", "유휴공간 재생", "열병합 연계", "CHP 딸기농장", "딸기수직농장 사업성", "공실 활용", "정책자금"],
+    date: "2026-07-06",
+    category: "알파팜",
+    readMin: 5,
+    heroImage: "/media/series/series-10.webp",
+    heroContain: true,
+    heroWidth: 1445,
+    heroHeight: 1088,
+    heroAlt: "지식산업센터 유휴공간 재생형 열병합 연계 딸기수직농장 구축 모델 인포그래픽 — Core 5·Core 10 사업성 시뮬레이션",
+    lead:
+      "지식산업센터의 유휴공간은 더 이상 단순 공실이 아니라, 새로운 수익모델로 전환할 수 있는 자산입니다. 쎄슬프라이머스는 유휴공간에 프리미엄 딸기수직농장과 열병합(CHP) 연계 모델을 적용해 생산·에너지·공간가치를 함께 높이는 방안을 제안합니다.",
+    sections: [
+      {
+        h: "공실을 비용이 아닌 자산으로",
+        paras: [
+          "지식산업센터의 유휴공간은 시간이 지날수록 공실 부담과 자산가치 저하로 이어질 수 있습니다. 반대로, 같은 공간도 어떤 모델을 적용하느냐에 따라 생산기지이자 체험공간, 그리고 새로운 수익원으로 바뀔 수 있습니다.",
+          "이 모델의 핵심은 단순한 농장 설치가 아닙니다. 유휴공간을 프리미엄 식품 생산기지로 전환하고, 카페·디저트·체험 연계까지 확장해 건물의 활용도와 차별성을 함께 높이는 복합 사업모델입니다."
+        ]
+      },
+      {
+        h: "핵심 수익 구조",
+        paras: [
+          "프리미엄 딸기 판매를 기반으로 알파카페·디저트·체험 연계까지 매출을 확장합니다. 생산한 딸기를 그대로 파는 것을 넘어, 방문형 콘텐츠와 리테일 접점으로 부가 매출 기회를 만드는 구조입니다."
+        ],
+        bullets: ["프리미엄 딸기 생산", "알파카페·디저트·체험 연계", "리테일·방문형 콘텐츠로 매출 확장"]
+      },
+      {
+        h: "열병합(CHP) 도입의 의미",
+        paras: [
+          "열병합발전(CHP)의 폐열과 CO₂를 자원으로 활용해, 공조 안정화·재열·급탕 확보·폐열·CO₂ 활용 기반 운영을 함께 검토할 수 있습니다. 일반적인 공간 활용안보다 한 단계 높은 개발형 접근입니다.",
+          "유휴공간 재생과 ESG 실현 측면에서도 차별화 포인트가 있으며, 스마트팜·에너지효율·유휴공간 재생 요소를 결합한 복합 투자모델로 정책자금 및 금융구조 검토도 가능합니다."
+        ],
+        bullets: ["공조 안정화, 재열·급탕 확보", "폐열·CO₂ 활용 기반 운영", "유휴공간 재생과 ESG 실현", "정책자금 연계 및 금융구조 검토 가능"]
+      },
+      {
+        h: "Core 5 / Core 10 사업성 시뮬레이션",
+        paras: [
+          "규모별로 사업성을 아래와 같이 검토할 수 있습니다. 단, 아래 수치는 표준 가정에 따른 추정으로, 품종·재배 안정성·CO₂ 활용·판매채널·CHP 견적 및 건물별 공사조건에 따라 생산량·가격·투자비는 변동될 수 있습니다."
+        ],
+        bullets: [
+          "연 생산량 — Core 5: 40.3톤 · Core 10: 80.6톤",
+          "총 매출 — Core 5: 12.1억원 · Core 10: 24.2억원",
+          "EBITDA — Core 5: 5.0억원 · Core 10: 9.9억원",
+          "단순 회수기간(CHP 포함, 총투자비 기준) — Core 5: 약 7.9년 · Core 10: 약 7.3년",
+          "단순 회수기간(CHP 비포함, 농장 CAPEX 기준) — Core 5·Core 10 모두 약 4.3년",
+          "권장 CHP 규모 — Core 5: 50~60kWe · Core 10: 100~120kWe",
+          "산출 기준 — Core 1 = 5,376주 × 1.5kg/주 = 약 8.1톤/년, 프리미엄 딸기 30,000원/kg(가락동 도매시장 기준)"
+        ]
+      },
+      {
+        h: "적용 판단과 컨설팅",
+        paras: [
+          "Core 5는 초기 상업 검증형, Core 10은 본격 사업 확장형에 적합합니다. 공실 해소, 자산가치 회복, 분양·임대 활성화, ESG 스토리까지 함께 고민하고 계시다면 검토할 만한 대안입니다.",
+          "사업성 검토 시에는 생산량·판매단가·재배 안정성·CO₂ 활용 가능성·판매채널·CHP 견적 및 건물별 공사조건을 함께 검토해야 하며, 쎄슬프라이머스는 사업성 검토 및 정책자금 컨설팅도 함께 제안드립니다."
+        ]
+      }
+    ],
+    faq: [
+      { q: "지식산업센터 유휴공간에 왜 딸기수직농장인가요?", a: "프리미엄 딸기수직농장은 좁은 면적에서도 고밀도 수직재배로 생산기지가 되고, 카페·디저트·체험 연계로 리테일 매출까지 만들 수 있어 공실을 복합 수익 자산으로 전환하기에 적합합니다." },
+      { q: "열병합(CHP) 연계는 꼭 필요한가요?", a: "필수는 아닙니다. CHP를 연계하면 폐열·CO₂·전력을 자원으로 활용해 공조 안정화와 재열·급탕을 확보할 수 있지만, 농장 CAPEX 기준(CHP 비포함)으로도 사업성을 검토할 수 있습니다." },
+      { q: "사업성 수치는 확정된 값인가요?", a: "아닙니다. Core 5·Core 10 수치는 표준 가정에 따른 추정으로, 품종·재배 안정성·CO₂ 활용·판매채널·CHP 견적·건물별 공사조건에 따라 생산량·가격·투자비가 달라집니다. 현장 조건으로 별도 검토가 필요합니다." }
+    ],
+    relatedKeywords: [
+      "지식산업센터 유휴공간 / Knowledge Industrial Center Idle Space",
+      "유휴공간 재생 / Idle Space Regeneration",
+      "열병합 연계 / CHP Integration",
+      "딸기수직농장 사업모델 / Strawberry Vertical Farm Business Model",
+      "폐열·CO₂ 자원화 / Waste Heat & CO₂ Resource Use",
+      "정책자금 연계 / Policy Fund Linkage"
+    ],
+    ctaTitle: "유휴공간, 딸기수직농장 복합 사업모델로 검토해 드립니다.",
+    ctaBody: "건물 조건과 목표를 알려주시면 사업성 검토와 정책자금 컨설팅까지 사업개발 담당자가 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기"
+  },
+  {
     slug: "alphafarm-water-recovery",
     title: "알파팜은 물을 생산합니다 — 응축수 회수·내부 재이용",
     metaTitle: "알파팜 물 회수·내부 재이용 — 저TDS 응축수 생산 | 쎄슬프라이머스",

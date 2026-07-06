@@ -755,33 +755,18 @@ function NewsSection({ content }: { content: HomeContent }) {
     <section id="news" className="py-16 md:py-24">
       <Container>
         <Reveal>
-          <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
-            <div className="max-w-2xl">
-              <Eyebrow>{news.eyebrow}</Eyebrow>
-              <SectionTitle>
-                <Lines lines={news.titleLines} />
-              </SectionTitle>
-            </div>
-            <div className="flex flex-wrap gap-2.5">
-              {news.socialLinks.map(([label, href]) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-[0.98rem] font-semibold text-ink ring-1 ring-ink/12 transition-colors duration-200 hover:ring-forest hover:text-forest"
-                >
-                  {label} <ArrowUpRight className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
+          <div className="max-w-2xl">
+            <Eyebrow>{news.eyebrow}</Eyebrow>
+            <SectionTitle>
+              <Lines lines={news.titleLines} />
+            </SectionTitle>
           </div>
         </Reveal>
 
         <Reveal delay={80}>
           <p className="mt-12 text-[1.05rem] font-bold text-ink md:mt-14">{news.modelsLabel}</p>
         </Reveal>
-        <div className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className={`mt-5 grid gap-6 sm:grid-cols-2 ${news.models.length >= 5 ? "lg:grid-cols-5" : "lg:grid-cols-4"}`}>
           {news.models.map((m, index) => {
             const a = articles.find((x) => x.slug === m.slug);
             if (!a) return null;

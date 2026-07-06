@@ -518,7 +518,7 @@ export const koContent: HomeContent = {
   },
   news: {
     eyebrow: "소식",
-    titleLines: ["공식 채널의 최신 소식을", "한곳에서 만나보세요."],
+    titleLines: ["사업 모델 제안과 최신 인사이트를", "한곳에서 만나보세요."],
     socialLinks: [
       ["네이버 블로그", socialHrefs.blog],
       ["페이스북", socialHrefs.facebook],
@@ -527,6 +527,7 @@ export const koContent: HomeContent = {
     ],
     modelsLabel: "사업 모델 제안",
     models: [
+      { label: "지식산업센터 재생 모델", slug: "knowledge-center-chp-strawberry-farm" },
       { label: "발효 공장 연계 모델", slug: "alphafarm-core-brewery-fermentation" },
       { label: "발전소 연계 모델", slug: "alphafarm-core-power-plant" },
       { label: "팜투리테일 모델", slug: "alphacafe-farm-to-retail" },
@@ -959,7 +960,7 @@ export const enContent: HomeContent = {
   },
   news: {
     eyebrow: "News",
-    titleLines: ["The latest from", "our official channels."],
+    titleLines: ["Business models and", "the latest insights."],
     socialLinks: [
       ["Naver Blog", socialHrefs.blog],
       ["Facebook", socialHrefs.facebook],
