@@ -530,6 +530,7 @@ export const koContent: HomeContent = {
       { label: "지식산업센터 재생 모델", slug: "knowledge-center-chp-strawberry-farm" },
       { label: "발효 공장 연계 모델", slug: "alphafarm-core-brewery-fermentation" },
       { label: "발전소 연계 모델", slug: "alphafarm-core-power-plant" },
+      { label: "석유화학·수소 연계 모델", slug: "alphafarm-core-petrochem-hydrogen" },
       { label: "팜투리테일 모델", slug: "alphacafe-farm-to-retail" },
       { label: "알파팜 코어-20", slug: "alphafarm-core20-sofc-datacenter" }
     ]
@@ -971,6 +972,7 @@ export const enContent: HomeContent = {
     models: [
       { label: "Fermentation Plant Integration Model", slug: "alphafarm-core-brewery-fermentation" },
       { label: "Power Plant Integration Model", slug: "alphafarm-core-power-plant" },
+      { label: "Petrochemical / Hydrogen Integration Model", slug: "alphafarm-core-petrochem-hydrogen" },
       { label: "Farm-to-Retail Model", slug: "alphacafe-farm-to-retail" },
       { label: "AlphaFarm Core-20", slug: "alphafarm-core20-sofc-datacenter" }
     ]
