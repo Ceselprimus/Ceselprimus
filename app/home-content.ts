@@ -139,7 +139,8 @@ export interface HomeContent {
     eyebrow: string;
     titleLines: string[];
     socialLinks: [string, string][];
-    cards: { title: string; channel: string; image: string; href: string }[];
+    modelsLabel: string;
+    models: { label: string; slug: string }[];
   };
   faq: {
     label: string;
@@ -524,13 +525,12 @@ export const koContent: HomeContent = {
       ["링크드인", socialHrefs.linkedin],
       ["인스타그램", socialHrefs.instagram]
     ],
-    cards: [
-      { title: "알파 솔루션 포트폴리오", channel: "네이버 블로그", image: "/media/alpha-solution-portfolio-0610.webp", href: socialHrefs.blog },
-      { title: "식품공장 저온제습 솔루션", channel: "페이스북", image: "/media/sns/sns-facebook-cooling.webp", href: socialHrefs.facebook },
-      { title: "고온다습 환경 제어", channel: "링크드인", image: "/media/sns/sns-linkedin-cooling.webp", href: socialHrefs.linkedin },
-      { title: "저온제습이 필요한 이유", channel: "네이버 블로그", image: "/media/sns/sns-blog-dehumidification.webp", href: socialHrefs.blog },
-      { title: "식품공장 결로 문제", channel: "네이버 블로그", image: "/media/sns/sns-blog-condensation.webp", href: socialHrefs.blog },
-      { title: "국내 사업개발 파트너 모집", channel: "인스타그램", image: "/media/sns/lineup-support.webp", href: socialHrefs.instagram }
+    modelsLabel: "사업 모델 제안",
+    models: [
+      { label: "발효 공장 연계 모델", slug: "alphafarm-core-brewery-fermentation" },
+      { label: "발전소 연계 모델", slug: "alphafarm-core-power-plant" },
+      { label: "팜투리테일 모델", slug: "alphacafe-farm-to-retail" },
+      { label: "알파팜 코어-20", slug: "alphafarm-core20-sofc-datacenter" }
     ]
   },
   faq: {
@@ -966,13 +966,12 @@ export const enContent: HomeContent = {
       ["LinkedIn", socialHrefs.linkedin],
       ["Instagram", socialHrefs.instagram]
     ],
-    cards: [
-      { title: "Alpha Solution Portfolio", channel: "Naver Blog", image: "/media/cases/case-suwon-urban-01.webp", href: socialHrefs.blog },
-      { title: "Low-temp dehumidification for food factories", channel: "Facebook", image: "/media/sns/sns-blog-condensation.webp", href: socialHrefs.facebook },
-      { title: "Controlling hot and humid environments", channel: "LinkedIn", image: "/media/cases/case-naju-growroom-01.webp", href: socialHrefs.linkedin },
-      { title: "Why low-temperature dehumidification matters", channel: "Naver Blog", image: "/media/cases/case-jeonnam-container.webp", href: socialHrefs.blog },
-      { title: "Condensation problems in food factories", channel: "Naver Blog", image: "/media/cases/case-naju-growroom-02.webp", href: socialHrefs.blog },
-      { title: "Business development partners — Korea", channel: "Instagram", image: "/media/cases/case-malaysia-exterior.webp", href: socialHrefs.instagram }
+    modelsLabel: "Business Model Proposals",
+    models: [
+      { label: "Fermentation Plant Integration Model", slug: "alphafarm-core-brewery-fermentation" },
+      { label: "Power Plant Integration Model", slug: "alphafarm-core-power-plant" },
+      { label: "Farm-to-Retail Model", slug: "alphacafe-farm-to-retail" },
+      { label: "AlphaFarm Core-20", slug: "alphafarm-core20-sofc-datacenter" }
     ]
   },
   faq: {

@@ -465,42 +465,44 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
           <FarmModels models={alphafarm.models} />
         </Reveal>
         <Reveal delay={200}>
-          <div className="mt-10 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:mt-12 md:p-9">
-            <Eyebrow>{alphafarm.core.eyebrow}</Eyebrow>
-            <p className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">{alphafarm.core.name}</p>
-            <p className="mt-2 text-[1.05rem] font-semibold text-forest md:text-[1.12rem]">{alphafarm.core.lead}</p>
-            <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/72 md:text-[1.08rem]">{alphafarm.core.body}</p>
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              {alphafarm.core.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-paper px-3.5 py-1.5 text-[0.9rem] font-semibold text-ink ring-1 ring-ink/10"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <figure className="mt-8 overflow-hidden rounded-2xl ring-1 ring-ink/8">
+          <div className="mt-10 grid gap-8 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:mt-12 md:p-9 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+            <figure className="overflow-hidden rounded-2xl ring-1 ring-ink/8">
               <Image
                 src={alphafarm.core.image}
                 alt={alphafarm.core.imageAlt}
                 width={content.locale === "en" ? 1535 : 1672}
                 height={content.locale === "en" ? 1024 : 941}
                 className="h-auto w-full"
-                sizes="(min-width: 1024px) 1000px, 92vw"
+                sizes="(min-width: 1024px) 420px, 92vw"
               />
             </figure>
+            <div>
+              <Eyebrow>{alphafarm.core.eyebrow}</Eyebrow>
+              <p className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">{alphafarm.core.name}</p>
+              <p className="mt-2 text-[1.05rem] font-semibold text-forest md:text-[1.12rem]">{alphafarm.core.lead}</p>
+              <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/72 md:text-[1.08rem]">{alphafarm.core.body}</p>
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                {alphafarm.core.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-paper px-3.5 py-1.5 text-[0.9rem] font-semibold text-ink ring-1 ring-ink/10"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </Reveal>
         <Reveal delay={240}>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {alphafarm.core.features.map((f, i) => (
-              <div key={f.title} className="rounded-2xl bg-white p-5 ring-1 ring-ink/8">
-                <p className="text-[0.82rem] font-bold text-forest">{String(i + 1).padStart(2, "0")}</p>
-                <p className="mt-1.5 text-[1.05rem] font-bold tracking-tight text-ink">{f.title}</p>
-                <p className="mt-2 text-[0.96rem] leading-relaxed text-ink/68">{f.desc}</p>
-              </div>
-            ))}
+          <div className="mt-6 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:p-7">
+            <ul className="space-y-3">
+              {alphafarm.core.features.map((f) => (
+                <li key={f.title} className="text-[0.98rem] leading-relaxed text-ink/72 md:text-[1.02rem]">
+                  <span className="font-bold text-ink">{f.title}</span> — {f.desc}
+                </li>
+              ))}
+            </ul>
           </div>
         </Reveal>
       </Container>
@@ -749,7 +751,6 @@ function NewsSection({ content }: { content: HomeContent }) {
   const latestInsights = [...insightPool].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 9);
   const latestLabel = isEn ? "Latest insights" : "최신 인사이트";
   const viewAllLabel = isEn ? "View all" : "전체 보기";
-  const channelsLabel = isEn ? "Official channels" : "공식 채널";
   return (
     <section id="news" className="py-16 md:py-24">
       <Container>
@@ -776,6 +777,38 @@ function NewsSection({ content }: { content: HomeContent }) {
             </div>
           </div>
         </Reveal>
+
+        <Reveal delay={80}>
+          <p className="mt-12 text-[1.05rem] font-bold text-ink md:mt-14">{news.modelsLabel}</p>
+        </Reveal>
+        <div className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {news.models.map((m, index) => {
+            const a = articles.find((x) => x.slug === m.slug);
+            if (!a) return null;
+            return (
+              <Reveal key={m.slug} delay={(index % 4) * 90}>
+                <a
+                  href={`${insightsBase}/${m.slug}`}
+                  className="group block overflow-hidden rounded-2xl bg-white ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden bg-paper">
+                    <Image
+                      src={content.locale === "en" && a.heroImageEn ? a.heroImageEn : a.heroImage}
+                      alt={m.label}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 92vw"
+                      className="object-contain p-3 transition duration-700 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <div className="flex items-start justify-between gap-3 p-5">
+                    <h3 className="text-[1.05rem] font-bold leading-snug tracking-tight text-ink">{m.label}</h3>
+                    <ArrowUpRight className="mt-0.5 h-5 w-5 shrink-0 text-ink/35 transition group-hover:text-forest" />
+                  </div>
+                </a>
+              </Reveal>
+            );
+          })}
+        </div>
 
         <Reveal delay={80}>
           <div className="mt-12 flex items-end justify-between md:mt-14">
@@ -805,41 +838,6 @@ function NewsSection({ content }: { content: HomeContent }) {
                   <div>
                     <p className="text-[0.95rem] font-bold text-forest">{isEn ? a.categoryEn ?? a.category : a.category}</p>
                     <h3 className="mt-1.5 text-xl font-bold leading-snug tracking-tight text-ink md:text-[1.32rem]">{isEn && a.en ? a.en.title : a.title}</h3>
-                  </div>
-                  <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-ink/35 transition group-hover:text-forest" />
-                </div>
-              </a>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal delay={80}>
-          <p className="mt-14 text-[1.05rem] font-bold text-ink md:mt-16">{channelsLabel}</p>
-        </Reveal>
-        <div className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {news.cards.map((item, index) => (
-            <Reveal key={`${item.channel}-${item.title}`} delay={(index % 3) * 90}>
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group block overflow-hidden rounded-2xl bg-white ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-paper">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"
-                    className={`${isEn ? "object-cover" : "object-contain p-3"} transition duration-700 group-hover:scale-[1.03]`}
-                  />
-                </div>
-                <div className="flex items-start justify-between gap-4 p-6">
-                  <div>
-                    <p className="text-[0.95rem] font-bold text-forest">{item.channel}</p>
-                    <h3 className="mt-1.5 text-xl font-bold leading-snug tracking-tight text-ink md:text-[1.32rem]">
-                      {item.title}
-                    </h3>
                   </div>
                   <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-ink/35 transition group-hover:text-forest" />
                 </div>
