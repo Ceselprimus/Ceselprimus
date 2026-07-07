@@ -121,7 +121,7 @@ export interface HomeContent {
     body: string;
     note: string;
     closeLabel: string;
-    items: { image: string; title: string; site: string; tag: string }[];
+    items: { image: string; title: string; site: string; tag: string; youtubeId?: string }[];
   };
   audience: {
     eyebrow: string;
@@ -249,7 +249,8 @@ const caseImages = {
   naj2: "/media/cases/case-naju-growroom-02.webp",
   njl1: "/media/cases/case-naju-lab-01.webp",
   njl2: "/media/cases/case-naju-lab-02.webp",
-  jn1: "/media/cases/case-jeonnam-container.webp"
+  jn1: "/media/cases/case-jeonnam-container.webp",
+  ptv: "/media/cases/case-pyeongtaek-plantyfarm.webp"
 };
 
 export const koContent: HomeContent = {
@@ -471,11 +472,12 @@ export const koContent: HomeContent = {
   cases: {
     eyebrow: "구축 사례",
     titleLines: ["현장이 증명합니다.", "국내외 6곳+ 구축 현장."],
-    body: "수원 도심형 운영 사례부터 이천 · 나주 · 전남 구축 현장, 오픈을 준비 중인 말레이시아 알파팜까지 — 모두 실제 현장에서 촬영한 사진입니다.",
+    body: "수원 도심형 운영 사례부터 이천 · 나주 · 전남 구축 현장, 오픈을 준비 중인 말레이시아 알파팜까지 — 모두 실제 현장에서 촬영한 사진과 영상입니다.",
     note: "※ 말레이시아 알파팜은 공조시스템 설치 마무리 후 7월 초 정식을 목표로 하는 오픈 준비 현장입니다.",
     closeLabel: "닫기",
     items: [
       { image: caseImages.suw1, title: "도심형 딸기수직농장", site: "수원", tag: "운영 사례" },
+      { image: caseImages.ptv, title: "딸기수직농장 재배 영상", site: "평택", tag: "영상 사례", youtubeId: "6qe910dslRg" },
       { image: caseImages.mal1, title: "알파팜 말레이시아 전경", site: "말레이시아", tag: "오픈 준비" },
       { image: caseImages.ich2, title: "딸기수직농장 재배랙", site: "이천", tag: "구축 사례" },
       { image: caseImages.naj1, title: "딸기수직농장 재배실", site: "나주", tag: "구축 사례" },
@@ -913,11 +915,12 @@ export const enContent: HomeContent = {
   cases: {
     eyebrow: "Deployment cases",
     titleLines: ["Proven in the field —", "6+ sites in Korea and Malaysia."],
-    body: "From an urban farm in operation in Suwon to deployments in Icheon, Naju, and Jeonnam, and AlphaFarm Malaysia preparing to open — all photos were taken on site.",
+    body: "From an urban farm in operation in Suwon to deployments in Icheon, Naju, and Jeonnam, and AlphaFarm Malaysia preparing to open — all photos and video were captured on site.",
     note: "AlphaFarm Malaysia is an opening-preparation site, targeting first planting in early July after HVAC installation.",
     closeLabel: "Close",
     items: [
       { image: caseImages.suw1, title: "Urban strawberry vertical farm", site: "Suwon", tag: "In operation" },
+      { image: caseImages.ptv, title: "Strawberry cultivation video", site: "Pyeongtaek", tag: "Video", youtubeId: "6qe910dslRg" },
       { image: caseImages.mal1, title: "AlphaFarm Malaysia exterior", site: "Malaysia", tag: "Opening soon" },
       { image: caseImages.ich2, title: "Cultivation racks", site: "Icheon", tag: "Deployment" },
       { image: caseImages.naj1, title: "Vertical farm grow room", site: "Naju", tag: "Deployment" },
