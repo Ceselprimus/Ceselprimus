@@ -419,8 +419,8 @@ export const koContent: HomeContent = {
         { title: "고순도에 가까운 물 생산", desc: "식물 증산·저온제습 과정의 저TDS 응축수를 회수·재이용. 수질 확보 시 유틸리티수·전처리수 활용까지 검토할 수 있습니다." },
         { title: "폐열·CO₂ 연계 데이터센터 모델", desc: "Core-20은 데이터센터·SOFC 발전·산업단지와 연계해 폐열·CO₂·전력을 딸기 생산 자원으로 전환하는 자원순환 인프라입니다." }
       ],
-      image: "/media/series/series-9.webp",
-      imageAlt: "프리미엄 딸기생산을 위한 모듈형 수직농장 생산 유닛, 알파팜-알파코어 6대 특징 인포그래픽",
+      image: "/media/concepts/alphacore-hero.webp",
+      imageAlt: "알파코어(AlphaCore) — 프리미엄 딸기 생산을 위한 모듈형 수직농장 생산 유닛 6대 특징 인포그래픽",
       sofcLabel: "SOFC란? · 고체산화물연료전지 (Solid Oxide Fuel Cell)",
       sofcNote:
         "SOFC는 고온 전기화학 반응으로 전기를 생산하는 고효율 연료전지입니다. 저소음·저배출·연속운전과 연료 선택 유연성을 갖춰, 안정 전원이 필요한 데이터센터 현장발전 기술로 주목받고 있습니다.",
@@ -861,8 +861,8 @@ export const enContent: HomeContent = {
         { title: "Water production near high-purity", desc: "Recovers low-TDS condensate from transpiration and dehumidification for internal reuse, with potential utility/pretreatment-water use after simple post-treatment." },
         { title: "Waste-heat & CO₂ data-center model", desc: "Core-20 links with data centers, SOFC power, and industrial complexes to convert waste heat, CO₂, and power into strawberry-production resources." }
       ],
-      image: "/media/series/series-9-en.webp",
-      imageAlt: "Premium Strawberry Production with Modular Vertical Farming Unit, AlphaFarm-AlphaCore — six key features infographic",
+      image: "/media/concepts/alphacore-hero-en.webp",
+      imageAlt: "AlphaCore — modular vertical farming production unit for premium strawberry production, six key features infographic",
       sofcLabel: "What is SOFC? · Solid Oxide Fuel Cell",
       sofcNote:
         "SOFC delivers efficient, low-noise, low-emission continuous power via high-temperature electrochemical reactions — on-site generation well suited to data centers that need stable power.",
@@ -970,6 +970,7 @@ export const enContent: HomeContent = {
     ],
     modelsLabel: "Business Model Proposals",
     models: [
+      { label: "Underutilized Space Regeneration Model", slug: "knowledge-center-chp-strawberry-farm" },
       { label: "Fermentation Plant Integration Model", slug: "alphafarm-core-brewery-fermentation" },
       { label: "Power Plant Integration Model", slug: "alphafarm-core-power-plant" },
       { label: "Petrochemical / Hydrogen Integration Model", slug: "alphafarm-core-petrochem-hydrogen" },

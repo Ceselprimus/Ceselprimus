@@ -470,8 +470,8 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
               <Image
                 src={alphafarm.core.image}
                 alt={alphafarm.core.imageAlt}
-                width={content.locale === "en" ? 1535 : 1672}
-                height={content.locale === "en" ? 1024 : 941}
+                width={1672}
+                height={941}
                 className="h-auto w-full"
                 sizes="(min-width: 1024px) 420px, 92vw"
               />

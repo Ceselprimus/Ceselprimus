@@ -185,10 +185,11 @@ export const articles: Article[] = [
     category: "알파팜",
     readMin: 5,
     heroImage: "/media/series/series-10.webp",
+    heroImageEn: "/media/series/series-10-en.webp",
     heroContain: true,
     heroWidth: 1445,
     heroHeight: 1088,
-    heroAlt: "지식산업센터 유휴공간 재생형 열병합 연계 딸기수직농장 구축 모델 인포그래픽 — Core 5·Core 10 사업성 시뮬레이션",
+    heroAlt: "지식산업센터 유휴공간 재생형 열병합 연계 딸기수직농장 구축 모델 인포그래픽 — Core 5·Core 10 사업성 시뮬레이션 / CHP-linked strawberry vertical farm model for underutilized spaces and buildings by AlphaFarm",
     lead:
       "지식산업센터의 유휴공간은 더 이상 단순 공실이 아니라, 새로운 수익모델로 전환할 수 있는 자산입니다. 쎄슬프라이머스는 유휴공간에 프리미엄 딸기수직농장과 열병합(CHP) 연계 모델을 적용해 생산·에너지·공간가치를 함께 높이는 방안을 제안합니다.",
     sections: [
@@ -253,7 +254,66 @@ export const articles: Article[] = [
     ctaTitle: "유휴공간, 딸기수직농장 복합 사업모델로 검토해 드립니다.",
     ctaBody: "건물 조건과 목표를 알려주시면 사업성 검토와 정책자금 컨설팅까지 사업개발 담당자가 직접 검토해 회신드립니다.",
     lineupHref: "/alphafarm",
-    lineupLabel: "알파팜 솔루션 보기"
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "CHP-Linked Strawberry Vertical Farm for Underutilized Spaces & Buildings",
+      metaTitle: "CHP-Linked Strawberry Vertical Farm for Underutilized Spaces & Buildings | AlphaFarm",
+      description:
+        "AlphaFarm provides a CHP-linked strawberry vertical farm model for underutilized indoor spaces and buildings, combining controlled-environment agriculture, energy integration, HVAC/FCU review, CO₂ utilization and AlphaCafe experience linkage.",
+      lead:
+        "AlphaFarm is developing a CHP-linked strawberry vertical farm model for underutilized indoor spaces and buildings. The model converts vacant or low-utilization areas in commercial buildings, business-park facilities, and mixed-use properties into controlled-environment strawberry farms.",
+      sections: [
+        {
+          h: "Model overview",
+          paras: [
+            "The purpose is not simply to install a farm inside a building, but to examine how unused indoor space can be converted into a productive, energy-integrated and experience-oriented facility.",
+            "It combines premium strawberry production with CHP-linked energy utilization — heat recovery, reheat, hot water supply and potential CO₂ utilization. Where existing building HVAC or FCU systems are available, their use can also be reviewed as part of the farm's cooling and air-circulation strategy."
+          ]
+        },
+        {
+          h: "Model structure",
+          paras: ["The model connects space, production, energy and experience in one loop."],
+          bullets: [
+            "Underutilized space & building use — convert vacant indoor space into a productive strawberry vertical farm",
+            "Premium strawberry production — controlled temperature, humidity, airflow, lighting, irrigation and CO₂ management",
+            "CHP energy integration — heat recovery, reheat, hot water supply and potential CO₂ utilization",
+            "Existing HVAC / FCU review — reuse available systems for cooling support and air circulation",
+            "AlphaCafe & experience linkage — connect the farm with AlphaCafe, dessert and visitor experience programs"
+          ]
+        },
+        {
+          h: "Business review basis (Core 5 / Core 10)",
+          paras: [
+            "The model is reviewed on Core 5 and Core 10 configurations, with production capacity, energy use, CHP capacity, CAPEX and payback evaluated per site. The figures below are estimates under standard assumptions and may vary with cultivar, cultivation stability, CO₂ utilization, sales channel, CHP quotation, existing HVAC/FCU conditions and site-specific construction requirements."
+          ],
+          bullets: [
+            "Annual production — Core 5: 40.3 tons · Core 10: 80.6 tons",
+            "Total revenue — Core 5: SGD 1.21 m · Core 10: SGD 2.42 m",
+            "EBITDA — Core 5: SGD 0.50 m · Core 10: SGD 0.99 m",
+            "Simple payback (incl. CHP, total investment) — Core 5: ~7.9 yrs · Core 10: ~7.3 yrs",
+            "Simple payback (excl. CHP, farm CAPEX) — both ~4.3 yrs",
+            "Recommended CHP capacity — Core 5: 50–60 kWe · Core 10: 100–120 kWe",
+            "Assumption — Core 1 = 5,376 plants × 1.5 kg/plant ≈ 8.1 tons/year, premium strawberry ≈ SGD 30/kg"
+          ]
+        },
+        {
+          h: "Application",
+          paras: [
+            "This model may suit building owners, developers, operators or local partners reviewing new uses for underutilized indoor spaces, vacant commercial buildings, business-park facilities or other large indoor assets.",
+            "AlphaFarm provides feasibility review, system planning and project-structuring support based on the actual conditions of each site."
+          ]
+        }
+      ],
+      faq: [
+        { q: "Why a strawberry vertical farm for underutilized building space?", a: "A premium strawberry vertical farm turns a small footprint into a production base through high-density cultivation, and can add retail revenue via AlphaCafe, dessert and experience linkage — making it well suited to converting vacant space into a mixed revenue asset." },
+        { q: "Is CHP integration required?", a: "Not necessarily. CHP lets you use waste heat, CO₂ and power as resources for HVAC stability and reheat/hot water, but the model can also be reviewed on a farm-CAPEX basis (excluding CHP)." },
+        { q: "Are the business figures fixed?", a: "No. The Core 5 / Core 10 figures are estimates under standard assumptions. Actual production, price, CAPEX and payback vary with cultivar, cultivation stability, CO₂ utilization, sales channel, CHP quotation, HVAC/FCU conditions and site-specific construction — a separate site review is required." }
+      ],
+      ctaTitle: "Let's review your underutilized space as a strawberry vertical farm model.",
+      ctaBody: "Tell us your building conditions and goals, and our business-development team will review feasibility and project structuring and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
   },
   {
     slug: "alphafarm-water-recovery",
