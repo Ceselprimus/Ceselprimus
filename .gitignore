@@ -8,3 +8,5 @@ dist
 Thumbs.db
 docs/
 tsconfig.tsbuildinfo
+.bkit/
+.claude/settings.local.json
