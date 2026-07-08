@@ -477,7 +477,7 @@ export const koContent: HomeContent = {
     closeLabel: "닫기",
     items: [
       { image: caseImages.suw1, title: "도심형 딸기수직농장", site: "수원", tag: "운영 사례" },
-      { image: caseImages.ptv, title: "딸기수직농장 재배 영상", site: "평택", tag: "영상 사례", youtubeId: "6qe910dslRg" },
+      { image: caseImages.ptv, title: "딸기수직농장 재배 영상", site: "평택", tag: "재배 영상사례", youtubeId: "6qe910dslRg" },
       { image: caseImages.mal1, title: "알파팜 말레이시아 전경", site: "말레이시아", tag: "오픈 준비" },
       { image: caseImages.ich2, title: "딸기수직농장 재배랙", site: "이천", tag: "구축 사례" },
       { image: caseImages.naj1, title: "딸기수직농장 재배실", site: "나주", tag: "구축 사례" },
@@ -920,7 +920,7 @@ export const enContent: HomeContent = {
     closeLabel: "Close",
     items: [
       { image: caseImages.suw1, title: "Urban strawberry vertical farm", site: "Suwon", tag: "In operation" },
-      { image: caseImages.ptv, title: "Strawberry cultivation video", site: "Pyeongtaek", tag: "Video", youtubeId: "6qe910dslRg" },
+      { image: caseImages.ptv, title: "Strawberry cultivation video", site: "Pyeongtaek", tag: "Cultivation video", youtubeId: "6qe910dslRg" },
       { image: caseImages.mal1, title: "AlphaFarm Malaysia exterior", site: "Malaysia", tag: "Opening soon" },
       { image: caseImages.ich2, title: "Cultivation racks", site: "Icheon", tag: "Deployment" },
       { image: caseImages.naj1, title: "Vertical farm grow room", site: "Naju", tag: "Deployment" },
