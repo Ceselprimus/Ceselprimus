@@ -48,6 +48,131 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "alphaenergy-ais-power-saving",
+    title: "딸기수직농장이 만든 물로 냉방 전력을 줄이는 법 — 알파에너지-AIS",
+    metaTitle: "알파에너지-AIS — 딸기수직농장 회수수로 냉방 전력절감 | 쎄슬프라이머스",
+    description:
+      "알파팜은 저온제습으로 회수한 저TDS 응축수를 AlphaEnergy-AIS™로 순환시켜 실외기 인입공기를 프리쿨링합니다. 물의 증발잠열로 응축부하를 낮춰 딸기수직농장의 냉방 전력을 줄이는 순환형 인프라 기술을 정리했습니다.",
+    keywords: ["알파에너지", "AlphaEnergy-AIS", "딸기수직농장 전력절감", "실외기 프리쿨링", "증발잠열 냉각", "응축수 회수", "저TDS 응축수", "냉방 전력절감"],
+    date: "2026-07-10",
+    category: "알파팜",
+    readMin: 4,
+    heroImage: "/media/series/series-12.webp",
+    heroImageEn: "/media/series/series-12-en.webp",
+    heroContain: true,
+    heroWidth: 1672,
+    heroHeight: 941,
+    heroAlt: "딸기수직농장이 만든 물로 냉방 전력을 줄이는 알파에너지-AIS 인포그래픽 — 회수수 증발잠열 실외기 프리쿨링 / AlphaEnergy-AIS power saving using AlphaFarm recovered water infographic",
+    lead:
+      "알파팜은 저온제습 과정에서 고순도에 가까운 저TDS 응축수를 회수합니다. 이 물은 농장 안에서 재사용되는 데 그치지 않고, AlphaEnergy-AIS™를 통해 냉방 전력을 줄이는 에너지 절감 자원으로 활용됩니다.",
+    sections: [
+      {
+        h: "알파팜은 물을 생산합니다",
+        paras: [
+          "알파팜은 저온제습 과정에서 고순도에 가까운 저TDS 응축수를 회수합니다. 이 회수수는 단순히 농장 안에서 재사용되는 물에 그치지 않고, 냉방 시스템의 전력을 줄이는 에너지 자원으로 다시 활용될 수 있습니다."
+        ],
+        bullets: ["저온제습 과정에서 응축수 회수", "고순도에 가까운 저TDS 수질", "농장 내 재사용을 넘어 에너지 자원으로 활용"]
+      },
+      {
+        h: "AlphaEnergy-AIS™의 작동 원리",
+        paras: [
+          "AlphaEnergy-AIS™는 알파팜에서 생산된 회수수를 모듈 내부에 순환시키고, 물의 증발잠열을 활용해 실외기로 들어가는 인입공기의 온도를 낮춥니다.",
+          "실외기 인입공기 온도가 낮아지면 응축부하가 완화되고, 압축기 운전 부담이 줄어듭니다. 그 결과 냉방·저온제습 시스템의 전력소비 절감과 운전 안정화에 기여할 수 있습니다."
+        ],
+        bullets: ["회수수를 모듈 내부에 순환", "증발잠열로 실외기 인입공기 프리쿨링", "응축부하 완화 · 압축기 운전 부담 감소", "냉방·저온제습 전력소비 절감 · 운전 안정화"]
+      },
+      {
+        h: "기대 효과",
+        paras: [
+          "아래 수치는 표준 조건을 가정한 목표치로, 실제 효과는 외기 온도·습도·풍량·설치 조건 및 물 관리 상태에 따라 달라질 수 있습니다."
+        ],
+        bullets: [
+          "실외기 인입공기 온도 최대 5℃ 저감 (목표)",
+          "피크 전력부하 최대 12% 완화 (목표)",
+          "일평균 전력소비 최대 7% 절감 (목표)",
+          "고압트립 리스크 저감 및 운전 안정성 향상"
+        ]
+      },
+      {
+        h: "물과 에너지를 잇는 순환형 인프라",
+        paras: [
+          "알파팜은 물을 생산하고, 그 물은 다시 전력 절감 자원으로 활용됩니다. 식품 생산, 물 회수, 냉방 효율 개선을 하나로 연결하는 쎄슬프라이머스의 순환형 인프라 솔루션입니다."
+        ],
+        bullets: ["식품 생산", "물 회수", "냉방 효율 개선", "순환형 인프라"]
+      }
+    ],
+    faq: [
+      { q: "AlphaEnergy-AIS는 별도의 물을 공급해야 하나요?", a: "아니요. 알파팜이 저온제습 과정에서 스스로 회수한 저TDS 응축수를 순환 이용합니다. 외부 급수 없이 농장이 생산한 물을 냉방 전력 절감 자원으로 재활용하는 구조입니다." },
+      { q: "전력은 실제로 얼마나 줄어드나요?", a: "표준 조건 기준으로 일평균 전력소비 최대 7%, 피크 전력부하 최대 12% 완화를 목표로 합니다. 다만 실제 절감폭은 외기 온도·습도·풍량·설치 조건·물 관리 상태에 따라 달라지므로, 현장 조건을 반영해 별도로 검토합니다." },
+      { q: "어떤 원리로 전력을 줄이나요?", a: "회수수의 증발잠열로 실외기 인입공기를 미리 식혀(프리쿨링) 응축부하를 낮춥니다. 압축기 운전 부담이 줄어 냉방·저온제습 전력소비가 감소하고, 고압트립 리스크도 낮아져 운전이 안정화됩니다." }
+    ],
+    relatedKeywords: [
+      "회수수 활용 / Recovered Water Utilization",
+      "증발잠열 프리쿨링 / Evaporative Pre-cooling",
+      "실외기 인입공기 냉각 / Outdoor-Unit Intake Cooling",
+      "냉방 전력절감 / Cooling Power Saving",
+      "저TDS 응축수 / Low-TDS Condensate",
+      "순환형 인프라 / Circular Infrastructure"
+    ],
+    ctaTitle: "냉방 전력, 알파팜이 만든 물로 줄여보세요.",
+    ctaBody: "설비 규모와 운전 조건을 알려주시면 AlphaEnergy-AIS 적용 효과를 현장 기준으로 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "How AlphaFarm Cuts Cooling Power Using the Water It Produces — AlphaEnergy-AIS",
+      metaTitle: "AlphaEnergy-AIS — Cooling Power Saving with AlphaFarm Recovered Water | CESeL Primus",
+      description:
+        "AlphaFarm recovers low-TDS condensate during low-temperature dehumidification and circulates it through AlphaEnergy-AIS™ to pre-cool outdoor-unit intake air. How the latent heat of evaporation lowers condensing load and cuts cooling power in a strawberry vertical farm.",
+      lead:
+        "AlphaFarm recovers near-high-purity, low-TDS condensate during low-temperature dehumidification. That water is not only reused inside the farm — through AlphaEnergy-AIS™, it becomes an energy-saving resource that reduces cooling power.",
+      sections: [
+        {
+          h: "AlphaFarm produces water",
+          paras: [
+            "AlphaFarm recovers near-high-purity, low-TDS condensate during low-temperature dehumidification. This recovered water is not merely reused inside the farm — it can be put back to work as an energy resource that lowers the cooling system's power draw."
+          ],
+          bullets: ["Condensate recovered during low-temperature dehumidification", "Near-high-purity, low-TDS water quality", "Beyond in-farm reuse — used as an energy resource"]
+        },
+        {
+          h: "How AlphaEnergy-AIS™ works",
+          paras: [
+            "AlphaEnergy-AIS™ circulates the water produced by AlphaFarm through the module and uses the latent heat of evaporation to lower the temperature of the air entering the outdoor unit.",
+            "When outdoor-unit intake air is cooler, the condensing load eases and compressor burden drops. This can reduce power consumption and improve operating stability across cooling and low-temperature dehumidification systems."
+          ],
+          bullets: ["Recovered water circulated through the module", "Latent heat of evaporation pre-cools outdoor-unit intake air", "Eased condensing load, lower compressor burden", "Reduced power use and more stable operation"]
+        },
+        {
+          h: "Expected benefits",
+          paras: [
+            "The figures below are targets under standard assumptions. Actual effects may vary with outdoor temperature, humidity, airflow, installation conditions, and water management status."
+          ],
+          bullets: [
+            "Up to 5°C reduction in outdoor-unit intake air temperature (target)",
+            "Up to 12% mitigation in peak power load (target)",
+            "Up to 7% reduction in average daily power consumption (target)",
+            "Reduced high-pressure trip risk and improved operating stability"
+          ]
+        },
+        {
+          h: "Circular infrastructure linking water and energy",
+          paras: [
+            "AlphaFarm produces water, and that water is reused as a power-saving resource. It is CESeL Primus' circular infrastructure solution, connecting food production, water recovery, and cooling efficiency in one loop."
+          ],
+          bullets: ["Food production", "Water recovery", "Cooling efficiency", "Circular infrastructure"]
+        }
+      ],
+      faq: [
+        { q: "Does AlphaEnergy-AIS need a separate water supply?", a: "No. It circulates the low-TDS condensate that AlphaFarm recovers on its own during low-temperature dehumidification. The farm's own water is reused as a cooling power-saving resource, with no external water feed." },
+        { q: "How much power does it actually save?", a: "Under standard conditions, it targets up to 7% lower average daily power consumption and up to 12% peak-load mitigation. Actual savings depend on outdoor temperature, humidity, airflow, installation conditions, and water management, so we review each site individually." },
+        { q: "How does it reduce power?", a: "The latent heat of the recovered water pre-cools the outdoor-unit intake air, lowering the condensing load. Compressor burden drops, cutting cooling and dehumidification power, and high-pressure trip risk falls for more stable operation." }
+      ],
+      ctaTitle: "Cut cooling power with the water AlphaFarm produces.",
+      ctaBody: "Tell us your equipment scale and operating conditions, and we'll review the AlphaEnergy-AIS impact for your site and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
+  },
+  {
     slug: "alphafarm-low-power-dehumidification",
     title: "왜 알파팜의 저전력 저온제습이 중요한가",
     metaTitle: "알파팜 저전력 저온제습 — 딸기수직농장 VPD 환경제어 | 쎄슬프라이머스",
