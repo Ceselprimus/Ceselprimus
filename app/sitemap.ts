@@ -22,7 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/en`, lastModified: freshLastModified, changeFrequency: "daily", priority: 0.9, alternates: { languages } },
     { url: `${baseUrl}/alphafarm`, lastModified: staticLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/alphacooling`, lastModified: staticLastModified, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${baseUrl}/alphasupport`, lastModified: staticLastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/contact`, lastModified: staticLastModified, changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/insights`, lastModified: freshLastModified, changeFrequency: "weekly", priority: 0.7 },
     ...live.map((a) => ({
