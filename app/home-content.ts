@@ -11,6 +11,7 @@ export interface LineupSubItem {
 export interface LineupCategory {
   name: string;
   tagline: string;
+  body?: string;
   accent: Accent;
   image: string;
   imageAlt: string;
@@ -108,11 +109,21 @@ export interface HomeContent {
     futureTitle: string;
     futureBody: string;
   };
-  support: {
+  engineering: {
     eyebrow: string;
     titleLines: string[];
-    body: string;
-    items: string[];
+    lead: string;
+    paras: string[];
+    applicationsLabel: string;
+    applications: string[];
+    areasLabel: string;
+    areas: { title: string; paras: string[] }[];
+    deliveryTitle: string;
+    deliveryParas: string[];
+    ctaTitle: string;
+    ctaBody: string;
+    ctaButton: string;
+    image: string;
     imageAlt: string;
   };
   cases: {
@@ -282,7 +293,7 @@ export const koContent: HomeContent = {
   hero: {
     eyebrow: "프리미엄 딸기수직농장 · 콜드체인 인프라 기술기업",
     titleLines: ["딸기수직농장에서 콜드체인까지,", "식품 인프라를 플랫폼으로."],
-    sub: "쎄슬프라이머스는 프리미엄 딸기수직농장 알파팜에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 사업화 지원까지 — 식품 생산과 저장의 전 과정을 하나의 솔루션으로 연결합니다.",
+    sub: "딸기수직농장을 중심으로 작물재배, 냉방·제습, 전력·제어·데이터, 스마트 시스템 엔지니어링을 연결해 식품 생산·저장·작업공간 전반의 운영 효율을 높이는 통합 스마트 식품 인프라 솔루션을 제공합니다.",
     ctaPrimary: "솔루션 라인업 보기",
     ctaSecondary: "사업개발 문의",
     imageAlt: "쎄슬프라이머스 딸기수직농장·콜드체인 통합 솔루션 / CESeL Primus strawberry vertical farm and cold chain solution",
@@ -298,7 +309,7 @@ export const koContent: HomeContent = {
     statementPre: "단순한 설비 공급을 넘어, 식품 생산·저장 인프라를",
     statementHighlight: " 하나의 통합 플랫폼",
     statementPost: "으로 만듭니다.",
-    body: "딸기 수직농장에서 검증한 운영 경험을 기반으로 기후제어, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장합니다. 생산 · 저장 · 공조 · 에너지 · 운영 데이터가 결합된 기술 기업, 쎄슬프라이머스입니다."
+    body: "딸기 수직농장에서 검증한 운영 경험을 기반으로 기후제어, 전력·제어·데이터 관리, 콜드체인, 스마트 시스템 엔지니어링으로 확장합니다. 생산 · 저장 · 공조 · 에너지 · 운영 데이터가 결합된 기술 기업, 쎄슬프라이머스입니다."
   },
   problems: {
     eyebrow: "적용 영역",
@@ -362,24 +373,25 @@ export const koContent: HomeContent = {
         ]
       },
       {
-        name: "알파서포트",
-        tagline: "실증 · 구축 · 운영 · 사업화 지원 서비스",
+        name: "알파엔지니어링",
+        tagline: "스마트 식품 인프라 엔지니어링",
+        body: "재배랙, 양액기, 환경제어기, 양액·관수 배관, 냉방·제습·환기 설비를 현장 조건에 맞춰 설계·구성하고, 공급·설치·연동·시운전까지 연결합니다.",
         accent: "amber",
-        image: "/media/concepts/alphasupport-concept.webp",
-        imageAlt: "알파서포트 해외진출 사업개발 파트너십 / AlphaSupport overseas expansion partnership",
-        anchor: "#alphasupport",
-        englishName: "AlphaSupport",
+        image: "/media/concepts/alphaengineering-card.webp",
+        imageAlt: "알파엔지니어링 스마트 식품 인프라 엔지니어링 — 수직농장 설비 설계·구성 현장 / AlphaEngineering smart food infrastructure engineering",
+        anchor: "#alphaengineering",
+        englishName: "AlphaEngineering",
         subItems: [
-          { name: "아세안 시장 적합성 검증" },
-          { name: "현지 실증 · 생산기반 구축 지원" },
-          { name: "저온제습 공조 컨설팅" },
-          { name: "현지 사업화 제안 지원" },
-          { name: "프리미엄 농식품 리테일 지원" }
+          { name: "재배랙 설계·공급·설치" },
+          { name: "양액 도징 시스템 설계·공급" },
+          { name: "환경제어기 및 센서 연동" },
+          { name: "양액·관수 배관 설계·시공" },
+          { name: "냉방·제습·환기 설비 구성·시운전" }
         ]
       }
     ],
     statementPre: "알파팜에서 검증된 운영 경험과 기술 기반을 토대로, ",
-    statementHighlight: "재배 · 기후 · 전력 · 콜드체인 · 데이터 · 사업화 지원",
+    statementHighlight: "재배 · 기후 · 전력 · 콜드체인 · 데이터 · 엔지니어링",
     statementPost: "을 연결한 통합 솔루션 포트폴리오를 제공합니다."
   },
   alphafarm: {
@@ -455,19 +467,75 @@ export const koContent: HomeContent = {
     futureTitle: "다음 단계",
     futureBody: "태양광 · 에너지저장장치 연계로 고소비 전력 시설에 맞춘 최적 전력 생산 솔루션으로 확장을 준비하고 있습니다."
   },
-  support: {
-    eyebrow: "알파서포트 — 라인업 04",
-    titleLines: ["도입 이후가 진짜 시작입니다.", "운영과 사업화까지 함께 갑니다."],
-    body: "아세안 시장 적합성 검증부터 현지 실증과 생산기반 구축, 저온제습 공조 컨설팅, 현지 사업화 제안, 프리미엄 농식품 리테일 지원까지 — 솔루션이 실제 사업이 되도록 끝까지 함께합니다.",
-    items: [
-      "아세안 시장 적합성 검증",
-      "현지 실증 · 생산기반 구축 지원",
-      "저온제습 공조 컨설팅",
-      "현지 사업화 제안 지원",
-      "프리미엄 농식품 리테일 지원",
-      "재배 운영교육 · 운영 프로토콜"
+  engineering: {
+    eyebrow: "알파엔지니어링 — 라인업 04",
+    titleLines: ["스마트 식품 인프라 엔지니어링"],
+    lead: "현장 조건에 맞게 설계·구성하고, 실제 운영 가능한 시스템으로 완성합니다.",
+    paras: [
+      "알파엔지니어링(AlphaEngineering)은 작물재배 공간과 식품산업 현장에 필요한 스마트 시스템을 설계·구성하고, 장비 공급부터 설치·연동·시운전까지 연결하는 엔지니어링 서비스입니다.",
+      "적용 대상은 수직농장에 한정되지 않습니다. 작물재배 시설, 육묘실, 식품저장고, 식품작업공간, 포장실, 저온저장시설 등 온도·습도·양액·관수·환기·전력·데이터 관리가 필요한 다양한 식품산업 인프라에 적용할 수 있습니다.",
+      "현장 조건과 운영 목적을 먼저 검토한 후 재배랙, 양액 도징 시스템, 환경제어기, 양액·관수 배관, 냉방·제습·환기 설비를 적합하게 설계·구성합니다. 이후 고객 요구에 따라 장비 공급, 제작, 설치, 제어 연동, 시운전까지 수행하여 실제 운영 가능한 시스템으로 완성합니다.",
+      "각 분야는 하나의 통합 시스템으로 구성할 수 있으며, 필요한 분야만 항목별 엔지니어링 서비스로도 제공할 수 있습니다."
     ],
-    imageAlt: "알파서포트 사업개발 파트너십"
+    applicationsLabel: "적용 분야",
+    applications: [
+      "작물재배 시설",
+      "수직농장",
+      "육묘실",
+      "식품저장고",
+      "식품작업공간",
+      "식품 포장실",
+      "저온저장시설",
+      "식품산업 관련 스마트 인프라"
+    ],
+    areasLabel: "AlphaEngineering 제공 분야",
+    areas: [
+      {
+        title: "재배랙 설계·공급·설치",
+        paras: [
+          "고밀도 수직다단식 딸기재배랙, 수직다단식 개화묘 재배랙, 딸기육묘 재배랙 등 작물재배 목적에 맞는 재배랙을 설계·공급·설치합니다.",
+          "재배 방식, 작물 특성, 작업 동선, 조명 배치, 관수·배액 구조, 유지관리 조건을 함께 검토하여 현장에 적합한 재배 구조로 구성합니다."
+        ]
+      },
+      {
+        title: "양액 도징 시스템 설계·공급",
+        paras: [
+          "작물 종류, 재배 규모, 관수 존, 공급량, 배액 방식에 따라 EC/pH 기반 양액 도징 시스템을 설계·구성합니다.",
+          "혼합탱크, 도징펌프, EC/pH·수온·수위 센서, 관수제어, 자동 도징 시스템을 현장 조건에 맞게 구성하고, 장비 공급과 시운전까지 지원합니다."
+        ]
+      },
+      {
+        title: "환경제어기 및 센서 연동",
+        paras: [
+          "온도, 습도, CO₂, 양액, 전력, 장비 운전 데이터를 통합 관리할 수 있도록 환경제어기와 센서 게이트웨이를 설계·구성합니다.",
+          "냉방기, 제습기, 환기팬, 순환팬, 펌프, 밸브, 센서, 제어반과의 연동 구조를 검토하여 실제 운영 가능한 환경제어 시스템으로 연결합니다."
+        ]
+      },
+      {
+        title: "양액·관수 배관 설계·시공",
+        paras: [
+          "재배 방식, 존 구성, 유량, 압력, 배액 조건을 기준으로 양액·관수 배관을 설계하고 시공합니다.",
+          "양액 공급 배관, 순환 배관, 관수 배관, 배액 배관, 밸브, 여과기, 압력계 등 현장 운영에 필요한 배관 시스템을 설계·구성하고, 자재 공급과 현장 시공까지 수행합니다."
+        ]
+      },
+      {
+        title: "냉방·제습·환기 설비 구성·시운전",
+        paras: [
+          "작물재배 공간, 식품저장고, 식품작업공간, 포장실, 저온저장시설의 목적과 온도·습도 조건에 맞춰 냉방·제습·환기 설비를 설계·구성합니다.",
+          "냉방기, 제습기, 환기팬, 순환팬, 센서, 제어반의 용량과 배치, 제어 연동을 검토하고 설치·시운전까지 수행합니다."
+        ]
+      }
+    ],
+    deliveryTitle: "제공 방식",
+    deliveryParas: [
+      "AlphaEngineering은 현장 조건과 고객 요구에 따라 통합 시스템 엔지니어링 또는 항목별 엔지니어링 서비스로 제공됩니다.",
+      "단순 장비 판매나 설치에 그치지 않고, 현장의 목적과 운영 조건에 맞는 시스템을 설계·구성하고 필요한 장비와 공사를 연결하여 실제 운영 가능한 스마트 식품 인프라로 완성합니다."
+    ],
+    ctaTitle: "AlphaEngineering 프로젝트 및 견적 문의",
+    ctaBody: "재배랙, 양액 도징 시스템, 환경제어기, 양액·관수 배관, 냉방·제습·환기 설비의 통합 시스템 또는 항목별 엔지니어링에 대해 문의해 주세요. 현장 조건과 적용 목적을 검토하여 적합한 시스템 구성과 추진방안을 제안합니다.",
+    ctaButton: "AlphaEngineering 프로젝트 문의",
+    image: "/media/concepts/alphaengineering-detail.webp",
+    imageAlt: "알파엔지니어링 — 설계부터 공급, 설치, 시운전까지. 재배랙·양액 도징·환경제어기·배관·냉방제습환기 설비 스마트 식품 인프라 엔지니어링 인포그래픽"
   },
   cases: {
     eyebrow: "구축 사례",
@@ -544,7 +612,7 @@ export const koContent: HomeContent = {
       {
         question: "쎄슬프라이머스는 어떤 회사인가요?",
         answer:
-          "쎄슬프라이머스는 프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장하는 기술기업입니다. 식품 생산과 저장 인프라를 하나의 통합 플랫폼으로 만드는 것을 목표로 합니다."
+          "쎄슬프라이머스는 프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 스마트 시스템 엔지니어링으로 확장하는 기술기업입니다. 식품 생산과 저장 인프라를 하나의 통합 플랫폼으로 만드는 것을 목표로 합니다."
       },
       {
         question: "연중 딸기 사업솔루션이란 무엇인가요?",
@@ -606,8 +674,8 @@ export const koContent: HomeContent = {
   },
   contact: {
     eyebrow: "연락처",
-    titleLines: ["프로젝트 목적을 알려주시면,", "맞는 조합을 설계해 드립니다."],
-    body: "수직농장, 식품공장, 저온물류, 해외 실증, 프리미엄 딸기 사업화 — 어떤 단계든 사업개발 담당자가 직접 검토하고 회신드립니다.",
+    titleLines: ["프로젝트 및 솔루션 문의"],
+    body: "AlphaFarm, AlphaCooling, AlphaEnergy, AlphaEngineering의 도입, 설계, 장비 공급, 설치, 시운전 및 사업협력에 대해 문의해 주세요. 수직농장 구축, 냉방·제습, 전력·제어·데이터 관리, 재배랙, 양액 시스템, 배관 및 식품산업 인프라 엔지니어링까지 프로젝트 조건에 맞는 솔루션을 제안합니다.",
     modalTitle: "사업개발 문의",
     modalBody: "연락처를 남겨주시면 담당자가 먼저 연락드립니다. 바로 연락도 가능합니다.",
     form: {
@@ -616,15 +684,16 @@ export const koContent: HomeContent = {
       contact: "연락처 (전화 또는 이메일)",
       company: "회사 · 기관명",
       region: "지역 · 국가",
-      submit: "문의 남기기",
+      submit: "프로젝트 및 견적 문의",
       sent: "접수되었습니다! 담당자가 곧 연락드리겠습니다 😊",
       orLabel: "또는 바로 연락하기"
     },
     categories: [
-      { label: "프로젝트 문의", desc: "수직농장, 식품공장, 포장실 구축 · 개선" },
-      { label: "파트너십 문의", desc: "국내 사업개발 파트너, 기술 협력, 공동 사업" },
-      { label: "해외 실증 문의", desc: "아세안 등 해외 실증, 구축, 현지 사업화" },
-      { label: "냉동 · 냉장 설비 문의", desc: "저온창고, 콜드체인 시설의 제습 · 에너지 운영" }
+      { label: "AlphaFarm", desc: "수직농장 구축, 재배시스템, 재배랙 및 운영모델" },
+      { label: "AlphaCooling", desc: "작물재배 시설, 식품저장고 및 작업공간의 냉방·제습" },
+      { label: "AlphaEnergy", desc: "전력 모니터링, 환경제어, 데이터 관리 및 에너지 절감" },
+      { label: "AlphaEngineering", desc: "양액기, 환경제어기, 배관, 재배랙 및 환경제어 설비 엔지니어링" },
+      { label: "사업협력 및 해외 프로젝트", desc: "파트너십, 현지 실증, 수출 및 공동사업" }
     ],
     contacts: [
       {
@@ -668,7 +737,7 @@ export const koContent: HomeContent = {
   },
   seo: {
     orgDescription:
-      "프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 사업화 지원으로 확장하는 농식품·콜드체인 인프라 기술기업입니다. 알파팜, 알파쿨링, 알파에너지, 알파서포트 네 개 라인업을 제공합니다.",
+      "프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 스마트 시스템 엔지니어링으로 확장하는 농식품·콜드체인 인프라 기술기업입니다. 알파팜, 알파쿨링, 알파에너지, 알파엔지니어링 네 개 라인업을 제공합니다.",
     webPageName: "쎄슬프라이머스 | 수직농장에서 콜드체인까지, 식품 인프라 통합 솔루션",
     lineupListName: "쎄슬프라이머스 알파 솔루션 포트폴리오",
     breadcrumbHome: "홈",
@@ -686,6 +755,9 @@ export const koContent: HomeContent = {
       "해외진출",
       "아세안 사업화",
       "농식품 컨설팅",
+      "스마트 식품 인프라 엔지니어링",
+      "재배랙 설계·공급·설치",
+      "양액 도징 시스템",
       "연중 딸기 사업솔루션",
       "알파코어 모듈형 수직농장",
       "SOFC 고체산화물연료전지",
@@ -725,7 +797,7 @@ export const enContent: HomeContent = {
   hero: {
     eyebrow: "Premium strawberry vertical farm · cold-chain infrastructure",
     titleLines: ["From strawberry vertical farms to cold chain,", "food infrastructure as one platform."],
-    sub: "Starting from the AlphaFarm premium strawberry vertical farm, CESeL Primus connects cooling & dehumidification, power · control · data management, cold chain, and business development support — the entire journey of food production and storage, as one solution.",
+    sub: "Starting with strawberry vertical farms, we integrate crop cultivation, cooling and dehumidification, power, control, data, and smart-system engineering to improve operational efficiency across food production, storage, and workspaces.",
     ctaPrimary: "Explore the lineup",
     ctaSecondary: "Business inquiries",
     imageAlt: "CESeL Primus integrated vertical farm and cold-chain solution visual",
@@ -741,7 +813,7 @@ export const enContent: HomeContent = {
     statementPre: "Beyond equipment supply — we turn food production and storage infrastructure into",
     statementHighlight: " one integrated platform",
     statementPost: ".",
-    body: "Building on operating experience proven in strawberry vertical farms, we expand into climate control, power · control · data management, cold chain, and business development support. CESeL Primus is a technology company where production, storage, HVAC, energy, and operations data come together."
+    body: "Building on operating experience proven in strawberry vertical farms, we expand into climate control, power · control · data management, cold chain, and smart-system engineering. CESeL Primus is a technology company where production, storage, HVAC, energy, and operations data come together."
   },
   problems: {
     eyebrow: "Where we apply",
@@ -805,24 +877,25 @@ export const enContent: HomeContent = {
         ]
       },
       {
-        name: "AlphaSupport",
-        tagline: "Pilots · deployment · operations · business development",
+        name: "AlphaEngineering",
+        tagline: "Smart Food Infrastructure Engineering",
+        body: "We design and configure cultivation racks, nutrient dosing systems, environmental controls, nutrient and irrigation piping, and climate-control systems according to site conditions, and connect them through supply, installation, integration, and commissioning.",
         accent: "amber",
-        image: "/media/concepts/alphasupport-concept.webp",
-        imageAlt: "AlphaSupport business development partnership",
-        anchor: "#alphasupport",
-        englishName: "AlphaSupport",
+        image: "/media/concepts/alphaengineering-card.webp",
+        imageAlt: "AlphaEngineering smart food infrastructure engineering — vertical farm system design and configuration",
+        anchor: "#alphaengineering",
+        englishName: "AlphaEngineering",
         subItems: [
-          { name: "ASEAN market-fit validation" },
-          { name: "Local pilots & production-base deployment" },
-          { name: "Low-temp dehumidification HVAC consulting" },
-          { name: "Local commercialization proposals" },
-          { name: "Premium agri-food retail support" }
+          { name: "Rack design, supply & installation" },
+          { name: "Nutrient dosing system design & supply" },
+          { name: "Environmental controllers & sensor integration" },
+          { name: "Nutrient & irrigation piping design & works" },
+          { name: "Cooling, dehumidification & ventilation systems" }
         ]
       }
     ],
     statementPre: "Built on operating experience proven at AlphaFarm, we deliver an integrated solution portfolio connecting ",
-    statementHighlight: "cultivation · climate · power · cold chain · data · business development",
+    statementHighlight: "cultivation · climate · power · cold chain · data · engineering",
     statementPost: "."
   },
   alphafarm: {
@@ -898,19 +971,75 @@ export const enContent: HomeContent = {
     futureTitle: "Next step",
     futureBody: "We are preparing an optimal power generation solution for power-intensive facilities, linking PV and energy storage systems."
   },
-  support: {
-    eyebrow: "AlphaSupport — Lineup 04",
-    titleLines: ["Deployment is just the beginning.", "We stay through operations and growth."],
-    body: "From ASEAN market-fit validation to local pilots, production-base deployment, dehumidification HVAC consulting, commercialization proposals, and premium agri-food retail support — we stay until the solution becomes a real business.",
-    items: [
-      "ASEAN market-fit validation",
-      "Local pilots & production-base deployment",
-      "Low-temp dehumidification HVAC consulting",
-      "Local commercialization proposals",
-      "Premium agri-food retail support",
-      "Cultivation training & operating protocols"
+  engineering: {
+    eyebrow: "AlphaEngineering — Lineup 04",
+    titleLines: ["Smart Food Infrastructure Engineering"],
+    lead: "Designed and configured for each site, then delivered as a fully operational system.",
+    paras: [
+      "AlphaEngineering designs and configures smart systems for crop cultivation facilities and food-industry sites, connecting equipment supply, installation, integration, and commissioning into practical engineering solutions.",
+      "Its application is not limited to vertical farms. AlphaEngineering can be applied to crop cultivation facilities, nurseries, food storage rooms, food workspaces, packing rooms, cold-storage facilities, and other food-industry infrastructure requiring the management of temperature, humidity, nutrients, irrigation, ventilation, power, and operational data.",
+      "We first review the site conditions and operating requirements, then design and configure cultivation racks, nutrient dosing systems, environmental controllers, nutrient and irrigation piping, and cooling, dehumidification, and ventilation systems. Depending on customer requirements, we also provide equipment supply, fabrication, installation, control integration, and commissioning to complete a practical operating system.",
+      "Each area can be delivered as part of an integrated system or as an item-specific engineering service."
     ],
-    imageAlt: "AlphaSupport business development partnership"
+    applicationsLabel: "Applications",
+    applications: [
+      "Crop cultivation facilities",
+      "Vertical farms",
+      "Nurseries",
+      "Food storage rooms",
+      "Food workspaces",
+      "Food packing rooms",
+      "Cold-storage facilities",
+      "Smart infrastructure for the food industry"
+    ],
+    areasLabel: "AlphaEngineering Service Areas",
+    areas: [
+      {
+        title: "Rack Design, Supply & Installation",
+        paras: [
+          "We design, supply, and install high-density vertical multi-layer strawberry racks, vertical multi-layer flowering-seedling racks, and strawberry nursery racks according to cultivation objectives.",
+          "Rack systems are configured with crop characteristics, working flow, lighting arrangement, irrigation and drainage structures, and maintenance requirements in mind."
+        ]
+      },
+      {
+        title: "Nutrient Dosing System Design & Supply",
+        paras: [
+          "We design and configure EC/pH-based nutrient dosing systems according to crop type, cultivation scale, irrigation zones, supply volume, and drainage method.",
+          "Mixing tanks, dosing pumps, EC/pH, water-temperature and water-level sensors, irrigation control, and automatic dosing systems are configured according to site requirements, with equipment supply and commissioning support."
+        ]
+      },
+      {
+        title: "Environmental Controllers & Sensor Integration",
+        paras: [
+          "We design and configure environmental controllers and sensor gateways for integrated management of temperature, humidity, CO₂, nutrients, power, and equipment-operation data.",
+          "Integration with cooling units, dehumidifiers, ventilation and circulation fans, pumps, valves, sensors, and control panels is reviewed to create a practical environmental-control system."
+        ]
+      },
+      {
+        title: "Nutrient & Irrigation Piping Design & Works",
+        paras: [
+          "We design and install nutrient and irrigation piping based on crop layout, zone structure, flow rate, pressure, and drainage conditions.",
+          "Nutrient supply piping, recirculation piping, irrigation lines, drainage piping, valves, filters, pressure gauges, and related components are designed and configured, followed by material supply and on-site works."
+        ]
+      },
+      {
+        title: "Cooling, Dehumidification & Ventilation Systems",
+        paras: [
+          "We design and configure cooling, dehumidification, and ventilation systems according to the operating purpose and temperature and humidity requirements of crop cultivation areas, food storage rooms, food workspaces, packing rooms, and cold-storage facilities.",
+          "Cooling units, dehumidifiers, ventilation fans, circulation fans, sensors, and control panels are reviewed for capacity, layout, and control integration, followed by installation and commissioning."
+        ]
+      }
+    ],
+    deliveryTitle: "Delivery Options",
+    deliveryParas: [
+      "AlphaEngineering is available as an integrated system engineering service or as item-specific engineering services, depending on site conditions and customer requirements.",
+      "The service goes beyond simple equipment sales or installation. We design and configure the right system for each site, connect the required equipment and works, and complete it as practical smart food infrastructure."
+    ],
+    ctaTitle: "AlphaEngineering Project & Quotation Inquiries",
+    ctaBody: "Contact us regarding integrated systems or item-specific engineering for cultivation racks, nutrient dosing systems, environmental controllers, nutrient and irrigation piping, and cooling, dehumidification, and ventilation systems. We review your site conditions and application requirements to propose an appropriate system configuration and implementation approach.",
+    ctaButton: "AlphaEngineering Project Inquiry",
+    image: "/media/concepts/alphaengineering-detail-en.webp",
+    imageAlt: "AlphaEngineering — from design to supply, installation, and commissioning. Smart food infrastructure engineering infographic covering racks, nutrient dosing, environmental controllers, piping, and climate systems"
   },
   cases: {
     eyebrow: "Deployment cases",
@@ -988,7 +1117,7 @@ export const enContent: HomeContent = {
       {
         question: "What kind of company is CESeL Primus?",
         answer:
-          "CESeL Primus is a technology company that started from premium strawberry vertical farming and expands into cooling & dehumidification, power · control · data management, cold chain, and business development support. Our goal is to turn food production and storage infrastructure into one integrated platform."
+          "CESeL Primus is a technology company that started from premium strawberry vertical farming and expands into cooling & dehumidification, power · control · data management, cold chain, and smart-system engineering. Our goal is to turn food production and storage infrastructure into one integrated platform."
       },
       {
         question: "What is the year-round strawberry business solution?",
@@ -1050,8 +1179,8 @@ export const enContent: HomeContent = {
   },
   contact: {
     eyebrow: "Contact",
-    titleLines: ["Tell us your project goal —", "we will design the right combination."],
-    body: "Vertical farms, food factories, cold logistics, overseas pilots, premium strawberry business — at any stage, our business development team reviews and replies directly.",
+    titleLines: ["Project & Solution Inquiries"],
+    body: "Contact us regarding the deployment, design, equipment supply, installation, commissioning, and business collaboration of AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaEngineering. From vertical farms, cooling and dehumidification, power and control, and data management to cultivation racks, nutrient systems, piping, and food-industry infrastructure engineering, we propose solutions tailored to each project.",
     modalTitle: "Business inquiries",
     modalBody: "Leave your details and our team will reach out first — or contact us directly.",
     form: {
@@ -1060,15 +1189,16 @@ export const enContent: HomeContent = {
       contact: "Phone or email",
       company: "Company · organization",
       region: "Region · country",
-      submit: "Send inquiry",
+      submit: "Project & Quotation Inquiry",
       sent: "Received! Our team will reach out soon 😊",
       orLabel: "Or reach us directly"
     },
     categories: [
-      { label: "Project inquiries", desc: "Building or upgrading vertical farms, food factories, and packing rooms" },
-      { label: "Partnership inquiries", desc: "Business development partners in Korea, technology collaboration, joint business" },
-      { label: "Overseas pilot inquiries", desc: "Pilots, deployment, and local business development in ASEAN and beyond" },
-      { label: "Refrigeration inquiries", desc: "Dehumidification and energy operations for cold storage and cold-chain facilities" }
+      { label: "AlphaFarm", desc: "Vertical farm development, cultivation systems, racks, and operating models" },
+      { label: "AlphaCooling", desc: "Cooling and dehumidification for cultivation facilities, food storage, and workspaces" },
+      { label: "AlphaEnergy", desc: "Power monitoring, environmental control, data management, and energy optimization" },
+      { label: "AlphaEngineering", desc: "Nutrient dosing, environmental controllers, piping, cultivation racks, and climate-system engineering" },
+      { label: "Partnerships & Overseas Projects", desc: "Local pilots, exports, partnerships, and joint projects" }
     ],
     contacts: [
       {
@@ -1112,7 +1242,7 @@ export const enContent: HomeContent = {
   },
   seo: {
     orgDescription:
-      "CESeL Primus is an agri-food and cold-chain infrastructure technology company. Starting from premium strawberry vertical farming, it expands into cooling & dehumidification, power · control · data management, cold chain, and business development support — with the AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaSupport lineups.",
+      "CESeL Primus is an agri-food and cold-chain infrastructure technology company. Starting from premium strawberry vertical farming, it expands into cooling & dehumidification, power · control · data management, cold chain, and smart-system engineering — with the AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaEngineering lineups.",
     webPageName: "CESeL Primus | From Vertical Farms to Cold Chain — Food Infrastructure as One Platform",
     lineupListName: "CESeL Primus Alpha Solution Portfolio",
     breadcrumbHome: "Home",
@@ -1130,6 +1260,9 @@ export const enContent: HomeContent = {
       "Overseas expansion",
       "ASEAN commercialization",
       "Agri-food consulting",
+      "Smart food infrastructure engineering",
+      "Cultivation rack design and supply",
+      "Nutrient dosing systems",
       "Year-round strawberry business solution",
       "AlphaCore modular vertical farm",
       "SOFC solid oxide fuel cell",

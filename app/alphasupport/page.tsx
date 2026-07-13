@@ -45,9 +45,9 @@ export default function AlphaSupportPage() {
       title="알파서포트, 현지 실증에서 사업화 제안까지."
       intro="알파서포트는 한국 기업의 제품과 기술을 아세안 현장에서 검증하고, 실증·구축·운영·사업화 제안까지 연결하는 실행형 해외진출 지원 서비스입니다."
       homeAnchor={{
-        href: "/#alphasupport",
-        text: "딸기수직농장 해외진출 알파서포트",
-        suffix: " 는 쎄슬프라이머스 홈페이지의 솔루션 라인업에서 함께 소개하고 있습니다."
+        href: "/#contact",
+        text: "딸기수직농장 해외진출 지원",
+        suffix: " 은 쎄슬프라이머스 홈페이지의 사업협력 · 해외 프로젝트 문의에서 함께 안내하고 있습니다."
       }}
       blocks={[
         {
@@ -69,8 +69,8 @@ export default function AlphaSupportPage() {
       ]}
       ctaTitle="아세안 진출, 검증된 현장 위에서 시작하세요."
       ctaBody="진출 대상 국가와 제품·기술을 알려주시면, 해외 사업개발 담당자가 직접 검토해 회신드립니다."
-      backHref="/#alphasupport"
-      backLabel="홈에서 알파서포트 해외진출 지원 보기"
+      backHref="/#contact"
+      backLabel="홈에서 사업협력 · 해외 프로젝트 문의 보기"
       jsonLd={jsonLd}
       relatedInsights={[
         { title: "딸기 수직농장 창업, 무엇부터 준비해야 하나", href: "/insights/strawberry-vertical-farm-startup" },

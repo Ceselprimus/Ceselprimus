@@ -11,7 +11,6 @@ import {
   Factory,
   Fan,
   Globe2,
-  Handshake,
   Leaf,
   Mail,
   PackageCheck,
@@ -21,6 +20,7 @@ import {
   Sprout,
   ThermometerSnowflake,
   TrendingUp,
+  Wrench,
   Zap
 } from "lucide-react";
 import SiteHeader from "./components/SiteHeader";
@@ -38,7 +38,7 @@ import { companyLegal, type Accent, type HomeContent } from "./home-content";
 const baseUrl = "https://www.ceslprimus.com";
 
 const problemIcons = [Leaf, Droplets, Zap, Building2];
-const contactIcons = [Factory, Handshake, Globe2, Snowflake];
+const contactIcons = [Sprout, Snowflake, Zap, Wrench, Globe2];
 const energyIcons = [PlugZap, Cpu, Database, Fan];
 const categoryIcons: Record<Accent, typeof Sprout> = {
   forest: Sprout,
@@ -163,12 +163,12 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <AlphaFarmSection content={content} />
       <AlphaCoolingSection content={content} />
       <AlphaEnergySection content={content} />
-      <AlphaSupportSection content={content} />
       <CasesSection content={content} />
       <AudienceSection content={content} />
       <IpSection content={content} />
       <NewsSection content={content} />
       <FaqSection content={content} />
+      <AlphaEngineeringSection content={content} />
       <ContactSection content={content} />
       <Footer content={content} />
       <ChatWidget chat={content.chat} faq={content.faq} contact={content.contact} />
@@ -333,8 +333,7 @@ function LineupSection({ content }: { content: HomeContent }) {
   const { lineup } = content;
   const detailHrefMap: Record<string, string> = {
     "#alphafarm": "/alphafarm",
-    "#alphacooling": "/alphacooling",
-    "#alphasupport": "/alphasupport"
+    "#alphacooling": "/alphacooling"
   };
   const insightCats = new Set(articles.map((a) => a.category));
   const insightsLabel = content.locale === "en" ? "Related insights" : "관련 인사이트";
@@ -381,6 +380,9 @@ function LineupSection({ content }: { content: HomeContent }) {
                       {category.name}
                     </h3>
                     <p className="mt-1 text-[1.02rem] font-semibold leading-snug text-ink/70">{category.tagline}</p>
+                    {category.body ? (
+                      <p className="mt-3 text-[0.98rem] leading-relaxed text-ink/62">{category.body}</p>
+                    ) : null}
                     <ul className="mt-4 space-y-2.5">
                       {category.subItems.map((item) => (
                         <li key={item.name} className="flex gap-2.5">
@@ -617,41 +619,108 @@ function AlphaEnergySection({ content }: { content: HomeContent }) {
   );
 }
 
-function AlphaSupportSection({ content }: { content: HomeContent }) {
-  const { support } = content;
+function AlphaEngineeringSection({ content }: { content: HomeContent }) {
+  const { engineering } = content;
   return (
-    <section id="alphasupport" className="py-4 md:py-8">
+    <section id="alphaengineering" className="py-16 md:py-24">
       <Container>
         <Reveal>
-          <div className="overflow-hidden rounded-[1.75rem] bg-forest text-white shadow-soft">
-            <div className="grid md:grid-cols-[1.05fr_0.95fr]">
-              <div className="p-8 md:p-14">
-                <Eyebrow dark>{support.eyebrow}</Eyebrow>
-                <SectionTitle dark>
-                  <Lines lines={support.titleLines} />
-                </SectionTitle>
-                <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-white/76 md:text-[1.12rem]">
-                  {support.body}
-                </p>
-                <div className="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2">
-                  {support.items.map((item) => (
-                    <p key={item} className="border-t border-white/22 pt-4 text-[1.06rem] font-medium text-white/88">
-                      {item}
+          <div className="max-w-3xl">
+            <Eyebrow>{engineering.eyebrow}</Eyebrow>
+            <SectionTitle>
+              <Lines lines={engineering.titleLines} />
+            </SectionTitle>
+            <p className="mt-5 text-[1.1rem] font-bold text-amber md:text-[1.2rem]">{engineering.lead}</p>
+          </div>
+        </Reveal>
+        <Reveal delay={80}>
+          <div className="mt-7 max-w-4xl space-y-4">
+            {engineering.paras.map((para) => (
+              <p key={para} className="text-[1.05rem] leading-relaxed text-ink/70 md:text-[1.1rem]">
+                {para}
+              </p>
+            ))}
+          </div>
+        </Reveal>
+        <Reveal delay={120}>
+          <figure className="mt-10 overflow-hidden rounded-2xl ring-1 ring-ink/8 md:mt-12">
+            <Image
+              src={engineering.image}
+              alt={engineering.imageAlt}
+              width={1448}
+              height={1086}
+              className="h-auto w-full"
+              sizes="(min-width: 1240px) 1140px, 92vw"
+            />
+          </figure>
+        </Reveal>
+        <Reveal delay={100}>
+          <div className="mt-10">
+            <p className="text-[1.05rem] font-bold text-ink">{engineering.applicationsLabel}</p>
+            <div className="mt-4 flex flex-wrap gap-2.5">
+              {engineering.applications.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-white px-3.5 py-1.5 text-[0.92rem] font-semibold text-ink ring-1 ring-ink/10"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+        <Reveal delay={100}>
+          <p className="mt-12 text-[1.05rem] font-bold text-ink">{engineering.areasLabel}</p>
+        </Reveal>
+        <div className="mt-5 overflow-hidden rounded-2xl ring-1 ring-ink/8">
+          {engineering.areas.map((area, index) => (
+            <Reveal key={area.title}>
+              <div
+                className={`grid gap-3 bg-white p-6 md:grid-cols-[300px_1fr] md:gap-8 md:p-7 ${
+                  index > 0 ? "border-t border-ink/8" : ""
+                }`}
+              >
+                <div className="flex items-baseline gap-3.5">
+                  <span className="shrink-0 text-[0.95rem] font-bold text-amber">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-lg font-bold leading-snug tracking-tight text-ink">{area.title}</p>
+                </div>
+                <div className="space-y-2.5">
+                  {area.paras.map((para) => (
+                    <p key={para} className="text-[1rem] leading-relaxed text-ink/66 md:text-[1.05rem]">
+                      {para}
                     </p>
                   ))}
                 </div>
               </div>
-              <div className="relative min-h-[320px] md:min-h-[480px]">
-                <Image
-                  src="/media/concepts/alphasupport-concept.webp"
-                  alt={support.imageAlt}
-                  fill
-                  sizes="(min-width: 768px) 45vw, 92vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-forest/40 to-transparent md:from-forest/60" />
-              </div>
-            </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={100}>
+          <div className="mt-8 rounded-2xl bg-white p-6 ring-1 ring-amber/30 md:p-7">
+            <p className="inline-flex w-fit items-center gap-2 rounded-full bg-amber/10 px-4 py-1.5 text-[0.92rem] font-bold text-amber">
+              {engineering.deliveryTitle}
+            </p>
+            {engineering.deliveryParas.map((para) => (
+              <p key={para} className="mt-3.5 text-[1.02rem] leading-relaxed text-ink/70">
+                {para}
+              </p>
+            ))}
+          </div>
+        </Reveal>
+        <Reveal delay={120}>
+          <div className="mt-10 rounded-[1.75rem] bg-ink p-8 text-white shadow-soft md:mt-12 md:p-12">
+            <h3 className="text-xl font-bold tracking-tight md:text-[1.6rem]">{engineering.ctaTitle}</h3>
+            <p className="mt-3.5 max-w-3xl text-[1.02rem] leading-relaxed text-white/78 md:text-[1.06rem]">
+              {engineering.ctaBody}
+            </p>
+            <InquiryButton
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-[1.02rem] font-semibold text-ink transition hover:bg-mint"
+              contact={content.contact}
+            >
+              {engineering.ctaButton} <ArrowRight className="h-5 w-5" />
+            </InquiryButton>
           </div>
         </Reveal>
       </Container>

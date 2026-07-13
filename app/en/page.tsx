@@ -5,7 +5,7 @@ import { enContent } from "../home-content";
 export const metadata: Metadata = {
   title: { absolute: "CESeL Primus | From Vertical Farms to Cold Chain — Food Infrastructure as One Platform" },
   description:
-    "CESeL Primus is an agri-food and cold-chain infrastructure technology company. Starting from premium strawberry vertical farming, we connect cooling & dehumidification, energy & operations management, cold chain, and business development support — AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaSupport.",
+    "CESeL Primus is an agri-food and cold-chain infrastructure technology company. Starting from premium strawberry vertical farming, we connect cooling & dehumidification, energy & operations management, cold chain, and smart-system engineering — AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaEngineering.",
   alternates: {
     canonical: "/en",
     languages: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CESeL Primus | Food Infrastructure as One Platform",
     description:
-      "From vertical farms to cold chain — AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaSupport connect production to business development.",
+      "From vertical farms to cold chain — AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaEngineering connect production to smart food infrastructure.",
     url: "https://www.ceslprimus.com/en",
     siteName: "CESeL Primus",
     locale: "en_US",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CESeL Primus | Food Infrastructure as One Platform",
     description:
-      "From vertical farms to cold chain — AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaSupport.",
+      "From vertical farms to cold chain — AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaEngineering.",
     images: ["/media/og-image.jpg"]
   }
 };
