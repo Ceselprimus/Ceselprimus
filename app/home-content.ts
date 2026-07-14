@@ -118,8 +118,6 @@ export interface HomeContent {
     applications: string[];
     areasLabel: string;
     areas: { title: string; paras: string[] }[];
-    deliveryTitle: string;
-    deliveryParas: string[];
     ctaTitle: string;
     ctaBody: string;
     ctaButton: string;
@@ -147,7 +145,6 @@ export interface HomeContent {
     note?: string;
   };
   news: {
-    eyebrow: string;
     titleLines: string[];
     socialLinks: [string, string][];
     modelsLabel: string;
@@ -531,11 +528,6 @@ export const koContent: HomeContent = {
         ]
       }
     ],
-    deliveryTitle: "제공 방식",
-    deliveryParas: [
-      "AlphaEngineering은 현장 조건과 고객 요구에 따라 통합 시스템 엔지니어링 또는 항목별 엔지니어링 서비스로 제공됩니다.",
-      "단순 장비 판매나 설치에 그치지 않고, 현장의 목적과 운영 조건에 맞는 시스템을 설계·구성하고 필요한 장비와 공사를 연결하여 실제 운영 가능한 스마트 식품 인프라로 완성합니다."
-    ],
     ctaTitle: "AlphaEngineering 프로젝트 및 견적 문의",
     ctaBody: "재배랙, 양액 도징 시스템, 환경제어기, 양액·관수 배관, 냉방·제습·환기 설비의 통합 시스템 또는 항목별 엔지니어링에 대해 문의해 주세요. 현장 조건과 적용 목적을 검토하여 적합한 시스템 구성과 추진방안을 제안합니다.",
     ctaButton: "AlphaEngineering 프로젝트 문의",
@@ -592,7 +584,6 @@ export const koContent: HomeContent = {
     ]
   },
   news: {
-    eyebrow: "소식",
     titleLines: ["사업 모델 제안을", "만나보세요."],
     socialLinks: [
       ["네이버 블로그", socialHrefs.blog],
@@ -1040,11 +1031,6 @@ export const enContent: HomeContent = {
         ]
       }
     ],
-    deliveryTitle: "Delivery Options",
-    deliveryParas: [
-      "AlphaEngineering is available as an integrated system engineering service or as item-specific engineering services, depending on site conditions and customer requirements.",
-      "The service goes beyond simple equipment sales or installation. We design and configure the right system for each site, connect the required equipment and works, and complete it as practical smart food infrastructure."
-    ],
     ctaTitle: "AlphaEngineering Project & Quotation Inquiries",
     ctaBody: "Contact us regarding integrated systems or item-specific engineering for cultivation racks, nutrient dosing systems, environmental controllers, nutrient and irrigation piping, and cooling, dehumidification, and ventilation systems. We review your site conditions and application requirements to propose an appropriate system configuration and implementation approach.",
     ctaButton: "AlphaEngineering Project Inquiry",
@@ -1102,7 +1088,6 @@ export const enContent: HomeContent = {
     note: "Registered in the Republic of Korea. Titles are translated from the official Korean registrations."
   },
   news: {
-    eyebrow: "News",
     titleLines: ["Business model", "proposals to explore."],
     socialLinks: [
       ["Naver Blog", socialHrefs.blog],

@@ -698,18 +698,6 @@ function AlphaEngineeringSection({ content }: { content: HomeContent }) {
             </Reveal>
           ))}
         </div>
-        <Reveal delay={100}>
-          <div className="mt-8 rounded-2xl bg-paper p-6 ring-1 ring-amber/30 md:p-7">
-            <p className="inline-flex w-fit items-center gap-2 rounded-full bg-amber/10 px-4 py-1.5 text-[0.92rem] font-bold text-amber">
-              {engineering.deliveryTitle}
-            </p>
-            {engineering.deliveryParas.map((para) => (
-              <p key={para} className="mt-3.5 text-[1.02rem] leading-relaxed text-ink/70">
-                {para}
-              </p>
-            ))}
-          </div>
-        </Reveal>
         <Reveal delay={120}>
           <div className="mt-10 rounded-[1.75rem] bg-ink p-8 text-white shadow-soft md:mt-12 md:p-12">
             <h3 className="text-xl font-bold tracking-tight md:text-[1.6rem]">{engineering.ctaTitle}</h3>
@@ -822,7 +810,6 @@ function NewsSection({ content }: { content: HomeContent }) {
       <Container>
         <Reveal>
           <div className="max-w-2xl">
-            <Eyebrow>{news.eyebrow}</Eyebrow>
             <SectionTitle>
               <Lines lines={news.titleLines} />
             </SectionTitle>
