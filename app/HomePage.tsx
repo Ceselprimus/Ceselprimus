@@ -163,12 +163,12 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <AlphaFarmSection content={content} />
       <AlphaCoolingSection content={content} />
       <AlphaEnergySection content={content} />
-      <CasesSection content={content} />
       <AudienceSection content={content} />
-      <IpSection content={content} />
       <NewsSection content={content} />
-      <FaqSection content={content} />
+      <IpSection content={content} />
+      <CasesSection content={content} />
       <AlphaEngineeringSection content={content} />
+      <FaqSection content={content} />
       <ContactSection content={content} />
       <Footer content={content} />
       <ChatWidget chat={content.chat} faq={content.faq} contact={content.contact} />
@@ -622,7 +622,7 @@ function AlphaEnergySection({ content }: { content: HomeContent }) {
 function AlphaEngineeringSection({ content }: { content: HomeContent }) {
   const { engineering } = content;
   return (
-    <section id="alphaengineering" className="py-16 md:py-24">
+    <section id="alphaengineering" className="bg-white py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -661,7 +661,7 @@ function AlphaEngineeringSection({ content }: { content: HomeContent }) {
               {engineering.applications.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-white px-3.5 py-1.5 text-[0.92rem] font-semibold text-ink ring-1 ring-ink/10"
+                  className="rounded-full bg-paper px-3.5 py-1.5 text-[0.92rem] font-semibold text-ink ring-1 ring-ink/10"
                 >
                   {tag}
                 </span>
@@ -676,7 +676,7 @@ function AlphaEngineeringSection({ content }: { content: HomeContent }) {
           {engineering.areas.map((area, index) => (
             <Reveal key={area.title}>
               <div
-                className={`grid gap-3 bg-white p-6 md:grid-cols-[300px_1fr] md:gap-8 md:p-7 ${
+                className={`grid gap-3 bg-paper p-6 md:grid-cols-[300px_1fr] md:gap-8 md:p-7 ${
                   index > 0 ? "border-t border-ink/8" : ""
                 }`}
               >
@@ -698,7 +698,7 @@ function AlphaEngineeringSection({ content }: { content: HomeContent }) {
           ))}
         </div>
         <Reveal delay={100}>
-          <div className="mt-8 rounded-2xl bg-white p-6 ring-1 ring-amber/30 md:p-7">
+          <div className="mt-8 rounded-2xl bg-paper p-6 ring-1 ring-amber/30 md:p-7">
             <p className="inline-flex w-fit items-center gap-2 rounded-full bg-amber/10 px-4 py-1.5 text-[0.92rem] font-bold text-amber">
               {engineering.deliveryTitle}
             </p>
@@ -731,7 +731,7 @@ function AlphaEngineeringSection({ content }: { content: HomeContent }) {
 function CasesSection({ content }: { content: HomeContent }) {
   const { cases } = content;
   return (
-    <section id="cases" className="bg-white py-16 md:py-24">
+    <section id="cases" className="py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
@@ -755,7 +755,7 @@ function CasesSection({ content }: { content: HomeContent }) {
 function AudienceSection({ content }: { content: HomeContent }) {
   const { audience } = content;
   return (
-    <section className="py-14 md:py-20">
+    <section className="bg-white py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -914,7 +914,7 @@ function NewsSection({ content }: { content: HomeContent }) {
 function FaqSection({ content }: { content: HomeContent }) {
   const { faq } = content;
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="py-16 md:py-24">
       <Container className="max-w-[820px]">
         <Reveal>
           <div className="text-center">
@@ -954,7 +954,7 @@ function FaqSection({ content }: { content: HomeContent }) {
 function ContactSection({ content }: { content: HomeContent }) {
   const { contact } = content;
   return (
-    <section id="contact" className="py-16 md:py-24">
+    <section id="contact" className="bg-white py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -967,7 +967,7 @@ function ContactSection({ content }: { content: HomeContent }) {
         </Reveal>
         <div className="mt-12 grid gap-6 md:mt-14 lg:grid-cols-[1fr_0.92fr]">
           <Reveal delay={100}>
-            <div className="h-full rounded-[1.5rem] bg-white p-2 ring-1 ring-ink/8">
+            <div className="h-full rounded-[1.5rem] bg-paper p-2 ring-1 ring-ink/8">
               <div className="divide-y divide-ink/8">
                 {contact.categories.map((category, index) => {
                   const Icon = contactIcons[index] ?? Factory;
@@ -990,7 +990,7 @@ function ContactSection({ content }: { content: HomeContent }) {
             {contact.contacts.map((person, index) => (
               <Reveal key={person.email} delay={160 + index * 90}>
                 <article
-                  className={`flex h-full flex-col rounded-[1.5rem] bg-white p-6 ring-1 md:p-7 ${
+                  className={`flex h-full flex-col rounded-[1.5rem] bg-paper p-6 ring-1 md:p-7 ${
                     person.primary ? "ring-forest/35" : "ring-ink/8"
                   }`}
                 >
