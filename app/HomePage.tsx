@@ -170,6 +170,7 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <AlphaEngineeringSection content={content} />
       <FaqSection content={content} />
       <ContactSection content={content} />
+      <InsightsSection content={content} />
       <Footer content={content} />
       <ChatWidget chat={content.chat} faq={content.faq} contact={content.contact} />
       <FloatingWhatsApp whatsapp={content.whatsapp} />
@@ -816,14 +817,6 @@ function NewsSection({ content }: { content: HomeContent }) {
   const { news } = content;
   const isEn = content.locale === "en";
   const insightsBase = isEn ? "/en/insights" : "/insights";
-  const modelSlugs = new Set(news.models.map((m) => m.slug));
-  const insightPool = (isEn ? articles.filter((a) => a.en) : articles).filter((a) => isLive(a));
-  const latestInsights = [...insightPool]
-    .filter((a) => !modelSlugs.has(a.slug))
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 9);
-  const latestLabel = isEn ? "Latest insights" : "최신 인사이트";
-  const viewAllLabel = isEn ? "View all" : "전체 보기";
   return (
     <section id="news" className="bg-white py-16 md:py-24">
       <Container>
@@ -836,10 +829,7 @@ function NewsSection({ content }: { content: HomeContent }) {
           </div>
         </Reveal>
 
-        <Reveal delay={80}>
-          <p className="mt-12 text-[1.05rem] font-bold text-ink md:mt-14">{news.modelsLabel}</p>
-        </Reveal>
-        <div className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 md:mt-12">
           {news.models.map((m, index) => {
             const a = articles.find((x) => x.slug === m.slug);
             if (!a) return null;
@@ -870,21 +860,43 @@ function NewsSection({ content }: { content: HomeContent }) {
             );
           })}
         </div>
+      </Container>
+    </section>
+  );
+}
 
-        <Reveal delay={80}>
-          <div className="mt-12 flex items-end justify-between md:mt-14">
-            <p className="text-[1.05rem] font-bold text-ink">{latestLabel}</p>
+function InsightsSection({ content }: { content: HomeContent }) {
+  const { news, insights } = content;
+  const isEn = content.locale === "en";
+  const insightsBase = isEn ? "/en/insights" : "/insights";
+  const modelSlugs = new Set(news.models.map((m) => m.slug));
+  const insightPool = (isEn ? articles.filter((a) => a.en) : articles).filter((a) => isLive(a));
+  const latestInsights = [...insightPool]
+    .filter((a) => !modelSlugs.has(a.slug))
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 9);
+  return (
+    <section id="insights" className="py-16 md:py-24">
+      <Container>
+        <Reveal>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <Eyebrow>{insights.eyebrow}</Eyebrow>
+              <SectionTitle>
+                <Lines lines={insights.titleLines} />
+              </SectionTitle>
+            </div>
             <a href={insightsBase} className="inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-forest hover:underline">
-              {viewAllLabel} <ArrowUpRight className="h-4 w-4" />
+              {insights.viewAllLabel} <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
         </Reveal>
-        <div className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 md:mt-12">
           {latestInsights.map((a, index) => (
             <Reveal key={a.slug} delay={(index % 3) * 90}>
               <a
                 href={`${insightsBase}/${a.slug}`}
-                className="group block overflow-hidden rounded-2xl bg-paper ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
+                className="group block overflow-hidden rounded-2xl bg-white ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-paper">
                   <Image

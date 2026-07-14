@@ -153,6 +153,11 @@ export interface HomeContent {
     modelsLabel: string;
     models: { label: string; slug: string }[];
   };
+  insights: {
+    eyebrow: string;
+    titleLines: string[];
+    viewAllLabel: string;
+  };
   faq: {
     label: string;
     title: string;
@@ -588,7 +593,7 @@ export const koContent: HomeContent = {
   },
   news: {
     eyebrow: "소식",
-    titleLines: ["사업 모델 제안과 최신 인사이트를", "한곳에서 만나보세요."],
+    titleLines: ["사업 모델 제안을", "만나보세요."],
     socialLinks: [
       ["네이버 블로그", socialHrefs.blog],
       ["페이스북", socialHrefs.facebook],
@@ -604,6 +609,11 @@ export const koContent: HomeContent = {
       { label: "팜투리테일 모델", slug: "alphacafe-farm-to-retail" },
       { label: "알파팜 코어-20", slug: "alphafarm-core20-sofc-datacenter" }
     ]
+  },
+  insights: {
+    eyebrow: "인사이트",
+    titleLines: ["최신 인사이트"],
+    viewAllLabel: "전체 보기"
   },
   faq: {
     label: "자주 묻는 질문",
@@ -1093,7 +1103,7 @@ export const enContent: HomeContent = {
   },
   news: {
     eyebrow: "News",
-    titleLines: ["Business models and", "the latest insights."],
+    titleLines: ["Business model", "proposals to explore."],
     socialLinks: [
       ["Naver Blog", socialHrefs.blog],
       ["Facebook", socialHrefs.facebook],
@@ -1109,6 +1119,11 @@ export const enContent: HomeContent = {
       { label: "Farm-to-Retail Model", slug: "alphacafe-farm-to-retail" },
       { label: "AlphaFarm Core-20", slug: "alphafarm-core20-sofc-datacenter" }
     ]
+  },
+  insights: {
+    eyebrow: "Insights",
+    titleLines: ["Latest insights"],
+    viewAllLabel: "View all"
   },
   faq: {
     label: "FAQ",
