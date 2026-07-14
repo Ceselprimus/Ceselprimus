@@ -84,7 +84,7 @@ export default function CasesGallery({ cases }: { cases: HomeContent["cases"] })
                     ? setVideo({ youtubeId: item.youtubeId as string, title: `${item.title} — ${item.site}` })
                     : setOpenIndex(imageItems.findIndex((x) => x.image === item.image))
                 }
-                className="group block w-full overflow-hidden rounded-2xl bg-white text-left ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
+                className="group block w-full overflow-hidden rounded-2xl bg-paper text-left ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-ink/5">
                   <Image

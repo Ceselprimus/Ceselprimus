@@ -293,7 +293,7 @@ export const koContent: HomeContent = {
   hero: {
     eyebrow: "프리미엄 딸기수직농장 · 콜드체인 인프라 기술기업",
     titleLines: ["딸기수직농장에서 콜드체인까지,", "식품 인프라를 플랫폼으로."],
-    sub: "딸기수직농장을 중심으로 작물재배, 냉방·제습, 전력·제어·데이터, 스마트 시스템 엔지니어링을 연결해 식품 생산·저장·작업공간 전반의 운영 효율을 높이는 통합 스마트 식품 인프라 솔루션을 제공합니다.",
+    sub: "작물재배, 냉방·제습, 전력·제어·데이터, 스마트 시스템 엔지니어링을 연결해 식품 생산·저장·작업공간 전반의 운영 효율을 높이는 통합 스마트 식품 인프라 솔루션을 제공합니다.",
     ctaPrimary: "솔루션 라인업 보기",
     ctaSecondary: "사업개발 문의",
     imageAlt: "쎄슬프라이머스 딸기수직농장·콜드체인 통합 솔루션 / CESeL Primus strawberry vertical farm and cold chain solution",
@@ -797,7 +797,7 @@ export const enContent: HomeContent = {
   hero: {
     eyebrow: "Premium strawberry vertical farm · cold-chain infrastructure",
     titleLines: ["From strawberry vertical farms to cold chain,", "food infrastructure as one platform."],
-    sub: "Starting with strawberry vertical farms, we integrate crop cultivation, cooling and dehumidification, power, control, data, and smart-system engineering to improve operational efficiency across food production, storage, and workspaces.",
+    sub: "We integrate crop cultivation, cooling and dehumidification, power, control, data, and smart-system engineering to improve operational efficiency across food production, storage, and workspaces.",
     ctaPrimary: "Explore the lineup",
     ctaSecondary: "Business inquiries",
     imageAlt: "CESeL Primus integrated vertical farm and cold-chain solution visual",

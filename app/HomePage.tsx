@@ -159,14 +159,14 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <Hero content={content} />
       <PositioningSection content={content} />
       <ProblemSection content={content} />
-      <LineupSection content={content} />
-      <AlphaFarmSection content={content} />
-      <AlphaCoolingSection content={content} />
-      <AlphaEnergySection content={content} />
       <AudienceSection content={content} />
+      <LineupSection content={content} />
       <NewsSection content={content} />
       <IpSection content={content} />
       <CasesSection content={content} />
+      <AlphaFarmSection content={content} />
+      <AlphaCoolingSection content={content} />
+      <AlphaEnergySection content={content} />
       <AlphaEngineeringSection content={content} />
       <FaqSection content={content} />
       <ContactSection content={content} />
@@ -338,7 +338,7 @@ function LineupSection({ content }: { content: HomeContent }) {
   const insightCats = new Set(articles.map((a) => a.category));
   const insightsLabel = content.locale === "en" ? "Related insights" : "관련 인사이트";
   return (
-    <section id="lineup" className="bg-white py-16 md:py-24">
+    <section id="lineup" className="py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
@@ -357,7 +357,7 @@ function LineupSection({ content }: { content: HomeContent }) {
             const Icon = categoryIcons[category.accent];
             return (
               <Reveal key={category.name} delay={(index % 2) * 100} className="h-full">
-                <article className="flex h-full flex-col overflow-hidden rounded-[1.5rem] bg-paper ring-1 ring-ink/8 transition duration-300 hover:shadow-soft">
+                <article className="flex h-full flex-col overflow-hidden rounded-[1.5rem] bg-white ring-1 ring-ink/8 transition duration-300 hover:shadow-soft">
                   <div className="relative aspect-[16/9] overflow-hidden bg-ink md:aspect-[16/7]">
                     <Image
                       src={category.image}
@@ -731,7 +731,7 @@ function AlphaEngineeringSection({ content }: { content: HomeContent }) {
 function CasesSection({ content }: { content: HomeContent }) {
   const { cases } = content;
   return (
-    <section id="cases" className="py-16 md:py-24">
+    <section id="cases" className="bg-white py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
@@ -783,7 +783,7 @@ function AudienceSection({ content }: { content: HomeContent }) {
 function IpSection({ content }: { content: HomeContent }) {
   const { ip } = content;
   return (
-    <section id="ip" className="bg-white py-16 md:py-24">
+    <section id="ip" className="py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <Reveal className="lg:sticky lg:top-28">
@@ -825,7 +825,7 @@ function NewsSection({ content }: { content: HomeContent }) {
   const latestLabel = isEn ? "Latest insights" : "최신 인사이트";
   const viewAllLabel = isEn ? "View all" : "전체 보기";
   return (
-    <section id="news" className="py-16 md:py-24">
+    <section id="news" className="bg-white py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="max-w-2xl">
@@ -847,7 +847,7 @@ function NewsSection({ content }: { content: HomeContent }) {
               <Reveal key={m.slug} delay={(index % 3) * 90}>
                 <a
                   href={`${insightsBase}/${m.slug}`}
-                  className="group block overflow-hidden rounded-2xl bg-white ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
+                  className="group block overflow-hidden rounded-2xl bg-paper ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-paper">
                     <Image
@@ -884,7 +884,7 @@ function NewsSection({ content }: { content: HomeContent }) {
             <Reveal key={a.slug} delay={(index % 3) * 90}>
               <a
                 href={`${insightsBase}/${a.slug}`}
-                className="group block overflow-hidden rounded-2xl bg-white ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
+                className="group block overflow-hidden rounded-2xl bg-paper ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-paper">
                   <Image
