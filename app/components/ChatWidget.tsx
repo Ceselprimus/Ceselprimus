@@ -33,8 +33,6 @@ export default function ChatWidget({
   contact: HomeContent["contact"];
 }) {
   const [open, setOpen] = useState(false);
-  const [teaserVisible, setTeaserVisible] = useState(false);
-  const [teaserDismissed, setTeaserDismissed] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [asked, setAsked] = useState<number[]>([]);
   const [busy, setBusy] = useState(false);
@@ -44,12 +42,6 @@ export default function ChatWidget({
   const followUpIndex = useRef(0);
   const bodyRef = useRef<HTMLDivElement>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
-
-  useEffect(() => {
-    if (open || teaserDismissed) return;
-    const timer = setTimeout(() => setTeaserVisible(true), 2600);
-    return () => clearTimeout(timer);
-  }, [open, teaserDismissed]);
 
   useEffect(() => {
     const el = bodyRef.current;
@@ -72,8 +64,6 @@ export default function ChatWidget({
 
   const openPanel = () => {
     setOpen(true);
-    setTeaserVisible(false);
-    setTeaserDismissed(true);
     if (messages.length === 0) {
       setBusy(true);
       queue(() => {
@@ -153,28 +143,6 @@ export default function ChatWidget({
     <>
       {!open ? (
         <div className="fixed bottom-5 right-4 z-[90] flex flex-col items-end gap-3 md:bottom-6 md:right-6">
-          {teaserVisible ? (
-            <div className="chat-pop relative max-w-[300px] rounded-2xl rounded-br-md bg-white p-4 pr-5 shadow-soft ring-1 ring-ink/10">
-              <button
-                type="button"
-                aria-label="✕"
-                onClick={() => {
-                  setTeaserVisible(false);
-                  setTeaserDismissed(true);
-                }}
-                className="absolute -left-2.5 -top-2.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-ink text-white shadow-card transition hover:bg-energy"
-              >
-                <X className="h-3.5 w-3.5" />
-              </button>
-              <div className="flex items-start gap-3">
-                <BotAvatar />
-                <div>
-                  <p className="text-[1rem] font-bold leading-snug text-ink">{chat.teaserTitle}</p>
-                  <p className="mt-1 text-[0.92rem] leading-relaxed text-ink/65">{chat.teaserBody}</p>
-                </div>
-              </div>
-            </div>
-          ) : null}
           <button
             type="button"
             onClick={openPanel}

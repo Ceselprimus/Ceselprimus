@@ -173,7 +173,7 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <InsightsSection content={content} />
       <Footer content={content} />
       <ChatWidget chat={content.chat} faq={content.faq} contact={content.contact} />
-      <FloatingWhatsApp whatsapp={content.whatsapp} />
+      {content.locale === "en" ? <FloatingWhatsApp whatsapp={content.whatsapp} /> : null}
     </main>
   );
 }
@@ -656,24 +656,18 @@ function AlphaEngineeringSection({ content }: { content: HomeContent }) {
           </figure>
         </Reveal>
         <Reveal delay={100}>
-          <div className="mt-10">
-            <p className="text-[1.05rem] font-bold text-ink">{engineering.applicationsLabel}</p>
-            <div className="mt-4 flex flex-wrap gap-2.5">
-              {engineering.applications.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-paper px-3.5 py-1.5 text-[0.92rem] font-semibold text-ink ring-1 ring-ink/10"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+          <div className="mt-10 flex flex-wrap gap-2.5">
+            {engineering.applications.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-paper px-3.5 py-1.5 text-[0.92rem] font-semibold text-ink ring-1 ring-ink/10"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </Reveal>
-        <Reveal delay={100}>
-          <p className="mt-12 text-[1.05rem] font-bold text-ink">{engineering.areasLabel}</p>
-        </Reveal>
-        <div className="mt-5 overflow-hidden rounded-2xl ring-1 ring-ink/8">
+        <div className="mt-12 overflow-hidden rounded-2xl ring-1 ring-ink/8">
           {engineering.areas.map((area, index) => (
             <Reveal key={area.title}>
               <div
@@ -698,20 +692,6 @@ function AlphaEngineeringSection({ content }: { content: HomeContent }) {
             </Reveal>
           ))}
         </div>
-        <Reveal delay={120}>
-          <div className="mt-10 rounded-[1.75rem] bg-ink p-8 text-white shadow-soft md:mt-12 md:p-12">
-            <h3 className="text-xl font-bold tracking-tight md:text-[1.6rem]">{engineering.ctaTitle}</h3>
-            <p className="mt-3.5 max-w-3xl text-[1.02rem] leading-relaxed text-white/78 md:text-[1.06rem]">
-              {engineering.ctaBody}
-            </p>
-            <InquiryButton
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-[1.02rem] font-semibold text-ink transition hover:bg-mint"
-              contact={content.contact}
-            >
-              {engineering.ctaButton} <ArrowRight className="h-5 w-5" />
-            </InquiryButton>
-          </div>
-        </Reveal>
       </Container>
     </section>
   );

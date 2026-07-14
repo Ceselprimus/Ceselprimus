@@ -114,13 +114,8 @@ export interface HomeContent {
     titleLines: string[];
     lead: string;
     paras: string[];
-    applicationsLabel: string;
     applications: string[];
-    areasLabel: string;
     areas: { title: string; paras: string[] }[];
-    ctaTitle: string;
-    ctaBody: string;
-    ctaButton: string;
     image: string;
     imageAlt: string;
   };
@@ -162,8 +157,6 @@ export interface HomeContent {
   };
   chat: {
     launcher: string;
-    teaserTitle: string;
-    teaserBody: string;
     title: string;
     statusLabel: string;
     timeLabel: string;
@@ -479,7 +472,6 @@ export const koContent: HomeContent = {
       "현장 조건과 운영 목적을 먼저 검토한 후 재배랙, 양액 도징 시스템, 환경제어기, 양액·관수 배관, 냉방·제습·환기 설비를 적합하게 설계·구성합니다. 이후 고객 요구에 따라 장비 공급, 제작, 설치, 제어 연동, 시운전까지 수행하여 실제 운영 가능한 시스템으로 완성합니다.",
       "각 분야는 하나의 통합 시스템으로 구성할 수 있으며, 필요한 분야만 항목별 엔지니어링 서비스로도 제공할 수 있습니다."
     ],
-    applicationsLabel: "적용 분야",
     applications: [
       "작물재배 시설",
       "수직농장",
@@ -490,7 +482,6 @@ export const koContent: HomeContent = {
       "저온저장시설",
       "식품산업 관련 스마트 인프라"
     ],
-    areasLabel: "AlphaEngineering 제공 분야",
     areas: [
       {
         title: "재배랙 설계·공급·설치",
@@ -528,9 +519,6 @@ export const koContent: HomeContent = {
         ]
       }
     ],
-    ctaTitle: "AlphaEngineering 프로젝트 및 견적 문의",
-    ctaBody: "재배랙, 양액 도징 시스템, 환경제어기, 양액·관수 배관, 냉방·제습·환기 설비의 통합 시스템 또는 항목별 엔지니어링에 대해 문의해 주세요. 현장 조건과 적용 목적을 검토하여 적합한 시스템 구성과 추진방안을 제안합니다.",
-    ctaButton: "AlphaEngineering 프로젝트 문의",
     image: "/media/concepts/alphaengineering-detail.webp",
     imageAlt: "알파엔지니어링 — 설계부터 공급, 설치, 시운전까지. 재배랙·양액 도징·환경제어기·배관·냉방제습환기 설비 스마트 식품 인프라 엔지니어링 인포그래픽"
   },
@@ -644,8 +632,6 @@ export const koContent: HomeContent = {
   },
   chat: {
     launcher: "궁금한 점, 바로 답해드려요",
-    teaserTitle: "무엇이 궁금하신가요? 🍓",
-    teaserBody: "결로 해결부터 연중 딸기 사업까지 — 클릭 한 번이면 바로 답해드려요.",
     title: "쎄슬 도우미",
     statusLabel: "지금 바로 응답",
     timeLabel: "방금",
@@ -982,7 +968,6 @@ export const enContent: HomeContent = {
       "We first review the site conditions and operating requirements, then design and configure cultivation racks, nutrient dosing systems, environmental controllers, nutrient and irrigation piping, and cooling, dehumidification, and ventilation systems. Depending on customer requirements, we also provide equipment supply, fabrication, installation, control integration, and commissioning to complete a practical operating system.",
       "Each area can be delivered as part of an integrated system or as an item-specific engineering service."
     ],
-    applicationsLabel: "Applications",
     applications: [
       "Crop cultivation facilities",
       "Vertical farms",
@@ -993,7 +978,6 @@ export const enContent: HomeContent = {
       "Cold-storage facilities",
       "Smart infrastructure for the food industry"
     ],
-    areasLabel: "AlphaEngineering Service Areas",
     areas: [
       {
         title: "Rack Design, Supply & Installation",
@@ -1031,9 +1015,6 @@ export const enContent: HomeContent = {
         ]
       }
     ],
-    ctaTitle: "AlphaEngineering Project & Quotation Inquiries",
-    ctaBody: "Contact us regarding integrated systems or item-specific engineering for cultivation racks, nutrient dosing systems, environmental controllers, nutrient and irrigation piping, and cooling, dehumidification, and ventilation systems. We review your site conditions and application requirements to propose an appropriate system configuration and implementation approach.",
-    ctaButton: "AlphaEngineering Project Inquiry",
     image: "/media/concepts/alphaengineering-detail-en.webp",
     imageAlt: "AlphaEngineering — from design to supply, installation, and commissioning. Smart food infrastructure engineering infographic covering racks, nutrient dosing, environmental controllers, piping, and climate systems"
   },
@@ -1148,8 +1129,6 @@ export const enContent: HomeContent = {
   },
   chat: {
     launcher: "Questions? Instant answers",
-    teaserTitle: "What brings you here? 🍓",
-    teaserBody: "From condensation control to a year-round strawberry business — one click for instant answers.",
     title: "CESeL Assistant",
     statusLabel: "Replies instantly",
     timeLabel: "Just now",
