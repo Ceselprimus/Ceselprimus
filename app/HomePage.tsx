@@ -28,6 +28,7 @@ import HashScroll from "./components/HashScroll";
 import { articles, isLive } from "./insights/articles";
 import Reveal from "./components/Reveal";
 import CasesGallery from "./components/CasesGallery";
+import DetailToggle from "./components/DetailToggle";
 import FarmModels from "./components/FarmModels";
 import InquiryButton from "./components/InquiryButton";
 import HeroMedia from "./components/HeroMedia";
@@ -332,10 +333,6 @@ function ProblemSection({ content }: { content: HomeContent }) {
 
 function LineupSection({ content }: { content: HomeContent }) {
   const { lineup } = content;
-  const detailHrefMap: Record<string, string> = {
-    "#alphafarm": "/alphafarm",
-    "#alphacooling": "/alphacooling"
-  };
   const insightCats = new Set(articles.map((a) => a.category));
   const insightsLabel = content.locale === "en" ? "Related insights" : "관련 인사이트";
   return (
@@ -396,13 +393,13 @@ function LineupSection({ content }: { content: HomeContent }) {
                       ))}
                     </ul>
                     <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 pt-5">
-                      <a
-                        href={detailHrefMap[category.anchor] ?? category.anchor}
+                      <DetailToggle
+                        targetId={category.anchor.slice(1)}
                         className={`inline-flex items-center gap-2 text-[1rem] font-semibold ${accent.text}`}
                       >
                         {lineup.detailLabel}
                         <ArrowRight className="h-4 w-4" />
-                      </a>
+                      </DetailToggle>
                       {insightCats.has(category.name) ? (
                         <a
                           href={`/insights?cat=${encodeURIComponent(category.name)}`}
@@ -437,77 +434,80 @@ function LineupSection({ content }: { content: HomeContent }) {
 function AlphaFarmSection({ content }: { content: HomeContent }) {
   const { alphafarm } = content;
   return (
-    <section id="alphafarm" className="py-16 md:py-24">
+    <section className="py-16 md:py-24">
       <Container>
-        <Reveal>
-          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
-            <div>
-              <Eyebrow>{alphafarm.eyebrow}</Eyebrow>
-              <SectionTitle>
-                <Lines lines={alphafarm.titleLines} />
-              </SectionTitle>
-            </div>
-            <p className="text-[1.05rem] leading-relaxed text-ink/70 md:text-[1.12rem]">
-              {alphafarm.bodyPre}
-              <strong className="font-bold text-ink">{alphafarm.bodyStrong}</strong>
-              {alphafarm.bodyPost}
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={100}>
-          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-6 rounded-2xl bg-white p-6 ring-1 ring-ink/8 sm:grid-cols-3 lg:grid-cols-5 md:mt-12 md:p-7">
-            {alphafarm.flow.map((step, index) => (
-              <div key={step} className="border-t-2 border-forest/25 pt-3">
-                <p className="text-[0.88rem] font-bold text-forest">{String(index + 1).padStart(2, "0")}</p>
-                <p className="mt-1 text-[1.02rem] font-semibold leading-snug text-ink">{step}</p>
+        <details id="alphafarm">
+          <summary className="sr-only">{alphafarm.eyebrow}</summary>
+          <Reveal>
+            <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+              <div>
+                <Eyebrow>{alphafarm.eyebrow}</Eyebrow>
+                <SectionTitle>
+                  <Lines lines={alphafarm.titleLines} />
+                </SectionTitle>
               </div>
-            ))}
-          </div>
-        </Reveal>
-        <Reveal delay={160}>
-          <FarmModels models={alphafarm.models} />
-        </Reveal>
-        <Reveal delay={200}>
-          <div className="mt-10 grid gap-8 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:mt-12 md:p-9 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <figure className="overflow-hidden rounded-2xl ring-1 ring-ink/8">
-              <Image
-                src={alphafarm.core.image}
-                alt={alphafarm.core.imageAlt}
-                width={1672}
-                height={941}
-                className="h-auto w-full"
-                sizes="(min-width: 1024px) 620px, 92vw"
-              />
-            </figure>
-            <div>
-              <Eyebrow>{alphafarm.core.eyebrow}</Eyebrow>
-              <p className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">{alphafarm.core.name}</p>
-              <p className="mt-2 text-[1.05rem] font-semibold text-forest md:text-[1.12rem]">{alphafarm.core.lead}</p>
-              <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/72 md:text-[1.08rem]">{alphafarm.core.body}</p>
-              <div className="mt-6 flex flex-wrap gap-2.5">
-                {alphafarm.core.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-paper px-3.5 py-1.5 text-[0.9rem] font-semibold text-ink ring-1 ring-ink/10"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <p className="text-[1.05rem] leading-relaxed text-ink/70 md:text-[1.12rem]">
+                {alphafarm.bodyPre}
+                <strong className="font-bold text-ink">{alphafarm.bodyStrong}</strong>
+                {alphafarm.bodyPost}
+              </p>
             </div>
-          </div>
-        </Reveal>
-        <Reveal delay={240}>
-          <div className="mt-6 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:p-7">
-            <ul className="space-y-3">
-              {alphafarm.core.features.map((f) => (
-                <li key={f.title} className="text-[0.98rem] leading-relaxed text-ink/72 md:text-[1.02rem]">
-                  <span className="font-bold text-ink">{f.title}</span> — {f.desc}
-                </li>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-6 rounded-2xl bg-white p-6 ring-1 ring-ink/8 sm:grid-cols-3 lg:grid-cols-5 md:mt-12 md:p-7">
+              {alphafarm.flow.map((step, index) => (
+                <div key={step} className="border-t-2 border-forest/25 pt-3">
+                  <p className="text-[0.88rem] font-bold text-forest">{String(index + 1).padStart(2, "0")}</p>
+                  <p className="mt-1 text-[1.02rem] font-semibold leading-snug text-ink">{step}</p>
+                </div>
               ))}
-            </ul>
-          </div>
-        </Reveal>
+            </div>
+          </Reveal>
+          <Reveal delay={160}>
+            <FarmModels models={alphafarm.models} />
+          </Reveal>
+          <Reveal delay={200}>
+            <div className="mt-10 grid gap-8 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:mt-12 md:p-9 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+              <figure className="overflow-hidden rounded-2xl ring-1 ring-ink/8">
+                <Image
+                  src={alphafarm.core.image}
+                  alt={alphafarm.core.imageAlt}
+                  width={1672}
+                  height={941}
+                  className="h-auto w-full"
+                  sizes="(min-width: 1024px) 620px, 92vw"
+                />
+              </figure>
+              <div>
+                <Eyebrow>{alphafarm.core.eyebrow}</Eyebrow>
+                <p className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">{alphafarm.core.name}</p>
+                <p className="mt-2 text-[1.05rem] font-semibold text-forest md:text-[1.12rem]">{alphafarm.core.lead}</p>
+                <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/72 md:text-[1.08rem]">{alphafarm.core.body}</p>
+                <div className="mt-6 flex flex-wrap gap-2.5">
+                  {alphafarm.core.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-paper px-3.5 py-1.5 text-[0.9rem] font-semibold text-ink ring-1 ring-ink/10"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={240}>
+            <div className="mt-6 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:p-7">
+              <ul className="space-y-3">
+                {alphafarm.core.features.map((f) => (
+                  <li key={f.title} className="text-[0.98rem] leading-relaxed text-ink/72 md:text-[1.02rem]">
+                    <span className="font-bold text-ink">{f.title}</span> — {f.desc}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </details>
       </Container>
     </section>
   );
@@ -516,61 +516,64 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
 function AlphaCoolingSection({ content }: { content: HomeContent }) {
   const { cooling } = content;
   return (
-    <section id="alphacooling" className="bg-white py-16 md:py-24">
+    <section className="bg-white py-16 md:py-24">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <Reveal delay={140} className="order-last lg:order-first">
-            <figure className="relative overflow-hidden rounded-2xl bg-ink shadow-soft">
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src="/media/concepts/alphacooling-farm-concept-1.webp"
-                  alt={cooling.imageAlt}
-                  fill
-                  sizes="(min-width: 1024px) 45vw, 92vw"
-                  className="object-cover"
-                />
-              </div>
-            </figure>
-          </Reveal>
-          <div>
-            <Reveal>
-              <Eyebrow>{cooling.eyebrow}</Eyebrow>
-              <SectionTitle>
-                <Lines lines={cooling.titleLines} />
-              </SectionTitle>
-              <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/70 md:text-[1.18rem]">{cooling.body}</p>
+        <details id="alphacooling">
+          <summary className="sr-only">{cooling.eyebrow}</summary>
+          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <Reveal delay={140} className="order-last lg:order-first">
+              <figure className="relative overflow-hidden rounded-2xl bg-ink shadow-soft">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src="/media/concepts/alphacooling-farm-concept-1.webp"
+                    alt={cooling.imageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 45vw, 92vw"
+                    className="object-cover"
+                  />
+                </div>
+              </figure>
             </Reveal>
-            <Reveal delay={110}>
-              <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-3">
-                {cooling.flow.map((step, index) => (
-                  <div key={step} className="flex items-center gap-3">
-                    <span className="rounded-full bg-paper px-4 py-2 text-[1rem] font-semibold text-ink ring-1 ring-ink/10">
-                      {step}
-                    </span>
-                    {index < cooling.flow.length - 1 ? (
-                      <ArrowRight aria-hidden className="h-4 w-4 text-forest" />
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-            <Reveal delay={180}>
-              <div className="mt-9 overflow-hidden rounded-2xl ring-1 ring-ink/8">
-                {cooling.models.map(([name, desc], index) => (
-                  <div
-                    key={name}
-                    className={`grid gap-2.5 bg-paper p-6 md:grid-cols-[230px_1fr] md:gap-6 md:p-7 ${
-                      index > 0 ? "border-t border-ink/8" : ""
-                    }`}
-                  >
-                    <p className="text-lg font-bold tracking-tight text-ink">{name}</p>
-                    <p className="text-[1.02rem] leading-relaxed text-ink/66 md:text-[1.06rem]">{desc}</p>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
+            <div>
+              <Reveal>
+                <Eyebrow>{cooling.eyebrow}</Eyebrow>
+                <SectionTitle>
+                  <Lines lines={cooling.titleLines} />
+                </SectionTitle>
+                <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/70 md:text-[1.18rem]">{cooling.body}</p>
+              </Reveal>
+              <Reveal delay={110}>
+                <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-3">
+                  {cooling.flow.map((step, index) => (
+                    <div key={step} className="flex items-center gap-3">
+                      <span className="rounded-full bg-paper px-4 py-2 text-[1rem] font-semibold text-ink ring-1 ring-ink/10">
+                        {step}
+                      </span>
+                      {index < cooling.flow.length - 1 ? (
+                        <ArrowRight aria-hidden className="h-4 w-4 text-forest" />
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+              <Reveal delay={180}>
+                <div className="mt-9 overflow-hidden rounded-2xl ring-1 ring-ink/8">
+                  {cooling.models.map(([name, desc], index) => (
+                    <div
+                      key={name}
+                      className={`grid gap-2.5 bg-paper p-6 md:grid-cols-[230px_1fr] md:gap-6 md:p-7 ${
+                        index > 0 ? "border-t border-ink/8" : ""
+                      }`}
+                    >
+                      <p className="text-lg font-bold tracking-tight text-ink">{name}</p>
+                      <p className="text-[1.02rem] leading-relaxed text-ink/66 md:text-[1.06rem]">{desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
           </div>
-        </div>
+        </details>
       </Container>
     </section>
   );
@@ -579,42 +582,45 @@ function AlphaCoolingSection({ content }: { content: HomeContent }) {
 function AlphaEnergySection({ content }: { content: HomeContent }) {
   const { energy } = content;
   return (
-    <section id="alphaenergy" className="py-16 md:py-24">
+    <section className="py-16 md:py-24">
       <Container>
-        <Reveal>
-          <div className="max-w-3xl">
-            <Eyebrow>{energy.eyebrow}</Eyebrow>
-            <SectionTitle>
-              <Lines lines={energy.titleLines} />
-            </SectionTitle>
-            <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/70 md:text-[1.18rem]">{energy.body}</p>
+        <details id="alphaenergy">
+          <summary className="sr-only">{energy.eyebrow}</summary>
+          <Reveal>
+            <div className="max-w-3xl">
+              <Eyebrow>{energy.eyebrow}</Eyebrow>
+              <SectionTitle>
+                <Lines lines={energy.titleLines} />
+              </SectionTitle>
+              <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/70 md:text-[1.18rem]">{energy.body}</p>
+            </div>
+          </Reveal>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
+            {energy.products.map((product, index) => {
+              const Icon = energyIcons[index] ?? PlugZap;
+              return (
+                <Reveal key={product.name} delay={index * 90}>
+                  <article className="h-full rounded-2xl bg-white p-6 ring-1 ring-ink/8 transition-colors duration-300 hover:ring-energy/35 md:p-7">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-energy/10">
+                      <Icon className="h-6 w-6 text-energy" />
+                    </span>
+                    <h3 className="mt-5 text-[1.18rem] font-bold leading-snug tracking-tight text-ink">{product.name}</h3>
+                    <p className="mt-2.5 text-[1rem] leading-relaxed text-ink/64">{product.desc}</p>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
-        </Reveal>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
-          {energy.products.map((product, index) => {
-            const Icon = energyIcons[index] ?? PlugZap;
-            return (
-              <Reveal key={product.name} delay={index * 90}>
-                <article className="h-full rounded-2xl bg-white p-6 ring-1 ring-ink/8 transition-colors duration-300 hover:ring-energy/35 md:p-7">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-energy/10">
-                    <Icon className="h-6 w-6 text-energy" />
-                  </span>
-                  <h3 className="mt-5 text-[1.18rem] font-bold leading-snug tracking-tight text-ink">{product.name}</h3>
-                  <p className="mt-2.5 text-[1rem] leading-relaxed text-ink/64">{product.desc}</p>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
-        <Reveal delay={120}>
-          <div className="mt-8 flex flex-col gap-3 rounded-2xl bg-white p-6 ring-1 ring-energy/25 md:flex-row md:items-center md:gap-6 md:p-7">
-            <p className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full bg-energy/10 px-4 py-1.5 text-[0.92rem] font-bold text-energy">
-              <TrendingUp className="h-4 w-4" />
-              {energy.futureTitle}
-            </p>
-            <p className="text-[1.02rem] leading-relaxed text-ink/70">{energy.futureBody}</p>
-          </div>
-        </Reveal>
+          <Reveal delay={120}>
+            <div className="mt-8 flex flex-col gap-3 rounded-2xl bg-white p-6 ring-1 ring-energy/25 md:flex-row md:items-center md:gap-6 md:p-7">
+              <p className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full bg-energy/10 px-4 py-1.5 text-[0.92rem] font-bold text-energy">
+                <TrendingUp className="h-4 w-4" />
+                {energy.futureTitle}
+              </p>
+              <p className="text-[1.02rem] leading-relaxed text-ink/70">{energy.futureBody}</p>
+            </div>
+          </Reveal>
+        </details>
       </Container>
     </section>
   );
@@ -623,38 +629,41 @@ function AlphaEnergySection({ content }: { content: HomeContent }) {
 function AlphaEngineeringSection({ content }: { content: HomeContent }) {
   const { engineering } = content;
   return (
-    <section id="alphaengineering" className="bg-white py-16 md:py-24">
+    <section className="bg-white py-16 md:py-24">
       <Container>
-        <Reveal>
-          <div className="max-w-3xl">
-            <Eyebrow>{engineering.eyebrow}</Eyebrow>
-            <SectionTitle>
-              <Lines lines={engineering.titleLines} />
-            </SectionTitle>
-            <p className="mt-5 text-[1.1rem] font-bold text-amber md:text-[1.2rem]">{engineering.lead}</p>
-          </div>
-        </Reveal>
-        <Reveal delay={100}>
-          <div className="mt-10 grid gap-8 md:mt-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-            <figure className="overflow-hidden rounded-2xl ring-1 ring-ink/8">
-              <Image
-                src={engineering.image}
-                alt={engineering.imageAlt}
-                width={1448}
-                height={1086}
-                className="h-auto w-full"
-                sizes="(min-width: 1024px) 480px, 92vw"
-              />
-            </figure>
-            <div className="space-y-4">
-              {engineering.paras.map((para) => (
-                <p key={para} className="text-[1.05rem] leading-relaxed text-ink/70 md:text-[1.1rem]">
-                  {para}
-                </p>
-              ))}
+        <details id="alphaengineering">
+          <summary className="sr-only">{engineering.eyebrow}</summary>
+          <Reveal>
+            <div className="max-w-3xl">
+              <Eyebrow>{engineering.eyebrow}</Eyebrow>
+              <SectionTitle>
+                <Lines lines={engineering.titleLines} />
+              </SectionTitle>
+              <p className="mt-5 text-[1.1rem] font-bold text-amber md:text-[1.2rem]">{engineering.lead}</p>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="mt-10 grid gap-8 md:mt-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+              <figure className="overflow-hidden rounded-2xl ring-1 ring-ink/8">
+                <Image
+                  src={engineering.image}
+                  alt={engineering.imageAlt}
+                  width={1448}
+                  height={1086}
+                  className="h-auto w-full"
+                  sizes="(min-width: 1024px) 480px, 92vw"
+                />
+              </figure>
+              <div className="space-y-4">
+                {engineering.paras.map((para) => (
+                  <p key={para} className="text-[1.05rem] leading-relaxed text-ink/70 md:text-[1.1rem]">
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </details>
       </Container>
     </section>
   );
