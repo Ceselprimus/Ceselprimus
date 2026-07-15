@@ -114,8 +114,6 @@ export interface HomeContent {
     titleLines: string[];
     lead: string;
     paras: string[];
-    applications: string[];
-    areas: { title: string; paras: string[] }[];
     image: string;
     imageAlt: string;
   };
@@ -123,7 +121,6 @@ export interface HomeContent {
     eyebrow: string;
     titleLines: string[];
     body: string;
-    note: string;
     closeLabel: string;
     items: { image: string; title: string; site: string; tag: string; youtubeId?: string }[];
   };
@@ -472,53 +469,6 @@ export const koContent: HomeContent = {
       "현장 조건과 운영 목적을 먼저 검토한 후 재배랙, 양액 도징 시스템, 환경제어기, 양액·관수 배관, 냉방·제습·환기 설비를 적합하게 설계·구성합니다. 이후 고객 요구에 따라 장비 공급, 제작, 설치, 제어 연동, 시운전까지 수행하여 실제 운영 가능한 시스템으로 완성합니다.",
       "각 분야는 하나의 통합 시스템으로 구성할 수 있으며, 필요한 분야만 항목별 엔지니어링 서비스로도 제공할 수 있습니다."
     ],
-    applications: [
-      "작물재배 시설",
-      "수직농장",
-      "육묘실",
-      "식품저장고",
-      "식품작업공간",
-      "식품 포장실",
-      "저온저장시설",
-      "식품산업 관련 스마트 인프라"
-    ],
-    areas: [
-      {
-        title: "재배랙 설계·공급·설치",
-        paras: [
-          "고밀도 수직다단식 딸기재배랙, 수직다단식 개화묘 재배랙, 딸기육묘 재배랙 등 작물재배 목적에 맞는 재배랙을 설계·공급·설치합니다.",
-          "재배 방식, 작물 특성, 작업 동선, 조명 배치, 관수·배액 구조, 유지관리 조건을 함께 검토하여 현장에 적합한 재배 구조로 구성합니다."
-        ]
-      },
-      {
-        title: "양액 도징 시스템 설계·공급",
-        paras: [
-          "작물 종류, 재배 규모, 관수 존, 공급량, 배액 방식에 따라 EC/pH 기반 양액 도징 시스템을 설계·구성합니다.",
-          "혼합탱크, 도징펌프, EC/pH·수온·수위 센서, 관수제어, 자동 도징 시스템을 현장 조건에 맞게 구성하고, 장비 공급과 시운전까지 지원합니다."
-        ]
-      },
-      {
-        title: "환경제어기 및 센서 연동",
-        paras: [
-          "온도, 습도, CO₂, 양액, 전력, 장비 운전 데이터를 통합 관리할 수 있도록 환경제어기와 센서 게이트웨이를 설계·구성합니다.",
-          "냉방기, 제습기, 환기팬, 순환팬, 펌프, 밸브, 센서, 제어반과의 연동 구조를 검토하여 실제 운영 가능한 환경제어 시스템으로 연결합니다."
-        ]
-      },
-      {
-        title: "양액·관수 배관 설계·시공",
-        paras: [
-          "재배 방식, 존 구성, 유량, 압력, 배액 조건을 기준으로 양액·관수 배관을 설계하고 시공합니다.",
-          "양액 공급 배관, 순환 배관, 관수 배관, 배액 배관, 밸브, 여과기, 압력계 등 현장 운영에 필요한 배관 시스템을 설계·구성하고, 자재 공급과 현장 시공까지 수행합니다."
-        ]
-      },
-      {
-        title: "냉방·제습·환기 설비 구성·시운전",
-        paras: [
-          "작물재배 공간, 식품저장고, 식품작업공간, 포장실, 저온저장시설의 목적과 온도·습도 조건에 맞춰 냉방·제습·환기 설비를 설계·구성합니다.",
-          "냉방기, 제습기, 환기팬, 순환팬, 센서, 제어반의 용량과 배치, 제어 연동을 검토하고 설치·시운전까지 수행합니다."
-        ]
-      }
-    ],
     image: "/media/concepts/alphaengineering-detail.webp",
     imageAlt: "알파엔지니어링 — 설계부터 공급, 설치, 시운전까지. 재배랙·양액 도징·환경제어기·배관·냉방제습환기 설비 스마트 식품 인프라 엔지니어링 인포그래픽"
   },
@@ -526,7 +476,6 @@ export const koContent: HomeContent = {
     eyebrow: "구축 사례",
     titleLines: ["현장이 증명합니다.", "국내외 6곳+ 구축 현장."],
     body: "수원 도심형 운영 사례부터 이천 · 나주 · 전남 구축 현장, 오픈을 준비 중인 말레이시아 알파팜까지 — 모두 실제 현장에서 촬영한 사진과 영상입니다.",
-    note: "※ 말레이시아 알파팜은 공조시스템 설치 마무리 후 7월 초 정식을 목표로 하는 오픈 준비 현장입니다.",
     closeLabel: "닫기",
     items: [
       { image: caseImages.suw1, title: "도심형 딸기수직농장", site: "수원", tag: "운영 사례" },
@@ -968,53 +917,6 @@ export const enContent: HomeContent = {
       "We first review the site conditions and operating requirements, then design and configure cultivation racks, nutrient dosing systems, environmental controllers, nutrient and irrigation piping, and cooling, dehumidification, and ventilation systems. Depending on customer requirements, we also provide equipment supply, fabrication, installation, control integration, and commissioning to complete a practical operating system.",
       "Each area can be delivered as part of an integrated system or as an item-specific engineering service."
     ],
-    applications: [
-      "Crop cultivation facilities",
-      "Vertical farms",
-      "Nurseries",
-      "Food storage rooms",
-      "Food workspaces",
-      "Food packing rooms",
-      "Cold-storage facilities",
-      "Smart infrastructure for the food industry"
-    ],
-    areas: [
-      {
-        title: "Rack Design, Supply & Installation",
-        paras: [
-          "We design, supply, and install high-density vertical multi-layer strawberry racks, vertical multi-layer flowering-seedling racks, and strawberry nursery racks according to cultivation objectives.",
-          "Rack systems are configured with crop characteristics, working flow, lighting arrangement, irrigation and drainage structures, and maintenance requirements in mind."
-        ]
-      },
-      {
-        title: "Nutrient Dosing System Design & Supply",
-        paras: [
-          "We design and configure EC/pH-based nutrient dosing systems according to crop type, cultivation scale, irrigation zones, supply volume, and drainage method.",
-          "Mixing tanks, dosing pumps, EC/pH, water-temperature and water-level sensors, irrigation control, and automatic dosing systems are configured according to site requirements, with equipment supply and commissioning support."
-        ]
-      },
-      {
-        title: "Environmental Controllers & Sensor Integration",
-        paras: [
-          "We design and configure environmental controllers and sensor gateways for integrated management of temperature, humidity, CO₂, nutrients, power, and equipment-operation data.",
-          "Integration with cooling units, dehumidifiers, ventilation and circulation fans, pumps, valves, sensors, and control panels is reviewed to create a practical environmental-control system."
-        ]
-      },
-      {
-        title: "Nutrient & Irrigation Piping Design & Works",
-        paras: [
-          "We design and install nutrient and irrigation piping based on crop layout, zone structure, flow rate, pressure, and drainage conditions.",
-          "Nutrient supply piping, recirculation piping, irrigation lines, drainage piping, valves, filters, pressure gauges, and related components are designed and configured, followed by material supply and on-site works."
-        ]
-      },
-      {
-        title: "Cooling, Dehumidification & Ventilation Systems",
-        paras: [
-          "We design and configure cooling, dehumidification, and ventilation systems according to the operating purpose and temperature and humidity requirements of crop cultivation areas, food storage rooms, food workspaces, packing rooms, and cold-storage facilities.",
-          "Cooling units, dehumidifiers, ventilation fans, circulation fans, sensors, and control panels are reviewed for capacity, layout, and control integration, followed by installation and commissioning."
-        ]
-      }
-    ],
     image: "/media/concepts/alphaengineering-detail-en.webp",
     imageAlt: "AlphaEngineering — from design to supply, installation, and commissioning. Smart food infrastructure engineering infographic covering racks, nutrient dosing, environmental controllers, piping, and climate systems"
   },
@@ -1022,7 +924,6 @@ export const enContent: HomeContent = {
     eyebrow: "Deployment cases",
     titleLines: ["Proven in the field —", "6+ sites in Korea and Malaysia."],
     body: "From an urban farm in operation in Suwon to deployments in Icheon, Naju, and Jeonnam, and AlphaFarm Malaysia preparing to open — all photos and video were captured on site.",
-    note: "AlphaFarm Malaysia is an opening-preparation site, targeting first planting in early July after HVAC installation.",
     closeLabel: "Close",
     items: [
       { image: caseImages.suw1, title: "Urban strawberry vertical farm", site: "Suwon", tag: "In operation" },

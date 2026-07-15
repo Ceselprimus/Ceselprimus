@@ -468,7 +468,7 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
           <FarmModels models={alphafarm.models} />
         </Reveal>
         <Reveal delay={200}>
-          <div className="mt-10 grid gap-8 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:mt-12 md:p-9 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <div className="mt-10 grid gap-8 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:mt-12 md:p-9 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <figure className="overflow-hidden rounded-2xl ring-1 ring-ink/8">
               <Image
                 src={alphafarm.core.image}
@@ -476,7 +476,7 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
                 width={1672}
                 height={941}
                 className="h-auto w-full"
-                sizes="(min-width: 1024px) 420px, 92vw"
+                sizes="(min-width: 1024px) 620px, 92vw"
               />
             </figure>
             <div>
@@ -634,64 +634,27 @@ function AlphaEngineeringSection({ content }: { content: HomeContent }) {
             <p className="mt-5 text-[1.1rem] font-bold text-amber md:text-[1.2rem]">{engineering.lead}</p>
           </div>
         </Reveal>
-        <Reveal delay={80}>
-          <div className="mt-7 max-w-4xl space-y-4">
-            {engineering.paras.map((para) => (
-              <p key={para} className="text-[1.05rem] leading-relaxed text-ink/70 md:text-[1.1rem]">
-                {para}
-              </p>
-            ))}
-          </div>
-        </Reveal>
-        <Reveal delay={120}>
-          <figure className="mt-10 overflow-hidden rounded-2xl ring-1 ring-ink/8 md:mt-12">
-            <Image
-              src={engineering.image}
-              alt={engineering.imageAlt}
-              width={1448}
-              height={1086}
-              className="h-auto w-full"
-              sizes="(min-width: 1240px) 1140px, 92vw"
-            />
-          </figure>
-        </Reveal>
         <Reveal delay={100}>
-          <div className="mt-10 flex flex-wrap gap-2.5">
-            {engineering.applications.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-paper px-3.5 py-1.5 text-[0.92rem] font-semibold text-ink ring-1 ring-ink/10"
-              >
-                {tag}
-              </span>
-            ))}
+          <div className="mt-10 grid gap-8 md:mt-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+            <figure className="overflow-hidden rounded-2xl ring-1 ring-ink/8">
+              <Image
+                src={engineering.image}
+                alt={engineering.imageAlt}
+                width={1448}
+                height={1086}
+                className="h-auto w-full"
+                sizes="(min-width: 1024px) 480px, 92vw"
+              />
+            </figure>
+            <div className="space-y-4">
+              {engineering.paras.map((para) => (
+                <p key={para} className="text-[1.05rem] leading-relaxed text-ink/70 md:text-[1.1rem]">
+                  {para}
+                </p>
+              ))}
+            </div>
           </div>
         </Reveal>
-        <div className="mt-12 overflow-hidden rounded-2xl ring-1 ring-ink/8">
-          {engineering.areas.map((area, index) => (
-            <Reveal key={area.title}>
-              <div
-                className={`grid gap-3 bg-paper p-6 md:grid-cols-[300px_1fr] md:gap-8 md:p-7 ${
-                  index > 0 ? "border-t border-ink/8" : ""
-                }`}
-              >
-                <div className="flex items-baseline gap-3.5">
-                  <span className="shrink-0 text-[0.95rem] font-bold text-amber">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <p className="text-lg font-bold leading-snug tracking-tight text-ink">{area.title}</p>
-                </div>
-                <div className="space-y-2.5">
-                  {area.paras.map((para) => (
-                    <p key={para} className="text-[1rem] leading-relaxed text-ink/66 md:text-[1.05rem]">
-                      {para}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
       </Container>
     </section>
   );

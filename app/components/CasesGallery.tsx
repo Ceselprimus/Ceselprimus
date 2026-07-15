@@ -125,9 +125,6 @@ export default function CasesGallery({ cases }: { cases: HomeContent["cases"] })
           );
         })}
       </div>
-      <Reveal delay={100}>
-        <p className="mt-8 text-[0.95rem] leading-relaxed text-ink/48">{cases.note}</p>
-      </Reveal>
       {openIndex !== null ? (
         <Lightbox
           items={imageItems}
