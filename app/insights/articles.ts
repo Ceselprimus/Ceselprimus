@@ -48,6 +48,135 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "alphafarm-malaysia-palmoil-biogas",
+    title: "말레이시아 알파팜 팜오일 바이오가스 발전 연계 수출 모델",
+    metaTitle: "말레이시아 딸기수직농장 — 팜오일 바이오가스 연계 알파팜 수출 모델 | 쎄슬프라이머스",
+    description:
+      "말레이시아 팜오일 폐수(POME)를 바이오가스 발전으로 전환해 전력·정제 Bio-CO₂·폐열을 프리미엄 딸기수직농장 알파팜 Core 3와 연계하는 순환 인프라형 수출 모델. 태양광 발전 연계 대비 통합 사업가치를 비교했습니다.",
+    keywords: ["말레이시아 딸기수직농장", "알파팜 수출", "팜오일 바이오가스", "POME", "Bio-CO2", "순환 인프라 알파팜", "태양광 발전 비교", "동남아 스마트팜"],
+    date: "2026-07-15",
+    category: "알파팜",
+    readMin: 5,
+    heroImage: "/media/series/series-12-2.webp",
+    heroImageEn: "/media/series/series-12-2-en.webp",
+    heroContain: true,
+    heroWidth: 1672,
+    heroHeight: 941,
+    heroAlt: "말레이시아 알파팜 팜오일 바이오가스 발전 연계 수출 모델 인포그래픽 — 태양광 발전 대비 Core 3 비교 / Malaysia AlphaFarm palm oil biogas power linkage export model vs solar PV infographic",
+    lead:
+      "말레이시아 알파팜 수출 전략은 단순한 농장 수출이 아닙니다. 쎄슬프라이머스는 세계적인 팜오일 생산국인 말레이시아의 산업 구조에 맞춰, 팜오일 바이오가스 발전과 프리미엄 딸기수직농장을 연계하는 순환 인프라형 수출 모델을 검토하고 있습니다.",
+    sections: [
+      {
+        h: "팜오일 폐수(POME)를 자원으로",
+        paras: [
+          "말레이시아는 세계적인 팜오일 생산국입니다. 팜오일 공장에서 발생하는 POME(팜오일 폐수)는 처리 부담이 크지만, 동시에 바이오가스 발전의 중요한 자원이 될 수 있습니다.",
+          "쎄슬프라이머스는 이 자원을 전기, 열, 정제 Bio-CO₂로 전환하고, 이를 프리미엄 딸기수직농장 알파팜 Core 3와 연계하는 모델을 제안합니다."
+        ],
+        bullets: ["POME(팜오일 폐수) → 바이오가스 발전", "전력 · 폐열 · 정제 Bio-CO₂ 회수", "알파팜 Core 3 재배 자원으로 연계"]
+      },
+      {
+        h: "태양광 발전과 무엇이 다른가",
+        paras: [
+          "태양광 발전은 전력비 절감에는 장점이 있지만, 알파팜 운영에 필요한 CO₂, 열, 폐기물 처리, 메탄저감 가치까지 제공하지는 못합니다.",
+          "반면 팜오일 바이오가스 발전 연계 모델은 전력, 정제 Bio-CO₂, 폐열, POME 처리 부담 완화, 메탄저감, 프리미엄 딸기 생산을 동시에 제공합니다."
+        ],
+        bullets: ["전력 생산", "정제 Bio-CO₂ 공급", "폐열 활용", "POME 처리 부담 완화", "메탄저감", "프리미엄 딸기 생산"]
+      },
+      {
+        h: "Core 3 기준 통합 사업가치 비교",
+        paras: [
+          "아래 지수는 알파팜 Core 3(연 약 30톤 목표)를 기준으로 딸기수직농장 단독 대비 상대 비교한 개념 수치입니다. 농장·전기판매 기준은 두 모델이 동일하지만, 태양광은 에너지 CAPEX가 크고 Bio-CO₂·폐열·POME 처리·메탄저감 가치를 제공하지 못합니다.",
+          "※ 본 자료는 이해를 돕기 위한 개념 자료이며, 실제 사업성은 부지 조건, 전력단가, 바이오가스 품질, CO₂ 정제 조건, 운영 조건 및 경제성 검토 결과에 따라 달라질 수 있습니다."
+        ],
+        bullets: [
+          "농장 · 전기판매 기준 — 두 모델 동일(지수 100)",
+          "에너지 CAPEX — 태양광이 더 큼(지수 250)",
+          "Bio-CO₂ · 폐열 · POME 처리 · 메탄저감 — 바이오가스만 제공(태양광 0)",
+          "종합 EBITDA · 사업가치 지수 — 바이오가스 100 vs 태양광 80"
+        ]
+      },
+      {
+        h: "말레이시아·동남아 순환 인프라형 수출 모델",
+        paras: [
+          "즉, 이는 단순한 스마트팜이 아니라 말레이시아 팜오일 산업과 연결되는 순환 인프라형 알파팜 수출 모델입니다. 쎄슬프라이머스는 AlphaFarm Johor를 기반으로, 말레이시아 및 동남아시아 시장에 적합한 에너지 연계형 딸기수직농장 모델을 단계적으로 추진하겠습니다."
+        ],
+        bullets: ["팜오일 산업 연계 순환 인프라", "AlphaFarm Johor 거점", "에너지 연계형 딸기수직농장", "동남아 단계적 확장"]
+      }
+    ],
+    faq: [
+      { q: "POME가 무엇인가요?", a: "POME(Palm Oil Mill Effluent)는 팜오일 공장에서 발생하는 폐수입니다. 처리 부담이 큰 부산물이지만, 혐기 소화를 통해 바이오가스로 전환하면 전력·열·정제 Bio-CO₂ 자원이 됩니다. 이 모델은 POME 처리 부담을 완화하면서 알파팜 재배 자원으로 연결합니다." },
+      { q: "태양광 대신 바이오가스를 쓰는 이유는?", a: "태양광은 전력 중심의 재생에너지로 전력비 절감에 유리합니다. 다만 알파팜은 전력 외에도 CO₂, 폐열, 폐기물 처리, 메탄저감이 함께 필요합니다. 팜오일 바이오가스 발전은 이 요소들을 하나의 순환 구조로 연결해 통합 사업가치를 높입니다." },
+      { q: "비교 지수는 확정된 수익성인가요?", a: "아니요. 본 자료의 지수는 이해를 돕기 위한 개념 비교입니다. 실제 사업성은 부지 조건, 전력단가, 바이오가스 품질, CO₂ 정제 조건, 운영 조건 및 경제성 검토 결과에 따라 달라집니다." }
+    ],
+    relatedKeywords: [
+      "말레이시아 알파팜 / AlphaFarm Malaysia",
+      "팜오일 바이오가스 / Palm Oil Biogas",
+      "POME 처리 / POME Treatment",
+      "정제 Bio-CO₂ / Conditioned Bio-CO₂",
+      "순환 인프라 / Circular Infrastructure",
+      "딸기수직농장 수출 / Vertical Farm Export"
+    ],
+    ctaTitle: "말레이시아·동남아 진출, 에너지 연계 모델로 검토해 드립니다.",
+    ctaBody: "부지·전력·바이오가스 조건을 알려주시면 팜오일 바이오가스 연계 알파팜 수출 모델을 현지 기준으로 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "Malaysia AlphaFarm Export Model — Palm Oil Biogas Power Linkage",
+      metaTitle: "Malaysia Strawberry Vertical Farm — Palm Oil Biogas-Linked AlphaFarm Export Model | CESeL Primus",
+      description:
+        "A circular-infrastructure export model converting Malaysian palm oil mill effluent (POME) into biogas power — electricity, conditioned Bio-CO₂, and waste heat — linked to the premium AlphaFarm Core 3 strawberry vertical farm, compared against a solar PV-linked model.",
+      lead:
+        "Exporting AlphaFarm to Malaysia is not simply exporting a farm. As one of the world's largest palm oil producers, Malaysia's industrial structure suits a circular-infrastructure model that links palm oil biogas power with a premium strawberry vertical farm.",
+      sections: [
+        {
+          h: "Turning palm oil mill effluent (POME) into a resource",
+          paras: [
+            "Malaysia is one of the world's largest palm oil producers. POME — palm oil mill effluent — is a heavy treatment burden, yet it can also be a valuable resource for biogas power.",
+            "CESeL Primus proposes converting this resource into electricity, heat, and conditioned Bio-CO₂, then linking it to the premium AlphaFarm Core 3 strawberry vertical farm."
+          ],
+          bullets: ["POME (palm oil mill effluent) → biogas power", "Recovers electricity, waste heat, and conditioned Bio-CO₂", "Linked to AlphaFarm Core 3 as a cultivation resource"]
+        },
+        {
+          h: "How it differs from solar PV",
+          paras: [
+            "Solar PV is a strong renewable power option, but it is mainly electricity-focused — it does not provide the CO₂, heat, waste treatment, or methane-reduction value that AlphaFarm operations need.",
+            "A palm oil biogas-linked model, by contrast, delivers electricity, conditioned Bio-CO₂, waste heat, POME treatment support, methane reduction, and premium strawberry production together."
+          ],
+          bullets: ["Power generation", "Conditioned Bio-CO₂ supply", "Waste heat utilization", "POME treatment support", "Methane reduction", "Premium strawberry production"]
+        },
+        {
+          h: "Integrated business value — Core 3 comparison",
+          paras: [
+            "The figures below are conceptual indices comparing each model against a stand-alone strawberry vertical farm, based on AlphaFarm Core 3 (targeting ~30 t/year). Farm and power-sales bases are identical for both models, but solar PV carries higher energy CAPEX and provides none of the Bio-CO₂, waste-heat, POME-treatment, or methane-reduction value.",
+            "This material is a concept slide for discussion only. Actual performance and business results may vary depending on site conditions, energy cost, biogas quality, CO₂ conditioning, technical design, and economic feasibility review."
+          ],
+          bullets: [
+            "Farm and power-sales basis — identical for both (index 100)",
+            "Energy CAPEX — higher for solar PV (index 250)",
+            "Bio-CO₂ · waste heat · POME treatment · methane reduction — biogas only (solar 0)",
+            "Integrated EBITDA / business-value index — biogas 100 vs solar PV 80"
+          ]
+        },
+        {
+          h: "A circular-infrastructure export model for Malaysia & Southeast Asia",
+          paras: [
+            "In short, this is not simply a smart farm but a circular-infrastructure AlphaFarm export model connected to Malaysia's palm oil industry. Building on AlphaFarm Johor, CESeL Primus will advance an energy-linked strawberry vertical-farm model suited to Malaysia and Southeast Asia, step by step."
+          ],
+          bullets: ["Circular infrastructure tied to the palm oil industry", "AlphaFarm Johor as the base", "Energy-linked strawberry vertical farm", "Phased Southeast Asia expansion"]
+        }
+      ],
+      faq: [
+        { q: "What is POME?", a: "POME (Palm Oil Mill Effluent) is wastewater from palm oil mills. It is a heavy-burden by-product, but through anaerobic digestion it converts into biogas — a source of electricity, heat, and conditioned Bio-CO₂. This model eases the POME treatment burden while channeling it into AlphaFarm cultivation resources." },
+        { q: "Why biogas instead of solar PV?", a: "Solar PV is an electricity-focused renewable that helps cut power costs. But AlphaFarm also needs CO₂, waste heat, waste treatment, and methane reduction. Palm oil biogas power connects these into a single circular structure, raising integrated business value." },
+        { q: "Are the comparison indices confirmed returns?", a: "No. The indices here are a conceptual comparison for understanding. Actual business results depend on site conditions, energy cost, biogas quality, CO₂ conditioning, technical design, and economic feasibility review." }
+      ],
+      ctaTitle: "We'll review your Malaysia / Southeast Asia entry as an energy-linked model.",
+      ctaBody: "Tell us your site, power, and biogas conditions, and we'll review a palm oil biogas-linked AlphaFarm export model for your location and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
+  },
+  {
     slug: "alphaenergy-ais-power-saving",
     title: "딸기수직농장이 만든 물로 냉방 전력을 줄이는 법 — 알파에너지-AIS",
     metaTitle: "알파에너지-AIS — 딸기수직농장 회수수로 냉방 전력절감 | 쎄슬프라이머스",

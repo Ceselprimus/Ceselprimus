@@ -532,6 +532,7 @@ export const koContent: HomeContent = {
     ],
     modelsLabel: "사업 모델 제안",
     models: [
+      { label: "말레이시아 팜오일 바이오가스 모델", slug: "alphafarm-malaysia-palmoil-biogas" },
       { label: "지식산업센터 재생 모델", slug: "knowledge-center-chp-strawberry-farm" },
       { label: "발효 공장 연계 모델", slug: "alphafarm-core-brewery-fermentation" },
       { label: "발전소 연계 모델", slug: "alphafarm-core-power-plant" },
@@ -982,6 +983,7 @@ export const enContent: HomeContent = {
     ],
     modelsLabel: "Business Model Proposals",
     models: [
+      { label: "Malaysia Palm-Oil Biogas Model", slug: "alphafarm-malaysia-palmoil-biogas" },
       { label: "Underutilized Space Regeneration Model", slug: "knowledge-center-chp-strawberry-farm" },
       { label: "Fermentation Plant Integration Model", slug: "alphafarm-core-brewery-fermentation" },
       { label: "Power Plant Integration Model", slug: "alphafarm-core-power-plant" },
