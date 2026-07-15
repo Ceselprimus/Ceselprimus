@@ -61,6 +61,7 @@ export interface HomeContent {
     titleLines: string[];
     aside: string;
     detailLabel: string;
+    collapseLabel: string;
     lineupLabel: string;
     categories: LineupCategory[];
     statementPre: string;
@@ -318,6 +319,7 @@ export const koContent: HomeContent = {
     titleLines: ["네 개의 라인업,", "하나의 포트폴리오."],
     aside: "각 라인업은 따로 도입할 수도, 사업 단계와 목적에 맞춰 하나의 프로젝트로 묶을 수도 있습니다.",
     detailLabel: "상세보기",
+    collapseLabel: "접기",
     lineupLabel: "라인업",
     categories: [
       {
@@ -766,6 +768,7 @@ export const enContent: HomeContent = {
     titleLines: ["Four lineups,", "one portfolio."],
     aside: "Adopt each lineup on its own, or combine them into a single project to match your business stage and goals.",
     detailLabel: "Learn more",
+    collapseLabel: "Close",
     lineupLabel: "Lineup",
     categories: [
       {

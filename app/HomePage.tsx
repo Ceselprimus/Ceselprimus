@@ -5,6 +5,7 @@ import {
   ArrowUpRight,
   Building2,
   CheckCircle2,
+  ChevronUp,
   Cpu,
   Database,
   Droplets,
@@ -203,6 +204,20 @@ function Lines({ lines }: { lines: string[] }) {
 
 function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`mx-auto w-[min(1140px,92vw)] ${className}`}>{children}</div>;
+}
+
+function DetailCloseBar({ targetId, label }: { targetId: string; label: string }) {
+  return (
+    <div className="mt-12 flex justify-center">
+      <DetailToggle
+        targetId={targetId}
+        className="inline-flex items-center gap-2 rounded-full bg-ink/6 px-6 py-3 text-[0.98rem] font-semibold text-ink/65 transition hover:bg-ink/10 hover:text-ink"
+      >
+        <ChevronUp className="h-4 w-4" />
+        {label}
+      </DetailToggle>
+    </div>
+  );
 }
 
 function Eyebrow({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
@@ -432,12 +447,12 @@ function LineupSection({ content }: { content: HomeContent }) {
 }
 
 function AlphaFarmSection({ content }: { content: HomeContent }) {
-  const { alphafarm } = content;
+  const { alphafarm, lineup } = content;
   return (
-    <section className="py-16 md:py-24">
-      <Container>
-        <details id="alphafarm">
-          <summary className="sr-only">{alphafarm.eyebrow}</summary>
+    <section>
+      <details id="alphafarm" className="scroll-mt-24">
+        <summary className="sr-only">{alphafarm.eyebrow}</summary>
+        <Container className="py-16 md:py-24">
           <Reveal>
             <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
               <div>
@@ -507,19 +522,20 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
               </ul>
             </div>
           </Reveal>
-        </details>
-      </Container>
+          <DetailCloseBar targetId="alphafarm" label={lineup.collapseLabel} />
+        </Container>
+      </details>
     </section>
   );
 }
 
 function AlphaCoolingSection({ content }: { content: HomeContent }) {
-  const { cooling } = content;
+  const { cooling, lineup } = content;
   return (
-    <section className="bg-white py-16 md:py-24">
-      <Container>
-        <details id="alphacooling">
-          <summary className="sr-only">{cooling.eyebrow}</summary>
+    <section>
+      <details id="alphacooling" className="scroll-mt-24 bg-white">
+        <summary className="sr-only">{cooling.eyebrow}</summary>
+        <Container className="py-16 md:py-24">
           <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <Reveal delay={140} className="order-last lg:order-first">
               <figure className="relative overflow-hidden rounded-2xl bg-ink shadow-soft">
@@ -573,19 +589,20 @@ function AlphaCoolingSection({ content }: { content: HomeContent }) {
               </Reveal>
             </div>
           </div>
-        </details>
-      </Container>
+          <DetailCloseBar targetId="alphacooling" label={lineup.collapseLabel} />
+        </Container>
+      </details>
     </section>
   );
 }
 
 function AlphaEnergySection({ content }: { content: HomeContent }) {
-  const { energy } = content;
+  const { energy, lineup } = content;
   return (
-    <section className="py-16 md:py-24">
-      <Container>
-        <details id="alphaenergy">
-          <summary className="sr-only">{energy.eyebrow}</summary>
+    <section>
+      <details id="alphaenergy" className="scroll-mt-24">
+        <summary className="sr-only">{energy.eyebrow}</summary>
+        <Container className="py-16 md:py-24">
           <Reveal>
             <div className="max-w-3xl">
               <Eyebrow>{energy.eyebrow}</Eyebrow>
@@ -620,19 +637,20 @@ function AlphaEnergySection({ content }: { content: HomeContent }) {
               <p className="text-[1.02rem] leading-relaxed text-ink/70">{energy.futureBody}</p>
             </div>
           </Reveal>
-        </details>
-      </Container>
+          <DetailCloseBar targetId="alphaenergy" label={lineup.collapseLabel} />
+        </Container>
+      </details>
     </section>
   );
 }
 
 function AlphaEngineeringSection({ content }: { content: HomeContent }) {
-  const { engineering } = content;
+  const { engineering, lineup } = content;
   return (
-    <section className="bg-white py-16 md:py-24">
-      <Container>
-        <details id="alphaengineering">
-          <summary className="sr-only">{engineering.eyebrow}</summary>
+    <section>
+      <details id="alphaengineering" className="scroll-mt-24 bg-white">
+        <summary className="sr-only">{engineering.eyebrow}</summary>
+        <Container className="py-16 md:py-24">
           <Reveal>
             <div className="max-w-3xl">
               <Eyebrow>{engineering.eyebrow}</Eyebrow>
@@ -663,8 +681,9 @@ function AlphaEngineeringSection({ content }: { content: HomeContent }) {
               </div>
             </div>
           </Reveal>
-        </details>
-      </Container>
+          <DetailCloseBar targetId="alphaengineering" label={lineup.collapseLabel} />
+        </Container>
+      </details>
     </section>
   );
 }
