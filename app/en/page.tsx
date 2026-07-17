@@ -3,9 +3,9 @@ import HomePage from "../HomePage";
 import { enContent } from "../home-content";
 
 export const metadata: Metadata = {
-  title: { absolute: "CESeL Primus | From Vertical Farms to Cold Chain — Food Infrastructure as One Platform" },
+  title: { absolute: "Strawberry Vertical Farm EcoTech | Energy, Water, Waste Heat & CO₂ | CESeL Primus" },
   description:
-    "CESeL Primus is an agri-food and cold-chain infrastructure technology company. Starting from premium strawberry vertical farming, we connect cooling & dehumidification, energy & operations management, cold chain, and smart-system engineering — AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaEngineering.",
+    "CESeL Primus is a strawberry vertical farm–based EcoTech company providing LED-heat-assisted low-power dehumidification, 15°C/50% RH climate control, condensate recovery, outdoor-unit precooling, and waste heat and CO₂ utilization.",
   alternates: {
     canonical: "/en",
     languages: {
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "CESeL Primus | Food Infrastructure as One Platform",
+    title: "Strawberry Vertical Farm EcoTech | Energy, Water, Waste Heat & CO₂ | CESeL Primus",
     description:
-      "From vertical farms to cold chain — AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaEngineering connect production to smart food infrastructure.",
+      "CESeL Primus is a strawberry vertical farm–based EcoTech company providing LED-heat-assisted low-power dehumidification, 15°C/50% RH climate control, condensate recovery, outdoor-unit precooling, and waste heat and CO₂ utilization.",
     url: "https://www.ceslprimus.com/en",
     siteName: "CESeL Primus",
     locale: "en_US",
@@ -26,16 +26,16 @@ export const metadata: Metadata = {
         url: "/media/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "CESeL Primus integrated solution portfolio"
+        alt: "CESeL Primus — strawberry vertical farm–based EcoTech company"
       }
     ],
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "CESeL Primus | Food Infrastructure as One Platform",
+    title: "Strawberry Vertical Farm EcoTech | Energy, Water, Waste Heat & CO₂ | CESeL Primus",
     description:
-      "From vertical farms to cold chain — AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaEngineering.",
+      "Reduce energy, recover water, and turn waste heat and CO₂ into productive resources — a strawberry vertical farm–based EcoTech company.",
     images: ["/media/og-image.jpg"]
   }
 };

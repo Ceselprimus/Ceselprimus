@@ -137,8 +137,17 @@ export interface HomeContent {
     names: string[];
     note?: string;
   };
-  news: {
+  ecotechInsights: {
+    label: string;
     titleLines: string[];
+    body: string;
+    groups: { title: string; slugs: string[]; keywords: string[] }[];
+    viewAllLabel: string;
+  };
+  news: {
+    label: string;
+    titleLines: string[];
+    body: string;
     socialLinks: [string, string][];
     modelsLabel: string;
     models: { label: string; slug: string }[];
@@ -284,11 +293,11 @@ export const koContent: HomeContent = {
     homeHref: "/"
   },
   hero: {
-    eyebrow: "프리미엄 딸기수직농장 · 콜드체인 인프라 기술기업",
-    titleLines: ["딸기수직농장에서 콜드체인까지,", "식품 인프라를 플랫폼으로."],
-    sub: "딸기수직농장을 중심으로 작물재배, 냉방·제습, 전력·제어·데이터, 스마트 시스템 엔지니어링을 연결해 식품 생산·저장·작업공간 전반의 운영 효율을 높이는 통합 스마트 식품 인프라 솔루션을 제공합니다.",
-    ctaPrimary: "솔루션 라인업 보기",
-    ctaSecondary: "사업개발 문의",
+    eyebrow: "딸기수직농장 기반 에코테크 기업",
+    titleLines: ["에너지를 줄이고, 물을 회수하며,", "폐열과 CO₂를 생산자원으로 전환합니다."],
+    sub: "LED 현열을 활용한 저전력 저온제습으로 프리미엄 딸기 생산을 위한 15℃·50%RH 목표 환경을 구현합니다. 저온제습 과정에서 발생하는 고순도에 가까운 저TDS 응축수를 회수·재이용하고, 회수수를 활용해 실외기 인입공기를 사전냉각하여 냉방 소비전력을 줄입니다. 또한 발전소, 데이터센터, 바이오가스 시설과 산업현장의 폐열·CO₂를 프리미엄 딸기 생산자원으로 연결하여 구축비와 운영비를 낮추는 순환형 에코테크 모델을 제공합니다.",
+    ctaPrimary: "에코테크 기술 보기",
+    ctaSecondary: "프로젝트 문의",
     imageAlt: "쎄슬프라이머스 딸기수직농장·콜드체인 통합 솔루션 / CESeL Primus strawberry vertical farm and cold chain solution",
     stats: [
       { value: "2016", label: "법인 설립" },
@@ -299,10 +308,10 @@ export const koContent: HomeContent = {
   },
   positioning: {
     eyebrow: "핵심 포지셔닝",
-    statementPre: "단순한 설비 공급을 넘어, 식품 생산·저장 인프라를",
-    statementHighlight: " 하나의 통합 플랫폼",
-    statementPost: "으로 만듭니다.",
-    body: "딸기 수직농장에서 검증한 운영 경험을 기반으로 기후제어, 전력·제어·데이터 관리, 콜드체인, 스마트 시스템 엔지니어링으로 확장합니다. 생산 · 저장 · 공조 · 에너지 · 운영 데이터가 결합된 기술 기업, 쎄슬프라이머스입니다."
+    statementPre: "쎄슬프라이머스는 에너지 소비를 줄이고, 물을 회수하며, 폐열과 CO₂를 생산자원으로 전환하는",
+    statementHighlight: " 딸기수직농장 기반 에코테크 기업",
+    statementPost: "입니다.",
+    body: "고밀도 재배랙과 DSRP는 이러한 에코테크 환경을 실제 연중 생산성과 매출로 연결하는 AlphaFarm의 차별화된 생산기술입니다. 에코테크는 농업·식품·콜드체인·데이터센터·발전소·바이오가스·산업시설에 적용됩니다."
   },
   problems: {
     eyebrow: "적용 영역",
@@ -316,15 +325,16 @@ export const koContent: HomeContent = {
   },
   lineup: {
     eyebrow: "알파 솔루션 포트폴리오",
-    titleLines: ["네 개의 라인업,", "하나의 포트폴리오."],
-    aside: "각 라인업은 따로 도입할 수도, 사업 단계와 목적에 맞춰 하나의 프로젝트로 묶을 수도 있습니다.",
+    titleLines: ["하나의 에코테크 플랫폼,", "네 개의 실행 라인업."],
+    aside: "딸기 생산, 저온제습, 물·에너지 순환, 설계·공급·설치를 각각 독립적으로 도입하거나 하나의 순환형 프로젝트로 통합할 수 있습니다.",
     detailLabel: "상세보기",
     collapseLabel: "접기",
     lineupLabel: "라인업",
     categories: [
       {
         name: "알파팜",
-        tagline: "프리미엄 딸기 생산 · 리테일 · 공간경험 솔루션",
+        tagline: "프리미엄 딸기 생산·연중운영 솔루션",
+        body: "15℃·50%RH 목표 환경, 고밀도 정밀 재배랙, 정량관수, 광량 조절과 DSRP 기반 개화묘 순환 공급을 통합한 딸기수직농장 시스템입니다.",
         accent: "forest",
         image: "/media/cases/case-suwon-urban-01.webp",
         imageAlt: "알파팜 도심형 딸기수직농장 재배랙 / AlphaFarm urban strawberry vertical farm rack",
@@ -339,7 +349,8 @@ export const koContent: HomeContent = {
       },
       {
         name: "알파쿨링",
-        tagline: "팜 · 식품공정 · 콜드체인 컨테이너 냉각제습 솔루션",
+        tagline: "저전력 저온제습·정밀 기후 솔루션",
+        body: "LED 현열 활용과 정밀 온습도 제어를 통해 딸기 재배실과 식품·저온공간의 냉방·제습 에너지를 줄이고 품질 리스크를 관리합니다.",
         accent: "ice",
         image: "/media/concepts/alphacooling-farm-concept-2.webp",
         imageAlt: "알파쿨링 저온제습 쿨링시스템 / AlphaCooling low-temperature dehumidification cooling system",
@@ -353,7 +364,8 @@ export const koContent: HomeContent = {
       },
       {
         name: "알파에너지",
-        tagline: "전력 · 제어 · 데이터 통합 관리 시스템",
+        tagline: "전력·제어·데이터·회수수 에너지 활용",
+        body: "전력과 환경데이터를 통합 관리하고, 회수수 기반 실외기 프리쿨링으로 고온외기 조건의 냉방 소비전력과 피크부하를 줄입니다.",
         accent: "energy",
         image: "/media/concepts/alphaenergy-concept.webp",
         imageAlt: "알파에너지 전력·제어·데이터 통합 관리 / AlphaEnergy power, control and data management",
@@ -368,8 +380,8 @@ export const koContent: HomeContent = {
       },
       {
         name: "알파엔지니어링",
-        tagline: "스마트 식품 인프라 엔지니어링",
-        body: "재배랙, 양액기, 환경제어기, 양액·관수 배관, 냉방·제습·환기 설비를 현장 조건에 맞춰 설계·구성하고, 공급·설치·연동·시운전까지 연결합니다.",
+        tagline: "에코테크 시스템 엔지니어링",
+        body: "재배랙, 다단 육묘랙, 양액기, 환경제어기, 양액·관수 배관, 냉방·제습·환기 설비를 현장에 맞게 설계·공급·설치·연동·시운전합니다.",
         accent: "amber",
         image: "/media/concepts/alphaengineering-card.webp",
         imageAlt: "알파엔지니어링 스마트 식품 인프라 엔지니어링 — 수직농장 설비 설계·구성 현장 / AlphaEngineering smart food infrastructure engineering",
@@ -522,8 +534,33 @@ export const koContent: HomeContent = {
       "딸기 잎 색상도 채널을 위한 딥러닝 기반 딸기 생육상황 분석 소프트웨어"
     ]
   },
+  ecotechInsights: {
+    label: "ECOTECH INSIGHTS",
+    titleLines: ["에너지를 줄이고, 물을 회수하며,", "버려지는 자원을 다시 씁니다."],
+    body: "딸기수직농장에서 검증한 쎄슬프라이머스의 저온제습, 물순환, 냉방에너지 절감과 폐열·CO₂ 자원화 기술을 소개합니다.",
+    groups: [
+      {
+        title: "정밀 기후·저온제습",
+        slugs: ["alphafarm-low-power-dehumidification"],
+        keywords: ["LED 현열", "저온제습", "15℃·50%RH", "VPD"]
+      },
+      {
+        title: "물순환·냉방에너지 절감",
+        slugs: ["alphafarm-water-recovery", "alphaenergy-ais-power-saving"],
+        keywords: ["저TDS 응축수", "물 재이용", "실외기 프리쿨링", "냉방 전력 절감"]
+      },
+      {
+        title: "폐열·CO₂ 자원순환",
+        slugs: ["alphafarm-core-resource-circulation"],
+        keywords: ["폐열 활용", "CO₂ 활용", "바이오가스", "발전소", "데이터센터"]
+      }
+    ],
+    viewAllLabel: "에코테크 인사이트 전체보기"
+  },
   news: {
-    titleLines: ["사업 모델 제안을", "만나보세요."],
+    label: "ECOTECH BUSINESS MODELS",
+    titleLines: ["에코테크를", "실제 사업모델로 확장합니다."],
+    body: "폐열, CO₂, 전력, 물 또는 유휴공간을 보유한 현장에 AlphaFarm과 알파 솔루션을 결합하여 프리미엄 딸기 생산과 자원순환을 동시에 구현하는 사업모델을 제안합니다.",
     socialLinks: [
       ["네이버 블로그", socialHrefs.blog],
       ["페이스북", socialHrefs.facebook],
@@ -533,17 +570,17 @@ export const koContent: HomeContent = {
     modelsLabel: "사업 모델 제안",
     models: [
       { label: "말레이시아 팜오일 바이오가스 모델", slug: "alphafarm-malaysia-palmoil-biogas" },
-      { label: "지식산업센터 재생 모델", slug: "knowledge-center-chp-strawberry-farm" },
-      { label: "발효 공장 연계 모델", slug: "alphafarm-core-brewery-fermentation" },
+      { label: "알파팜 코어-20", slug: "alphafarm-core20-sofc-datacenter" },
       { label: "발전소 연계 모델", slug: "alphafarm-core-power-plant" },
       { label: "석유화학·수소 연계 모델", slug: "alphafarm-core-petrochem-hydrogen" },
-      { label: "팜투리테일 모델", slug: "alphacafe-farm-to-retail" },
-      { label: "알파팜 코어-20", slug: "alphafarm-core20-sofc-datacenter" }
+      { label: "발효 공장 연계 모델", slug: "alphafarm-core-brewery-fermentation" },
+      { label: "지식산업센터 재생 모델", slug: "knowledge-center-chp-strawberry-farm" },
+      { label: "팜투리테일 모델", slug: "alphacafe-farm-to-retail" }
     ]
   },
   insights: {
-    eyebrow: "인사이트",
-    titleLines: ["최신 인사이트"],
+    eyebrow: "최신 소식과 현장 인사이트",
+    titleLines: ["딸기수직농장과", "알파 솔루션의 최신 이야기를 전합니다."],
     viewAllLabel: "전체 보기"
   },
   faq: {
@@ -553,7 +590,12 @@ export const koContent: HomeContent = {
       {
         question: "쎄슬프라이머스는 어떤 회사인가요?",
         answer:
-          "쎄슬프라이머스는 프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 스마트 시스템 엔지니어링으로 확장하는 기술기업입니다. 식품 생산과 저장 인프라를 하나의 통합 플랫폼으로 만드는 것을 목표로 합니다."
+          "쎄슬프라이머스는 딸기수직농장을 기반으로 에너지 소비를 줄이고, 물을 회수하며, 폐열과 CO₂를 생산자원으로 전환하는 에코테크 기업입니다. LED 현열 기반 저전력 저온제습, 15℃·50%RH 목표 환경, 저TDS 응축수 회수, 실외기 프리쿨링과 산업 폐열·CO₂ 연계 기술을 AlphaFarm, AlphaCooling, AlphaEnergy, AlphaEngineering을 통해 제공합니다."
+      },
+      {
+        question: "DSRP란 무엇인가요?",
+        answer:
+          "DSRP(Dynamic Seedling Reserved Protocol)는 다단 육묘랙에서 교체용 개화묘를 지속적으로 준비하고, 생산 중인 모종을 분기별로 순환 교체하는 AlphaFarm의 연중 생산 프로토콜입니다. 전체 모종을 한 번에 교체하지 않아 장기 생산중단을 방지하고, 모종 노화에 따른 생산성 저하를 줄입니다."
       },
       {
         question: "연중 딸기 사업솔루션이란 무엇인가요?",
@@ -612,9 +654,9 @@ export const koContent: HomeContent = {
     }
   },
   contact: {
-    eyebrow: "연락처",
-    titleLines: ["프로젝트 및 솔루션 문의"],
-    body: "AlphaFarm, AlphaCooling, AlphaEnergy, AlphaEngineering의 도입, 설계, 장비 공급, 설치, 시운전 및 사업협력에 대해 문의해 주세요. 수직농장 구축, 냉방·제습, 전력·제어·데이터 관리, 재배랙, 양액 시스템, 배관 및 식품산업 인프라 엔지니어링까지 프로젝트 조건에 맞는 솔루션을 제안합니다.",
+    eyebrow: "에코테크 프로젝트 및 솔루션 문의",
+    titleLines: ["전체 프로젝트부터", "제품·부분 엔지니어링 수주까지."],
+    body: "딸기수직농장 전체 사업화와 턴키 구축, 저전력 저온제습, 회수수 기반 실외기 프리쿨링, 폐열·CO₂ 연계 프로젝트에 대해 문의해 주세요. 기존 농장·스마트팜·식품시설을 대상으로 재배랙, 다단 육묘랙, 양액기, 환경제어기, 배관설계 및 공사, 냉방·제습·환기 설비의 제품 공급과 부분 엔지니어링도 제공합니다.",
     modalTitle: "사업개발 문의",
     modalBody: "연락처를 남겨주시면 담당자가 먼저 연락드립니다. 바로 연락도 가능합니다.",
     form: {
@@ -623,16 +665,17 @@ export const koContent: HomeContent = {
       contact: "연락처 (전화 또는 이메일)",
       company: "회사 · 기관명",
       region: "지역 · 국가",
-      submit: "프로젝트 및 견적 문의",
+      submit: "에코테크 프로젝트 및 견적 문의",
       sent: "접수되었습니다! 담당자가 곧 연락드리겠습니다 😊",
       orLabel: "또는 바로 연락하기"
     },
     categories: [
-      { label: "AlphaFarm", desc: "수직농장 구축, 재배시스템, 재배랙 및 운영모델" },
-      { label: "AlphaCooling", desc: "작물재배 시설, 식품저장고 및 작업공간의 냉방·제습" },
-      { label: "AlphaEnergy", desc: "전력 모니터링, 환경제어, 데이터 관리 및 에너지 절감" },
-      { label: "AlphaEngineering", desc: "양액기, 환경제어기, 배관, 재배랙 및 환경제어 설비 엔지니어링" },
-      { label: "사업협력 및 해외 프로젝트", desc: "파트너십, 현지 실증, 수출 및 공동사업" }
+      { label: "AlphaFarm", desc: "전체 사업화 및 턴키 구축" },
+      { label: "AlphaCooling", desc: "저온제습 및 환경개선" },
+      { label: "AlphaEnergy", desc: "전력·제어·데이터·프리쿨링" },
+      { label: "AlphaEngineering", desc: "제품 공급 및 부분 엔지니어링" },
+      { label: "폐열·CO₂·바이오가스·발전소 연계", desc: "폐열, CO₂, 바이오가스, 발전소 연계 프로젝트" },
+      { label: "해외 실증·수출·현지 파트너십", desc: "해외 실증, 수출, 현지 파트너십" }
     ],
     contacts: [
       {
@@ -656,7 +699,7 @@ export const koContent: HomeContent = {
     ]
   },
   footer: {
-    brandDesc: "수직농장에서 콜드체인까지, 식품 인프라를 플랫폼으로.",
+    brandDesc: "딸기수직농장을 기반으로 에너지·물·폐열·CO₂를 순환시키는 에코테크.",
     navLinks: [
       { href: "/#lineup", label: "라인업" },
       { href: "/#alphafarm", label: "알파팜" },
@@ -676,16 +719,26 @@ export const koContent: HomeContent = {
   },
   seo: {
     orgDescription:
-      "프리미엄 딸기 수직농장에서 출발해 냉방·제습, 전력·제어·데이터 관리, 콜드체인, 스마트 시스템 엔지니어링으로 확장하는 농식품·콜드체인 인프라 기술기업입니다. 알파팜, 알파쿨링, 알파에너지, 알파엔지니어링 네 개 라인업을 제공합니다.",
-    webPageName: "쎄슬프라이머스 | 수직농장에서 콜드체인까지, 식품 인프라 통합 솔루션",
+      "쎄슬프라이머스는 딸기수직농장을 기반으로 LED 현열 저전력 저온제습, 15℃·50%RH 환경제어, 저TDS 응축수 회수, 실외기 프리쿨링, 폐열·CO₂ 자원화 기술을 제공하는 에코테크 기업입니다.",
+    webPageName: "딸기수직농장 에코테크 기업 | 저전력 저온제습·물순환·폐열·CO₂ | 쎄슬프라이머스",
     lineupListName: "쎄슬프라이머스 알파 솔루션 포트폴리오",
     breadcrumbHome: "홈",
     knowsAbout: [
       "딸기수직농장",
+      "에코테크 기업",
       "수직농장",
       "스마트팜",
-      "쿨링시스템",
+      "저전력 저온제습",
+      "LED 현열 제습",
+      "실외기 프리쿨링",
+      "응축수 회수",
       "저온제습 공조",
+      "폐열·CO2 자원화",
+      "DSRP",
+      "다단 육묘랙",
+      "정량관수",
+      "고밀도 딸기재배랙",
+      "연중 딸기 생산",
       "콜드체인",
       "식품창고",
       "저온저장고",
@@ -693,7 +746,6 @@ export const koContent: HomeContent = {
       "에너지 관리 시스템",
       "해외진출",
       "아세안 사업화",
-      "농식품 컨설팅",
       "스마트 식품 인프라 엔지니어링",
       "재배랙 설계·공급·설치",
       "양액 도징 시스템",
@@ -701,8 +753,7 @@ export const koContent: HomeContent = {
       "알파코어 모듈형 수직농장",
       "SOFC 고체산화물연료전지",
       "Solid Oxide Fuel Cell",
-      "SOFC 데이터센터 연계 순환 인프라",
-      "폐열·CO2 자원화"
+      "SOFC 데이터센터 연계 순환 인프라"
     ]
   }
 };
@@ -734,11 +785,11 @@ export const enContent: HomeContent = {
     homeHref: "/en"
   },
   hero: {
-    eyebrow: "Premium strawberry vertical farm · cold-chain infrastructure",
-    titleLines: ["From strawberry vertical farms to cold chain,", "food infrastructure as one platform."],
-    sub: "Starting with strawberry vertical farms, we integrate crop cultivation, cooling and dehumidification, power, control, data, and smart-system engineering to improve operational efficiency across food production, storage, and workspaces.",
-    ctaPrimary: "Explore the lineup",
-    ctaSecondary: "Business inquiries",
+    eyebrow: "Strawberry Vertical Farm–Based EcoTech Company",
+    titleLines: ["Reduce energy. Recover water.", "Turn waste heat and CO₂ into productive resources."],
+    sub: "Using LED-sensible-heat-assisted low-power dehumidification, we create a 15°C / 50% RH target climate for premium strawberry production. Low-TDS condensate generated during dehumidification is recovered and reused, while recovered water is used to precool outdoor-unit intake air and help reduce cooling power consumption. We also connect waste heat and CO₂ from power plants, data centers, biogas facilities, and industrial sites with premium strawberry production, creating circular EcoTech models that help reduce infrastructure and operating costs.",
+    ctaPrimary: "Explore Our EcoTech",
+    ctaSecondary: "Project Inquiry",
     imageAlt: "CESeL Primus integrated vertical farm and cold-chain solution visual",
     stats: [
       { value: "2016", label: "Founded" },
@@ -749,10 +800,10 @@ export const enContent: HomeContent = {
   },
   positioning: {
     eyebrow: "Positioning",
-    statementPre: "Beyond equipment supply — we turn food production and storage infrastructure into",
-    statementHighlight: " one integrated platform",
-    statementPost: ".",
-    body: "Building on operating experience proven in strawberry vertical farms, we expand into climate control, power · control · data management, cold chain, and smart-system engineering. CESeL Primus is a technology company where production, storage, HVAC, energy, and operations data come together."
+    statementPre: "CESeL Primus is a",
+    statementHighlight: " strawberry vertical farm–based EcoTech company",
+    statementPost: " that reduces energy consumption, recovers water, and converts waste heat and CO₂ into productive resources.",
+    body: "High-density cultivation racks and DSRP are AlphaFarm's differentiated production technologies that connect these EcoTech conditions to real year-round productivity and revenue. EcoTech applies to agriculture, food, cold chain, data centers, power plants, biogas, and industrial facilities."
   },
   problems: {
     eyebrow: "Where we apply",
@@ -766,15 +817,16 @@ export const enContent: HomeContent = {
   },
   lineup: {
     eyebrow: "Alpha Solution Portfolio",
-    titleLines: ["Four lineups,", "one portfolio."],
-    aside: "Adopt each lineup on its own, or combine them into a single project to match your business stage and goals.",
+    titleLines: ["One EcoTech platform.", "Four delivery lineups."],
+    aside: "Premium strawberry production, low-temperature dehumidification, water and energy circularity, and engineering can be deployed independently or integrated into one circular project.",
     detailLabel: "Learn more",
     collapseLabel: "Close",
     lineupLabel: "Lineup",
     categories: [
       {
         name: "AlphaFarm",
-        tagline: "Premium strawberry production · retail · space experience",
+        tagline: "Premium Strawberry Production and Year-Round Operation",
+        body: "A strawberry vertical farm system integrating a 15°C/50% RH target climate, high-density precision racks, controlled irrigation, adjustable lighting, and DSRP-based flowering-seedling circulation.",
         accent: "forest",
         image: "/media/cases/case-suwon-urban-01.webp",
         imageAlt: "AlphaFarm urban strawberry vertical farm racks",
@@ -789,7 +841,8 @@ export const enContent: HomeContent = {
       },
       {
         name: "AlphaCooling",
-        tagline: "Cooling & dehumidification for farms, food processes, and cold chain",
+        tagline: "Low-Power Dehumidification and Precision Climate",
+        body: "Uses LED sensible heat and precision temperature-humidity control to reduce cooling and dehumidification energy and manage climate-related quality risks.",
         accent: "ice",
         image: "/media/concepts/alphacooling-farm-concept-2.webp",
         imageAlt: "AlphaCooling low-temperature dehumidification HVAC",
@@ -803,7 +856,8 @@ export const enContent: HomeContent = {
       },
       {
         name: "AlphaEnergy",
-        tagline: "Integrated power · control · data management system",
+        tagline: "Power, Control, Data, and Recovered-Water Energy Utilization",
+        body: "Integrates power and environmental data and uses recovered-water outdoor-unit precooling to help reduce cooling power and peak load under high ambient temperatures.",
         accent: "energy",
         image: "/media/concepts/alphaenergy-concept.webp",
         imageAlt: "AlphaEnergy integrated power, control and data management",
@@ -818,8 +872,8 @@ export const enContent: HomeContent = {
       },
       {
         name: "AlphaEngineering",
-        tagline: "Smart Food Infrastructure Engineering",
-        body: "We design and configure cultivation racks, nutrient dosing systems, environmental controls, nutrient and irrigation piping, and climate-control systems according to site conditions, and connect them through supply, installation, integration, and commissioning.",
+        tagline: "EcoTech System Engineering",
+        body: "We design, supply, install, integrate, and commission cultivation racks, multi-layer nursery racks, nutrient dosing systems, environmental controls, piping, and climate-control equipment.",
         accent: "amber",
         image: "/media/concepts/alphaengineering-card.webp",
         imageAlt: "AlphaEngineering smart food infrastructure engineering — vertical farm system design and configuration",
@@ -973,8 +1027,33 @@ export const enContent: HomeContent = {
     ],
     note: "Registered in the Republic of Korea. Titles are translated from the official Korean registrations."
   },
+  ecotechInsights: {
+    label: "ECOTECH INSIGHTS",
+    titleLines: ["Reducing energy, recovering water,", "and turning waste into productive resources."],
+    body: "Explore CESeL Primus technologies for low-temperature dehumidification, water circularity, cooling-energy reduction, and waste heat and CO₂ utilization, proven through strawberry vertical farming.",
+    groups: [
+      {
+        title: "Precision Climate and Dehumidification",
+        slugs: ["alphafarm-low-power-dehumidification"],
+        keywords: ["LED sensible heat", "low-temperature dehumidification", "15°C/50% RH", "VPD"]
+      },
+      {
+        title: "Water Circularity and Cooling-Energy Reduction",
+        slugs: ["alphafarm-water-recovery", "alphaenergy-ais-power-saving"],
+        keywords: ["low-TDS condensate", "water reuse", "outdoor-unit precooling", "power savings"]
+      },
+      {
+        title: "Waste Heat and CO₂ Circularity",
+        slugs: ["alphafarm-core-resource-circulation"],
+        keywords: ["waste heat", "CO₂ utilization", "biogas", "power plants", "data centers"]
+      }
+    ],
+    viewAllLabel: "Explore All EcoTech Insights"
+  },
   news: {
-    titleLines: ["Business model", "proposals to explore."],
+    label: "ECOTECH BUSINESS MODELS",
+    titleLines: ["Turning EcoTech", "into deployable business models."],
+    body: "We combine AlphaFarm and the Alpha Solution portfolio with sites that have waste heat, CO₂, power, water, or underutilized space to create premium strawberry businesses and circular-resource infrastructure.",
     socialLinks: [
       ["Naver Blog", socialHrefs.blog],
       ["Facebook", socialHrefs.facebook],
@@ -984,17 +1063,17 @@ export const enContent: HomeContent = {
     modelsLabel: "Business Model Proposals",
     models: [
       { label: "Malaysia Palm-Oil Biogas Model", slug: "alphafarm-malaysia-palmoil-biogas" },
-      { label: "Underutilized Space Regeneration Model", slug: "knowledge-center-chp-strawberry-farm" },
-      { label: "Fermentation Plant Integration Model", slug: "alphafarm-core-brewery-fermentation" },
+      { label: "AlphaFarm Core-20", slug: "alphafarm-core20-sofc-datacenter" },
       { label: "Power Plant Integration Model", slug: "alphafarm-core-power-plant" },
       { label: "Petrochemical / Hydrogen Integration Model", slug: "alphafarm-core-petrochem-hydrogen" },
-      { label: "Farm-to-Retail Model", slug: "alphacafe-farm-to-retail" },
-      { label: "AlphaFarm Core-20", slug: "alphafarm-core20-sofc-datacenter" }
+      { label: "Fermentation Plant Integration Model", slug: "alphafarm-core-brewery-fermentation" },
+      { label: "Underutilized Space Regeneration Model", slug: "knowledge-center-chp-strawberry-farm" },
+      { label: "Farm-to-Retail Model", slug: "alphacafe-farm-to-retail" }
     ]
   },
   insights: {
-    eyebrow: "Insights",
-    titleLines: ["Latest insights"],
+    eyebrow: "Latest News and Field Insights",
+    titleLines: ["Updates from strawberry vertical farming", "and the Alpha Solution portfolio."],
     viewAllLabel: "View all"
   },
   faq: {
@@ -1004,7 +1083,12 @@ export const enContent: HomeContent = {
       {
         question: "What kind of company is CESeL Primus?",
         answer:
-          "CESeL Primus is a technology company that started from premium strawberry vertical farming and expands into cooling & dehumidification, power · control · data management, cold chain, and smart-system engineering. Our goal is to turn food production and storage infrastructure into one integrated platform."
+          "CESeL Primus is a strawberry vertical farm–based EcoTech company that reduces energy consumption, recovers water, and converts waste heat and CO₂ into productive resources. Our technologies include LED-sensible-heat-assisted low-power dehumidification, a 15°C/50% RH target climate, low-TDS condensate recovery, outdoor-unit precooling, and industrial waste heat and CO₂ integration."
+      },
+      {
+        question: "What is DSRP?",
+        answer:
+          "DSRP, the Dynamic Seedling Reserved Protocol, continuously prepares replacement flowering seedlings in multi-layer nursery racks and replaces production plants on a quarterly rotational basis. It avoids extended production downtime from full crop replacement and reduces productivity decline caused by plant aging."
       },
       {
         question: "What is the year-round strawberry business solution?",
@@ -1063,9 +1147,9 @@ export const enContent: HomeContent = {
     }
   },
   contact: {
-    eyebrow: "Contact",
-    titleLines: ["Project & Solution Inquiries"],
-    body: "Contact us regarding the deployment, design, equipment supply, installation, commissioning, and business collaboration of AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaEngineering. From vertical farms, cooling and dehumidification, power and control, and data management to cultivation racks, nutrient systems, piping, and food-industry infrastructure engineering, we propose solutions tailored to each project.",
+    eyebrow: "EcoTech Project and Solution Inquiries",
+    titleLines: ["From complete projects", "to equipment and item-specific engineering."],
+    body: "Contact us regarding complete strawberry vertical farm development, turnkey deployment, low-power dehumidification, recovered-water outdoor-unit precooling, and waste heat and CO₂ integration projects. We also provide equipment supply and item-specific engineering for existing farms, smart farms, and food facilities, including cultivation racks, multi-layer nursery racks, nutrient dosing systems, environmental controls, piping, cooling, dehumidification, and ventilation systems.",
     modalTitle: "Business inquiries",
     modalBody: "Leave your details and our team will reach out first — or contact us directly.",
     form: {
@@ -1074,16 +1158,17 @@ export const enContent: HomeContent = {
       contact: "Phone or email",
       company: "Company · organization",
       region: "Region · country",
-      submit: "Project & Quotation Inquiry",
+      submit: "EcoTech Project & Quotation Inquiry",
       sent: "Received! Our team will reach out soon 😊",
       orLabel: "Or reach us directly"
     },
     categories: [
-      { label: "AlphaFarm", desc: "Vertical farm development, cultivation systems, racks, and operating models" },
-      { label: "AlphaCooling", desc: "Cooling and dehumidification for cultivation facilities, food storage, and workspaces" },
-      { label: "AlphaEnergy", desc: "Power monitoring, environmental control, data management, and energy optimization" },
-      { label: "AlphaEngineering", desc: "Nutrient dosing, environmental controllers, piping, cultivation racks, and climate-system engineering" },
-      { label: "Partnerships & Overseas Projects", desc: "Local pilots, exports, partnerships, and joint projects" }
+      { label: "AlphaFarm", desc: "Complete business development and turnkey deployment" },
+      { label: "AlphaCooling", desc: "Low-temperature dehumidification and climate improvement" },
+      { label: "AlphaEnergy", desc: "Power, control, data, and precooling" },
+      { label: "AlphaEngineering", desc: "Equipment and item-specific engineering" },
+      { label: "Waste heat, CO₂, biogas, and power-plant integration", desc: "Waste heat, CO₂, biogas, and power-plant integration projects" },
+      { label: "Overseas pilots, exports, and local partnerships", desc: "Overseas pilots, exports, and local partnerships" }
     ],
     contacts: [
       {
@@ -1107,7 +1192,7 @@ export const enContent: HomeContent = {
     ]
   },
   footer: {
-    brandDesc: "From vertical farms to cold chain — food infrastructure as one platform.",
+    brandDesc: "EcoTech that circulates energy, water, waste heat, and CO₂ through strawberry vertical farming.",
     navLinks: [
       { href: "/en#lineup", label: "Lineup" },
       { href: "/en#alphafarm", label: "AlphaFarm" },
@@ -1127,16 +1212,26 @@ export const enContent: HomeContent = {
   },
   seo: {
     orgDescription:
-      "CESeL Primus is an agri-food and cold-chain infrastructure technology company. Starting from premium strawberry vertical farming, it expands into cooling & dehumidification, power · control · data management, cold chain, and smart-system engineering — with the AlphaFarm, AlphaCooling, AlphaEnergy, and AlphaEngineering lineups.",
-    webPageName: "CESeL Primus | From Vertical Farms to Cold Chain — Food Infrastructure as One Platform",
+      "CESeL Primus is a strawberry vertical farm–based EcoTech company providing LED-heat-assisted low-power dehumidification, 15°C/50% RH climate control, condensate recovery, outdoor-unit precooling, and waste heat and CO₂ utilization.",
+    webPageName: "Strawberry Vertical Farm EcoTech | Energy, Water, Waste Heat & CO₂ | CESeL Primus",
     lineupListName: "CESeL Primus Alpha Solution Portfolio",
     breadcrumbHome: "Home",
     knowsAbout: [
       "Strawberry vertical farming",
+      "EcoTech company",
       "Vertical farm",
       "Smart farm",
-      "Cooling system",
+      "Low-power dehumidification",
+      "LED sensible heat dehumidification",
+      "Outdoor-unit precooling",
+      "Condensate recovery",
       "Low-temperature dehumidification HVAC",
+      "Waste heat and CO2 utilization",
+      "DSRP",
+      "Multi-layer nursery rack",
+      "Precision irrigation",
+      "High-density cultivation rack",
+      "Year-round strawberry production",
       "Cold chain",
       "Food warehouse",
       "Cold storage",
@@ -1144,7 +1239,6 @@ export const enContent: HomeContent = {
       "Energy management system",
       "Overseas expansion",
       "ASEAN commercialization",
-      "Agri-food consulting",
       "Smart food infrastructure engineering",
       "Cultivation rack design and supply",
       "Nutrient dosing systems",
@@ -1152,7 +1246,6 @@ export const enContent: HomeContent = {
       "AlphaCore modular vertical farm",
       "SOFC solid oxide fuel cell",
       "SOFC-powered data center",
-      "Circular infrastructure converting waste heat and CO2",
       "Core-20"
     ]
   }

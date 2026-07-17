@@ -31,7 +31,6 @@ import Reveal from "./components/Reveal";
 import CasesGallery from "./components/CasesGallery";
 import DetailToggle from "./components/DetailToggle";
 import FarmModels from "./components/FarmModels";
-import InquiryButton from "./components/InquiryButton";
 import HeroMedia from "./components/HeroMedia";
 import ChatWidget from "./components/ChatWidget";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
@@ -39,8 +38,16 @@ import { companyLegal, type Accent, type HomeContent } from "./home-content";
 
 const baseUrl = "https://www.ceslprimus.com";
 
+// EcoTech Insights로 상단 이동한 게시물 — 하단 최신 인사이트에서 중복 노출 방지
+const ECOTECH_SLUGS = new Set([
+  "alphafarm-low-power-dehumidification",
+  "alphafarm-water-recovery",
+  "alphaenergy-ais-power-saving",
+  "alphafarm-core-resource-circulation"
+]);
+
 const problemIcons = [Leaf, Droplets, Zap, Building2];
-const contactIcons = [Sprout, Snowflake, Zap, Wrench, Globe2];
+const contactIcons = [Sprout, Snowflake, Zap, Wrench, Factory, Globe2];
 const energyIcons = [PlugZap, Cpu, Database, Fan];
 const categoryIcons: Record<Accent, typeof Sprout> = {
   forest: Sprout,
@@ -163,6 +170,7 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <ProblemSection content={content} />
       <AudienceSection content={content} />
       <LineupSection content={content} />
+      <EcoTechInsightsSection content={content} />
       <NewsSection content={content} />
       <IpSection content={content} />
       <CasesSection content={content} />
@@ -263,16 +271,16 @@ function Hero({ content }: { content: HomeContent }) {
             <div className="reveal-up-delayed mt-10 flex flex-wrap gap-3">
               <a
                 className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-[1.05rem] font-semibold text-ink transition hover:bg-mint"
-                href="#lineup"
+                href="#ecotech"
               >
                 {hero.ctaPrimary} <ArrowRight className="h-5 w-5" />
               </a>
-              <InquiryButton
+              <a
                 className="inline-flex items-center gap-2 rounded-full px-7 py-4 text-[1.05rem] font-semibold text-white ring-1 ring-inset ring-white/40 transition hover:bg-white/10 hover:ring-white"
-                contact={content.contact}
+                href="#contact"
               >
                 {hero.ctaSecondary}
-              </InquiryButton>
+              </a>
             </div>
           </div>
         </Container>
@@ -294,7 +302,7 @@ function Hero({ content }: { content: HomeContent }) {
 function PositioningSection({ content }: { content: HomeContent }) {
   const { positioning } = content;
   return (
-    <section id="about" className="bg-white py-14 md:py-20">
+    <section id="about" className="py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-4xl">
@@ -317,7 +325,7 @@ function PositioningSection({ content }: { content: HomeContent }) {
 function ProblemSection({ content }: { content: HomeContent }) {
   const { problems } = content;
   return (
-    <section className="py-14 md:py-20">
+    <section className="bg-white py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -351,7 +359,7 @@ function LineupSection({ content }: { content: HomeContent }) {
   const insightCats = new Set(articles.map((a) => a.category));
   const insightsLabel = content.locale === "en" ? "Related insights" : "관련 인사이트";
   return (
-    <section id="lineup" className="py-16 md:py-24">
+    <section id="lineup" className="bg-white py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
@@ -370,7 +378,7 @@ function LineupSection({ content }: { content: HomeContent }) {
             const Icon = categoryIcons[category.accent];
             return (
               <Reveal key={category.name} delay={(index % 2) * 100} className="h-full">
-                <article className="flex h-full flex-col overflow-hidden rounded-[1.5rem] bg-white ring-1 ring-ink/8 transition duration-300 hover:shadow-soft">
+                <article className="flex h-full flex-col overflow-hidden rounded-[1.5rem] bg-paper ring-1 ring-ink/8 transition duration-300 hover:shadow-soft">
                   <div className="relative aspect-[16/9] overflow-hidden bg-ink md:aspect-[16/7]">
                     <Image
                       src={category.image}
@@ -439,6 +447,88 @@ function LineupSection({ content }: { content: HomeContent }) {
               <span className="text-forest">{lineup.statementHighlight}</span>
               {lineup.statementPost}
             </p>
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+// 섹션 id="ecotech" — Hero 1차 CTA(에코테크 기술 보기) 앵커. 2차에서 Core EcoTech 섹션으로 id 이관 예정.
+function EcoTechInsightsSection({ content }: { content: HomeContent }) {
+  const { ecotechInsights } = content;
+  const isEn = content.locale === "en";
+  const insightsBase = isEn ? "/en/insights" : "/insights";
+  return (
+    <section id="ecotech" className="py-16 md:py-24">
+      <Container>
+        <Reveal>
+          <div className="max-w-3xl">
+            <Eyebrow>{ecotechInsights.label}</Eyebrow>
+            <SectionTitle>
+              <Lines lines={ecotechInsights.titleLines} />
+            </SectionTitle>
+            <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/68 md:text-[1.18rem]">{ecotechInsights.body}</p>
+          </div>
+        </Reveal>
+        <div className="mt-12 space-y-12 md:mt-14 md:space-y-14">
+          {ecotechInsights.groups.map((group, gi) => (
+            <Reveal key={group.title} delay={gi * 80}>
+              <div>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+                  <h3 className="text-[1.3rem] font-bold tracking-tight text-ink md:text-[1.5rem]">{group.title}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {group.keywords.map((kw) => (
+                      <span
+                        key={kw}
+                        className="rounded-full bg-white px-3 py-1 text-[0.85rem] font-semibold text-ink/62 ring-1 ring-ink/10"
+                      >
+                        {kw}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.slugs.map((slug) => {
+                    const a = articles.find((x) => x.slug === slug);
+                    if (!a) return null;
+                    const title = isEn && a.en ? a.en.title : a.title;
+                    return (
+                      <a
+                        key={slug}
+                        href={`${insightsBase}/${slug}`}
+                        className="group block overflow-hidden rounded-2xl bg-white ring-1 ring-ink/8 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft"
+                      >
+                        <div className="relative aspect-[4/3] overflow-hidden bg-paper">
+                          <Image
+                            src={isEn && a.heroImageEn ? a.heroImageEn : a.heroImage}
+                            alt={title}
+                            fill
+                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"
+                            className="object-contain p-3 transition duration-700 group-hover:scale-[1.03]"
+                          />
+                        </div>
+                        <div className="flex items-start justify-between gap-4 p-6">
+                          <h4 className="text-lg font-bold leading-snug tracking-tight text-ink md:text-[1.2rem]">{title}</h4>
+                          <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-ink/35 transition group-hover:text-forest" />
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={120}>
+          <div className="mt-12 flex md:mt-14">
+            <a
+              href={insightsBase}
+              className="inline-flex items-center gap-2 rounded-full bg-forest px-6 py-3.5 text-[1rem] font-semibold text-white transition hover:bg-forest/90"
+            >
+              {ecotechInsights.viewAllLabel}
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </Reveal>
       </Container>
@@ -715,7 +805,7 @@ function CasesSection({ content }: { content: HomeContent }) {
 function AudienceSection({ content }: { content: HomeContent }) {
   const { audience } = content;
   return (
-    <section className="bg-white py-14 md:py-20">
+    <section className="py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -780,10 +870,12 @@ function NewsSection({ content }: { content: HomeContent }) {
     <section id="news" className="bg-white py-16 md:py-24">
       <Container>
         <Reveal>
-          <div className="max-w-2xl">
+          <div className="max-w-3xl">
+            <Eyebrow>{news.label}</Eyebrow>
             <SectionTitle>
               <Lines lines={news.titleLines} />
             </SectionTitle>
+            <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/68 md:text-[1.18rem]">{news.body}</p>
           </div>
         </Reveal>
 
@@ -830,7 +922,7 @@ function InsightsSection({ content }: { content: HomeContent }) {
   const modelSlugs = new Set(news.models.map((m) => m.slug));
   const insightPool = (isEn ? articles.filter((a) => a.en) : articles).filter((a) => isLive(a));
   const latestInsights = [...insightPool]
-    .filter((a) => !modelSlugs.has(a.slug))
+    .filter((a) => !modelSlugs.has(a.slug) && !ECOTECH_SLUGS.has(a.slug))
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 9);
   return (
