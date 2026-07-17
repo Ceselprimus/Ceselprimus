@@ -56,6 +56,28 @@ export interface HomeContent {
     titleLines: string[];
     items: { title: string; body: string }[];
   };
+  coreEcotech: {
+    eyebrow: string;
+    titleLines: string[];
+    intro: string;
+    items: { title: string; desc: string }[];
+  };
+  productionTech: {
+    eyebrow: string;
+    titleLines: string[];
+    intro: string;
+    rackImage: string;
+    rackImageAlt: string;
+    rackBlock: { title: string; intro: string; bullets: string[]; closing: string };
+    dsrpBlock: {
+      title: string;
+      paras: string[];
+      coreLabel: string;
+      coreBullets: string[];
+      relatedLabel: string;
+      related: { title: string; href: string }[];
+    };
+  };
   lineup: {
     eyebrow: string;
     titleLines: string[];
@@ -85,7 +107,7 @@ export interface HomeContent {
       lead: string;
       body: string;
       tags: string[];
-      features: { title: string; desc: string }[];
+      featureGroups: { label: string; tags: string[]; items: { title: string; desc: string }[] }[];
       image: string;
       imageAlt: string;
       sofcLabel: string;
@@ -98,6 +120,7 @@ export interface HomeContent {
     eyebrow: string;
     titleLines: string[];
     body: string;
+    ledNote: string;
     flow: string[];
     models: [string, string][];
     imageAlt: string;
@@ -113,6 +136,7 @@ export interface HomeContent {
   engineering: {
     eyebrow: string;
     titleLines: string[];
+    ecoTagline: string;
     lead: string;
     paras: string[];
     image: string;
@@ -277,10 +301,11 @@ export const koContent: HomeContent = {
   },
   nav: {
     items: [
+      { href: "/#ecotech", label: "에코테크" },
       { href: "/#lineup", label: "라인업" },
       { href: "/#alphafarm", label: "알파팜" },
+      { href: "/#news", label: "모델 제안" },
       { href: "/#cases", label: "구축 사례" },
-      { href: "/#news", label: "소식" },
       { href: "/insights", label: "인사이트" },
       { href: "/#contact", label: "연락처" }
     ],
@@ -315,13 +340,88 @@ export const koContent: HomeContent = {
   },
   problems: {
     eyebrow: "적용 영역",
-    titleLines: ["현장의 문제는 설비 하나가 아니라", "운영 전체에서 발생합니다."],
+    titleLines: ["에너지·물·열·CO₂의 효율이", "중요한 현장에 적용합니다."],
     items: [
-      { title: "프리미엄 농식품 생산", body: "품질과 공급 안정성을 동시에 요구하는 연중 생산 기반" },
-      { title: "고온다습 환경", body: "습도, 결로, 공급공기 상태가 품질 리스크로 이어지는 공간" },
-      { title: "고소비 전력 설비", body: "냉각, 제습, 냉동·냉장 설비의 피크부하와 운전 안정성" },
-      { title: "현지 사업화 실행", body: "실증, 구축, 운영, 제안까지 연결되어야 하는 해외 확장" }
+      { title: "프리미엄 딸기·작물 생산시설", body: "정밀 환경제어와 연중 안정생산이 필요한 수직농장·시설원예·육묘시설" },
+      { title: "고온다습·고전력 소비시설", body: "냉방·제습·냉동·냉장 설비의 소비전력과 피크부하 관리가 필요한 현장" },
+      { title: "폐열·CO₂ 발생시설", body: "데이터센터, 발전소, 바이오가스, 발효공장과 산업시설의 폐자원을 생산자원으로 전환할 수 있는 현장" },
+      { title: "식품·콜드체인 인프라", body: "식품공장, 포장실, 저온저장고와 콜드체인 시설의 온도·습도·결로 관리가 필요한 공간" },
+      { title: "해외 고온다습 지역", body: "에너지 비용과 냉방부하가 높은 아세안·중동 지역의 농업 및 식품 인프라" }
     ]
+  },
+  coreEcotech: {
+    eyebrow: "CORE ECOTECH",
+    titleLines: ["에너지와 물을 순환시키고,", "버려지는 자원을 다시 사용합니다."],
+    intro:
+      "AlphaFarm은 단순한 딸기수직농장이 아닙니다. 프리미엄 딸기에 필요한 정밀 재배환경을 구현하면서 냉방·제습 에너지를 줄이고, 물을 회수하며, 산업현장의 폐열과 CO₂를 생산자원으로 연결하는 에코테크 플랫폼입니다.",
+    items: [
+      {
+        title: "LED 현열 기반 저전력 저온제습",
+        desc: "딸기 재배용 LED에서 발생하는 현열을 제습 후 재열에 활용하여 보조 재열 전력과 저온제습 에너지 소비를 줄입니다."
+      },
+      {
+        title: "15℃·50%RH 정밀 재배환경",
+        desc: "온도와 습도를 함께 제어하여 프리미엄 딸기 생산에 필요한 저온·저습 환경과 안정적인 VPD 조건을 제공합니다."
+      },
+      {
+        title: "저TDS 응축수 회수·재이용",
+        desc: "식물 증산과 저온제습 과정에서 발생하는 고순도에 가까운 저TDS 응축수를 회수하여 관수와 비음용 유틸리티수 등으로 재이용합니다."
+      },
+      {
+        title: "회수수 기반 실외기 프리쿨링",
+        desc: "회수수의 증발냉각 효과를 이용하여 실외기 인입공기 온도를 낮추고, 응축부하와 압축기 소비전력을 줄입니다."
+      },
+      {
+        title: "폐열·CO₂ 자원화",
+        desc: "데이터센터, 발전소, 바이오가스 시설, 발효공장과 산업시설에서 발생하는 폐열과 적절히 정제·조절된 CO₂를 프리미엄 딸기 생산자원으로 전환합니다."
+      }
+    ]
+  },
+  productionTech: {
+    eyebrow: "ALPHAFARM PRODUCTION TECHNOLOGY",
+    titleLines: ["에코테크 환경을", "연중 생산성과 매출로 연결합니다."],
+    intro:
+      "AlphaFarm은 에너지와 물을 절감하는 것에 그치지 않습니다. 고밀도 정밀 재배랙과 연중 개화묘 공급기술을 결합하여 프리미엄 딸기의 공간 생산성, 품질 균일성, 생산 연속성을 높입니다.",
+    rackImage: "/media/concepts/alphacore-concept-2.webp",
+    rackImageAlt: "알파팜 고밀도 정밀 재배랙 — 정량관수·광량조절·에어덕트·슬릿형 화분 트레이 통합",
+    rackBlock: {
+      title: "고밀도 정밀 재배랙 기술",
+      intro: "고밀도 수직다단식 재배랙에 다음 기술을 통합합니다.",
+      bullets: [
+        "작물과 생육단계에 맞춘 정량관수",
+        "생육단계별 광량 조절",
+        "재배층 내부 에어덕트",
+        "층별 공기흐름과 온습도 균일화",
+        "뿌리환경과 배액을 고려한 슬릿형 화분 트레이",
+        "관수·배액·조명·기류의 일체형 구성"
+      ],
+      closing:
+        "제한된 공간에서 재배밀도를 높이면서도 각 재배층의 광량, 관수, 뿌리환경과 공기흐름을 균일하게 관리합니다."
+    },
+    dsrpBlock: {
+      title: "DSRP 연중 지속생산 기술",
+      paras: [
+        "DSRP(Dynamic Seedling Reserved Protocol)는 다단 육묘랙에서 교체용 개화묘를 지속적으로 준비하고, 생산 중인 모종을 분기별로 순환 교체하는 AlphaFarm의 연중 생산 프로토콜입니다.",
+        "전체 재배공간의 모종을 한 번에 철거하고 다시 정식하지 않고, 준비된 개화묘를 분기별로 단계적으로 투입합니다.",
+        "이를 통해 모종 노화에 따른 생산성 저하를 줄이고, 전체 모종 교체로 발생하는 장기 휴지기 없이 연중 지속적인 생산과 공급을 유지합니다."
+      ],
+      coreLabel: "DSRP 핵심 구성",
+      coreBullets: [
+        "다단 육묘랙 기반 개화묘 재배",
+        "생산용 모종과 교체용 개화묘의 동시 운영",
+        "분기별 모종 순환 교체",
+        "전체 재배실 일괄 교체 휴지기 방지",
+        "연중 생산량과 품질 안정화"
+      ],
+      relatedLabel: "연결 콘텐츠",
+      related: [
+        { title: "알파팜 고밀도 재배랙 기술", href: "/insights/alphafarm-high-density-rack" },
+        {
+          title: "DSRP란? 다단 육묘랙과 개화묘 순환 교체로 만드는 연중 딸기 생산",
+          href: "/insights/alphafarm-dsrp-year-round-production"
+        }
+      ]
+    }
   },
   lineup: {
     eyebrow: "알파 솔루션 포트폴리오",
@@ -402,7 +502,7 @@ export const koContent: HomeContent = {
   },
   alphafarm: {
     eyebrow: "알파팜 — 라인업 01",
-    titleLines: ["투자는 한 번,", "딸기 사업은 연중 내내 돌아갑니다."],
+    titleLines: ["에코테크 환경을", "연중 딸기 생산으로 연결합니다."],
     bodyPre: "알파팜은 설비가 아니라 ",
     bodyStrong: "연중 딸기 사업솔루션",
     bodyPost:
@@ -430,13 +530,40 @@ export const koContent: HomeContent = {
         "SOFC 고체산화물연료전지 연계",
         "폐열 · CO₂ 자원화"
       ],
-      features: [
-        { title: "고밀도 재배랙 기술", desc: "광폭 설계 기반 — 기본형 7단 224주, 밀식형 14단 448주까지. 제한된 면적에서도 높은 공간 생산성을 확보합니다." },
-        { title: "연중생산 프로토콜", desc: "휴지기 없는 연중 생산. 분기별 예비모 교체와 안정적 수확 유지로 생산 단절을 줄여 균일한 공급과 수익성을 확보합니다." },
-        { title: "저온제습 알파쿨링", desc: "15℃ / 50% RH 수준의 정밀 환경제어. 냉방과 제습을 통합 운전해 프리미엄 딸기 재배 환경을 만듭니다." },
-        { title: "에너지 절감 알파에너지", desc: "저온제습·최적 환기로 냉방 부하와 전력소비를 절감. 고온다습·고전기요금 지역에서 특히 강한 경쟁력이 됩니다." },
-        { title: "고순도에 가까운 물 생산", desc: "식물 증산·저온제습 과정의 저TDS 응축수를 회수·재이용. 수질 확보 시 유틸리티수·전처리수 활용까지 검토할 수 있습니다." },
-        { title: "폐열·CO₂ 연계 데이터센터 모델", desc: "Core-20은 데이터센터·SOFC 발전·산업단지와 연계해 폐열·CO₂·전력을 딸기 생산 자원으로 전환하는 자원순환 인프라입니다." }
+      featureGroups: [
+        {
+          label: "Core EcoTech",
+          tags: [
+            "LED 현열 기반 저전력 저온제습",
+            "15℃·50%RH 목표 환경",
+            "저TDS 응축수 회수·재이용",
+            "회수수 기반 실외기 프리쿨링",
+            "폐열·CO₂ 자원화"
+          ],
+          items: [
+            { title: "저온제습 알파쿨링", desc: "15℃ / 50% RH 수준의 정밀 환경제어. 냉방과 제습을 통합 운전해 프리미엄 딸기 재배 환경을 만듭니다." },
+            { title: "에너지 절감 알파에너지", desc: "저온제습·최적 환기로 냉방 부하와 전력소비를 절감. 고온다습·고전기요금 지역에서 특히 강한 경쟁력이 됩니다." },
+            { title: "고순도에 가까운 물 생산", desc: "식물 증산·저온제습 과정의 저TDS 응축수를 회수·재이용. 수질 확보 시 유틸리티수·전처리수 활용까지 검토할 수 있습니다." },
+            { title: "폐열·CO₂ 연계 데이터센터 모델", desc: "Core-20은 데이터센터·SOFC 발전·산업단지와 연계해 폐열·CO₂·전력을 딸기 생산 자원으로 전환하는 자원순환 인프라입니다." }
+          ]
+        },
+        {
+          label: "AlphaFarm Production Technology",
+          tags: [
+            "고밀도 정밀 재배랙",
+            "정량관수",
+            "광량 조절",
+            "내부 에어덕트",
+            "슬릿형 화분 트레이",
+            "DSRP 기반 개화묘 순환 공급",
+            "분기별 모종 교체",
+            "연중 지속생산"
+          ],
+          items: [
+            { title: "고밀도 재배랙 기술", desc: "광폭 설계 기반 — 기본형 7단 224주, 밀식형 14단 448주까지. 제한된 면적에서도 높은 공간 생산성을 확보합니다." },
+            { title: "연중생산 프로토콜", desc: "휴지기 없는 연중 생산. 분기별 예비모 교체와 안정적 수확 유지로 생산 단절을 줄여 균일한 공급과 수익성을 확보합니다." }
+          ]
+        }
       ],
       image: "/media/concepts/alphacore-hero.webp",
       imageAlt: "알파코어(AlphaCore) — 프리미엄 딸기 생산을 위한 모듈형 수직농장 생산 유닛 6대 특징 인포그래픽",
@@ -452,6 +579,7 @@ export const koContent: HomeContent = {
     eyebrow: "알파쿨링 — 라인업 02",
     titleLines: ["습도를 제어하면, 기후가 균일해지고", "품질 리스크가 줄어듭니다."],
     body: "단순 냉방이 아닙니다. 노점, 표면결로, 공급공기 상태까지 함께 관리하는 저온제습 중심의 공조 솔루션으로, 수직농장부터 식품 포장실, 저온저장시설, 콜드체인 시설까지 적용합니다.",
+    ledNote: "딸기 재배실에서는 LED에서 발생하는 현열을 제습 후 재열에 활용하여 보조 재열 전력과 저온제습 에너지 소비를 줄이는 방향으로 시스템을 구성합니다.",
     flow: ["정밀 습도 제어", "균일한 기후", "품질 리스크 저감", "에너지 절감"],
     models: [
       ["알파쿨링 팜", "딸기 재배실 전용 저온제습 · 냉각 패키지. 저온재배 조건의 습도와 결로를 냉각기 · 순환팬 · 기류 · 센서 통합 설계로 관리합니다."],
@@ -468,7 +596,7 @@ export const koContent: HomeContent = {
       { name: "알파 파워 패널", desc: "삼상 전력센서와 분전 · 제어 시스템으로 주요 설비의 운전 상태를 수집하고 관리합니다." },
       { name: "인공지능 컨트롤 게이트웨이", desc: "센서, 릴레이, 제어반, 장비를 연결해 현장 운전 로직과 데이터 기반 제어를 적용합니다." },
       { name: "알파 데이터 관리 시스템", desc: "온습도 · 이산화탄소 · 이미지 · 에너지 데이터를 통합해 운영 판단의 근거를 만듭니다." },
-      { name: "알파 사전냉각 통합 실외기", desc: "쿨링 실외기의 전력 절감, 피크부하 안정화, 고온 외기 대응을 담당합니다." }
+      { name: "알파 사전냉각 통합 실외기", desc: "쿨링 실외기의 전력 절감, 피크부하 안정화, 고온 외기 대응을 담당합니다. 저온제습 과정에서 회수한 물의 증발냉각 효과를 이용하여 실외기 인입공기 온도를 낮추고, 고온외기 조건에서 응축부하와 압축기 소비전력, 피크부하를 줄입니다." }
     ],
     futureTitle: "다음 단계",
     futureBody: "태양광 · 에너지저장장치 연계로 고소비 전력 시설에 맞춘 최적 전력 생산 솔루션으로 확장을 준비하고 있습니다."
@@ -476,6 +604,7 @@ export const koContent: HomeContent = {
   engineering: {
     eyebrow: "알파엔지니어링 — 라인업 04",
     titleLines: ["스마트 식품 인프라 엔지니어링"],
+    ecoTagline: "에코테크를 실제 현장 시스템으로 구현하는 엔지니어링",
     lead: "현장 조건에 맞게 설계·구성하고, 실제 운영 가능한 시스템으로 완성합니다.",
     paras: [
       "알파엔지니어링(AlphaEngineering)은 작물재배 공간과 식품산업 현장에 필요한 스마트 시스템을 설계·구성하고, 장비 공급부터 설치·연동·시운전까지 연결하는 엔지니어링 서비스입니다.",
@@ -519,8 +648,8 @@ export const koContent: HomeContent = {
   },
   ip: {
     eyebrow: "권리 · 특허 포트폴리오",
-    titleLines: ["10건+의 등록 권리가", "기술의 깊이를 증명합니다."],
-    body: "스마트팜 자동화, 생육 분석, 수직재배, 컨테이너, 데이터 분석까지 — 특허·상표·저작권 포트폴리오가 솔루션의 기반입니다.",
+    titleLines: ["등록된 지식재산이", "재배·자동화·데이터 기술의 기반을 만듭니다."],
+    body: "스마트팜 자동화, 생육 분석, 수직재배, 고밀도 재배랙, 컨테이너와 데이터 분석 관련 특허·상표·저작권 포트폴리오가 알파 솔루션의 기술 기반을 구성합니다.",
     names: [
       "로봇을 활용한 스마트 팜 자동화 시스템",
       "부하 보호 및 고장 방지 기능을 갖는 스마트 팜 시스템 및 그 제공방법",
@@ -769,10 +898,11 @@ export const enContent: HomeContent = {
   },
   nav: {
     items: [
+      { href: "/en#ecotech", label: "EcoTech" },
       { href: "/en#lineup", label: "Lineup" },
       { href: "/en#alphafarm", label: "AlphaFarm" },
+      { href: "/en#news", label: "Business Models" },
       { href: "/en#cases", label: "Cases" },
-      { href: "/en#news", label: "News" },
       { href: "/en/insights", label: "Insights" },
       { href: "/en#contact", label: "Contact" }
     ],
@@ -806,14 +936,89 @@ export const enContent: HomeContent = {
     body: "High-density cultivation racks and DSRP are AlphaFarm's differentiated production technologies that connect these EcoTech conditions to real year-round productivity and revenue. EcoTech applies to agriculture, food, cold chain, data centers, power plants, biogas, and industrial facilities."
   },
   problems: {
-    eyebrow: "Where we apply",
-    titleLines: ["Real problems come from operations", "as a whole — not a single machine."],
+    eyebrow: "APPLICATION AREAS",
+    titleLines: ["For sites where energy, water, heat,", "and CO₂ efficiency matters."],
     items: [
-      { title: "Premium agri-food production", body: "Year-round production that demands both quality and supply stability" },
-      { title: "Hot & humid environments", body: "Spaces where humidity, condensation, and supply-air conditions become quality risks" },
-      { title: "Power-intensive equipment", body: "Peak load and operational stability of cooling, dehumidification, and refrigeration equipment" },
-      { title: "Local business execution", body: "Overseas expansion that must connect pilots, deployment, operations, and proposals" }
+      { title: "Premium Strawberry and Crop Production", body: "Vertical farms, protected cultivation facilities, and nurseries requiring precision climate control and stable year-round production" },
+      { title: "Hot, Humid, and Energy-Intensive Facilities", body: "Sites requiring better management of cooling, dehumidification, refrigeration, peak load, and power consumption" },
+      { title: "Waste Heat and CO₂ Sources", body: "Data centers, power plants, biogas facilities, fermentation plants, and industrial sites where waste resources can be converted into productive inputs" },
+      { title: "Food and Cold-Chain Infrastructure", body: "Food factories, packing rooms, cold storage, and cold-chain facilities requiring temperature, humidity, and condensation control" },
+      { title: "Hot and Humid Overseas Markets", body: "Agricultural and food-infrastructure projects in ASEAN and Middle Eastern markets with high cooling loads and energy costs" }
     ]
+  },
+  coreEcotech: {
+    eyebrow: "CORE ECOTECH",
+    titleLines: ["Circulating energy and water,", "and turning waste into productive resources."],
+    intro:
+      "AlphaFarm is more than a strawberry vertical farm. It is an EcoTech platform that creates a precision climate for premium strawberries while reducing cooling and dehumidification energy, recovering water, and connecting industrial waste heat and CO₂ with productive use.",
+    items: [
+      {
+        title: "LED-Sensible-Heat Low-Power Dehumidification",
+        desc: "Sensible heat generated by cultivation LEDs is used for post-dehumidification reheat, helping reduce auxiliary reheat demand and low-temperature dehumidification energy."
+      },
+      {
+        title: "15°C / 50% RH Precision Growing Climate",
+        desc: "Temperature and humidity are controlled together to provide the low-temperature, low-humidity conditions and stable VPD required for premium strawberry production."
+      },
+      {
+        title: "Low-TDS Condensate Recovery and Reuse",
+        desc: "Low-TDS condensate generated through plant transpiration and low-temperature dehumidification is recovered for irrigation and non-potable utility applications."
+      },
+      {
+        title: "Recovered-Water Outdoor-Unit Precooling",
+        desc: "The evaporative cooling effect of recovered water lowers outdoor-unit intake-air temperature, helping reduce condensing load and compressor power consumption."
+      },
+      {
+        title: "Waste Heat and CO₂ Utilization",
+        desc: "Waste heat and appropriately treated and controlled CO₂ from data centers, power plants, biogas facilities, fermentation plants, and industrial sites are converted into productive resources for premium strawberry cultivation."
+      }
+    ]
+  },
+  productionTech: {
+    eyebrow: "ALPHAFARM PRODUCTION TECHNOLOGY",
+    titleLines: ["Turning EcoTech conditions", "into continuous year-round production and revenue."],
+    intro:
+      "AlphaFarm goes beyond energy and water efficiency. It combines high-density precision cultivation racks with a continuous flowering-seedling supply system to improve space productivity, crop uniformity, and production continuity.",
+    rackImage: "/media/concepts/alphacore-concept-2.webp",
+    rackImageAlt: "AlphaFarm high-density precision cultivation rack — integrated precision irrigation, adjustable lighting, air ducts, and slit-type pot trays",
+    rackBlock: {
+      title: "High-Density Precision Cultivation Rack Technology",
+      intro: "Our high-density vertical multi-layer racks integrate:",
+      bullets: [
+        "Precision irrigation based on crop and growth stage",
+        "Adjustable lighting by growth stage",
+        "Internal air-distribution ducts",
+        "Uniform airflow and climate across cultivation layers",
+        "Slit-type pot trays designed for root-zone and drainage management",
+        "Integrated irrigation, drainage, lighting, and airflow"
+      ],
+      closing:
+        "This increases cultivation density while maintaining more uniform lighting, irrigation, root-zone conditions, and airflow across the cultivation layers."
+    },
+    dsrpBlock: {
+      title: "DSRP Year-Round Continuous Production Technology",
+      paras: [
+        "DSRP, the Dynamic Seedling Reserved Protocol, is AlphaFarm's year-round production protocol based on continuous flowering-seedling preparation in multi-layer nursery racks and quarterly rotational plant replacement.",
+        "Instead of removing and replanting the entire crop at once, prepared flowering seedlings are introduced progressively on a quarterly basis.",
+        "This reduces productivity decline caused by plant aging and supports continuous year-round production without the extended downtime associated with full crop replacement."
+      ],
+      coreLabel: "Core Components of DSRP",
+      coreBullets: [
+        "Flowering-seedling cultivation in multi-layer nursery racks",
+        "Simultaneous operation of production plants and replacement seedlings",
+        "Quarterly rotational plant replacement",
+        "Prevention of extended full-room replacement downtime",
+        "More stable year-round production and quality"
+      ],
+      relatedLabel: "Related Content",
+      related: [
+        { title: "AlphaFarm High-Density Cultivation Rack Technology", href: "/en/insights/alphafarm-high-density-rack" },
+        {
+          title: "What Is DSRP? Year-Round Strawberry Production through Multi-Layer Flowering-Seedling Nurseries and Rotational Plant Replacement",
+          href: "/en/insights/alphafarm-dsrp-year-round-production"
+        }
+      ]
+    }
   },
   lineup: {
     eyebrow: "Alpha Solution Portfolio",
@@ -894,7 +1099,7 @@ export const enContent: HomeContent = {
   },
   alphafarm: {
     eyebrow: "AlphaFarm — Lineup 01",
-    titleLines: ["One investment —", "a strawberry business that runs all year."],
+    titleLines: ["Turning EcoTech conditions", "into year-round strawberry production."],
     bodyPre: "AlphaFarm delivers not equipment but a ",
     bodyStrong: "year-round strawberry business solution",
     bodyPost:
@@ -922,13 +1127,40 @@ export const enContent: HomeContent = {
         "SOFC (solid oxide fuel cell) linkage",
         "Waste heat · CO₂ to resources"
       ],
-      features: [
-        { title: "High-density cultivation rack", desc: "Wide-format design — 7 tiers / 224 plants (standard) up to 14 tiers / 448 plants (high-density). Stable, high productivity within a limited footprint." },
-        { title: "Year-round production protocol", desc: "Continuous production with no seasonal downtime. Scheduled mother-plant replacement and stable harvest management for uniform supply and profitability." },
-        { title: "AlphaCooling low-temp dehumidification", desc: "Precise control at ~15°C / 50% RH, integrating cooling and dehumidification to create the foundation for premium strawberry cultivation." },
-        { title: "AlphaEnergy efficiency", desc: "Low-temp dehumidification and optimized ventilation cut cooling load and power use — a key advantage in hot-humid or high-electricity-cost markets." },
-        { title: "Water production near high-purity", desc: "Recovers low-TDS condensate from transpiration and dehumidification for internal reuse, with potential utility/pretreatment-water use after simple post-treatment." },
-        { title: "Waste-heat & CO₂ data-center model", desc: "Core-20 links with data centers, SOFC power, and industrial complexes to convert waste heat, CO₂, and power into strawberry-production resources." }
+      featureGroups: [
+        {
+          label: "Core EcoTech",
+          tags: [
+            "LED-sensible-heat low-power dehumidification",
+            "15°C / 50% RH target climate",
+            "Low-TDS condensate recovery & reuse",
+            "Recovered-water outdoor-unit precooling",
+            "Waste heat & CO₂ utilization"
+          ],
+          items: [
+            { title: "AlphaCooling low-temp dehumidification", desc: "Precise control at ~15°C / 50% RH, integrating cooling and dehumidification to create the foundation for premium strawberry cultivation." },
+            { title: "AlphaEnergy efficiency", desc: "Low-temp dehumidification and optimized ventilation cut cooling load and power use — a key advantage in hot-humid or high-electricity-cost markets." },
+            { title: "Water production near high-purity", desc: "Recovers low-TDS condensate from transpiration and dehumidification for internal reuse, with potential utility/pretreatment-water use after simple post-treatment." },
+            { title: "Waste-heat & CO₂ data-center model", desc: "Core-20 links with data centers, SOFC power, and industrial complexes to convert waste heat, CO₂, and power into strawberry-production resources." }
+          ]
+        },
+        {
+          label: "AlphaFarm Production Technology",
+          tags: [
+            "High-density precision racks",
+            "Precision irrigation",
+            "Adjustable lighting",
+            "Internal air ducts",
+            "Slit-type pot trays",
+            "DSRP flowering-seedling circulation",
+            "Quarterly plant replacement",
+            "Year-round production"
+          ],
+          items: [
+            { title: "High-density cultivation rack", desc: "Wide-format design — 7 tiers / 224 plants (standard) up to 14 tiers / 448 plants (high-density). Stable, high productivity within a limited footprint." },
+            { title: "Year-round production protocol", desc: "Continuous production with no seasonal downtime. Scheduled mother-plant replacement and stable harvest management for uniform supply and profitability." }
+          ]
+        }
       ],
       image: "/media/concepts/alphacore-hero-en.webp",
       imageAlt: "AlphaCore — modular vertical farming production unit for premium strawberry production, six key features infographic",
@@ -944,6 +1176,7 @@ export const enContent: HomeContent = {
     eyebrow: "AlphaCooling — Lineup 02",
     titleLines: ["Control the humidity — the climate", "evens out and quality risk drops."],
     body: "This is not simple air conditioning. A dehumidification-centered HVAC solution that also manages dew point, surface condensation, and supply-air condition — applied from vertical farms to food packing rooms, cold storage, and cold-chain facilities.",
+    ledNote: "For strawberry grow rooms, sensible heat generated by cultivation LEDs is used for post-dehumidification reheat to help reduce auxiliary reheat demand and low-temperature dehumidification energy.",
     flow: ["Precise humidity control", "Uniform climate", "Lower quality risk", "Energy savings"],
     models: [
       ["AlphaCooling Farm", "A low-temp dehumidification & cooling package for strawberry grow rooms — coolers, circulation fans, airflow, and sensors designed as one."],
@@ -960,7 +1193,7 @@ export const enContent: HomeContent = {
       { name: "Alpha Power Panel", desc: "Collects and manages equipment operating status through three-phase power sensing, distribution, and control." },
       { name: "AI Control Gateway", desc: "Connects sensors, relays, control panels, and equipment to apply on-site logic and data-driven control." },
       { name: "Alpha Data Management System", desc: "Integrates temperature, humidity, CO2, image, and energy data as the basis for operational decisions." },
-      { name: "Alpha PCU", desc: "PreCooling integrated outdoor unit — outdoor-unit power savings, peak-load stabilization, and hot-climate response." }
+      { name: "Alpha PCU", desc: "PreCooling integrated outdoor unit — outdoor-unit power savings, peak-load stabilization, and hot-climate response. Recovered water from the dehumidification process is used for evaporative precooling of outdoor-unit intake air, helping reduce condensing load, compressor power, and peak demand under high ambient temperatures." }
     ],
     futureTitle: "Next step",
     futureBody: "We are preparing an optimal power generation solution for power-intensive facilities, linking PV and energy storage systems."
@@ -968,6 +1201,7 @@ export const enContent: HomeContent = {
   engineering: {
     eyebrow: "AlphaEngineering — Lineup 04",
     titleLines: ["Smart Food Infrastructure Engineering"],
+    ecoTagline: "Engineering that turns EcoTech into practical operating systems",
     lead: "Designed and configured for each site, then delivered as a fully operational system.",
     paras: [
       "AlphaEngineering designs and configures smart systems for crop cultivation facilities and food-industry sites, connecting equipment supply, installation, integration, and commissioning into practical engineering solutions.",
@@ -1011,8 +1245,8 @@ export const enContent: HomeContent = {
   },
   ip: {
     eyebrow: "IP portfolio",
-    titleLines: ["10+ registered rights prove", "the depth of our technology."],
-    body: "Smart farm automation, growth analytics, vertical cultivation, containers, and data analysis — a portfolio of patents, trademarks, and copyrights underpins our solutions.",
+    titleLines: ["Registered intellectual property", "supports our cultivation, automation, and data technologies."],
+    body: "Our patents, trademarks, and software copyrights cover smart-farm automation, crop analysis, vertical cultivation, high-density rack systems, containers, and data analytics.",
     names: [
       "Smart farm automation system using robots",
       "Smart farm system with load protection and failure prevention",

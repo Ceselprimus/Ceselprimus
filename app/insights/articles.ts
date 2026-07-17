@@ -48,6 +48,129 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "alphafarm-dsrp-year-round-production",
+    title: "DSRP란? 다단 육묘랙과 개화묘 순환 교체로 만드는 연중 딸기 생산",
+    metaTitle: "DSRP 연중 딸기 생산 프로토콜 — 다단 육묘랙·개화묘 순환 교체 | 쎄슬프라이머스",
+    description:
+      "DSRP(Dynamic Seedling Reserved Protocol)는 다단 육묘랙에서 교체용 개화묘를 지속 준비하고 분기별로 순환 교체해, 장기 휴지기 없이 연중 딸기를 생산하는 알파팜의 생산기술입니다.",
+    keywords: ["DSRP", "연중 딸기 생산", "다단 육묘랙", "개화묘 순환 교체", "딸기수직농장", "알파팜 생산기술"],
+    date: "2026-07-16",
+    category: "알파팜",
+    readMin: 4,
+    heroImage: "/media/concepts/alphacore-hero.webp",
+    heroImageEn: "/media/concepts/alphacore-hero-en.webp",
+    heroContain: true,
+    heroWidth: 1672,
+    heroHeight: 941,
+    heroAlt: "DSRP 다단 육묘랙 개화묘 순환 교체 연중 딸기 생산 / AlphaFarm DSRP year-round strawberry production",
+    lead:
+      "DSRP(Dynamic Seedling Reserved Protocol)는 다단 육묘랙에서 교체용 개화묘를 지속적으로 준비하고, 생산 중인 모종을 분기별로 순환 교체하는 AlphaFarm의 연중 생산 프로토콜입니다.",
+    sections: [
+      {
+        h: "DSRP란 무엇인가",
+        paras: [
+          "DSRP(Dynamic Seedling Reserved Protocol)는 다단 육묘랙에서 교체용 개화묘를 지속적으로 준비하고, 생산 중인 모종을 분기별로 순환 교체하는 AlphaFarm의 연중 생산 프로토콜입니다.",
+          "전체 재배공간의 모종을 한 번에 철거하고 다시 정식하지 않고, 준비된 개화묘를 분기별로 단계적으로 투입합니다. 이를 통해 모종 노화에 따른 생산성 저하를 줄이고, 전체 모종 교체로 발생하는 장기 휴지기 없이 연중 지속적인 생산과 공급을 유지합니다."
+        ]
+      },
+      {
+        h: "DSRP 핵심 구성",
+        paras: ["다단 육묘랙에서 교체용 개화묘를 준비하고, 생산 라인과 병행 운영하여 분기별로 순환 교체합니다."],
+        bullets: [
+          "다단 육묘랙 기반 개화묘 재배",
+          "생산용 모종과 교체용 개화묘의 동시 운영",
+          "분기별 모종 순환 교체",
+          "전체 재배실 일괄 교체 휴지기 방지",
+          "연중 생산량과 품질 안정화"
+        ]
+      },
+      {
+        h: "고밀도 정밀 재배랙과의 결합",
+        paras: [
+          "DSRP는 알파팜의 고밀도 정밀 재배랙 위에서 작동합니다. 정량관수, 광량 조절, 재배층 내부 에어덕트와 슬릿형 화분 트레이로 균일한 재배환경을 만들고, 그 위에서 개화묘를 분기별로 순환 교체해 프리미엄 딸기의 공간 생산성과 생산 연속성을 함께 높입니다."
+        ]
+      }
+    ],
+    faq: [
+      {
+        q: "DSRP란 무엇인가요?",
+        a: "DSRP(Dynamic Seedling Reserved Protocol)는 다단 육묘랙에서 교체용 개화묘를 지속적으로 준비하고, 생산 중인 모종을 분기별로 순환 교체하는 AlphaFarm의 연중 생산 프로토콜입니다. 전체 모종을 한 번에 교체하지 않아 장기 생산중단을 방지하고, 모종 노화에 따른 생산성 저하를 줄입니다."
+      },
+      {
+        q: "왜 전체 모종을 한 번에 교체하지 않나요?",
+        a: "전체 재배공간의 모종을 한 번에 철거하고 다시 정식하면 장기 휴지기가 발생합니다. DSRP는 준비된 개화묘를 분기별로 단계적으로 투입해 이 휴지기 없이 연중 지속적인 생산과 공급을 유지합니다."
+      },
+      {
+        q: "DSRP는 어떤 재배 시스템에서 작동하나요?",
+        a: "DSRP는 알파팜의 고밀도 정밀 재배랙과 다단 육묘랙을 기반으로 작동합니다. 정량관수·광량 조절·에어덕트·슬릿형 화분 트레이로 균일한 재배환경을 만든 뒤, 개화묘를 분기별로 순환 교체합니다."
+      }
+    ],
+    relatedKeywords: [
+      "DSRP / Dynamic Seedling Reserved Protocol",
+      "연중 딸기 생산 / Year-Round Strawberry Production",
+      "다단 육묘랙 / Multi-Layer Nursery Rack",
+      "개화묘 / Flowering Seedling",
+      "고밀도 재배랙 / High-Density Rack",
+      "딸기수직농장 / Strawberry Vertical Farm"
+    ],
+    ctaTitle: "연중 딸기 생산, DSRP로 설계해 드립니다.",
+    ctaBody: "재배 공간과 목표 생산량을 알려주시면 DSRP 기반 연중 생산·개화묘 순환 운영 방식을 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "What Is DSRP? Year-Round Strawberry Production through Multi-Layer Flowering-Seedling Nurseries and Rotational Plant Replacement",
+      metaTitle: "DSRP Year-Round Strawberry Production Protocol — Multi-Layer Nursery Racks | CESeL Primus",
+      description:
+        "DSRP (Dynamic Seedling Reserved Protocol) continuously prepares replacement flowering seedlings in multi-layer nursery racks and rotates them quarterly to sustain year-round strawberry production without extended downtime.",
+      lead:
+        "DSRP, the Dynamic Seedling Reserved Protocol, is AlphaFarm's year-round production protocol based on continuous flowering-seedling preparation in multi-layer nursery racks and quarterly rotational plant replacement.",
+      sections: [
+        {
+          h: "What is DSRP?",
+          paras: [
+            "DSRP, the Dynamic Seedling Reserved Protocol, is AlphaFarm's year-round production protocol based on continuous flowering-seedling preparation in multi-layer nursery racks and quarterly rotational plant replacement.",
+            "Instead of removing and replanting the entire crop at once, prepared flowering seedlings are introduced progressively on a quarterly basis. This reduces productivity decline caused by plant aging and supports continuous year-round production without the extended downtime associated with full crop replacement."
+          ]
+        },
+        {
+          h: "Core components of DSRP",
+          paras: ["Replacement flowering seedlings are prepared in multi-layer nursery racks and rotated into the production line on a quarterly basis."],
+          bullets: [
+            "Flowering-seedling cultivation in multi-layer nursery racks",
+            "Simultaneous operation of production plants and replacement seedlings",
+            "Quarterly rotational plant replacement",
+            "Prevention of extended full-room replacement downtime",
+            "More stable year-round production and quality"
+          ]
+        },
+        {
+          h: "Built on high-density precision racks",
+          paras: [
+            "DSRP runs on top of AlphaFarm's high-density precision cultivation racks. Precision irrigation, adjustable lighting, internal air ducts, and slit-type pot trays create uniform growing conditions, and flowering seedlings are then rotated quarterly to raise both space productivity and production continuity for premium strawberries."
+          ]
+        }
+      ],
+      faq: [
+        {
+          q: "What is DSRP?",
+          a: "DSRP, the Dynamic Seedling Reserved Protocol, continuously prepares replacement flowering seedlings in multi-layer nursery racks and replaces production plants on a quarterly rotational basis. It avoids extended production downtime from full crop replacement and reduces productivity decline caused by plant aging."
+        },
+        {
+          q: "Why not replace all plants at once?",
+          a: "Removing and replanting the entire crop at once creates extended downtime. DSRP introduces prepared flowering seedlings progressively on a quarterly basis, sustaining continuous year-round production and supply without that downtime."
+        },
+        {
+          q: "What cultivation system does DSRP run on?",
+          a: "DSRP runs on AlphaFarm's high-density precision racks and multi-layer nursery racks. Precision irrigation, adjustable lighting, air ducts, and slit-type pot trays create uniform growing conditions before flowering seedlings are rotated quarterly."
+        }
+      ],
+      ctaTitle: "We'll design year-round strawberry production with DSRP.",
+      ctaBody: "Tell us your cultivation space and target output, and we'll review a DSRP-based year-round production and flowering-seedling rotation plan and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
+  },
+  {
     slug: "alphafarm-malaysia-palmoil-biogas",
     title: "말레이시아 알파팜 팜오일 바이오가스 발전 연계 수출 모델",
     metaTitle: "말레이시아 딸기수직농장 — 팜오일 바이오가스 연계 알파팜 수출 모델 | 쎄슬프라이머스",

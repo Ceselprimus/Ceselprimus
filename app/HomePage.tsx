@@ -17,6 +17,7 @@ import {
   PackageCheck,
   Phone,
   PlugZap,
+  Recycle,
   Snowflake,
   Sprout,
   ThermometerSnowflake,
@@ -46,7 +47,8 @@ const ECOTECH_SLUGS = new Set([
   "alphafarm-core-resource-circulation"
 ]);
 
-const problemIcons = [Leaf, Droplets, Zap, Building2];
+const problemIcons = [Sprout, Zap, Factory, Building2, Globe2];
+const coreEcotechIcons = [ThermometerSnowflake, Snowflake, Droplets, Fan, Recycle];
 const contactIcons = [Sprout, Snowflake, Zap, Wrench, Factory, Globe2];
 const energyIcons = [PlugZap, Cpu, Database, Fan];
 const categoryIcons: Record<Accent, typeof Sprout> = {
@@ -166,11 +168,13 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <StructuredData data={buildStructuredData(content)} />
       <SiteHeader nav={content.nav} contact={content.contact} />
       <Hero content={content} />
+      <CoreEcoTechSection content={content} />
       <PositioningSection content={content} />
       <ProblemSection content={content} />
       <AudienceSection content={content} />
       <LineupSection content={content} />
       <EcoTechInsightsSection content={content} />
+      <ProductionTechSection content={content} />
       <NewsSection content={content} />
       <IpSection content={content} />
       <CasesSection content={content} />
@@ -299,10 +303,48 @@ function Hero({ content }: { content: HomeContent }) {
   );
 }
 
+function CoreEcoTechSection({ content }: { content: HomeContent }) {
+  const { coreEcotech } = content;
+  return (
+    <section id="ecotech" className="py-16 md:py-24">
+      <Container>
+        <Reveal>
+          <div className="max-w-3xl">
+            <Eyebrow>{coreEcotech.eyebrow}</Eyebrow>
+            <SectionTitle>
+              <Lines lines={coreEcotech.titleLines} />
+            </SectionTitle>
+            <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/68 md:text-[1.18rem]">{coreEcotech.intro}</p>
+          </div>
+        </Reveal>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 md:mt-14 lg:grid-cols-3 xl:grid-cols-5">
+          {coreEcotech.items.map((item, index) => {
+            const Icon = coreEcotechIcons[index] ?? Leaf;
+            return (
+              <Reveal key={item.title} delay={(index % 5) * 80}>
+                <article className="flex h-full flex-col rounded-2xl bg-white p-6 ring-1 ring-ink/8 transition-colors duration-300 hover:ring-forest/35">
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest/10">
+                      <Icon className="h-6 w-6 text-forest" />
+                    </span>
+                    <span className="text-[0.9rem] font-bold text-forest/70">{String(index + 1).padStart(2, "0")}</span>
+                  </div>
+                  <h3 className="mt-5 text-[1.12rem] font-bold leading-snug tracking-tight text-ink">{item.title}</h3>
+                  <p className="mt-2.5 text-[0.98rem] leading-relaxed text-ink/64">{item.desc}</p>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 function PositioningSection({ content }: { content: HomeContent }) {
   const { positioning } = content;
   return (
-    <section id="about" className="py-14 md:py-20">
+    <section id="about" className="bg-white py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-4xl">
@@ -325,7 +367,7 @@ function PositioningSection({ content }: { content: HomeContent }) {
 function ProblemSection({ content }: { content: HomeContent }) {
   const { problems } = content;
   return (
-    <section className="bg-white py-14 md:py-20">
+    <section className="py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -335,7 +377,7 @@ function ProblemSection({ content }: { content: HomeContent }) {
             </SectionTitle>
           </div>
         </Reveal>
-        <div className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
+        <div className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 md:mt-16 lg:grid-cols-3 xl:grid-cols-5">
           {problems.items.map((problem, index) => {
             const Icon = problemIcons[index] ?? Leaf;
             return (
@@ -359,7 +401,7 @@ function LineupSection({ content }: { content: HomeContent }) {
   const insightCats = new Set(articles.map((a) => a.category));
   const insightsLabel = content.locale === "en" ? "Related insights" : "관련 인사이트";
   return (
-    <section id="lineup" className="bg-white py-16 md:py-24">
+    <section id="lineup" className="py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
@@ -454,13 +496,12 @@ function LineupSection({ content }: { content: HomeContent }) {
   );
 }
 
-// 섹션 id="ecotech" — Hero 1차 CTA(에코테크 기술 보기) 앵커. 2차에서 Core EcoTech 섹션으로 id 이관 예정.
 function EcoTechInsightsSection({ content }: { content: HomeContent }) {
   const { ecotechInsights } = content;
   const isEn = content.locale === "en";
   const insightsBase = isEn ? "/en/insights" : "/insights";
   return (
-    <section id="ecotech" className="py-16 md:py-24">
+    <section id="ecotech-insights" className="bg-white py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -536,6 +577,91 @@ function EcoTechInsightsSection({ content }: { content: HomeContent }) {
   );
 }
 
+function ProductionTechSection({ content }: { content: HomeContent }) {
+  const { productionTech } = content;
+  const { rackBlock, dsrpBlock } = productionTech;
+  return (
+    <section id="production-tech" className="py-16 md:py-24">
+      <Container>
+        <Reveal>
+          <div className="max-w-3xl">
+            <Eyebrow>{productionTech.eyebrow}</Eyebrow>
+            <SectionTitle>
+              <Lines lines={productionTech.titleLines} />
+            </SectionTitle>
+            <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/68 md:text-[1.18rem]">{productionTech.intro}</p>
+          </div>
+        </Reveal>
+        <Reveal delay={100}>
+          <div className="mt-10 grid gap-8 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:mt-12 md:p-9 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <figure className="overflow-hidden rounded-2xl ring-1 ring-ink/8">
+              <Image
+                src={productionTech.rackImage}
+                alt={productionTech.rackImageAlt}
+                width={1200}
+                height={800}
+                className="h-auto w-full"
+                sizes="(min-width: 1024px) 560px, 92vw"
+              />
+            </figure>
+            <div>
+              <h3 className="text-2xl font-bold tracking-tight text-ink md:text-[1.7rem]">{rackBlock.title}</h3>
+              <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/72 md:text-[1.08rem]">{rackBlock.intro}</p>
+              <ul className="mt-4 space-y-2.5">
+                {rackBlock.bullets.map((b) => (
+                  <li key={b} className="flex gap-2.5">
+                    <span aria-hidden className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-forest" />
+                    <p className="text-[1rem] leading-relaxed text-ink/74">{b}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-[1.02rem] leading-relaxed text-ink/66">{rackBlock.closing}</p>
+            </div>
+          </div>
+        </Reveal>
+        <Reveal delay={160}>
+          <div className="mt-6 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:p-9">
+            <h3 className="text-2xl font-bold tracking-tight text-ink md:text-[1.7rem]">{dsrpBlock.title}</h3>
+            <div className="mt-4 space-y-3">
+              {dsrpBlock.paras.map((p) => (
+                <p key={p} className="text-[1.02rem] leading-relaxed text-ink/72 md:text-[1.08rem]">{p}</p>
+              ))}
+            </div>
+            <div className="mt-8 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+              <div className="rounded-2xl bg-paper p-6 ring-1 ring-ink/8">
+                <p className="text-[0.95rem] font-bold tracking-wide text-forest">{dsrpBlock.coreLabel}</p>
+                <ul className="mt-3 space-y-2.5">
+                  {dsrpBlock.coreBullets.map((b) => (
+                    <li key={b} className="flex gap-2.5">
+                      <span aria-hidden className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-forest" />
+                      <p className="text-[1rem] leading-relaxed text-ink/74">{b}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-[0.95rem] font-bold tracking-wide text-forest">{dsrpBlock.relatedLabel}</p>
+                <div className="mt-3 grid gap-3">
+                  {dsrpBlock.related.map((r) => (
+                    <a
+                      key={r.href}
+                      href={r.href}
+                      className="group flex items-start justify-between gap-4 rounded-2xl bg-paper p-5 ring-1 ring-ink/8 transition duration-300 hover:-translate-y-0.5 hover:shadow-soft"
+                    >
+                      <span className="text-[1.02rem] font-bold leading-snug tracking-tight text-ink">{r.title}</span>
+                      <ArrowUpRight className="mt-0.5 h-5 w-5 shrink-0 text-ink/35 transition group-hover:text-forest" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
 function AlphaFarmSection({ content }: { content: HomeContent }) {
   const { alphafarm, lineup } = content;
   return (
@@ -602,14 +728,29 @@ function AlphaFarmSection({ content }: { content: HomeContent }) {
             </div>
           </Reveal>
           <Reveal delay={240}>
-            <div className="mt-6 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:p-7">
-              <ul className="space-y-3">
-                {alphafarm.core.features.map((f) => (
-                  <li key={f.title} className="text-[0.98rem] leading-relaxed text-ink/72 md:text-[1.02rem]">
-                    <span className="font-bold text-ink">{f.title}</span> — {f.desc}
-                  </li>
-                ))}
-              </ul>
+            <div className="mt-6 grid gap-5 lg:grid-cols-2">
+              {alphafarm.core.featureGroups.map((group) => (
+                <div key={group.label} className="rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:p-7">
+                  <p className="text-[0.95rem] font-bold tracking-wide text-forest">{group.label}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {group.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-paper px-3 py-1 text-[0.85rem] font-semibold text-ink/70 ring-1 ring-ink/10"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <ul className="mt-4 space-y-3 border-t border-ink/8 pt-4">
+                    {group.items.map((f) => (
+                      <li key={f.title} className="text-[0.98rem] leading-relaxed text-ink/72 md:text-[1.02rem]">
+                        <span className="font-bold text-ink">{f.title}</span> — {f.desc}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </Reveal>
           <DetailCloseBar targetId="alphafarm" label={lineup.collapseLabel} />
@@ -647,6 +788,9 @@ function AlphaCoolingSection({ content }: { content: HomeContent }) {
                   <Lines lines={cooling.titleLines} />
                 </SectionTitle>
                 <p className="mt-6 text-[1.08rem] leading-relaxed text-ink/70 md:text-[1.18rem]">{cooling.body}</p>
+                {cooling.ledNote ? (
+                  <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/66 md:text-[1.08rem]">{cooling.ledNote}</p>
+                ) : null}
               </Reveal>
               <Reveal delay={110}>
                 <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-3">
@@ -747,6 +891,11 @@ function AlphaEngineeringSection({ content }: { content: HomeContent }) {
               <SectionTitle>
                 <Lines lines={engineering.titleLines} />
               </SectionTitle>
+              {engineering.ecoTagline ? (
+                <p className="mt-4 text-[1.05rem] font-semibold leading-relaxed text-ink/70 md:text-[1.12rem]">
+                  {engineering.ecoTagline}
+                </p>
+              ) : null}
               <p className="mt-5 text-[1.1rem] font-bold text-amber md:text-[1.2rem]">{engineering.lead}</p>
             </div>
           </Reveal>
@@ -805,7 +954,7 @@ function CasesSection({ content }: { content: HomeContent }) {
 function AudienceSection({ content }: { content: HomeContent }) {
   const { audience } = content;
   return (
-    <section className="py-14 md:py-20">
+    <section className="bg-white py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
