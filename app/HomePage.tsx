@@ -14,7 +14,6 @@ import {
   Globe2,
   Leaf,
   Mail,
-  PackageCheck,
   Phone,
   PlugZap,
   Recycle,
@@ -44,7 +43,8 @@ const ECOTECH_SLUGS = new Set([
   "alphafarm-low-power-dehumidification",
   "alphafarm-water-recovery",
   "alphaenergy-ais-power-saving",
-  "alphaenergy-bio-co2-alphafarm"
+  "alphaenergy-bio-co2-alphafarm",
+  "alphafarm-core-resource-circulation"
 ]);
 
 const problemIcons = [Sprout, Zap, Factory, Building2, Globe2];
@@ -171,7 +171,6 @@ export default function HomePage({ content }: { content: HomeContent }) {
       <CoreEcoTechSection content={content} />
       <PositioningSection content={content} />
       <ProblemSection content={content} />
-      <AudienceSection content={content} />
       <LineupSection content={content} />
       <EcoTechInsightsSection content={content} />
       <ProductionTechSection content={content} />
@@ -306,7 +305,7 @@ function Hero({ content }: { content: HomeContent }) {
 function CoreEcoTechSection({ content }: { content: HomeContent }) {
   const { coreEcotech } = content;
   return (
-    <section id="ecotech" className="py-16 md:py-24">
+    <section id="ecotech" className="bg-white py-16 md:py-24">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -344,7 +343,7 @@ function CoreEcoTechSection({ content }: { content: HomeContent }) {
 function PositioningSection({ content }: { content: HomeContent }) {
   const { positioning } = content;
   return (
-    <section id="about" className="bg-white py-14 md:py-20">
+    <section id="about" className="py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-4xl">
@@ -365,9 +364,9 @@ function PositioningSection({ content }: { content: HomeContent }) {
 }
 
 function ProblemSection({ content }: { content: HomeContent }) {
-  const { problems } = content;
+  const { problems, audience } = content;
   return (
-    <section className="py-14 md:py-20">
+    <section className="bg-white py-14 md:py-20">
       <Container>
         <Reveal>
           <div className="max-w-3xl">
@@ -391,6 +390,21 @@ function ProblemSection({ content }: { content: HomeContent }) {
             );
           })}
         </div>
+        <Reveal delay={100}>
+          <div className="mt-12 flex flex-wrap items-center gap-x-3 gap-y-2.5 border-t border-ink/10 pt-8 md:mt-14">
+            <span className="text-[0.95rem] font-bold text-forest">{audience.eyebrow}</span>
+            <div className="flex flex-wrap gap-2">
+              {audience.items.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full bg-paper px-3.5 py-1.5 text-[0.9rem] font-semibold text-ink ring-1 ring-ink/10"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );
@@ -978,34 +992,6 @@ function CasesSection({ content }: { content: HomeContent }) {
           </div>
         </Reveal>
         <CasesGallery cases={cases} />
-      </Container>
-    </section>
-  );
-}
-
-function AudienceSection({ content }: { content: HomeContent }) {
-  const { audience } = content;
-  return (
-    <section className="bg-white py-14 md:py-20">
-      <Container>
-        <Reveal>
-          <div className="max-w-3xl">
-            <Eyebrow>{audience.eyebrow}</Eyebrow>
-            <SectionTitle>
-              <Lines lines={audience.titleLines} />
-            </SectionTitle>
-          </div>
-        </Reveal>
-        <div className="mt-10 grid gap-x-10 md:mt-14 md:grid-cols-2 lg:grid-cols-3">
-          {audience.items.map((item, index) => (
-            <Reveal key={item} delay={(index % 3) * 80}>
-              <p className="flex min-h-[5.5rem] items-center gap-4 border-t border-ink/12 py-5 text-xl font-semibold leading-snug tracking-tight text-ink md:text-[1.32rem]">
-                <PackageCheck className="h-6 w-6 shrink-0 text-forest" />
-                {item}
-              </p>
-            </Reveal>
-          ))}
-        </div>
       </Container>
     </section>
   );

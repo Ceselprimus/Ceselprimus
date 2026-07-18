@@ -331,10 +331,10 @@ export const koContent: HomeContent = {
   hero: {
     eyebrow: "딸기수직농장 기반 에코테크 기업",
     titleLines: ["에너지를 줄이고, 물을 회수하며,", "폐열과 CO₂를 생산자원으로 전환합니다."],
-    sub: "LED 현열을 활용한 저전력 저온제습으로 프리미엄 딸기 생산을 위한 15℃·50%RH 목표 환경을 구현합니다. 저온제습 과정에서 발생하는 고순도에 가까운 저TDS 응축수를 회수·재이용하고, 회수수를 활용해 실외기 인입공기를 사전냉각하여 냉방 소비전력을 줄입니다. 또한 발전소, 데이터센터, 바이오가스 시설과 산업현장의 폐열·CO₂를 프리미엄 딸기 생산자원으로 연결하여 구축비와 운영비를 낮추는 순환형 에코테크 모델을 제공합니다.",
+    sub: "LED 현열을 활용한 저전력 저온제습으로 프리미엄 딸기 생산을 위한 15℃·50%RH 목표 환경을 구현합니다. 저온제습 과정에서 발생하는 비교적 청정한 저TDS 응축수를 회수·재이용하고, 회수수를 활용해 실외기 인입공기를 사전냉각하여 냉방 소비전력을 줄입니다. 또한 발전소, 데이터센터, 바이오가스 시설과 산업현장의 폐열·CO₂를 프리미엄 딸기 생산자원으로 연결하여 구축비와 운영비를 낮추는 순환형 에코테크 모델을 제공합니다.",
     ctaPrimary: "에코테크 기술 보기",
     ctaSecondary: "프로젝트 문의",
-    imageAlt: "쎄슬프라이머스 딸기수직농장·콜드체인 통합 솔루션 / CESeL Primus strawberry vertical farm and cold chain solution",
+    imageAlt: "딸기수직농장 기반 에코테크 — 저전력 저온제습, 물순환, 폐열·CO₂ 활용 / Strawberry vertical farm–based EcoTech using low-power dehumidification, water circularity, waste heat and CO₂",
     stats: [
       { value: "2016", label: "법인 설립" },
       { value: "4", label: "솔루션 라인업" },
@@ -344,10 +344,10 @@ export const koContent: HomeContent = {
   },
   positioning: {
     eyebrow: "핵심 포지셔닝",
-    statementPre: "쎄슬프라이머스는 에너지 소비를 줄이고, 물을 회수하며, 폐열과 CO₂를 생산자원으로 전환하는",
-    statementHighlight: " 딸기수직농장 기반 에코테크 기업",
-    statementPost: "입니다.",
-    body: "고밀도 재배랙과 DSRP는 이러한 에코테크 환경을 실제 연중 생산성과 매출로 연결하는 AlphaFarm의 차별화된 생산기술입니다. 에코테크는 농업·식품·콜드체인·데이터센터·발전소·바이오가스·산업시설에 적용됩니다."
+    statementPre: "딸기수직농장에서 검증하고, ",
+    statementHighlight: "농업·식품·산업 현장으로 확장합니다.",
+    statementPost: "",
+    body: "AlphaFarm은 쎄슬프라이머스의 에코테크를 검증하고 사업화하는 기반입니다. 검증된 기후·에너지·물순환 기술을 AlphaCooling, AlphaEnergy, AlphaEngineering으로 확장하고, 고밀도 재배랙과 DSRP를 통해 연중 생산성과 매출로 연결합니다."
   },
   problems: {
     eyebrow: "적용 영역",
@@ -362,9 +362,9 @@ export const koContent: HomeContent = {
   },
   coreEcotech: {
     eyebrow: "CORE ECOTECH",
-    titleLines: ["에너지와 물을 순환시키고,", "버려지는 자원을 다시 사용합니다."],
+    titleLines: ["프리미엄 딸기 생산을 위한", "5가지 순환기술"],
     intro:
-      "AlphaFarm은 단순한 딸기수직농장이 아닙니다. 프리미엄 딸기에 필요한 정밀 재배환경을 구현하면서 냉방·제습 에너지를 줄이고, 물을 회수하며, 산업현장의 폐열과 CO₂를 생산자원으로 연결하는 에코테크 플랫폼입니다.",
+      "정밀 재배환경부터 저온제습, 응축수 회수, 실외기 프리쿨링, 폐열·CO₂ 활용까지 하나의 운영 시스템으로 연결합니다.",
     items: [
       {
         title: "LED 현열 기반 저전력 저온제습",
@@ -376,7 +376,7 @@ export const koContent: HomeContent = {
       },
       {
         title: "저TDS 응축수 회수·재이용",
-        desc: "식물 증산과 저온제습 과정에서 발생하는 고순도에 가까운 저TDS 응축수를 회수하여 관수와 비음용 유틸리티수 등으로 재이용합니다."
+        desc: "식물 증산과 저온제습 과정에서 발생하는 비교적 청정한 저TDS 응축수를 회수하여 관수와 비음용 유틸리티수 등으로 재이용합니다."
       },
       {
         title: "회수수 기반 실외기 프리쿨링",
@@ -658,15 +658,15 @@ export const koContent: HomeContent = {
     ]
   },
   audience: {
-    eyebrow: "적용 고객군",
+    eyebrow: "주요 고객군",
     titleLines: ["생산 현장부터 리테일, 저온물류까지", "함께하고 있습니다."],
     items: [
-      "수직농장 · 시설원예",
-      "식품공장 · 포장실",
-      "저온창고 · 콜드체인 시설",
-      "베이커리 · 호텔 · 프리미엄 리테일",
-      "연구기관 · 교육시설",
-      "아세안 해외 사업화 파트너"
+      "수직농장·시설원예",
+      "식품공장·포장실",
+      "저온창고·콜드체인",
+      "호텔·프리미엄 리테일",
+      "연구기관",
+      "해외 파트너"
     ]
   },
   ip: {
@@ -688,8 +688,8 @@ export const koContent: HomeContent = {
   },
   ecotechInsights: {
     label: "ECOTECH INSIGHTS",
-    titleLines: ["에너지를 줄이고, 물을 회수하며,", "버려지는 자원을 다시 씁니다."],
-    body: "딸기수직농장에서 검증한 쎄슬프라이머스의 저온제습, 물순환, 냉방에너지 절감과 폐열·CO₂ 자원화 기술을 소개합니다.",
+    titleLines: ["핵심기술의 원리와", "현장 적용을 소개합니다."],
+    body: "저온제습, 물순환, 실외기 프리쿨링, Bio-CO₂ 연계 기술이 어떻게 작동하고 사업에 적용되는지 기술별 인사이트로 확인할 수 있습니다.",
     groups: [
       {
         title: "정밀 기후·저온제습",
@@ -807,7 +807,7 @@ export const koContent: HomeContent = {
   },
   contact: {
     eyebrow: "에코테크 프로젝트 및 솔루션 문의",
-    titleLines: ["전체 프로젝트부터", "제품·부분 엔지니어링 수주까지."],
+    titleLines: ["전체 프로젝트부터", "제품 공급·부분 엔지니어링까지."],
     body: "딸기수직농장 전체 사업화와 턴키 구축, 저전력 저온제습, 회수수 기반 실외기 프리쿨링, 폐열·CO₂ 연계 프로젝트에 대해 문의해 주세요. 기존 농장·스마트팜·식품시설을 대상으로 재배랙, 다단 육묘랙, 양액기, 환경제어기, 배관설계 및 공사, 냉방·제습·환기 설비의 제품 공급과 부분 엔지니어링도 제공합니다.",
     modalTitle: "사업개발 문의",
     modalBody: "연락처를 남겨주시면 담당자가 먼저 연락드립니다. 바로 연락도 가능합니다.",
@@ -954,10 +954,10 @@ export const enContent: HomeContent = {
   },
   positioning: {
     eyebrow: "Positioning",
-    statementPre: "CESeL Primus is a",
-    statementHighlight: " strawberry vertical farm–based EcoTech company",
-    statementPost: " that reduces energy consumption, recovers water, and converts waste heat and CO₂ into productive resources.",
-    body: "High-density cultivation racks and DSRP are AlphaFarm's differentiated production technologies that connect these EcoTech conditions to real year-round productivity and revenue. EcoTech applies to agriculture, food, cold chain, data centers, power plants, biogas, and industrial facilities."
+    statementPre: "Proven through strawberry vertical farming, ",
+    statementHighlight: "expanded across agriculture, food, and industry.",
+    statementPost: "",
+    body: "AlphaFarm is the platform through which CESeL Primus validates and commercializes its EcoTech. Proven climate, energy, and water-circularity technologies are extended through AlphaCooling, AlphaEnergy, and AlphaEngineering, while high-density racks and DSRP connect them to year-round productivity and revenue."
   },
   problems: {
     eyebrow: "APPLICATION AREAS",
@@ -972,9 +972,9 @@ export const enContent: HomeContent = {
   },
   coreEcotech: {
     eyebrow: "CORE ECOTECH",
-    titleLines: ["Circulating energy and water,", "and turning waste into productive resources."],
+    titleLines: ["Five circular technologies", "for premium strawberry production"],
     intro:
-      "AlphaFarm is more than a strawberry vertical farm. It is an EcoTech platform that creates a precision climate for premium strawberries while reducing cooling and dehumidification energy, recovering water, and connecting industrial waste heat and CO₂ with productive use.",
+      "We connect precision climate control, low-temperature dehumidification, condensate recovery, outdoor-unit precooling, and waste heat and CO₂ utilization in one operating system.",
     items: [
       {
         title: "LED-Sensible-Heat Low-Power Dehumidification",
@@ -1268,15 +1268,15 @@ export const enContent: HomeContent = {
     ]
   },
   audience: {
-    eyebrow: "Who we serve",
+    eyebrow: "Key customers",
     titleLines: ["From production sites to retail", "and cold logistics."],
     items: [
-      "Vertical farms · Controlled-environment agriculture",
-      "Food factories · Packing rooms",
-      "Cold storage · Cold-chain facilities",
-      "Bakeries · Hotels · Premium retail",
-      "Research & education institutions",
-      "ASEAN business development partners"
+      "Vertical farms & CEA",
+      "Food factories & packing",
+      "Cold storage & cold chain",
+      "Hotels & premium retail",
+      "Research institutions",
+      "Overseas partners"
     ]
   },
   ip: {
@@ -1299,8 +1299,8 @@ export const enContent: HomeContent = {
   },
   ecotechInsights: {
     label: "ECOTECH INSIGHTS",
-    titleLines: ["Reducing energy, recovering water,", "and turning waste into productive resources."],
-    body: "Explore CESeL Primus technologies for low-temperature dehumidification, water circularity, cooling-energy reduction, and waste heat and CO₂ utilization, proven through strawberry vertical farming.",
+    titleLines: ["Explore the principles and", "real-world applications of our EcoTech."],
+    body: "See how low-temperature dehumidification, water circularity, outdoor-unit precooling, and Bio-CO₂ integration work and are applied in real projects.",
     groups: [
       {
         title: "Precision Climate and Dehumidification",
