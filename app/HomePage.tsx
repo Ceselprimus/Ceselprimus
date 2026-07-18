@@ -44,7 +44,7 @@ const ECOTECH_SLUGS = new Set([
   "alphafarm-low-power-dehumidification",
   "alphafarm-water-recovery",
   "alphaenergy-ais-power-saving",
-  "alphafarm-core-resource-circulation"
+  "alphaenergy-bio-co2-alphafarm"
 ]);
 
 const problemIcons = [Sprout, Zap, Factory, Building2, Globe2];
@@ -832,6 +832,8 @@ function AlphaCoolingSection({ content }: { content: HomeContent }) {
 
 function AlphaEnergySection({ content }: { content: HomeContent }) {
   const { energy, lineup } = content;
+  const isEn = content.locale === "en";
+  const insightsBase = isEn ? "/en/insights" : "/insights";
   return (
     <section>
       <details id="alphaenergy" className="scroll-mt-24">
@@ -869,6 +871,36 @@ function AlphaEnergySection({ content }: { content: HomeContent }) {
                 {energy.futureTitle}
               </p>
               <p className="text-[1.02rem] leading-relaxed text-ink/70">{energy.futureBody}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={160}>
+            <div className="mt-10 grid gap-8 rounded-2xl bg-white p-6 ring-1 ring-ink/8 md:mt-12 md:p-9 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+              <figure className="overflow-hidden rounded-2xl ring-1 ring-ink/8">
+                <Image
+                  src={energy.bioCo2.image}
+                  alt={energy.bioCo2.imageAlt}
+                  width={1672}
+                  height={941}
+                  className="h-auto w-full"
+                  sizes="(min-width: 1024px) 560px, 92vw"
+                />
+              </figure>
+              <div>
+                <p className="text-2xl font-bold tracking-tight text-ink md:text-3xl">{energy.bioCo2.title}</p>
+                <p className="mt-2 text-[1.05rem] font-semibold text-energy md:text-[1.12rem]">{energy.bioCo2.subtitle}</p>
+                <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/72 md:text-[1.08rem]">{energy.bioCo2.summary}</p>
+                <div className="mt-6 rounded-xl bg-paper p-4 ring-1 ring-ink/8">
+                  <p className="text-[1.05rem] font-bold text-ink">{energy.bioCo2.scaleLabel}</p>
+                  <p className="mt-1 text-[0.88rem] leading-relaxed text-ink/55">{energy.bioCo2.scaleNote}</p>
+                </div>
+                <a
+                  href={`${insightsBase}/${energy.bioCo2.slug}`}
+                  className="mt-6 inline-flex items-center gap-2 text-[1rem] font-semibold text-energy"
+                >
+                  {energy.bioCo2.ctaLabel}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
             </div>
           </Reveal>
           <DetailCloseBar targetId="alphaenergy" label={lineup.collapseLabel} />

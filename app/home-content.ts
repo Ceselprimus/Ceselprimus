@@ -132,6 +132,17 @@ export interface HomeContent {
     products: { name: string; desc: string }[];
     futureTitle: string;
     futureBody: string;
+    bioCo2: {
+      title: string;
+      subtitle: string;
+      summary: string;
+      scaleLabel: string;
+      scaleNote: string;
+      ctaLabel: string;
+      slug: string;
+      image: string;
+      imageAlt: string;
+    };
   };
   engineering: {
     eyebrow: string;
@@ -599,7 +610,19 @@ export const koContent: HomeContent = {
       { name: "알파 사전냉각 통합 실외기", desc: "쿨링 실외기의 전력 절감, 피크부하 안정화, 고온 외기 대응을 담당합니다. 저온제습 과정에서 회수한 물의 증발냉각 효과를 이용하여 실외기 인입공기 온도를 낮추고, 고온외기 조건에서 응축부하와 압축기 소비전력, 피크부하를 줄입니다." }
     ],
     futureTitle: "다음 단계",
-    futureBody: "태양광 · 에너지저장장치 연계로 고소비 전력 시설에 맞춘 최적 전력 생산 솔루션으로 확장을 준비하고 있습니다."
+    futureBody: "태양광 · 에너지저장장치 연계로 고소비 전력 시설에 맞춘 최적 전력 생산 솔루션으로 확장을 준비하고 있습니다.",
+    bioCo2: {
+      title: "Bio-CO₂ 알파팜",
+      subtitle: "발전소의 잉여 CO₂와 폐열을 알파팜의 안정적인 수요와 연결합니다.",
+      summary:
+        "바이오가스 발전에서 회수·정제한 CO₂와 폐열을 버퍼탱크로 완충해 알파팜에 공급합니다. 발전소는 안정적인 현장 수요처를 확보하고, 알파팜은 외부 CO₂ 구매비와 에너지 비용을 절감합니다.",
+      scaleLabel: "코어 10 프리미엄 딸기 연간 생산 약 80~100톤",
+      scaleNote: "사업 규모를 보여주는 예시이며, CO₂ 공급에 따른 생산량 증가 효과를 의미하지 않습니다.",
+      ctaLabel: "Bio-CO₂ 알파팜 자세히 보기",
+      slug: "alphaenergy-bio-co2-alphafarm",
+      image: "/media/concepts/bio-co2-alphafarm.webp",
+      imageAlt: "바이오가스 발전의 회수 CO₂와 폐열을 알파팜에서 현장 활용하는 Bio-CO₂ 알파팜 통합 물질·에너지 흐름"
+    }
   },
   engineering: {
     eyebrow: "알파엔지니어링 — 라인업 04",
@@ -679,9 +702,9 @@ export const koContent: HomeContent = {
         keywords: ["저TDS 응축수", "물 재이용", "실외기 프리쿨링", "냉방 전력 절감"]
       },
       {
-        title: "폐열·CO₂ 자원순환",
-        slugs: ["alphafarm-core-resource-circulation"],
-        keywords: ["폐열 활용", "CO₂ 활용", "바이오가스", "발전소", "데이터센터"]
+        title: "Bio-CO₂ 알파팜",
+        slugs: ["alphaenergy-bio-co2-alphafarm"],
+        keywords: ["바이오가스 발전", "CO₂ 회수·정제", "버퍼탱크", "현장 소비", "폐열 활용", "CO₂ 구매비 절감"]
       }
     ],
     viewAllLabel: "에코테크 인사이트 전체보기"
@@ -863,6 +886,7 @@ export const koContent: HomeContent = {
       "응축수 회수",
       "저온제습 공조",
       "폐열·CO2 자원화",
+      "바이오 CO2 알파팜",
       "DSRP",
       "다단 육묘랙",
       "정량관수",
@@ -1196,7 +1220,19 @@ export const enContent: HomeContent = {
       { name: "Alpha PCU", desc: "PreCooling integrated outdoor unit — outdoor-unit power savings, peak-load stabilization, and hot-climate response. Recovered water from the dehumidification process is used for evaporative precooling of outdoor-unit intake air, helping reduce condensing load, compressor power, and peak demand under high ambient temperatures." }
     ],
     futureTitle: "Next step",
-    futureBody: "We are preparing an optimal power generation solution for power-intensive facilities, linking PV and energy storage systems."
+    futureBody: "We are preparing an optimal power generation solution for power-intensive facilities, linking PV and energy storage systems.",
+    bioCo2: {
+      title: "Bio-CO₂ AlphaFarm",
+      subtitle: "Connecting a biogas plant's surplus CO₂ and waste heat with AlphaFarm's steady demand.",
+      summary:
+        "Recovered and purified CO₂ and waste heat from biogas power are buffered and supplied to AlphaFarm. The plant secures a stable on-site off-taker, while AlphaFarm cuts external CO₂ purchases and energy costs.",
+      scaleLabel: "Core 10 premium strawberry production ≈ 80–100 tons/year",
+      scaleNote: "An illustrative figure showing project scale — not a yield-increase effect from CO₂ supply.",
+      ctaLabel: "Explore Bio-CO₂ AlphaFarm",
+      slug: "alphaenergy-bio-co2-alphafarm",
+      image: "/media/concepts/bio-co2-alphafarm-en.webp",
+      imageAlt: "Integrated material and energy flow of Bio-CO₂ AlphaFarm using recovered CO₂ and waste heat from biogas power generation"
+    }
   },
   engineering: {
     eyebrow: "AlphaEngineering — Lineup 04",
@@ -1277,9 +1313,9 @@ export const enContent: HomeContent = {
         keywords: ["low-TDS condensate", "water reuse", "outdoor-unit precooling", "power savings"]
       },
       {
-        title: "Waste Heat and CO₂ Circularity",
-        slugs: ["alphafarm-core-resource-circulation"],
-        keywords: ["waste heat", "CO₂ utilization", "biogas", "power plants", "data centers"]
+        title: "Bio-CO₂ AlphaFarm",
+        slugs: ["alphaenergy-bio-co2-alphafarm"],
+        keywords: ["biogas power", "CO₂ recovery", "buffer tank", "on-site offtake", "waste heat utilization", "CO₂ purchase replacement"]
       }
     ],
     viewAllLabel: "Explore All EcoTech Insights"
@@ -1461,6 +1497,7 @@ export const enContent: HomeContent = {
       "Condensate recovery",
       "Low-temperature dehumidification HVAC",
       "Waste heat and CO2 utilization",
+      "Bio-CO2 AlphaFarm",
       "DSRP",
       "Multi-layer nursery rack",
       "Precision irrigation",

@@ -48,6 +48,126 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "alphaenergy-bio-co2-alphafarm",
+    title: "Bio-CO₂ 알파팜 — 발전소의 잉여자원과 농장 수요를 연결하는 통합 경제모델",
+    metaTitle: "Bio-CO₂ 알파팜 — 바이오가스 발전 CO₂·폐열 연계 | 쎄슬프라이머스",
+    description:
+      "발전소의 잉여 CO₂와 폐열을 알파팜의 안정적인 수요와 연결하는 Bio-CO₂ 알파팜 통합 경제모델입니다. 바이오가스 발전에서 회수·정제한 CO₂와 폐열을 버퍼탱크로 완충해 알파팜에 공급하고, 발전소는 안정적 수요처를, 알파팜은 CO₂·에너지 구매비 절감을 확보합니다.",
+    keywords: ["Bio-CO2 알파팜", "바이오가스 발전", "CO2 회수 정제", "버퍼탱크", "폐열 활용", "CO2 구매비 절감", "딸기수직농장"],
+    date: "2026-07-18",
+    category: "알파팜",
+    readMin: 4,
+    heroImage: "/media/concepts/bio-co2-alphafarm.webp",
+    heroImageEn: "/media/concepts/bio-co2-alphafarm-en.webp",
+    heroContain: true,
+    heroWidth: 1672,
+    heroHeight: 941,
+    heroAlt: "바이오가스 발전의 회수 CO₂와 폐열을 알파팜에서 현장 활용하는 Bio-CO₂ 알파팜 통합 물질·에너지 흐름 / Integrated material and energy flow of Bio-CO₂ AlphaFarm using recovered CO₂ and waste heat from biogas power generation",
+    lead:
+      "발전소의 잉여 CO₂와 폐열을 알파팜의 안정적인 수요와 연결합니다.",
+    sections: [
+      {
+        h: "바이오가스 발전 CO₂·폐열을 알파팜 수요와 연결",
+        paras: [
+          "바이오가스 발전에서 발생한 CO₂를 회수·정제하고, 버퍼탱크로 발전소의 연속 생산과 농장의 주간 소비 사이의 시간차를 조정한 뒤 알파팜에 공급합니다.",
+          "발전소는 회수 CO₂와 폐열의 안정적인 현장 수요처를 확보하여 외부 액화·충전·운송과 잉여자원 처리 부담을 줄일 수 있습니다. 알파팜은 기존에 구매하던 재배용 CO₂를 대체하고, 폐열을 저온제습 보조 재열, 작업실·육묘실 난방, 양액·세척수 예열 등에 활용하여 운영비를 절감합니다."
+        ]
+      },
+      {
+        h: "예시 수치 (Core 10 기준)",
+        paras: [
+          "코어 10(코어 1 × 10) 기준으로 정제 CO₂ 2,600kg/일 중 2,400kg/일을 현장에서 소비하여 회수 CO₂의 92.3%를 활용하고, 잉여 CO₂는 200kg/일(7.7%)로 줄입니다. 연간 외부 CO₂ 구매량 876톤을 대체할 수 있으며, CO₂를 무상 공급받는 조건에서는 구매비 대체 가치가 약 2.63억원/년입니다. 정제·배관·송풍·제어 비용은 별도로 반영해야 합니다.",
+          "폐열 3,500kWhₜₕ/일 활용과 코어 10 프리미엄 딸기 연간 생산 약 80~100톤은 통합사업의 규모를 보여주는 예시이며, CO₂ 공급에 따른 생산량 증가 효과를 의미하지 않습니다.",
+          "※ 92.3%, 876톤/년, 3,500kWhₜₕ/일, 80~100톤/년은 예시 수치이며, 실제 결과는 바이오가스 조성, CO₂ 회수율, 열의 온도등급, 농장 규모와 운전시간에 따라 달라질 수 있습니다."
+        ],
+        bullets: [
+          "정제 CO₂ 2,600kg/일 중 2,400kg/일 현장 소비 — 활용률 92.3%",
+          "잉여 CO₂ 200kg/일 (7.7%)",
+          "연간 외부 CO₂ 구매량 876톤 대체",
+          "무상 공급 조건 구매비 대체가치 약 2.63억원/년",
+          "폐열 3,500kWhₜₕ/일 활용",
+          "코어 10 프리미엄 딸기 연간 생산 약 80~100톤 (사업 규모 예시)"
+        ]
+      },
+      {
+        h: "핵심 효과",
+        paras: [],
+        bullets: [
+          "바이오가스 발전소 — 회수 CO₂의 안정적인 현장 수요처 확보, 액화·충전·운송 의존도 감소, 버퍼 초과·감산·방출 위험 완화, 폐열의 상시 활용처 확보",
+          "알파팜 — 외부 CO₂ 구매비 대체, CO₂ 공급 안정성 확보, 폐열을 활용한 재열·난방·예열 에너지 비용 절감",
+          "통합사업 — 발전소의 잉여자원 처리 부담과 농장의 운영비를 동시에 줄이는 순환형 경제모델"
+        ]
+      }
+    ],
+    faq: [
+      { q: "버퍼탱크는 왜 필요한가요?", a: "바이오가스 발전은 연속 생산되지만 알파팜의 CO₂ 소비는 주간에 집중됩니다. 버퍼탱크가 발전소의 연속 생산과 농장의 주간 소비 사이의 시간차를 조정해, 야간 생산분을 저장했다가 주간에 공급하는 완충 역할을 합니다. 장기 판매용 저장설비가 아닙니다." },
+      { q: "외부 CO₂ 구매비 100% 절감은 정확히 어떤 의미인가요?", a: "CO₂ 원료를 무상으로 공급받고 품질이 적합한 경우, 기존에 구매하던 재배용 CO₂ 원료비를 대체한다는 의미입니다. 정제·배관·송풍·제어·유지관리 비용까지 0원이 된다는 뜻은 아니며, 이 비용은 별도로 검토합니다." },
+      { q: "코어 10 연간 80~100톤은 CO₂ 공급으로 늘어난 생산량인가요?", a: "아니요. 이는 통합사업의 규모를 보여주는 예시 수치이며, CO₂ 공급에 따른 증수 효과로 연결하지 않습니다. 코어 10 규모의 알파팜이 갖는 표준 생산 목표를 나타냅니다." }
+    ],
+    relatedKeywords: [
+      "바이오가스 발전 / Biogas Power",
+      "CO₂ 회수·정제 / CO₂ Recovery & Purification",
+      "버퍼탱크 / Buffer Tank",
+      "폐열 활용 / Waste Heat Utilization",
+      "CO₂ 구매비 절감 / CO₂ Purchase Cost Reduction"
+    ],
+    ctaTitle: "Bio-CO₂ 알파팜 연계, 자원 조건으로 검토해 드립니다.",
+    ctaBody: "바이오가스 발전소의 CO₂·폐열 조건을 알려주시면 Bio-CO₂ 알파팜 연계 모델을 직접 검토해 회신드립니다.",
+    lineupHref: "/alphafarm",
+    lineupLabel: "알파팜 솔루션 보기",
+    categoryEn: "AlphaFarm",
+    en: {
+      title: "Bio-CO₂ AlphaFarm — Connecting Biogas By-products with Steady Farm Demand",
+      metaTitle: "Bio-CO₂ AlphaFarm — Biogas CO₂ and Waste Heat Integration | CESeL Primus",
+      description:
+        "Bio-CO₂ AlphaFarm connects a biogas plant's surplus CO₂ and waste heat with AlphaFarm's steady demand. Recovered CO₂ is purified, buffered, and supplied on-site, cutting purchased CO₂ and energy costs.",
+      lead:
+        "Connecting a biogas plant's surplus CO₂ and waste heat with AlphaFarm's steady demand.",
+      sections: [
+        {
+          h: "Connecting Biogas CO₂ and Waste Heat with AlphaFarm Demand",
+          paras: [
+            "CO₂ from biogas power generation is recovered and purified, while a buffer tank balances continuous plant output with daytime farm consumption.",
+            "The biogas plant secures a stable on-site off-taker for recovered CO₂ and waste heat, reducing dependence on liquefaction, filling, transport, and separate surplus-resource handling. AlphaFarm replaces purchased cultivation CO₂ and uses waste heat for supplementary reheat, heating, and water preheating, helping lower operating costs."
+          ]
+        },
+        {
+          h: "Illustrative Figures (Core 10 Basis)",
+          paras: [
+            "On an illustrative Core 10 basis (Core 1 × 10), AlphaFarm uses 2,400kg/day of 2,600kg/day purified CO₂ on-site, achieving 92.3% utilization and limiting surplus CO₂ to 200kg/day (7.7%). This can replace 876 tons/year of external CO₂ purchases. On a free-supply basis, the illustrative purchase-cost replacement is approximately SGD 263,000/year, using KRW 1,000 = SGD 1. Purification, piping, blower, and control costs remain separate.",
+            "Waste-heat use of 3,500kWhₜₕ/day and premium strawberry production of approximately 80–100 tons/year indicate project scale, not a yield-increase claim from CO₂ supply.",
+            "※ 92.3%, 876 tons/year, 3,500kWhₜₕ/day, and 80–100 tons/year are illustrative figures. Actual results vary with biogas composition, CO₂ recovery rate, heat grade, farm scale, and operating hours."
+          ],
+          bullets: [
+            "2,400kg/day of 2,600kg/day purified CO₂ used on-site — 92.3% utilization",
+            "Surplus CO₂ limited to 200kg/day (7.7%)",
+            "Replaces 876 tons/year of external CO₂ purchases",
+            "Illustrative purchase-cost replacement ≈ SGD 263,000/year (free-supply basis)",
+            "3,500kWhₜₕ/day waste-heat use",
+            "Core 10 premium strawberry production ≈ 80–100 tons/year (project-scale example)"
+          ]
+        },
+        {
+          h: "Key Benefits",
+          paras: [],
+          bullets: [
+            "Biogas power plant — stable on-site CO₂ off-taker, lower dependence on liquefaction and transport, reduced buffer-overflow and venting risk, and steady waste-heat demand",
+            "AlphaFarm — replacement of external CO₂ purchases, stable CO₂ supply, and lower reheat, heating, and preheating energy costs",
+            "Integrated project — a circular business model that reduces the plant's surplus-resource burden and the farm's operating cost at the same time"
+          ]
+        }
+      ],
+      faq: [
+        { q: "Why is a buffer tank needed?", a: "Biogas power generates continuously, but AlphaFarm's CO₂ consumption is concentrated during the day. The buffer tank balances the plant's continuous output with the farm's daytime consumption, storing nighttime output for daytime supply. It is not a long-term storage facility." },
+        { q: "What exactly does '100% cut in CO₂ purchase cost' mean?", a: "It means replacing the cost of previously purchased cultivation CO₂, when the CO₂ is supplied free of charge and meets quality requirements. It does not mean purification, piping, blower, control, and maintenance costs become zero — those are reviewed separately." },
+        { q: "Is the 80–100 tons/year at Core 10 a yield increase from CO₂ supply?", a: "No. This is an illustrative figure showing the scale of the integrated project, not a yield-increase effect from CO₂ supply. It reflects the standard production target for a Core 10-scale AlphaFarm." }
+      ],
+      ctaTitle: "We'll review a Bio-CO₂ AlphaFarm link based on your resources.",
+      ctaBody: "Tell us your biogas plant's CO₂ and waste-heat conditions, and we'll review a Bio-CO₂ AlphaFarm integration model and reply directly.",
+      lineupLabel: "Explore the AlphaFarm solution"
+    }
+  },
+  {
     slug: "alphafarm-dsrp-year-round-production",
     title: "DSRP란? 다단 육묘랙과 개화묘 순환 교체로 만드는 연중 딸기 생산",
     metaTitle: "DSRP 연중 딸기 생산 프로토콜 — 다단 육묘랙·개화묘 순환 교체 | 쎄슬프라이머스",
