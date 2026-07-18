@@ -266,10 +266,10 @@ function Hero({ content }: { content: HomeContent }) {
               <span aria-hidden className="h-px w-9 bg-mint/70" />
               {hero.eyebrow}
             </p>
-            <h1 className="reveal-up mt-6 text-[2.6rem] font-bold leading-[1.16] tracking-tight md:text-[4.1rem] md:leading-[1.08]">
+            <h1 className="reveal-up mt-6 text-[2.05rem] font-bold leading-[1.18] tracking-tight md:text-[3.25rem] md:leading-[1.14]">
               <Lines lines={hero.titleLines} />
             </h1>
-            <p className="reveal-up-delayed mt-7 max-w-2xl text-lg leading-relaxed text-white/82 md:text-[1.35rem] md:leading-relaxed">
+            <p className="reveal-up-delayed mt-6 max-w-2xl text-[1.02rem] leading-relaxed text-white/82 md:text-[1.18rem] md:leading-relaxed">
               {hero.sub}
             </p>
             <div className="reveal-up-delayed mt-10 flex flex-wrap gap-3">
