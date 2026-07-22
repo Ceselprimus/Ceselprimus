@@ -351,7 +351,7 @@ export const koContent: HomeContent = {
   },
   problems: {
     eyebrow: "적용 영역",
-    titleLines: ["에너지·물·열·CO₂의 효율이", "중요한 현장에 적용합니다."],
+    titleLines: ["에너지와 자원을", "더 효율적으로 활용해야 하는 현장에 적용합니다."],
     items: [
       { title: "프리미엄 딸기·작물 생산시설", body: "정밀 환경제어와 연중 안정생산이 필요한 수직농장·시설원예·육묘시설" },
       { title: "고온다습·고전력 소비시설", body: "냉방·제습·냉동·냉장 설비의 소비전력과 피크부하 관리가 필요한 현장" },
@@ -554,7 +554,7 @@ export const koContent: HomeContent = {
           items: [
             { title: "저온제습 알파쿨링", desc: "15℃ / 50% RH 수준의 정밀 환경제어. 냉방과 제습을 통합 운전해 프리미엄 딸기 재배 환경을 만듭니다." },
             { title: "에너지 절감 알파에너지", desc: "저온제습·최적 환기로 냉방 부하와 전력소비를 절감. 고온다습·고전기요금 지역에서 특히 강한 경쟁력이 됩니다." },
-            { title: "고순도에 가까운 물 생산", desc: "식물 증산·저온제습 과정의 저TDS 응축수를 회수·재이용. 수질 확보 시 유틸리티수·전처리수 활용까지 검토할 수 있습니다." },
+            { title: "비교적 청정한 저TDS 응축수 회수", desc: "식물 증산과 저온제습 과정에서 발생하는 응축수를 회수·재이용합니다. 수질 확인 후 관수, 비음용 유틸리티수 또는 전처리수로 활용할 수 있습니다." },
             { title: "폐열·CO₂ 연계 데이터센터 모델", desc: "Core-20은 데이터센터·SOFC 발전·산업단지와 연계해 폐열·CO₂·전력을 딸기 생산 자원으로 전환하는 자원순환 인프라입니다." }
           ]
         },
@@ -944,7 +944,7 @@ export const enContent: HomeContent = {
     sub: "Using LED-sensible-heat-assisted low-power dehumidification, we create a 15°C / 50% RH target climate for premium strawberry production. Low-TDS condensate generated during dehumidification is recovered and reused, while recovered water is used to precool outdoor-unit intake air and help reduce cooling power consumption. We also connect waste heat and CO₂ from power plants, data centers, biogas facilities, and industrial sites with premium strawberry production, creating circular EcoTech models that help reduce infrastructure and operating costs.",
     ctaPrimary: "Explore Our EcoTech",
     ctaSecondary: "Project Inquiry",
-    imageAlt: "CESeL Primus integrated vertical farm and cold-chain solution visual",
+    imageAlt: "Strawberry vertical farm–based EcoTech using low-power dehumidification, water circularity, waste heat and CO₂ utilization",
     stats: [
       { value: "2016", label: "Founded" },
       { value: "4", label: "Solution lineups" },
@@ -961,7 +961,7 @@ export const enContent: HomeContent = {
   },
   problems: {
     eyebrow: "APPLICATION AREAS",
-    titleLines: ["For sites where energy, water, heat,", "and CO₂ efficiency matters."],
+    titleLines: ["For sites that need", "more efficient use of energy and resources."],
     items: [
       { title: "Premium Strawberry and Crop Production", body: "Vertical farms, protected cultivation facilities, and nurseries requiring precision climate control and stable year-round production" },
       { title: "Hot, Humid, and Energy-Intensive Facilities", body: "Sites requiring better management of cooling, dehumidification, refrigeration, peak load, and power consumption" },
@@ -1164,7 +1164,7 @@ export const enContent: HomeContent = {
           items: [
             { title: "AlphaCooling low-temp dehumidification", desc: "Precise control at ~15°C / 50% RH, integrating cooling and dehumidification to create the foundation for premium strawberry cultivation." },
             { title: "AlphaEnergy efficiency", desc: "Low-temp dehumidification and optimized ventilation cut cooling load and power use — a key advantage in hot-humid or high-electricity-cost markets." },
-            { title: "Water production near high-purity", desc: "Recovers low-TDS condensate from transpiration and dehumidification for internal reuse, with potential utility/pretreatment-water use after simple post-treatment." },
+            { title: "Low-TDS Condensate Recovery", desc: "Condensate generated through plant transpiration and low-temperature dehumidification is recovered and reused. Subject to water-quality verification, it may be used for irrigation, non-potable utilities, or as pretreatment water." },
             { title: "Waste-heat & CO₂ data-center model", desc: "Core-20 links with data centers, SOFC power, and industrial complexes to convert waste heat, CO₂, and power into strawberry-production resources." }
           ]
         },
