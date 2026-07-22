@@ -613,7 +613,7 @@ function ProductionTechSection({ content }: { content: HomeContent }) {
                 src={productionTech.rackImage}
                 alt={productionTech.rackImageAlt}
                 width={1200}
-                height={800}
+                height={849}
                 className="h-auto w-full"
                 sizes="(min-width: 1024px) 560px, 92vw"
               />

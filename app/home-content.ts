@@ -393,7 +393,7 @@ export const koContent: HomeContent = {
     titleLines: ["에코테크 환경을", "연중 생산성과 매출로 연결합니다."],
     intro:
       "AlphaFarm은 에너지와 물을 절감하는 것에 그치지 않습니다. 고밀도 정밀 재배랙과 연중 개화묘 공급기술을 결합하여 프리미엄 딸기의 공간 생산성, 품질 균일성, 생산 연속성을 높입니다.",
-    rackImage: "/media/concepts/alphacore-concept-2.webp",
+    rackImage: "/media/series/series-4.webp",
     rackImageAlt: "알파팜 고밀도 정밀 재배랙 — 정량관수·광량조절·에어덕트·슬릿형 화분 트레이 통합",
     rackBlock: {
       title: "고밀도 정밀 재배랙 기술",
@@ -1003,7 +1003,7 @@ export const enContent: HomeContent = {
     titleLines: ["Turning EcoTech conditions", "into continuous year-round production and revenue."],
     intro:
       "AlphaFarm goes beyond energy and water efficiency. It combines high-density precision cultivation racks with a continuous flowering-seedling supply system to improve space productivity, crop uniformity, and production continuity.",
-    rackImage: "/media/concepts/alphacore-concept-2.webp",
+    rackImage: "/media/series/series-4-en.webp",
     rackImageAlt: "AlphaFarm high-density precision cultivation rack — integrated precision irrigation, adjustable lighting, air ducts, and slit-type pot trays",
     rackBlock: {
       title: "High-Density Precision Cultivation Rack Technology",
